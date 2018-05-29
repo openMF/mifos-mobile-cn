@@ -1,0 +1,76 @@
+package org.mifos.mobile.cn.ui.base
+
+import android.app.Activity
+import android.content.Context
+import android.os.Bundle
+import android.support.v4.app.Fragment
+import android.support.v7.widget.Toolbar
+import android.view.View
+import android.view.inputmethod.InputMethodManager
+import org.mifos.mobile.cn.ui.utils.ProgressBarHandler
+
+
+open class MifosBaseFragment : Fragment() {
+
+    private lateinit var callback: BaseActivityCallback
+    private lateinit var progressBarHandler: ProgressBarHandler
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        progressBarHandler = ProgressBarHandler(activity!!)
+    }
+
+    fun getToolbar() : Toolbar {
+        return callback.getToolbar()
+    }
+
+    fun showMiKashBɔksProgressDialog(message: String) {
+        callback.showJusticeProgressDialog(message)
+    }
+
+    fun hideMiKashBɔksProgressDialog() {
+        callback.hideJusticeProgressDialog()
+    }
+
+    fun hideKeyboard(view: View, context: Context) {
+        val inputManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputManager.hideSoftInputFromWindow(view.windowToken, InputMethodManager
+                .RESULT_UNCHANGED_SHOWN)
+    }
+
+    fun setToolbarTitle(title: String) {
+        callback.setToolbarTitle(title)
+        hideTabLayout()
+    }
+
+    fun parent(): MifosBaseActivity {
+        return activity as MifosBaseActivity
+    }
+
+    fun showMiKashBɔksProgressBar() {
+        progressBarHandler.show()
+    }
+
+    fun hideMiKashBɔksProgressBar() {
+        progressBarHandler.hide()
+    }
+
+    fun showTabLayout() {
+        callback.showTabLayout(true)
+    }
+
+    fun hideTabLayout() {
+        callback.showTabLayout(false)
+    }
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        val activity = context as? Activity
+        try {
+            callback = activity as BaseActivityCallback
+        } catch (e: ClassCastException) {
+            throw ClassCastException(activity!!.toString() +
+                    " must implement BaseActivityCallback methods")
+        }
+    }
+}

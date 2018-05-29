@@ -1,0 +1,173 @@
+apply plugin: 'com.android.application'
+apply from: '../config/quality/quality.gradle'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "org.mifos.mobile.cn"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+
+        debug {
+            versionNameSuffix " Debug"
+            debuggable true
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        def commonTestDir = 'src/commonTest/kotlin'
+        main.java.srcDirs += 'src/main/kotlin'
+        androidTest {
+            java.srcDir commonTestDir
+        }
+        test {
+            java.srcDir commonTestDir
+        }
+    }
+
+    // Always show the result of every unit test, even if it passes.
+    testOptions.unitTests.all {
+        testLogging {
+            events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+        warning 'InvalidPackage'
+    }
+
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+        maven { url 'https://maven.google.com' }
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+}
+
+dependencies {
+    def daggerCompiler = "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
+    def jUnit = "junit:junit:4.12"
+    def mockito = "org.mockito:mockito-core:$rootProject.mockitoVersion"
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Kotlin Dependencies
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$rootProject.kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlinVersion"
+
+    // Support Dependencies
+    implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:design:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support.test.espresso:espresso-idling-resource:$rootProject.espressoVersion"
+    implementation "com.android.support:support-annotations:$rootProject.supportLibraryVersion"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+
+    // Rx Dependencies
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
+    implementation "io.reactivex.rxjava2:rxkotlin:$rootProject.rxKotlinVersion"
+
+    // Timber for logging
+    implementation 'com.jakewharton.timber:timber:4.5.1'
+
+    // Dagger 2 Dependencies
+    implementation "com.google.dagger:dagger:$rootProject.daggerVersion"
+    compileOnly "org.glassfish:javax.annotation:10.0-b28" //Required by Dagger2
+    kapt daggerCompiler
+
+    // Square Dependencies
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-scalars:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofitVersion"
+    implementation "com.squareup.okhttp3:okhttp:$rootProject.okHttp3Version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okHttp3Version"
+
+    // For debugging the local database
+    implementation 'com.facebook.stetho:stetho:1.5.0'
+
+    // Sweet Error for error handling
+    implementation 'com.github.therajanmaurya:Sweet-Error:1.0.0'
+
+    // Glide for Image Loading
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
+    kapt 'com.github.bumptech.glide:compiler:4.7.1'
+
+    // Instrumentation test dependencies
+    androidTestImplementation jUnit
+    androidTestImplementation mockito
+    androidTestImplementation "org.mockito:mockito-android:$rootProject.mockitoVersion"
+    androidTestImplementation "com.android.support:support-annotations:$rootProject.supportLibraryVersion"
+    androidTestImplementation("com.android.support.test.espresso:espresso-contrib:$rootProject.espressoVersion") {
+        exclude group: 'com.android.support', module: 'appcompat'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'recyclerview-v7'
+        exclude group: 'com.android.support', module: 'design'
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
+    androidTestImplementation "com.android.support.test:runner:$rootProject.runnerVersion"
+    androidTestImplementation "com.android.support.test:rules:$rootProject.rulesVersion"
+
+    // Unit tests dependencies
+    testImplementation jUnit
+    testImplementation mockito
+    testImplementation "com.android.support:support-annotations:$rootProject.supportLibraryVersion"
+    testImplementation "org.hamcrest:hamcrest-core:$rootProject.hamcrestVersion"
+    testImplementation "org.hamcrest:hamcrest-library:$rootProject.hamcrestVersion"
+    testImplementation "org.hamcrest:hamcrest-integration:$rootProject.hamcrestVersion"
+    testImplementation 'org.robolectric:robolectric:3.3.1'
+}
+
+    // Log out test results to console
+    tasks.matching { it instanceof Test }.all {
+        testLogging.events = ["failed", "passed", "skipped"]
+    }
+
+    /*
+    Resolves dependency versions across test and production APKs, specifically, transitive
+    dependencies. This is required since Espresso internally has a dependency on support-annotations.
+    */
+    configurations.all {
+        resolutionStrategy {
+            force 'com.android.support:support-annotations:27.1.1'
+            force 'com.google.code.findbugs:jsr305:1.3.9'
+        }
+    }
+
+
+    /*
+    All direct/transitive dependencies shared between your test and production APKs need to be
+    excluded from the test APK! This is necessary because both APKs will contain the same classes. Not
+    excluding these dependencies from your test configuration will result in an dex pre-verifier error
+    at runtime. More info in this tools bug: (https://code.google.com/p/android/issues/detail?id=192497)
+    */
+    configurations.compile.dependencies.each { compileDependency ->
+    println "Excluding compile dependency: ${compileDependency.getName()}"
+    configurations.androidTestCompile.dependencies.each { androidTestCompileDependency ->
+        configurations.androidTestCompile.exclude module: "${compileDependency.getName()}"
+    }
+    }

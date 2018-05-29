@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">mifos-mobile-cn</string>
+
+    <string name="dialog_action_ok">OK</string>
+    <string name="dialog_action_cancel">Cancel</string>
+    <string name="dialog_action_back">Back</string>
+    <string name="dialog_permission_denied">Permission Denied</string>
+    <string name="dialog_action_i_am_sure">I\'M Sure</string>
+    <string name="dialog_action_re_try">Retry</string>
+    <string name="dialog_action_app_settings">App Settings</string>
+    <string name="package_name" translatable="false">package</string>
+    <string name="msg_setting_activity_not_found">Something went wrong finding Settings activity.
+        \nGo to \'Settings\' and grant permission manually.
+    </string>
+</resources>
