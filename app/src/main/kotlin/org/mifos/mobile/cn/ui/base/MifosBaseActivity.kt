@@ -12,6 +12,7 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import org.mifos.mobile.cn.MifosApplication
+import org.mifos.mobile.cn.R
 import org.mifos.mobile.cn.injection.component.ActivityComponent
 import org.mifos.mobile.cn.injection.component.ConfigPersistentComponent
 import org.mifos.mobile.cn.injection.component.DaggerConfigPersistentComponent
@@ -46,7 +47,7 @@ open class MifosBaseActivity : AppCompatActivity(), BaseActivityCallback {
 
     override fun setContentView(layoutResID: Int) {
         super.setContentView(layoutResID)
-       // toolbar = findViewById(R.id.toolbar)
+        toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
     }
 
