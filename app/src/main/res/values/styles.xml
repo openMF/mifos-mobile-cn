@@ -55,4 +55,8 @@
         <item name="android:textSize">@dimen/text_size_16sp</item>
     </style>
 
+    <style name="LauncherTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/launcher_background</item>
+    </style>
+
 </resources>

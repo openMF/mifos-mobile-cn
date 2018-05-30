@@ -13,4 +13,5 @@ object ConstantKeys {
     const val PERMISSIONS_WRITE_EXTERNAL_STORAGE_STATUS = "write_status"
     const val PERMISSION_READ_EXTERNAL_STORAGE_STATUS = "read_status"
     const val PERMISSIONS_CAMERA_STATUS = "camera_status"
+    const val SPLASH_SCREEN_TIME = 1500L
 }
