@@ -5,18 +5,19 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import com.mifos.mobile.passcode.BasePassCodeActivity
 import org.mifos.mobile.cn.MifosApplication
 import org.mifos.mobile.cn.R
 import org.mifos.mobile.cn.injection.component.ActivityComponent
 import org.mifos.mobile.cn.injection.component.ConfigPersistentComponent
 import org.mifos.mobile.cn.injection.component.DaggerConfigPersistentComponent
 import org.mifos.mobile.cn.injection.module.ActivityModule
+import org.mifos.mobile.cn.ui.mifos.passcode.PasscodeActivity
 import timber.log.Timber
 import org.mifos.mobile.cn.ui.utils.ProgressBarHandler
 import java.util.*
@@ -28,7 +29,7 @@ import java.util.concurrent.atomic.AtomicLong
  * On 22/01/18.
  */
 @SuppressLint("Registered")
-open class MifosBaseActivity : AppCompatActivity(), BaseActivityCallback {
+open class MifosBaseActivity : BaseActivityCallback,BasePassCodeActivity() {
 
     companion object {
         @JvmStatic
@@ -124,6 +125,10 @@ open class MifosBaseActivity : AppCompatActivity(), BaseActivityCallback {
 
     override fun logout() {
 
+    }
+
+    override fun getPassCodeClass(): Class<*> {
+        return PasscodeActivity::class.java
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

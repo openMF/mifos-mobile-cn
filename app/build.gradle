@@ -63,7 +63,9 @@ android {
     androidExtensions {
         experimental = true
     }
+
 }
+
 
 dependencies {
     def daggerCompiler = "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
@@ -84,7 +86,7 @@ dependencies {
     implementation "com.android.support.test.espresso:espresso-idling-resource:$rootProject.espressoVersion"
     implementation "com.android.support:support-annotations:$rootProject.supportLibraryVersion"
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
-
+    implementation "com.mifos.mobile:mifos-passcode:$rootProject.passcodeLibraryVersion"
     // Rx Dependencies
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjavaVersion"
     implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
