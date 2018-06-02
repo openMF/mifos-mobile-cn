@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.support.v7.app.AppCompatDelegate
 import com.facebook.stetho.Stetho
+import com.mifos.mobile.passcode.utils.ForegroundChecker
 import org.mifos.mobile.cn.injection.component.ApplicationComponent
 import org.mifos.mobile.cn.injection.component.DaggerApplicationComponent
 import org.mifos.mobile.cn.injection.module.ApplicationModule
@@ -44,6 +45,8 @@ class MifosApplication : Application() {
 
         // Initialize the Stetho
         Stetho.initializeWithDefaults(this)
+        ForegroundChecker.init(this)
+
     }
 
     fun getComponent(): ApplicationComponent {

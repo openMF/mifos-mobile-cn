@@ -85,4 +85,20 @@ constructor(@ApplicationContext context: Context) {
 
     val loginStatus: Boolean
         get() = preferences.getBoolean(PreferenceKey.PREF_KEY_LOGIN_STATUS, false)
+
+    fun putUsername(username: String) {
+        preferences.edit().putString(PreferenceKey.PREF_KEY_USER_NAME, username).apply()
+    }
+
+    val username: String
+        get() = preferences.getString(PreferenceKey.PREF_KEY_USER_NAME, null)
+
+    //TODO: remove the password prefernce helper
+    fun putPassword(password: String) {
+        preferences.edit().putString(PreferenceKey.PREF_KEY_PASSWORD, password).apply()
+    }
+
+    val password: String
+        get() = preferences.getString(PreferenceKey.PREF_KEY_PASSWORD, null)
+
 }

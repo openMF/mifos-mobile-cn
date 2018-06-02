@@ -4,6 +4,9 @@ package org.mifos.mobile.cn.injection.component
 import dagger.Subcomponent
 import org.mifos.mobile.cn.injection.PerActivity
 import org.mifos.mobile.cn.injection.module.ActivityModule
+import org.mifos.mobile.cn.ui.mifos.launcher.LauncherActivity
+import org.mifos.mobile.cn.ui.mifos.login.LoginActivity
+import org.mifos.mobile.cn.ui.mifos.passcode.PasscodeActivity
 
 
 /**
@@ -13,5 +16,9 @@ import org.mifos.mobile.cn.injection.module.ActivityModule
 @Subcomponent(modules = arrayOf(ActivityModule::class))
 interface ActivityComponent {
 
+    fun inject (loginActivity: LoginActivity)
 
+    fun inject (passcodeActivity: PasscodeActivity)
+
+    fun inject (launcherActivity: LauncherActivity)
 }

@@ -40,6 +40,7 @@ ext {
     daggerVersion = '2.8'
     retrofitVersion = '2.3.0'
     okHttp3Version = '3.8.0'
+    passcodeLibraryVersion = '0.3.0'
 
     // Kotlin dependencies
     kotlinVersion = '1.2.41'
@@ -59,4 +60,5 @@ ext {
     runnerVersion = '0.5'
     rulesVersion = '0.5'
     espressoVersion = '3.0.1'
+
 }

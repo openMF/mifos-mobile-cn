@@ -23,6 +23,8 @@
         </activity>
 
         <activity android:name=".ui.mifos.DashboardActivity" />
+        <activity android:name=".ui.mifos.login.LoginActivity" />
+        <activity android:name=".ui.mifos.passcode.PasscodeActivity"/>
     </application>
 
 </manifest>
