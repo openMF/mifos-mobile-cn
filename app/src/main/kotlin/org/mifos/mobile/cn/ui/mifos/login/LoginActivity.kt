@@ -40,7 +40,7 @@ class LoginActivity : MifosBaseActivity(), LoginContract.View, View.OnClickListe
 
     override fun onClick(view: View) {
         when (view.id) {
-            R.id.btn_login -> login()
+            R.id.btnLogin -> login()
         }
 
     }
