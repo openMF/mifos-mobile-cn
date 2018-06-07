@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
+import android.support.v4.view.ViewCompat
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import android.view.View
@@ -29,7 +30,7 @@ import java.util.concurrent.atomic.AtomicLong
  * On 22/01/18.
  */
 @SuppressLint("Registered")
-open class MifosBaseActivity : BaseActivityCallback,BasePassCodeActivity() {
+open class MifosBaseActivity : BaseActivityCallback, BasePassCodeActivity() {
 
     companion object {
         @JvmStatic
@@ -139,6 +140,20 @@ open class MifosBaseActivity : BaseActivityCallback,BasePassCodeActivity() {
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    /**
+     * Used for setting toolbar elevation
+     */
+    fun setToolbarElevation() {
+        ViewCompat.setElevation(toolbar, 8f)
+    }
+
+    /**
+     * Used for removing elevation from toolbar
+     */
+    fun hideToolbarElevation() {
+        ViewCompat.setElevation(toolbar, 0f)
     }
 
     /**
