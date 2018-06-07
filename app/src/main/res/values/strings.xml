@@ -30,4 +30,37 @@
 
     <!--Dashboard Activity-->
     <string name="home">Home</string>
+    <string name="dialog_logout">Are you sure you want to logout?</string>
+    <string name="cancel">Cancel</string>
+
+
+    <!--Dashboard Fragment-->
+    <string name="accounts_overview">Account Overview</string>
+    <string name="recent_transactions">Recent Transactions</string>
+    <string name="manage_accounts">Manage Accounts</string>
+    <string name="accounts">Accounts</string>
+    <string name="transfer">Transfer</string>
+    <string name="apply_for_loan">Apply for Loan</string>
+    <string name="more">More</string>
+    <string name="beneficiaries">Beneficiaries</string>
+    <string name="charges">Charges</string>
+    <string name="survey">Survey</string>
+    <string name="contact_email">support@mifos.org</string>
+    <string name="help_line_number">8000000000</string>
+    <string name="need_help">Contact Us</string>
+
+
+    <!--Menu Nav drawer-->
+    <string name="third_party_transfer">Third Party Transfer</string>
+    <string name="manage_beneficiaries">Manage Beneficiaries</string>
+    <string name="settings">Settings</string>
+    <string name="about_us">About Us</string>
+    <string name="help">Help</string>
+    <string name="share">Share</string>
+    <string name="logout">Logout</string>
+    <string name="open_drawer">Open Drawer</string>
+    <string name="close_drawer">Close Drawer</string>
+    <string name="exit_message">Press back again to exit</string>
+    <string name="notification">Notifications</string>
+
 </resources>
