@@ -1,4 +1,4 @@
-package org.mifos.mobile.cn
+package org.mifos.mobile.cn.fakesource
 
 /**
  * @author Rajan Maurya
@@ -7,4 +7,5 @@ package org.mifos.mobile.cn
 object FakeJsonName {
 
     var TEST_JSON = "test.json"
+    var PRODUCTS = "products.json"
 }

@@ -63,4 +63,134 @@
     <string name="exit_message">Press back again to exit</string>
     <string name="notification">Notifications</string>
 
+    <!--Loan application Details fragment-->
+    <string name="create_new_loan">Create New Loan</string>
+    <string name="products">Products</string>
+    <string name="short_name">Short name</string>
+    <string name="principal_amount">Principal Amount</string>
+    <string name="repay_every">Repay every</string>
+    <string name="on">On</string>
+    <string name="term">Term</string>
+    <string name="on_the">on the</string>
+    <string name="day">Day</string>
+    <string name="in">In</string>
+    <string-array name="loan_application_steps">
+        <item>Loan details</item>
+        <item>Debt to income ratio</item>
+        <item>Co-signer</item>
+    </string-array>
+
+    <!--Loan Debt Income Fragment-->
+    <string name="ratio">Ratio: %1$s</string>
+    <string name="total_debt">Debts(Total: %1$s)</string>
+    <string name="total_income">Income(Total: %1$s)</string>
+    <string name="no_debt_to_show">No debts to show. add debt</string>
+    <string name="no_income_to_show">No income to show. add income</string>
+    <string name="add_income">Add Income</string>
+    <string name="add_debt">Add Debt</string>
+    <string name="customer">Customer</string>
+    <string name="amount">Amount</string>
+    <string name="debt_income_edit_image">Debt edit delete image</string>
+    <string name="debt_income_delete_image">Debt income delete image</string>
+    <string name="description">Description</string>
+    <string name="debt_income">Debt Income</string>
+    <string name="edit_debt">Edit Debt</string>
+    <string name="edit_income">Edit Income</string>
+    <string name="amount_should_be_not_empty">Amount should not be empty</string>
+    <string name="description_should_not_be_empty">Description should not be empty</string>
+    <string name="value_must_greater_or_equal_to">Value must be greater than or equal to&#160; %1$s</string>
+    <string name="value_must_less_than_or_equal_to">Value must be less than or equal to&#160; %1$s</string>
+
+
+    <!--Loan Details Fragment-->
+    <string-array name="repay_unit_type">
+        <item>Weeks</item>
+        <item>Months</item>
+        <item>Years</item>
+    </string-array>
+
+    <string-array name="time_slots">
+        <item>First</item>
+        <item>Second</item>
+        <item>Third</item>
+        <item>Last</item>
+    </string-array>
+
+    <string-array name="month_names">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+
+    <string-array name="week_names">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </string-array>
+
+    <string-array name="repay_on_months">
+        <item>1.</item>
+        <item>2.</item>
+        <item>3.</item>
+        <item>4.</item>
+        <item>5.</item>
+        <item>6.</item>
+        <item>7.</item>
+        <item>8.</item>
+        <item>9.</item>
+        <item>10.</item>
+        <item>11.</item>
+        <item>12.</item>
+        <item>13.</item>
+        <item>14.</item>
+        <item>15.</item>
+        <item>16.</item>
+        <item>17.</item>
+        <item>18.</item>
+        <item>19.</item>
+        <item>20.</item>
+        <item>21.</item>
+        <item>22.</item>
+        <item>23.</item>
+        <item>24.</item>
+        <item>25.</item>
+        <item>26.</item>
+        <item>27.</item>
+        <item>28.</item>
+        <item>29.</item>
+        <item>30.</item>
+    </string-array>
+
+
+    <!--TODO:remove this and add fake data layer-->
+    <string-array name="products">
+        <item>Product 1</item>
+        <item>Product 2</item>
+    </string-array>
+
+    <string-array name="termUnit">
+        <item>Term 1</item>
+        <item>Term 2</item>
+    </string-array>
+
+    <!--ValidationIdentifierUtil -->
+    <string name="required">Required</string>
+    <string name="must_be_at_least_three_characters">Must be at least %1$d characters</string>
+    <string name="only_thirty_two_character_allowed">Only 32 character allowed</string>
+    <string name="only_alphabetic_decimal_digits_characters_allowed">Only alphabetic, decimal digits,\'-\' \'_\' \'.\' \'!\' \'~\' \'*\' \'(\' \')\' characters allowed</string>
+    <string name="unique_required">Unique, Required</string>
+
 </resources>

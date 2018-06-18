@@ -1,12 +1,17 @@
 package org.mifos.mobile.cn.ui.mifos.dashboard
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
-import android.widget.TextView
+import kotlinx.android.synthetic.main.fragment_dashboard.*
 import org.mifos.mobile.cn.R
 import org.mifos.mobile.cn.ui.base.MifosBaseFragment
+import org.mifos.mobile.cn.ui.mifos.loanApplication.loanActivity.LoanApplicationActivity
+import org.mifos.mobile.cn.ui.utils.ConstantKeys
 
-class DashboardFragment : MifosBaseFragment() {
+
+
+class DashboardFragment : MifosBaseFragment(), View.OnClickListener {
 
     internal lateinit var rootView: View
 
@@ -28,9 +33,28 @@ class DashboardFragment : MifosBaseFragment() {
         return rootView
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        ll_apply_for_loan.setOnClickListener(this)
+    }
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_main, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 
+    override fun onClick(view: View) {
+
+        when (view.id) {
+            R.id.ll_apply_for_loan -> {
+                applyForLoan()
+            }
+        }
+    }
+
+    private fun applyForLoan() {
+        val intent = Intent(activity, LoanApplicationActivity::class.java)
+        intent.putExtra(ConstantKeys.CUSTOMER_IDENTIFIER, "customer_identifier")
+        startActivity(intent)
+    }
 }

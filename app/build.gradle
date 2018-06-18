@@ -37,6 +37,7 @@ android {
         test {
             java.srcDir commonTestDir
         }
+
     }
 
     // Always show the result of every unit test, even if it passes.
@@ -113,6 +114,9 @@ dependencies {
 
     // Sweet Error for error handling
     implementation 'com.github.therajanmaurya:Sweet-Error:1.0.0'
+
+    //Stepper version
+    implementation "com.stepstone.stepper:material-stepper:$rootProject.stepperVersion"
 
     // Glide for Image Loading
     implementation 'com.github.bumptech.glide:glide:4.7.1'

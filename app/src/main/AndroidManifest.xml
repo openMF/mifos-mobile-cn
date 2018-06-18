@@ -25,6 +25,7 @@
         <activity android:name=".ui.mifos.DashboardActivity" />
         <activity android:name=".ui.mifos.login.LoginActivity" />
         <activity android:name=".ui.mifos.passcode.PasscodeActivity"/>
+        <activity android:name=".ui.mifos.loanApplication.loanActivity.LoanApplicationActivity"/>
     </application>
 
 </manifest>
