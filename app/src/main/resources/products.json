@@ -1,0 +1,68 @@
+[
+  {
+    "createdOn": "createdOn",
+    "patternPackage": "patternPackage",
+    "description": "description",
+    "termRange": {
+      "temporalUnit": "temporalUnit",
+      "maximum": 1.00
+    },
+    "balanceRange": {
+      "minimum": 0.00,
+      "maximum": 10000.00
+    },
+    "minorCurrencyUnitDigits": 3,
+    "createdBy": "createdBy",
+    "interestBasis": "CURRENT_BALANCE",
+    "identifier": "identifier",
+    "interestRange": {
+      "minimum": 0.00,
+      "maximum": 10.00
+    },
+    "name": "name",
+    "lastModifiedOn": "lastModifiedOn",
+    "accountAssignments": [
+      {
+        "ledgerIdentifier": "ledgerIdentifier",
+        "accountIdentifier": "accountIdentifier",
+        "designator": "accountIdentifier"
+      }
+    ],
+    "lastModifiedBy": "lastModifiedOn",
+    "currencyCode": "IND",
+    "parameters": "params"
+  },
+  {
+  "createdOn": "createdOn",
+  "patternPackage": "patternPackage",
+  "description": "description",
+  "termRange": {
+    "temporalUnit": "temporalUnit",
+    "maximum": 1.00
+  },
+  "balanceRange": {
+    "minimum": 0.00,
+    "maximum": 10000.00
+  },
+  "minorCurrencyUnitDigits": 3,
+  "createdBy": "createdBy",
+  "interestBasis": "CURRENT_BALANCE",
+  "identifier": "identifier",
+  "interestRange": {
+    "minimum": 0.00,
+    "maximum": 10.00
+  },
+  "name": "name",
+  "lastModifiedOn": "lastModifiedOn",
+  "accountAssignments": [
+    {
+      "ledgerIdentifier": "ledgerIdentifier",
+      "accountIdentifier": "accountIdentifier",
+      "designator": "accountIdentifier"
+    }
+  ],
+  "lastModifiedBy": "lastModifiedOn",
+  "currencyCode": "IND",
+  "parameters": "params"
+}
+]

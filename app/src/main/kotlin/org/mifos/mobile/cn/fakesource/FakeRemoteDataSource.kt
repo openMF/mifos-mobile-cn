@@ -1,6 +1,7 @@
-package xyz.idtlabs.icommit.fieldui
+package org.mifos.mobile.cn.fakesource
 
-import org.mifos.mobile.cn.TestDataFactory
+import com.google.gson.reflect.TypeToken
+import org.mifos.mobile.cn.data.models.product.Product
 
 /**
  * FakeRemoteDataSource is reading the local json files into the java object using gson.
@@ -16,5 +17,10 @@ class FakeRemoteDataSource {
             return testDataFactory.convertJsonToDataObject(object : TypeToken<TestJson>() {
             }, FakeJsonName.TEST_JSON)
         }*/
+
+        fun getProductsJson(): List<Product> {
+            return testDataFactory.getListTypePojo(object : TypeToken<List<Product>>() {
+            }, FakeJsonName.PRODUCTS)
+        }
     }
 }

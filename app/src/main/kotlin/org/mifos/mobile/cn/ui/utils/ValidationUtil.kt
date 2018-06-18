@@ -1,10 +1,12 @@
 package org.mifos.mobile.cn.ui.utils
 
+import android.content.Context
 import android.support.design.widget.TextInputLayout
 import android.text.TextUtils
 import android.view.View
 import android.widget.EditText
 import android.widget.Spinner
+import org.mifos.mobile.cn.R
 
 /**
  * @author Rajan Maurya
@@ -40,6 +42,16 @@ class ValidationUtil {
         fun hideTextInputLayoutError(textInputLayout: TextInputLayout) {
             textInputLayout.isErrorEnabled = false
             textInputLayout.error = null
+        }
+
+        fun isEmpty(context: Context, string: String, inputLayout: TextInputLayout): Boolean {
+            if (TextUtils.isEmpty(string)) {
+                ValidateIdentifierUtil.showTextInputLayoutError(inputLayout,
+                        context.getString(R.string.required))
+                return false
+            }
+            hideTextInputLayoutError(inputLayout)
+            return true
         }
     }
 }

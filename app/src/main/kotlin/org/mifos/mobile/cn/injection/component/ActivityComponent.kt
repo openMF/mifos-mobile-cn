@@ -6,6 +6,9 @@ import org.mifos.mobile.cn.injection.PerActivity
 import org.mifos.mobile.cn.injection.module.ActivityModule
 import org.mifos.mobile.cn.ui.mifos.DashboardActivity
 import org.mifos.mobile.cn.ui.mifos.launcher.LauncherActivity
+import org.mifos.mobile.cn.ui.mifos.loanApplication.BaseFragmentDebtIncome
+import org.mifos.mobile.cn.ui.mifos.loanApplication.loanActivity.LoanApplicationActivity
+import org.mifos.mobile.cn.ui.mifos.loanApplication.loanDetails.LoanDetailsFragment
 import org.mifos.mobile.cn.ui.mifos.login.LoginActivity
 import org.mifos.mobile.cn.ui.mifos.passcode.PasscodeActivity
 
@@ -24,4 +27,10 @@ interface ActivityComponent {
     fun inject (launcherActivity: LauncherActivity)
 
     fun inject (dashboardActivity: DashboardActivity)
+
+    fun inject(loanApplicationActivity: LoanApplicationActivity)
+
+    fun inject(loanDebtIncomeFragment: BaseFragmentDebtIncome)
+
+    fun inject(loanDetailsFragment: LoanDetailsFragment)
 }

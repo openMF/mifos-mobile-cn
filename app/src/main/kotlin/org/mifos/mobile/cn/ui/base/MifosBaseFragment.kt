@@ -24,11 +24,11 @@ open class MifosBaseFragment : Fragment() {
         return callback.getToolbar()
     }
 
-    fun showMiKashBɔksProgressDialog(message: String) {
+    fun showProgressDialog(message: String) {
         callback.showJusticeProgressDialog(message)
     }
 
-    fun hideMiKashBɔksProgressDialog() {
+    fun hideProgressDialog() {
         callback.hideJusticeProgressDialog()
     }
 
@@ -47,11 +47,11 @@ open class MifosBaseFragment : Fragment() {
         return activity as MifosBaseActivity
     }
 
-    fun showMiKashBɔksProgressBar() {
+    fun showProgressBar() {
         progressBarHandler.show()
     }
 
-    fun hideMiKashBɔksProgressBar() {
+    fun hideProgressBar() {
         progressBarHandler.hide()
     }
 

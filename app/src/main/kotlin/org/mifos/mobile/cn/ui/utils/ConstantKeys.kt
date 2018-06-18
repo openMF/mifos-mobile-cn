@@ -14,5 +14,9 @@ object ConstantKeys {
     const val PERMISSION_READ_EXTERNAL_STORAGE_STATUS = "read_status"
     const val PERMISSIONS_CAMERA_STATUS = "camera_status"
     const val INITIAL_LOGIN = "initial_login"
+    const val CUSTOMER_IDENTIFIER = "customer_identifier"
+    const val CURRENT_STEP_POSITION = "position"
+    const val PRODUCTS  = "products"
+    const val TERM_UNIT_TYPE = "term_unit_type"
 
 }
