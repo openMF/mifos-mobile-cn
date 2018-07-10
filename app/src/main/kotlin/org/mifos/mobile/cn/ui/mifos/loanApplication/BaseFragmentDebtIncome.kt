@@ -10,8 +10,8 @@ import android.widget.Button
 import android.widget.TextView
 
 import org.mifos.mobile.cn.R
-import org.mifos.mobile.cn.data.models.loan.CreditWorthinessFactor
-import org.mifos.mobile.cn.data.models.loan.CreditWorthinessSnapshot
+import org.mifos.mobile.cn.data.models.accounts.loan.CreditWorthinessFactor
+import org.mifos.mobile.cn.data.models.accounts.loan.CreditWorthinessSnapshot
 import org.mifos.mobile.cn.ui.adapter.LoanDebtIncomeAdapter
 import org.mifos.mobile.cn.ui.base.MifosBaseActivity
 import org.mifos.mobile.cn.ui.base.MifosBaseFragment

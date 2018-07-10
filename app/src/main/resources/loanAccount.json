@@ -1,0 +1,36 @@
+[
+  {
+    "identifier": "identifier",
+    "productIdentifier": "productIdentifier",
+    "parameters": "{\"customerIdentifier\":\"customerIdentifier\",\"maximumBalance\": 343.45,\"termRange\": {\"temporalUnit\": \"WEEKS\", \"maximum\": 45.45 }, \"paymentCycle\": {\"temporalUnit\": \"WEEKS\",\"period\": 1,\"alignmentDay\": 1,\"alignmentWeek\": 1,\"alignmentMonth\": 1},\"creditWorthinessSnapshots\":[{\"forCustomer\":\"forCustomer\"}]}",
+    "accountAssignments": [
+      {
+        "designator": "designator",
+        "accountIdentifier": "accountIdentifier",
+        "ledgerIdentifier": "ledgerIdentifier"
+      }
+    ],
+    "currentState": "CREATED",
+    "createdOn": "createdOn",
+    "createdBy": "createdBy",
+    "lastModifiedOn": "lastModifiedOn",
+    "lastModifiedBy": "lastModifiedBy"
+  },
+  {
+    "identifier": "identifier",
+    "productIdentifier": "productIdentifier",
+    "parameters": "{\"customerIdentifier\":\"customerIdentifier\",\"maximumBalance\": 343.45,\"termRange\": {\"temporalUnit\": \"WEEKS\", \"maximum\": 45.45 }, \"paymentCycle\": {\"temporalUnit\": \"WEEKS\",\"period\": 1,\"alignmentDay\": 1,\"alignmentWeek\": 1,\"alignmentMonth\": 1},\"creditWorthinessSnapshots\":[{\"forCustomer\":\"forCustomer\"}]}",
+    "accountAssignments": [
+      {
+        "designator": "designator",
+        "accountIdentifier": "accountIdentifier",
+        "ledgerIdentifier": "ledgerIdentifier"
+      }
+    ],
+    "currentState": "CREATED",
+    "createdOn": "createdOn",
+    "createdBy": "createdBy",
+    "lastModifiedOn": "lastModifiedOn",
+    "lastModifiedBy": "lastModifiedBy"
+  }
+]

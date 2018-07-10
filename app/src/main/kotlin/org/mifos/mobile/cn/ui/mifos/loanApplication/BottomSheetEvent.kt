@@ -1,6 +1,6 @@
 package org.mifos.mobile.cn.ui.mifos.loanApplication
 
-import org.mifos.mobile.cn.data.models.loan.CreditWorthinessFactor
+import org.mifos.mobile.cn.data.models.accounts.loan.CreditWorthinessFactor
 
 class BottomSheetEvent {
 
