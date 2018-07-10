@@ -18,5 +18,8 @@ object ConstantKeys {
     const val CURRENT_STEP_POSITION = "position"
     const val PRODUCTS  = "products"
     const val TERM_UNIT_TYPE = "term_unit_type"
+    const val ACCOUNT_TYPE = "accountType"
+    const val LOAN_ACCOUNTS = "loanAccounts"
+    const val DEPOSIT_ACCOUNTS = "deposit_accounts"
 
 }

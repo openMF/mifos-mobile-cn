@@ -12,7 +12,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import org.mifos.mobile.cn.R
-import org.mifos.mobile.cn.data.models.loan.CreditWorthinessFactor
+import org.mifos.mobile.cn.data.models.accounts.loan.CreditWorthinessFactor
 import org.mifos.mobile.cn.ui.utils.Toaster
 
 class AddDebtIncomeBottomSheet : BottomSheetDialogFragment(), View.OnClickListener {
@@ -42,15 +42,15 @@ class AddDebtIncomeBottomSheet : BottomSheetDialogFragment(), View.OnClickListen
         when (creditWorthinessSource) {
             CreditWorthinessSource.DEBT -> {
                 tvHeader?.text = getString(R.string.add_debt)
-                btnAddDebtIncome?.text = getString(R.string.add_debt)
+                btnAddDebtIncome.text = getString(R.string.add_debt)
             }
             CreditWorthinessSource.INCOME -> {
                 tvHeader?.text = getString(R.string.add_income)
-                btnAddDebtIncome?.text = getString(R.string.add_income)
+                btnAddDebtIncome.text = getString(R.string.add_income)
             }
             CreditWorthinessSource.EDIT_DEBT -> {
                 tvHeader?.text = getString(R.string.edit_debt)
-                btnAddDebtIncome?.text = getString(R.string.edit_debt)
+                btnAddDebtIncome.text = getString(R.string.edit_debt)
                 etAmount?.setText(creditWorthinessFactor?.amount.toString())
                 etDescription?.setText(creditWorthinessFactor?.description)
             }

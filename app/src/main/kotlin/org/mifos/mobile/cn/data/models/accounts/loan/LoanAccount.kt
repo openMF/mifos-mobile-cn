@@ -1,4 +1,4 @@
-package org.mifos.mobile.cn.data.models.loan
+package org.mifos.mobile.cn.data.models.accounts.loan
 
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
@@ -53,7 +53,4 @@ data class LoanAccount(
         return Gson().fromJson(parameters, LoanParameters::class.java)
     }
 
-    /*public void setLoanParameters() {
-        this.loanParameters = gson.fromJson(parameters, LoanParameters.class);;
-    }*/
 }
