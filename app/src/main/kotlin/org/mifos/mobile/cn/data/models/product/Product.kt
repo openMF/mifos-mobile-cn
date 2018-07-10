@@ -1,8 +1,8 @@
 package org.mifos.mobile.cn.data.models.product
 
 import com.google.gson.annotations.SerializedName
-import org.mifos.mobile.cn.data.models.loan.AccountAssignment
-import org.mifos.mobile.cn.data.models.loan.TermRange
+import org.mifos.mobile.cn.data.models.accounts.loan.AccountAssignment
+import org.mifos.mobile.cn.data.models.accounts.loan.TermRange
 import java.util.ArrayList
 
 

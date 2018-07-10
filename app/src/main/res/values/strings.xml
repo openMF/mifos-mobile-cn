@@ -193,4 +193,14 @@
     <string name="only_alphabetic_decimal_digits_characters_allowed">Only alphabetic, decimal digits,\'-\' \'_\' \'.\' \'!\' \'~\' \'*\' \'(\' \')\' characters allowed</string>
     <string name="unique_required">Unique, Required</string>
 
+    <!--Client Accounts-->
+    <string name="loan">Loan</string>
+    <string name="deposit">Deposit</string>
+
+    <!--LoanAccountsListAdapter-->
+    <string name="colon">:&#160;</string>
+    <string name="last_modified_on">Last modified on</string>
+    <string name="last_modified_by">Last modified by</string>
+    <string name="account_identifier">Account Identifier</string>
+
 </resources>

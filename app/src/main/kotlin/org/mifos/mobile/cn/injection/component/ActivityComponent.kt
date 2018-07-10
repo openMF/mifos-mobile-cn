@@ -5,6 +5,8 @@ import dagger.Subcomponent
 import org.mifos.mobile.cn.injection.PerActivity
 import org.mifos.mobile.cn.injection.module.ActivityModule
 import org.mifos.mobile.cn.ui.mifos.DashboardActivity
+import org.mifos.mobile.cn.ui.mifos.accounts.AccountsFragment
+import org.mifos.mobile.cn.ui.mifos.customerAccounts.CustomerAccountFragment
 import org.mifos.mobile.cn.ui.mifos.launcher.LauncherActivity
 import org.mifos.mobile.cn.ui.mifos.loanApplication.BaseFragmentDebtIncome
 import org.mifos.mobile.cn.ui.mifos.loanApplication.loanActivity.LoanApplicationActivity
@@ -33,4 +35,8 @@ interface ActivityComponent {
     fun inject(loanDebtIncomeFragment: BaseFragmentDebtIncome)
 
     fun inject(loanDetailsFragment: LoanDetailsFragment)
+
+    fun inject(customerAccountFragment: CustomerAccountFragment)
+
+    fun inject(accountsFragment: AccountsFragment)
 }

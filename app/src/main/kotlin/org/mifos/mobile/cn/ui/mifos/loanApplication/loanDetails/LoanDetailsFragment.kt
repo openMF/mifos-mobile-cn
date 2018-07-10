@@ -13,11 +13,10 @@ import android.widget.*
 import com.github.therajanmaurya.sweeterror.SweetUIErrorHandler
 import com.stepstone.stepper.Step
 import com.stepstone.stepper.VerificationError
-import kotlinx.android.synthetic.main.fragment_loan_details.*
 import org.mifos.mobile.cn.R
-import org.mifos.mobile.cn.data.models.loan.LoanAccount
-import org.mifos.mobile.cn.data.models.loan.PaymentCycle
-import org.mifos.mobile.cn.data.models.loan.TermRange
+import org.mifos.mobile.cn.data.models.accounts.loan.LoanAccount
+import org.mifos.mobile.cn.data.models.accounts.loan.PaymentCycle
+import org.mifos.mobile.cn.data.models.accounts.loan.TermRange
 import org.mifos.mobile.cn.data.models.product.Product
 import org.mifos.mobile.cn.ui.base.MifosBaseActivity
 import org.mifos.mobile.cn.ui.base.MifosBaseFragment

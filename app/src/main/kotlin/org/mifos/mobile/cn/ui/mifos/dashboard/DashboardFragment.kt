@@ -5,7 +5,10 @@ import android.os.Bundle
 import android.view.*
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 import org.mifos.mobile.cn.R
+import org.mifos.mobile.cn.enums.AccountType
+import org.mifos.mobile.cn.ui.base.MifosBaseActivity
 import org.mifos.mobile.cn.ui.base.MifosBaseFragment
+import org.mifos.mobile.cn.ui.mifos.customerAccounts.CustomerAccountFragment
 import org.mifos.mobile.cn.ui.mifos.loanApplication.loanActivity.LoanApplicationActivity
 import org.mifos.mobile.cn.ui.utils.ConstantKeys
 
@@ -36,6 +39,7 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         ll_apply_for_loan.setOnClickListener(this)
+        ll_accounts.setOnClickListener(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -49,6 +53,9 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener {
             R.id.ll_apply_for_loan -> {
                 applyForLoan()
             }
+            R.id.ll_accounts -> {
+                openAccount()
+            }
         }
     }
 
@@ -56,5 +63,11 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener {
         val intent = Intent(activity, LoanApplicationActivity::class.java)
         intent.putExtra(ConstantKeys.CUSTOMER_IDENTIFIER, "customer_identifier")
         startActivity(intent)
+    }
+
+    private fun openAccount() {
+        (activity as MifosBaseActivity)
+                .replaceFragment(CustomerAccountFragment.newInstance(AccountType.LOAN),
+                true, R.id.container)
     }
 }

@@ -8,7 +8,7 @@ import com.stepstone.stepper.StepperLayout
 import com.stepstone.stepper.VerificationError
 import kotlinx.android.synthetic.main.activity_loan_application.*
 import org.mifos.mobile.cn.R
-import org.mifos.mobile.cn.data.models.loan.*
+import org.mifos.mobile.cn.data.models.accounts.loan.*
 import org.mifos.mobile.cn.ui.adapter.LoanApplicationStepAdapter
 import org.mifos.mobile.cn.ui.base.MifosBaseActivity
 import org.mifos.mobile.cn.ui.mifos.loanApplication.DataBus
