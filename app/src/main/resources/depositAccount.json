@@ -1,0 +1,24 @@
+[
+  {
+    "customerIdentifier": "customerIdentifier",
+    "productIdentifier": "productIdentifier",
+    "accountIdentifier": "accountIdentifier",
+    "beneficiaries": [
+      "beneficiaries:1",
+      "beneficiaries:2"
+    ],
+    "state": "CREATED",
+    "balance": 245.50
+  },
+  {
+    "customerIdentifier": "customerIdentifier",
+    "productIdentifier": "productIdentifier",
+    "accountIdentifier": "accountIdentifier",
+    "beneficiaries": [
+      "beneficiaries:1",
+      "beneficiaries:2"
+    ],
+    "state": "CREATED",
+    "balance": 245.50
+  }
+]

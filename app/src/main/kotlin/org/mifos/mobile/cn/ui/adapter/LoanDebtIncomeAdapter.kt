@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import org.mifos.mobile.cn.R
-import org.mifos.mobile.cn.data.models.loan.CreditWorthinessFactor
+import org.mifos.mobile.cn.data.models.accounts.loan.CreditWorthinessFactor
 import org.mifos.mobile.cn.ui.mifos.loanApplication.CreditWorthinessSource
 import java.util.ArrayList
 import kotlinx.android.synthetic.main.item_loan_debt_income.view.*

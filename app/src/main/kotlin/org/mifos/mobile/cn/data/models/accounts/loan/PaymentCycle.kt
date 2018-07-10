@@ -1,4 +1,4 @@
-package org.mifos.mobile.cn.data.models.loan
+package org.mifos.mobile.cn.data.models.accounts.loan
 
 import com.google.gson.annotations.SerializedName
 
