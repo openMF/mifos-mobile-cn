@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ This project is licensed under the open source MPL V2.
+  ~ See https://github.com/openMF/self-service-app/blob/master/LICENSE.md
+  -->
+
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_filter_loan"
+        app:showAsAction="always"
+        android:title="@string/loan_account"
+        android:visible="false"
+        android:icon="@drawable/ic_filter_list_black_24dp"/>
+    <item
+        android:id="@+id/menu_filter_deposit"
+        app:showAsAction="always"
+        android:title="@string/deposit_account"
+        android:visible="false"
+        android:icon="@drawable/ic_filter_list_black_24dp"/>
+
+</menu>

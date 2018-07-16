@@ -11,10 +11,10 @@ import org.mifos.mobile.cn.R
 import org.mifos.mobile.cn.data.models.accounts.loan.*
 import org.mifos.mobile.cn.ui.adapter.LoanApplicationStepAdapter
 import org.mifos.mobile.cn.ui.base.MifosBaseActivity
-import org.mifos.mobile.cn.ui.mifos.loanApplication.DataBus
-import org.mifos.mobile.cn.ui.mifos.loanApplication.NavigationEvent
+import org.mifos.mobile.cn.ui.utils.RxBus
 import org.mifos.mobile.cn.ui.utils.ConstantKeys
 import org.mifos.mobile.cn.ui.utils.ConstantKeys.CURRENT_STEP_POSITION
+import org.mifos.mobile.cn.ui.utils.RxEvent
 import java.util.ArrayList
 
 class LoanApplicationActivity : MifosBaseActivity(), StepperLayout.StepperListener {
@@ -49,16 +49,16 @@ class LoanApplicationActivity : MifosBaseActivity(), StepperLayout.StepperListen
     }
 
     fun initialiseListener() {
-        DataBus.listen(NavigationEvent.SetLoanDetails::class.java).subscribe({
+        RxBus.listen(RxEvent.SetLoanDetails::class.java).subscribe({
             setLoanDetails(it.currentState, it.identifier, it.productIdentifier, it.maximumBalance,
                     it.paymentCycle, it.termRange)
         })
 
-        DataBus.listen(NavigationEvent.SetCoSignerDebtIncome::class.java).subscribe({
+        RxBus.listen(RxEvent.SetCoSignerDebtIncome::class.java).subscribe({
             setCoSignerDebtIncome(it.coSignerDebtIncome)
         })
 
-        DataBus.listen(NavigationEvent.SetDebtIncome::class.java).subscribe({
+        RxBus.listen(RxEvent.SetDebtIncome::class.java).subscribe({
             setDebtIncome(it.debtIncome)
         })
     }

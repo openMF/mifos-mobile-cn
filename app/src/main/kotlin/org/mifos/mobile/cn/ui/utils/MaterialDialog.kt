@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.DialogInterface
 import android.support.annotation.StringRes
 import android.support.v7.app.AlertDialog
+import android.view.View
 import org.mifos.mobile.cn.R
 
 
@@ -110,6 +111,11 @@ class MaterialDialog {
         //This Method the String Text to Neutral Button and Set the onclick event to null
         fun setNeutralButton(neutralText: String): Builder {
             materialDialogBuilder!!.setNeutralButton(neutralText, null)
+            return this
+        }
+
+        fun addView(view: View): Builder {
+            materialDialogBuilder?.setView(view)
             return this
         }
 

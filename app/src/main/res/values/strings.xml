@@ -202,5 +202,22 @@
     <string name="last_modified_on">Last modified on</string>
     <string name="last_modified_by">Last modified by</string>
     <string name="account_identifier">Account Identifier</string>
+    <string name="small_text">Small text</string>
+    <string name="deposit_account">Deposit Account</string>
+    <string name="loan_account">Loan Account</string>
+
+    <!--Filter list Loan -->
+    <string name="created">Created</string>
+    <string name="pending">Pending</string>
+    <string name="approved">Approved</string>
+    <string name="active">Active</string>
+    <string name="closed">Closed</string>
+    <string name="locked">Locked</string>
+    <string name="filter_loan">Filter Loan Accounts</string>
+    <string name="filter_deposit">Filter Deposit Accounts</string>
+    <string name="select_you_want">Select all you want</string>
+    <string name="filter">Filter</string>
+    <string name="clear_filters">Clear Filters</string>
+    <string name="filter_accounts">Filter Accounts</string>
 
 </resources>

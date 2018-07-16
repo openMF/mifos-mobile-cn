@@ -37,4 +37,5 @@
     <dimen name="margin_16dp">16dp</dimen>
     <dimen name="divider_margin">3dp</dimen>
     <dimen name="row_padding_right">16dp</dimen>
+    <dimen name ="margin_4dp">4dp</dimen>
 </resources>

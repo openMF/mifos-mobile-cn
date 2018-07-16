@@ -5,8 +5,10 @@ import android.support.v4.content.ContextCompat
 import android.support.v7.widget.AppCompatImageView
 import android.widget.ImageView
 import org.mifos.mobile.cn.R
+import org.mifos.mobile.cn.data.models.CheckboxStatus
 import org.mifos.mobile.cn.data.models.accounts.deposit.DepositAccount
 import org.mifos.mobile.cn.data.models.accounts.loan.LoanAccount
+import java.util.ArrayList
 
 /**
  * @author Manish Kumar
@@ -138,6 +140,43 @@ object StatusUtils {
         }
     }
 
+    fun getLoanAccountsStatusList(context: Context): List<CheckboxStatus> {
+        val arrayList = ArrayList<CheckboxStatus>()
+        arrayList.add(CheckboxStatus(context.getString(R.string.created),
+                ContextCompat.getColor(context, R.color.blue
+                )))
+        arrayList.add(CheckboxStatus(context.getString(R.string.pending),
+                ContextCompat.getColor(context, R.color.blue)))
+        arrayList.add(CheckboxStatus(context.getString(R.string.approved),
+                ContextCompat.getColor(context, R.color.deposit_green)))
+        arrayList.add(CheckboxStatus(context.getString(R.string.active),
+                ContextCompat.getColor(context, R.color.deposit_green)))
+        arrayList.add(CheckboxStatus(context.getString(R.string.closed),
+                ContextCompat.getColor(context, R.color.red_dark)))
+
+        return arrayList
+
+    }
+
+    fun getDepositAccountsStatusList(context: Context): List<CheckboxStatus> {
+        val arrayList = ArrayList<CheckboxStatus>()
+        arrayList.add(CheckboxStatus(context.getString(R.string.created),
+                ContextCompat.getColor(context, R.color.blue
+                )))
+        arrayList.add(CheckboxStatus(context.getString(R.string.pending),
+                ContextCompat.getColor(context, R.color.blue)))
+        arrayList.add(CheckboxStatus(context.getString(R.string.approved),
+                ContextCompat.getColor(context, R.color.deposit_green)))
+        arrayList.add(CheckboxStatus(context.getString(R.string.active),
+                ContextCompat.getColor(context, R.color.deposit_green)))
+        arrayList.add(CheckboxStatus(context.getString(R.string.closed),
+                ContextCompat.getColor(context, R.color.red_dark)))
+        arrayList.add(CheckboxStatus(context.getString(R.string.locked),
+                ContextCompat.getColor(context, R.color.red_dark)))
+
+        return arrayList
+
+    }
 
 }
 

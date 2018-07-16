@@ -13,6 +13,8 @@ import android.widget.EditText
 import android.widget.TextView
 import org.mifos.mobile.cn.R
 import org.mifos.mobile.cn.data.models.accounts.loan.CreditWorthinessFactor
+import org.mifos.mobile.cn.ui.utils.RxBus
+import org.mifos.mobile.cn.ui.utils.RxEvent
 import org.mifos.mobile.cn.ui.utils.Toaster
 
 class AddDebtIncomeBottomSheet : BottomSheetDialogFragment(), View.OnClickListener {
@@ -104,14 +106,14 @@ class AddDebtIncomeBottomSheet : BottomSheetDialogFragment(), View.OnClickListen
         creditWorthinessFactor.description = etDescription?.text.toString().trim { it <= ' ' }
 
         when (creditWorthinessSource) {
-            CreditWorthinessSource.DEBT -> DataBus
-                    .publish(BottomSheetEvent.AddDebt(creditWorthinessFactor))
-            CreditWorthinessSource.INCOME -> DataBus
-                    .publish(BottomSheetEvent.AddIncome(creditWorthinessFactor))
-            CreditWorthinessSource.EDIT_DEBT -> DataBus
-                    .publish(BottomSheetEvent.EditDebt(creditWorthinessFactor, position))
-            CreditWorthinessSource.EDIT_INCOME -> DataBus
-                    .publish(BottomSheetEvent.EditIncome(creditWorthinessFactor, position))
+            CreditWorthinessSource.DEBT -> RxBus
+                    .publish(RxEvent.AddDebt(creditWorthinessFactor))
+            CreditWorthinessSource.INCOME -> RxBus
+                    .publish(RxEvent.AddIncome(creditWorthinessFactor))
+            CreditWorthinessSource.EDIT_DEBT -> RxBus
+                    .publish(RxEvent.EditDebt(creditWorthinessFactor, position))
+            CreditWorthinessSource.EDIT_INCOME -> RxBus
+                    .publish(RxEvent.EditIncome(creditWorthinessFactor, position))
         }
         dismiss()
     }
