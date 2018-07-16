@@ -15,6 +15,8 @@ import org.mifos.mobile.cn.data.models.accounts.loan.CreditWorthinessSnapshot
 import org.mifos.mobile.cn.ui.adapter.LoanDebtIncomeAdapter
 import org.mifos.mobile.cn.ui.base.MifosBaseActivity
 import org.mifos.mobile.cn.ui.base.MifosBaseFragment
+import org.mifos.mobile.cn.ui.utils.RxBus
+import org.mifos.mobile.cn.ui.utils.RxEvent
 import java.util.*
 import javax.inject.Inject
 
@@ -79,18 +81,18 @@ abstract class BaseFragmentDebtIncome : MifosBaseFragment(),
         (activity as MifosBaseActivity).activityComponent.inject(this)
         showUserInterface()
 
-        DataBus.listen(BottomSheetEvent.AddDebt::class.java).subscribe({
+        RxBus.listen(RxEvent.AddDebt::class.java).subscribe({
             addBottomSheetDebt(it.creditWorthinessFactor)
         })
 
-        DataBus.listen(BottomSheetEvent.AddIncome::class.java).subscribe({
+        RxBus.listen(RxEvent.AddIncome::class.java).subscribe({
             addBottomSheetIncome(it.creditWorthinessFactor)
         })
 
-        DataBus.listen(BottomSheetEvent.EditDebt::class.java).subscribe({
+        RxBus.listen(RxEvent.EditDebt::class.java).subscribe({
             editBottomSheetDebt(it.creditWorthinessFactor, it.position)
         })
-        DataBus.listen(BottomSheetEvent.EditIncome::class.java).subscribe({
+        RxBus.listen(RxEvent.EditIncome::class.java).subscribe({
             editBottomSheetIncome(it.creditWorthinessFactor, it.position)
         })
 

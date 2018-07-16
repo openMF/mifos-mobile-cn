@@ -20,8 +20,7 @@ import org.mifos.mobile.cn.data.models.accounts.loan.TermRange
 import org.mifos.mobile.cn.data.models.product.Product
 import org.mifos.mobile.cn.ui.base.MifosBaseActivity
 import org.mifos.mobile.cn.ui.base.MifosBaseFragment
-import org.mifos.mobile.cn.ui.mifos.loanApplication.DataBus
-import org.mifos.mobile.cn.ui.mifos.loanApplication.NavigationEvent
+import org.mifos.mobile.cn.ui.utils.RxBus
 import org.mifos.mobile.cn.ui.utils.*
 import javax.inject.Inject
 import kotlin.collections.ArrayList
@@ -286,7 +285,7 @@ class LoanDetailsFragment : MifosBaseFragment(), Step, AdapterView.OnItemSelecte
                 }
             }
 
-            DataBus.publish(NavigationEvent.SetLoanDetails(LoanAccount.State.CREATED,
+            RxBus.publish(RxEvent.SetLoanDetails(LoanAccount.State.CREATED,
                     etShortName.text.toString().trim { it <= ' ' }, "identifer",
                     etPrincipalAmount.text.toString().trim { it <= ' ' }.toDouble(), PaymentCycle(),
                     TermRange("tempUnit", etTerm.text.toString().trim { it <= ' ' }.toDouble())

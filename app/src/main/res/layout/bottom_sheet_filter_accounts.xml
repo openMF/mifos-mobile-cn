@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/tv_header_filter"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin"
+        android:layout_width="match_parent"
+        android:text="@string/filter_deposit"
+        android:textSize="@dimen/text_size_18sp"
+        android:layout_marginLeft="@dimen/margin_16dp"
+        android:layout_marginStart="@dimen/margin_16dp"
+    />
+
+    <TextView style="@style/Base.TextAppearance.AppCompat.Small"
+              android:layout_height="wrap_content"
+              android:layout_width="match_parent"
+              android:text="@string/select_you_want"
+              android:textSize="@dimen/text_size_12sp"
+              android:layout_marginLeft="@dimen/margin_16dp"
+              android:layout_marginStart="@dimen/margin_16dp"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_accounts_filter"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+    </android.support.v7.widget.RecyclerView>
+
+    <Button
+        android:id="@+id/btn_filter"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/layout_padding_15dp"
+        android:layout_width="match_parent"
+        android:text="@string/filter"/>
+
+</LinearLayout>

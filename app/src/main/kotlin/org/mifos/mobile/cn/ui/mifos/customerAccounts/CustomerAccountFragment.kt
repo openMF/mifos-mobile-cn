@@ -2,9 +2,7 @@ package org.mifos.mobile.cn.ui.mifos.customerAccounts
 
 import android.os.Bundle
 import android.support.v4.view.ViewPager
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
 import kotlinx.android.synthetic.main.fragment_client_accounts.*
 import org.mifos.mobile.cn.R
@@ -17,7 +15,9 @@ import org.mifos.mobile.cn.ui.base.MifosBaseFragment
 import org.mifos.mobile.cn.ui.mifos.accounts.AccountsContract
 import org.mifos.mobile.cn.ui.mifos.accounts.AccountsFragment
 import org.mifos.mobile.cn.ui.mifos.accounts.AccountsPresenter
+import org.mifos.mobile.cn.ui.mifos.accountsFilter.AccountsFilterBottomSheet
 import org.mifos.mobile.cn.ui.utils.ConstantKeys
+import org.mifos.mobile.cn.ui.utils.StatusUtils
 import javax.inject.Inject
 
 
@@ -42,6 +42,7 @@ class CustomerAccountFragment : MifosBaseFragment(), AccountsContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
         if (arguments != null) {
             accountType = arguments!!.getSerializable(ConstantKeys.ACCOUNT_TYPE) as AccountType
         }
@@ -150,6 +151,61 @@ class CustomerAccountFragment : MifosBaseFragment(), AccountsContract.View {
                 .showEmptyAccounts(getString(R.string.deposit))
     }
 
+
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        inflater?.inflate(R.menu.menu_account, menu)
+        if (viewpager.currentItem == 0) {
+            menu?.findItem(R.id.menu_filter_loan)?.isVisible = true
+            menu?.findItem(R.id.menu_filter_deposit)?.isVisible = false
+        } else if (viewpager.currentItem == 1) {
+            menu?.findItem(R.id.menu_filter_loan)?.isVisible = false
+            menu?.findItem(R.id.menu_filter_deposit)?.isVisible = true
+        }
+        super.onCreateOptionsMenu(menu, inflater)
+
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.menu_filter_loan -> showFilterDialog(AccountType.LOAN)
+            R.id.menu_filter_deposit -> showFilterDialog(AccountType.DEPOSIT)
+        }
+        return true
+    }
+
+    private fun showFilterDialog(accountType: AccountType) {
+        val accountFilterBottomSheet = AccountsFilterBottomSheet()
+        when (accountType) {
+
+
+            AccountType.LOAN -> {
+                if ((childFragmentManager.findFragmentByTag(getFragmentTag(0))
+                                as AccountsFragment).currentFilterList == null) {
+                    accountFilterBottomSheet.filterList = StatusUtils.getLoanAccountsStatusList(context!!)
+                } else {
+                    accountFilterBottomSheet.filterList = (childFragmentManager
+                            .findFragmentByTag(getFragmentTag(0))
+                            as AccountsFragment).currentFilterList
+                }
+            }
+
+            AccountType.DEPOSIT -> {
+                if ((childFragmentManager.findFragmentByTag(getFragmentTag(1))
+                                as AccountsFragment).currentFilterList == null) {
+                    accountFilterBottomSheet.filterList = StatusUtils.getDepositAccountsStatusList(context!!)
+                } else {
+                    accountFilterBottomSheet.filterList = (childFragmentManager
+                            .findFragmentByTag(getFragmentTag(1))
+                            as AccountsFragment).currentFilterList
+                }
+            }
+
+        }
+
+        accountFilterBottomSheet.accountType = accountType
+        accountFilterBottomSheet.show(childFragmentManager, getString(R.string.filter_accounts))
+    }
+
     override fun showProgress() {
 
     }
@@ -168,4 +224,5 @@ class CustomerAccountFragment : MifosBaseFragment(), AccountsContract.View {
         super.onPause()
         (activity as MifosBaseActivity).setToolbarElevation()
     }
+
 }

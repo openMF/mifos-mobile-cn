@@ -1,10 +1,10 @@
-package org.mifos.mobile.cn.ui.mifos.loanApplication
+package org.mifos.mobile.cn.ui.utils
 
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 
 // Use object so we have a singleton instance
-object DataBus {
+object RxBus {
 
     private val publisher = PublishSubject.create<Any>()
 

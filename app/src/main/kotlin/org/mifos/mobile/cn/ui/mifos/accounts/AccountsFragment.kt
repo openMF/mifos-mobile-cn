@@ -19,12 +19,16 @@ import org.mifos.mobile.cn.ui.utils.ConstantKeys
 import org.mifos.mobile.cn.ui.utils.Network
 import javax.inject.Inject
 import kotlinx.android.synthetic.main.layout_sweet_exception_handler.*
+import org.mifos.mobile.cn.data.models.CheckboxStatus
+import org.mifos.mobile.cn.ui.utils.RxBus
+import org.mifos.mobile.cn.ui.utils.RxEvent
 
-class AccountsFragment : MifosBaseFragment(), AccountsContract.View, View.OnClickListener {
+class AccountsFragment : MifosBaseFragment(), AccountsContract.View {
 
     private lateinit var accountType: String
     private lateinit var loanAccounts: List<LoanAccount>
     private lateinit var depositAccounts: List<DepositAccount>
+    var currentFilterList: List<CheckboxStatus>? = null
 
 
     @Inject
@@ -68,6 +72,30 @@ class AccountsFragment : MifosBaseFragment(), AccountsContract.View, View.OnClic
         val rootView = inflater.inflate(R.layout.fragment_accounts, container, false)
         accountsPresenter.attachView(this)
 
+        //listen to setting call
+        RxBus.listen(RxEvent.SetStatusModelList::class.java).subscribe({
+            when (accountType) {
+                ConstantKeys.LOAN_ACCOUNTS -> {
+                    if (accountsPresenter.getCheckedStatus(it.statusModelList).isEmpty()) {
+                        clearFilter()
+                    } else {
+                        filterLoanAccount(it.statusModelList)
+                    }
+                }
+
+                ConstantKeys.DEPOSIT_ACCOUNTS -> {
+                    if (accountsPresenter.getCheckedStatus(it.statusModelList).isEmpty()) {
+                        clearFilter()
+                    } else {
+                        filterDepositAccount(it.statusModelList)
+                    }
+                }
+            }
+        })
+
+        RxBus.listen(RxEvent.GetCurrentFilterList::class.java).subscribe({
+            this.currentFilterList = it.checkboxStatus
+        })
         //error handler
         errorHandler = SweetUIErrorHandler(context, rootView)
         return rootView
@@ -82,7 +110,9 @@ class AccountsFragment : MifosBaseFragment(), AccountsContract.View, View.OnClic
         rv_accounts.setHasFixedSize(true)
         rv_accounts.addItemDecoration(DividerItemDecoration(activity,
                 layoutManager.orientation))
-        btn_try_again.setOnClickListener(this)
+        btn_try_again.setOnClickListener { retry() }
+
+
 
         when (accountType) {
             ConstantKeys.LOAN_ACCOUNTS -> rv_accounts.adapter = loanAccountsListAdapter
@@ -90,13 +120,6 @@ class AccountsFragment : MifosBaseFragment(), AccountsContract.View, View.OnClic
 
         }
 
-    }
-
-
-    override fun onClick(view: View?) {
-        when (view?.id) {
-            R.id.btn_try_again -> retry()
-        }
     }
 
     private fun retry() {
@@ -152,6 +175,36 @@ class AccountsFragment : MifosBaseFragment(), AccountsContract.View, View.OnClic
             errorHandler.showSweetErrorUI(message, rv_accounts, layout_error)
         }
 
+    }
+
+    fun filterLoanAccount(statusModelList: List<CheckboxStatus>) {
+        val filteredLoans = java.util.ArrayList<LoanAccount>()
+        for (status in accountsPresenter.getCheckedStatus(statusModelList)) {
+            filteredLoans.addAll(accountsPresenter.getFilteredLoanAccount(loanAccounts,
+                    status))
+        }
+        loanAccountsListAdapter.setCustomerLoanAccounts(filteredLoans)
+    }
+
+    fun filterDepositAccount(statusModelList: List<CheckboxStatus>) {
+        val filteredDeposit = ArrayList<DepositAccount>()
+        for (status in accountsPresenter.getCheckedStatus(statusModelList)) {
+            filteredDeposit.addAll(accountsPresenter.getFilteredDepositAccount(depositAccounts,
+                    status))
+            depositAccountListAdapter.setCustomerDepositAccounts(filteredDeposit)
+        }
+    }
+
+    /**
+     * Method to clear the current filters and set
+     * currentFilterList = null
+     */
+    fun clearFilter() {
+        currentFilterList = null
+        when (accountType) {
+            ConstantKeys.LOAN_ACCOUNTS -> accountsPresenter.loadLoanAccounts()
+            ConstantKeys.DEPOSIT_ACCOUNTS -> accountsPresenter.loadDepositAccounts()
+        }
     }
 
     override fun showProgress() {
