@@ -33,6 +33,7 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener {
                               savedInstanceState: Bundle?): View? {
         rootView = inflater.inflate(R.layout.fragment_dashboard, container, false)
         setHasOptionsMenu(true)
+        setToolbarTitle(getString(R.string.home))
         return rootView
     }
 

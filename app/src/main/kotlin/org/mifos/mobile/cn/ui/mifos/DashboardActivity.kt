@@ -22,6 +22,8 @@ import org.mifos.mobile.cn.ui.mifos.login.LoginActivity
 import org.mifos.mobile.cn.ui.utils.MaterialDialog
 import javax.inject.Inject
 import kotlinx.android.synthetic.main.activity_main.*
+import org.mifos.mobile.cn.enums.AccountType
+import org.mifos.mobile.cn.ui.mifos.customerAccounts.CustomerAccountFragment
 import org.mifos.mobile.cn.ui.utils.CircularImageView
 import org.mifos.mobile.cn.ui.utils.Toaster
 
@@ -135,6 +137,9 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
             setToolbarElevation()
             if (fragment is DashboardFragment) {
                 setNavigationViewSelectedItem(R.id.item_home)
+            } else if(fragment is CustomerAccountFragment) {
+                hideToolbarElevation()
+                setNavigationViewSelectedItem(R.id.item_accounts)
             }
         }
 
@@ -150,6 +155,11 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
             R.id.item_home -> {
                 hideToolbarElevation()
                 replaceFragment(DashboardFragment.newInstance(), true, R.id.container)
+            }
+            R.id.item_accounts -> {
+                hideToolbarElevation()
+                replaceFragment(CustomerAccountFragment.newInstance(AccountType.LOAN), true,
+                        R.id.container)
             }
 
             R.id.item_logout -> {
