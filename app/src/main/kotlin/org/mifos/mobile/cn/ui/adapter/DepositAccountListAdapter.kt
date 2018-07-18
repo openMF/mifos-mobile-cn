@@ -12,6 +12,7 @@ import org.mifos.mobile.cn.injection.ApplicationContext
 import java.util.ArrayList
 import javax.inject.Inject
 import kotlinx.android.synthetic.main.item_customer_deposit_accounts.view.*
+import org.mifos.mobile.cn.ui.utils.StatusUtils
 
 /**
  * @author Manish Kumar
@@ -41,20 +42,8 @@ constructor(@ApplicationContext val context: Context) :
         holder.tvDepositProduct!!.text = customerDepositAccount.productIdentifier
         holder.tvAccountBalance!!.text = customerDepositAccount.balance.toString()
 
-        when (customerDepositAccount.state) {
-            DepositAccount.State.ACTIVE -> {
-                holder.ivStatusIndicator!!.setColorFilter(
-                        ContextCompat.getColor(context, R.color.deposit_green))
-                holder.tvAccountBalance.setTextColor(
-                        ContextCompat.getColor(context, R.color.deposit_green))
-            }
-            DepositAccount.State.CLOSED -> holder.ivStatusIndicator!!.setColorFilter(
-                    ContextCompat.getColor(context, R.color.black))
-            DepositAccount.State.LOCKED -> holder.ivStatusIndicator!!.setColorFilter(
-                    ContextCompat.getColor(context, R.color.black))
-            DepositAccount.State.PENDING -> holder.ivStatusIndicator!!.setColorFilter(
-                    ContextCompat.getColor(context, R.color.light_yellow))
-        }
+        StatusUtils.setDepositAccountStatus(customerDepositAccount.state!!,holder.ivStatusIndicator!!,
+                context)
     }
 
     override fun getItemCount(): Int {
