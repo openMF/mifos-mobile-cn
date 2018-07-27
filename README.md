@@ -27,4 +27,7 @@ We love Pull Requests, Bug Reports, ideas, code reviews or any other kind of pos
 
 We have set of [Commit Style Guidelines](https://github.com/openMF/mifos-mobile-cn/blob/master/COMMIT_STYLE.md) and [Contribution Guidelines](https://github.com/openMF/mifos-mobile-cn/blob/master/CONTRIBUTING.md). We follow these guideline to track the every change, any bug fixes, any enhancement and any new feature addition. We also suggest you to follow these guidelines to help us manage every commit.
 
+##License
+This project is currently licensed under the Apache License Version 2.0. A copy of [LICENSE](https://github.com/openMF/mifos-mobile-cn/blob/master/LICENSE.md) should be present along with the source code. To obtain the software under a different license, please contact MIFOS.
+
 
