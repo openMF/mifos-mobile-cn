@@ -59,6 +59,7 @@ android {
     repositories {
         maven { url 'https://maven.fabric.io/public' }
         maven { url 'https://maven.google.com' }
+        maven { url "https://www.jitpack.io" }
     }
 
     androidExtensions {
@@ -121,6 +122,14 @@ dependencies {
     // Glide for Image Loading
     implementation 'com.github.bumptech.glide:glide:4.7.1'
     kapt 'com.github.bumptech.glide:compiler:4.7.1'
+
+    //dbFlow for database
+    kapt "com.github.Raizlabs.DBFlow:dbflow-processor:$rootProject.dbFlowVersion"
+    implementation "com.github.Raizlabs.DBFlow:dbflow-core:$rootProject.dbFlowVersion"
+    implementation "com.github.Raizlabs.DBFlow:dbflow:$rootProject.dbFlowVersion"
+    implementation "com.github.Raizlabs.DBFlow:dbflow-kotlinextensions:$rootProject.dbFlowVersion"
+    implementation "com.github.Raizlabs.DBFlow:dbflow-rx2:$rootProject.dbFlowVersion"
+    implementation "com.github.Raizlabs.DBFlow:dbflow-rx2-kotlinextensions:$rootProject.dbFlowVersion"
 
     // Instrumentation test dependencies
     androidTestImplementation jUnit

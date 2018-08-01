@@ -3,6 +3,7 @@ package org.mifos.mobile.cn.ui.mifos.loanApplication.loanActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
+import android.widget.Toast
 import com.google.gson.Gson
 import com.stepstone.stepper.StepperLayout
 import com.stepstone.stepper.VerificationError
@@ -16,8 +17,9 @@ import org.mifos.mobile.cn.ui.utils.ConstantKeys
 import org.mifos.mobile.cn.ui.utils.ConstantKeys.CURRENT_STEP_POSITION
 import org.mifos.mobile.cn.ui.utils.RxEvent
 import java.util.ArrayList
+import javax.inject.Inject
 
-class LoanApplicationActivity : MifosBaseActivity(), StepperLayout.StepperListener {
+class LoanApplicationActivity : MifosBaseActivity(), StepperLayout.StepperListener, LoanApplicationContract.View {
 
     var currentPosition = 0
 
@@ -26,10 +28,14 @@ class LoanApplicationActivity : MifosBaseActivity(), StepperLayout.StepperListen
     private lateinit var customerIdentifier: String
     private lateinit var loanParameters: LoanParameters
 
+    @Inject
+    lateinit var loanApplicationPresenter: LoanApplicationPresenter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setToolbarTitle(getString(R.string.apply_for_loan))
         activityComponent.inject(this)
+        loanApplicationPresenter.attachView(this)
         setContentView(R.layout.activity_loan_application)
 
         creditWorthinessSnapshots = ArrayList()
@@ -80,13 +86,18 @@ class LoanApplicationActivity : MifosBaseActivity(), StepperLayout.StepperListen
         loanParameters.creditWorthinessSnapshots = creditWorthinessSnapshots
         loanAccount.parameters = Gson().toJson(loanParameters)
         //TODO: add presenter to make api call
-        finish()
+        loanApplicationPresenter.createLoan(loanAccount)
+
 
     }
 
+    override fun applicationCreatedSuccessfully() {
+        finish()
+    }
+
     private fun setLoanDetails(currentState: LoanAccount.State, identifier: String,
-                       productIdentifier: String, maximumBalance: Double?, paymentCycle: PaymentCycle,
-                       termRange: TermRange) {
+                               productIdentifier: String, maximumBalance: Double?, paymentCycle: PaymentCycle,
+                               termRange: TermRange) {
         loanAccount.currentState = currentState
         loanAccount.identifier = identifier
         loanAccount.productIdentifier = productIdentifier
@@ -118,5 +129,10 @@ class LoanApplicationActivity : MifosBaseActivity(), StepperLayout.StepperListen
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         currentPosition = savedInstanceState.getInt(CURRENT_STEP_POSITION)
+    }
+
+    //TODO: modify this
+    override fun showError(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 }
