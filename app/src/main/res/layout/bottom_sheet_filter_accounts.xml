@@ -22,7 +22,6 @@
               android:textSize="@dimen/text_size_12sp"
               android:layout_marginLeft="@dimen/margin_16dp"
               android:layout_marginStart="@dimen/margin_16dp"/>
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_accounts_filter"
         android:layout_height="wrap_content"

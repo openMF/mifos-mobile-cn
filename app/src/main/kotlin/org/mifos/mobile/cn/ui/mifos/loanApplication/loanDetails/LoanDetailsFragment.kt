@@ -20,6 +20,7 @@ import org.mifos.mobile.cn.data.models.accounts.loan.TermRange
 import org.mifos.mobile.cn.data.models.product.Product
 import org.mifos.mobile.cn.ui.base.MifosBaseActivity
 import org.mifos.mobile.cn.ui.base.MifosBaseFragment
+
 import org.mifos.mobile.cn.ui.utils.RxBus
 import org.mifos.mobile.cn.ui.utils.*
 import javax.inject.Inject

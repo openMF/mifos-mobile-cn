@@ -23,6 +23,7 @@ import javax.inject.Inject
  * @since 20/July/2018
  */
 
+
 class AccountsFilterBottomSheet : BottomSheetDialogFragment() {
 
     private lateinit var rootView: View
@@ -55,16 +56,19 @@ class AccountsFilterBottomSheet : BottomSheetDialogFragment() {
         rootView.rv_accounts_filter.layoutManager = layoutManager
         rootView.rv_accounts_filter.adapter = checkboxAdapter
 
+
         if (accountType == AccountType.LOAN) {
             rootView.tv_header_filter.text = getString(R.string.filter_loan)
         } else if(accountType == AccountType.DEPOSIT) {
             rootView.tv_header_filter.text = getString(R.string.filter_deposit)
         }
             dialog.setContentView(rootView)
+
         behavior = BottomSheetBehavior.from(rootView.parent as View)
 
         return dialog
     }
+
 
     override fun onStart() {
         super.onStart()

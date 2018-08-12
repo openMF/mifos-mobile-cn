@@ -13,6 +13,7 @@ import android.widget.EditText
 import android.widget.TextView
 import org.mifos.mobile.cn.R
 import org.mifos.mobile.cn.data.models.accounts.loan.CreditWorthinessFactor
+
 import org.mifos.mobile.cn.ui.utils.RxBus
 import org.mifos.mobile.cn.ui.utils.RxEvent
 import org.mifos.mobile.cn.ui.utils.Toaster

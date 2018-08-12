@@ -11,6 +11,7 @@ import org.mifos.mobile.cn.R
 import org.mifos.mobile.cn.data.models.accounts.loan.*
 import org.mifos.mobile.cn.ui.adapter.LoanApplicationStepAdapter
 import org.mifos.mobile.cn.ui.base.MifosBaseActivity
+
 import org.mifos.mobile.cn.ui.utils.RxBus
 import org.mifos.mobile.cn.ui.utils.ConstantKeys
 import org.mifos.mobile.cn.ui.utils.ConstantKeys.CURRENT_STEP_POSITION

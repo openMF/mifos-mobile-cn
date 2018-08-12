@@ -1,7 +1,10 @@
 package org.mifos.mobile.cn.ui.mifos.customerAccounts
 
+import android.app.SearchManager
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.view.ViewPager
+import android.support.v7.widget.SearchView
 import android.view.*
 import android.widget.Toast
 import kotlinx.android.synthetic.main.fragment_client_accounts.*
@@ -157,9 +160,15 @@ class CustomerAccountFragment : MifosBaseFragment(), AccountsContract.View {
         if (viewpager.currentItem == 0) {
             menu?.findItem(R.id.menu_filter_loan)?.isVisible = true
             menu?.findItem(R.id.menu_filter_deposit)?.isVisible = false
+            menu?.findItem(R.id.menu_search_loan)?.isVisible = true
+            menu?.findItem(R.id.menu_search_deposit)?.isVisible = false
+            initSearch(menu!!, AccountType.LOAN)
         } else if (viewpager.currentItem == 1) {
             menu?.findItem(R.id.menu_filter_loan)?.isVisible = false
             menu?.findItem(R.id.menu_filter_deposit)?.isVisible = true
+            menu?.findItem(R.id.menu_search_deposit)?.isVisible = true
+            menu?.findItem(R.id.menu_search_loan)?.isVisible = false
+            initSearch(menu!!, AccountType.DEPOSIT)
         }
         super.onCreateOptionsMenu(menu, inflater)
 
@@ -176,8 +185,6 @@ class CustomerAccountFragment : MifosBaseFragment(), AccountsContract.View {
     private fun showFilterDialog(accountType: AccountType) {
         val accountFilterBottomSheet = AccountsFilterBottomSheet()
         when (accountType) {
-
-
             AccountType.LOAN -> {
                 if ((childFragmentManager.findFragmentByTag(getFragmentTag(0))
                                 as AccountsFragment).currentFilterList == null) {
@@ -204,6 +211,42 @@ class CustomerAccountFragment : MifosBaseFragment(), AccountsContract.View {
 
         accountFilterBottomSheet.accountType = accountType
         accountFilterBottomSheet.show(childFragmentManager, getString(R.string.filter_accounts))
+    }
+
+    /**
+     * Initializes the search option in [Menu] depending upon `account`
+     * @param menu Interface for managing the items in a menu.
+     * @param account An enum of [AccountType]
+     */
+    private fun initSearch(menu: Menu, account: AccountType) {
+        val manager = activity?.getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        var search: SearchView? = null
+
+        if (account == AccountType.LOAN) {
+            search = menu.findItem(R.id.menu_search_loan).actionView as SearchView
+        } else if (account == AccountType.DEPOSIT) {
+            search = menu.findItem(R.id.menu_search_deposit).actionView as SearchView
+        }
+
+        search!!.setSearchableInfo(manager.getSearchableInfo(activity?.componentName))
+        search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+
+                if (account == AccountType.LOAN) {
+                    (childFragmentManager.findFragmentByTag(
+                            getFragmentTag(0)) as AccountsFragment).searchLoanAccount(newText)
+                } else if (account == AccountType.DEPOSIT) {
+                    (childFragmentManager.findFragmentByTag(
+                            getFragmentTag(1)) as AccountsFragment).searchDepositAccount(newText)
+                }
+
+                return false
+            }
+        })
     }
 
     override fun showProgress() {
