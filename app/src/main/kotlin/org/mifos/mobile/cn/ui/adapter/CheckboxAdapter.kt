@@ -37,31 +37,26 @@ constructor(@ApplicationContext var context: Context) : RecyclerView.Adapter<Rec
         val states = arrayOf(intArrayOf(android.R.attr.state_checked), intArrayOf())
         val colors = intArrayOf(statusModel.color, statusModel.color)
 
-        (holder as ViewHolder).cbStatusSelect?.isChecked = statusModel.isChecked
-        holder.cbStatusSelect?.supportButtonTintList = ColorStateList(states, colors)
-        holder.tvStatus?.text = statusModel.status
+        (holder as ViewHolder).cbStatusSelect.isChecked = statusModel.isChecked
+        holder.cbStatusSelect.supportButtonTintList = ColorStateList(states, colors)
+        holder.tvStatus.text = statusModel.status
+        holder.llRowCheckbox.setOnClickListener ({
+            holder.cbStatusSelect!!.isChecked = !(holder.cbStatusSelect.isChecked)
+        })
+        holder.cbStatusSelect.setOnCheckedChangeListener{buttonView,
+                                                         isChecked ->
+            statusList[holder.adapterPosition].isChecked = holder.cbStatusSelect.isChecked}
 
     }
 
     override fun getItemCount(): Int {
-
         return statusList.size
     }
 
-    inner class ViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
-
-        init {
-            itemView?.setOnClickListener({
-                cbStatusSelect!!.isChecked = !(cbStatusSelect!!.isChecked)
-            })
-            itemView?.cb_status_select?.setOnCheckedChangeListener { buttonView,
-                                                                     isChecked ->
-                statusList[adapterPosition].isChecked = cbStatusSelect!!.isChecked
-            }
-        }
-
-        var cbStatusSelect = itemView?.cb_status_select
-        var tvStatus = itemView?.tv_status
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var cbStatusSelect = itemView.cb_status_select
+        var tvStatus = itemView.tv_status
+        var llRowCheckbox = itemView.ll_row_checkbox
 
     }
 }

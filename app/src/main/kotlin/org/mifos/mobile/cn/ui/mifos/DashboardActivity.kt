@@ -138,7 +138,6 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
             if (fragment is DashboardFragment) {
                 setNavigationViewSelectedItem(R.id.item_home)
             } else if(fragment is CustomerAccountFragment) {
-                hideToolbarElevation()
                 setNavigationViewSelectedItem(R.id.item_accounts)
             }
         }
@@ -157,7 +156,6 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
                 replaceFragment(DashboardFragment.newInstance(), true, R.id.container)
             }
             R.id.item_accounts -> {
-                hideToolbarElevation()
                 replaceFragment(CustomerAccountFragment.newInstance(AccountType.LOAN), true,
                         R.id.container)
             }

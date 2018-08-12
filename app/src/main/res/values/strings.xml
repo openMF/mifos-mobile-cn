@@ -219,5 +219,6 @@
     <string name="filter">Filter</string>
     <string name="clear_filters">Clear Filters</string>
     <string name="filter_accounts">Filter Accounts</string>
+    <string name="search">Search</string>
 
 </resources>

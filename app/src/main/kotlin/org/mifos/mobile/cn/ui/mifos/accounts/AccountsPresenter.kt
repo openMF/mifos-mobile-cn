@@ -131,5 +131,31 @@ class AccountsPresenter @Inject constructor(@ApplicationContext context: Context
                 }).toList().blockingGet()
     }
 
+    /**
+     * Filters [List] of [LoanAccount]
+     * @param accounts [List] of [LoanAccount]
+     * @param input [String] which is used for filtering
+     * @return Returns [List] of filtered [LoanAccount] according to the `input`
+     * provided.
+     */
+    fun searchInLoanList(accounts: List<LoanAccount>,
+                         input: String): List<LoanAccount> {
+        return Observable.fromIterable(accounts)
+                .filter { loanAccount -> loanAccount.identifier?.toLowerCase()!!
+                        .contains(input.toLowerCase()) }.toList().blockingGet()
+    }
 
+    /**
+     * Filters [List] of [LoanAccount]
+     * @param accounts [List] of [LoanAccount]
+     * @param input [String] which is used for filtering
+     * @return Returns [List] of filtered [LoanAccount] according to the `input`
+     * provided.
+     */
+    fun searchInDepositList(accounts: List<DepositAccount>,
+                         input: String): List<DepositAccount> {
+        return Observable.fromIterable(accounts)
+                .filter { depositAccount -> depositAccount.accountIdentifier?.toLowerCase()!!
+                        .contains(input.toLowerCase()) }.toList().blockingGet()
+    }
 }

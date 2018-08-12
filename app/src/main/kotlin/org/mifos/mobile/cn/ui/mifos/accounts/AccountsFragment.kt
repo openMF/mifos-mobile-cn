@@ -23,6 +23,7 @@ import org.mifos.mobile.cn.data.models.CheckboxStatus
 import org.mifos.mobile.cn.ui.utils.RxBus
 import org.mifos.mobile.cn.ui.utils.RxEvent
 
+
 class AccountsFragment : MifosBaseFragment(), AccountsContract.View {
 
     private lateinit var accountType: String
@@ -73,6 +74,7 @@ class AccountsFragment : MifosBaseFragment(), AccountsContract.View {
         accountsPresenter.attachView(this)
 
         //listen to setting call
+
         RxBus.listen(RxEvent.SetStatusModelList::class.java).subscribe({
             when (accountType) {
                 ConstantKeys.LOAN_ACCOUNTS -> {
@@ -93,6 +95,7 @@ class AccountsFragment : MifosBaseFragment(), AccountsContract.View {
             }
         })
 
+
         RxBus.listen(RxEvent.GetCurrentFilterList::class.java).subscribe({
             this.currentFilterList = it.checkboxStatus
         })
@@ -111,6 +114,8 @@ class AccountsFragment : MifosBaseFragment(), AccountsContract.View {
         rv_accounts.addItemDecoration(DividerItemDecoration(activity,
                 layoutManager.orientation))
         btn_try_again.setOnClickListener { retry() }
+
+
 
 
 
@@ -194,6 +199,27 @@ class AccountsFragment : MifosBaseFragment(), AccountsContract.View {
             depositAccountListAdapter.setCustomerDepositAccounts(filteredDeposit)
         }
     }
+
+    /**
+     * Used for searching an `input` String in `loanAccounts` and displaying it in the
+     * recyclerview.
+     * @param input String which is needs to be searched in list
+     */
+    fun searchLoanAccount(input: String) {
+        loanAccountsListAdapter.setCustomerLoanAccounts(accountsPresenter
+                .searchInLoanList(loanAccounts, input))
+    }
+
+    /**
+     * Used for searching an `input` String in `depositAccounts` and displaying it in the
+     * recyclerview.
+     * @param input String which is needs to be searched in list
+     */
+    fun searchDepositAccount(input: String) {
+       depositAccountListAdapter.setCustomerDepositAccounts(accountsPresenter
+               .searchInDepositList(depositAccounts, input))
+    }
+
 
     /**
      * Method to clear the current filters and set
