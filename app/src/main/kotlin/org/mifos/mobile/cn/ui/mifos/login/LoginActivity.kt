@@ -79,4 +79,8 @@ class LoginActivity : MifosBaseActivity(), LoginContract.View, View.OnClickListe
     override fun hideProgress() {
         hideProgressbar()
     }
+    override fun showUserLoginUnSuccessfully(){
+      preferencesHelper.putLoginStatus(false)
+        Toast.makeText(this,"Invalid Credentials",Toast.LENGTH_SHORT).show()
+    }
 }

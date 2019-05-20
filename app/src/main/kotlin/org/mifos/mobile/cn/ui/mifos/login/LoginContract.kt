@@ -7,6 +7,8 @@ interface LoginContract {
         //TODO:edit this for access tokens and other user data
         fun showUserLoginSuccessfully()
 
+        fun showUserLoginUnSuccessfully()
+
         fun showError(errorMessage: String)
 
         fun showProgress()
