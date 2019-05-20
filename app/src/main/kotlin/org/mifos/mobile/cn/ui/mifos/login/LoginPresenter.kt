@@ -25,7 +25,7 @@ constructor(@ApplicationContext context: Context) :
                 getMvpView.showUserLoginSuccessfully()
             } else {
                 getMvpView.hideProgress()
-                getMvpView.showError(context.getString(R.string.logging_in))
+                getMvpView.showUserLoginUnSuccessfully()
             }
 
         }
