@@ -2,6 +2,7 @@ package org.mifos.mobile.cn.ui.mifos.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.View
 import android.widget.Toast
 import org.mifos.mobile.cn.R
@@ -32,8 +33,6 @@ class LoginActivity : MifosBaseActivity(), LoginContract.View, View.OnClickListe
         preferencesHelper.clear()
 
         //TODO:remove this while implementing API
-        preferencesHelper.putUsername("fineractCn")
-        preferencesHelper.putPassword("password")
         btnLogin.setOnClickListener(this)
 
     }
@@ -49,6 +48,21 @@ class LoginActivity : MifosBaseActivity(), LoginContract.View, View.OnClickListe
 
         val username = etUsername.text.toString().trim()
         val password = etPassword.text.toString().trim()
+
+        if(!TextUtils.isEmpty(username)){
+            preferencesHelper.putUsername("fineractCn")
+        }
+        else{
+            etUsername.setError("Username required")
+            return
+        }
+        if(!TextUtils.isEmpty(password)){
+            preferencesHelper.putPassword("password")
+        }
+        else{
+            etPassword.setError("Password required")
+            return
+        }
         loginPresenter.login(username, password)
         Toaster.show(findViewById(android.R.id.content), getString(R.string.logging_in), Toaster.SHORT)
     }
