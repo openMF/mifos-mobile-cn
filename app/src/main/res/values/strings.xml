@@ -221,4 +221,45 @@
     <string name="filter_accounts">Filter Accounts</string>
     <string name="search">Search</string>
 
+    <!--Customer Details -->
+    <string name="customer_image">Customer image</string>
+    <string name="current_status">Current status</string>
+    <string name="address">Address</string>
+    <string name="contact_information">Contact information</string>
+    <string name="no_contact_details_available">No Contact details available</string>
+    <string name="birthday">Birthday</string>
+    <string name="financial_products">Financial products</string>
+    <string name="loan_accounts">Loan accounts</string>
+    <string name="manage_loan_accounts">Manage loan accounts</string>
+    <string name="deposit_accounts">Deposit accounts</string>
+    <string name="manage_deposit_accounts">Manage deposit accounts</string>
+    <string name="management">Management</string>
+    <string name="identification_cards">Identification cards</string>
+    <string name="view_identification_card">View identification cards</string>
+    <string name="tasks">Tasks</string>
+    <string name="change_customer_status">Change the status of customer</string>
+
+    <string name="recent_activities">Recent activities</string>
+    <string name="status_image">Status Image</string>
+    <string name="error_fetching_customer_details">Failed to fetch customer details</string>
+    <string name="assigned_employee">Assigned Employee: </string>
+    <string name="not_assigned">Not assigned</string>
+    <string name="account_overview">Account Overview</string>
+
+    <!--Customer Commands -->
+    <string name="activities_created_by_on">%1$s, %2$s</string>
+    <string name="activities">Activities</string>
+    <string name="Commands">Commands</string>
+    <string name="identification_issuer">Issuer: %1$s</string>
+
+    <!-- Customer Identification -->
+    <string name="identification_search">Search identification card</string>
+    <string name="loading_scans_please_wait">Loading scans please wait…</string>
+    <string name="scans_uploaded">Scan Uploaded</string>
+    <string name="issuer">Issuer</string>
+    <string name="expiration_date">Expiration date</string>
+    <string name="type">Type</string>
+    <string name="number">Number</string>
+
+
 </resources>

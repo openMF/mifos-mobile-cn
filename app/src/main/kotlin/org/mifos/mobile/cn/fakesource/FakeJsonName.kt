@@ -10,4 +10,8 @@ object FakeJsonName {
     var PRODUCTS = "products.json"
     var LOAN_ACCOUNTS = "loanAccount.json"
     var DEPOSIT_ACCOUNTS  = "depositAccount.json"
+    var CUSTOMER = "customer.json"
+    var CUSTOMER_COMMANDS = "command.json"
+    val IDENTIFICATIONS = "identification.json"
+    val SCAN_CARDS = "scanCard.json"
 }

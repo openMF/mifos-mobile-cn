@@ -1,6 +1,9 @@
 package org.mifos.mobile.cn.ui.base
 
 import android.content.Context
+import android.util.Log
+import android.widget.Toast
+import org.mifos.mobile.cn.exceptions.NoConnectivityException
 
 /**
  * Base class that implements the CasePresenter interface and provides a base implementation for
@@ -27,6 +30,14 @@ open class BasePresenter<T : MvpView> constructor(var context: Context) : Presen
 
     fun checkViewAttached() {
         if (!isViewAttached()) throw MvpViewNotAttachedException()
+    }
+
+    fun showExceptionError(throwable: Throwable, errorMessage: String) {
+        if (throwable is NoConnectivityException) {
+            Toast.makeText(context,"No Internet Connectivity",Toast.LENGTH_SHORT).show()
+        } else {
+            Log.e("Error in Presenter",errorMessage,throwable)
+        }
     }
 
     class MvpViewNotAttachedException : RuntimeException(

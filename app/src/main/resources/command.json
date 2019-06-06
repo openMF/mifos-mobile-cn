@@ -1,0 +1,38 @@
+[
+  {
+    "action": "ACTIVATE",
+    "comment": "comment",
+    "createdOn": "createdOn",
+    "createdBy": "createdBy"
+  },
+  {
+    "action": "LOCK",
+    "comment": "comment",
+    "createdOn": "createdOn",
+    "createdBy": "createdBy"
+  },
+  {
+    "action": "UNLOCK",
+    "comment": "comment",
+    "createdOn": "createdOn",
+    "createdBy": "createdBy"
+  },
+  {
+    "action": "REOPEN",
+    "comment": "comment",
+    "createdOn": "createdOn",
+    "createdBy": "createdBy"
+  },
+  {
+    "action": "CLOSE",
+    "comment": "comment",
+    "createdOn": "createdOn",
+    "createdBy": "createdBy"
+  },
+  {
+    "action": "ACTIVATE",
+    "comment": "comment",
+    "createdOn": "createdOn",
+    "createdBy": "createdBy"
+  }
+]

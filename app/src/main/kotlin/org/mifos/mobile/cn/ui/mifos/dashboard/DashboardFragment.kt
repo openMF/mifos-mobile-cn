@@ -1,23 +1,26 @@
 package org.mifos.mobile.cn.ui.mifos.dashboard
 
 import android.content.Intent
+
+
 import android.os.Bundle
 import android.view.*
 import kotlinx.android.synthetic.main.fragment_dashboard.*
+import org.mifos.mobile.cn.data.models.customer.Customer
 import org.mifos.mobile.cn.R
 import org.mifos.mobile.cn.enums.AccountType
 import org.mifos.mobile.cn.ui.base.MifosBaseActivity
 import org.mifos.mobile.cn.ui.base.MifosBaseFragment
 import org.mifos.mobile.cn.ui.mifos.customerAccounts.CustomerAccountFragment
+import org.mifos.mobile.cn.ui.mifos.customerDetails.CustomerDetailsActivity
 import org.mifos.mobile.cn.ui.mifos.loanApplication.loanActivity.LoanApplicationActivity
 import org.mifos.mobile.cn.ui.utils.ConstantKeys
 
 
-
 class DashboardFragment : MifosBaseFragment(), View.OnClickListener {
 
-    internal lateinit var rootView: View
-
+    private lateinit var rootView: View
+    private lateinit var customer: Customer
     companion object {
 
         fun newInstance(): DashboardFragment {
@@ -41,6 +44,7 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         ll_apply_for_loan.setOnClickListener(this)
         ll_accounts.setOnClickListener(this)
+        ll_account_overview.setOnClickListener(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -57,6 +61,9 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener {
             R.id.ll_accounts -> {
                 openAccount()
             }
+            R.id.ll_account_overview -> {
+                showCustomerDetails()
+            }
         }
     }
 
@@ -70,5 +77,12 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener {
         (activity as MifosBaseActivity)
                 .replaceFragment(CustomerAccountFragment.newInstance(AccountType.LOAN),
                 true, R.id.container)
+    }
+    private fun showCustomerDetails(){
+        val intent = Intent(activity,CustomerDetailsActivity::class.java)
+        intent.putExtra(ConstantKeys.CUSTOMER_IDENTIFIER,"customer_identifier")
+       startActivity(intent)
+
+
     }
 }
