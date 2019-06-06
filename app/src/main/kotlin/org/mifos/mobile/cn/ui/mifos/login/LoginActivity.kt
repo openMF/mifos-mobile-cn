@@ -71,6 +71,7 @@ class LoginActivity : MifosBaseActivity(), LoginContract.View, View.OnClickListe
     //TODO:edit this fun while implementing API
     override fun showUserLoginSuccessfully() {
         preferencesHelper.putLoginStatus(true)
+        preferencesHelper.putAccessToken("access_token")
         Toast.makeText(this, R.string.welcome, Toast.LENGTH_SHORT).show()
         startPassCodeActivity()
     }

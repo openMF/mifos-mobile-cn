@@ -2,12 +2,18 @@ package org.mifos.mobile.cn.injection.component
 
 
 import dagger.Subcomponent
+import org.mifos.mobile.cn.data.datamanager.DataManagerCustomer
+import org.mifos.mobile.cn.data.local.DatabaseHelperCustomer
 import org.mifos.mobile.cn.injection.PerActivity
 import org.mifos.mobile.cn.injection.module.ActivityModule
 import org.mifos.mobile.cn.ui.mifos.DashboardActivity
 import org.mifos.mobile.cn.ui.mifos.accounts.AccountsFragment
 import org.mifos.mobile.cn.ui.mifos.accountsFilter.AccountsFilterBottomSheet
 import org.mifos.mobile.cn.ui.mifos.customerAccounts.CustomerAccountFragment
+import org.mifos.mobile.cn.ui.mifos.customerActivities.CustomerActivitiesFragment
+import org.mifos.mobile.cn.ui.mifos.customerDetails.CustomerDetailsFragment
+import org.mifos.mobile.cn.ui.mifos.identificationdetails.IdentificationDetailsFragment
+import org.mifos.mobile.cn.ui.mifos.identificationlist.IdentificationsFragment
 import org.mifos.mobile.cn.ui.mifos.launcher.LauncherActivity
 import org.mifos.mobile.cn.ui.mifos.loanApplication.BaseFragmentDebtIncome
 import org.mifos.mobile.cn.ui.mifos.loanApplication.loanActivity.LoanApplicationActivity
@@ -31,6 +37,7 @@ interface ActivityComponent {
 
     fun inject (dashboardActivity: DashboardActivity)
 
+
     fun inject(loanApplicationActivity: LoanApplicationActivity)
 
     fun inject(loanDebtIncomeFragment: BaseFragmentDebtIncome)
@@ -42,4 +49,13 @@ interface ActivityComponent {
     fun inject(accountsFragment: AccountsFragment)
 
     fun inject(accountsFilterBottomSheet: AccountsFilterBottomSheet)
+
+    fun inject(customerDetailsFragment: CustomerDetailsFragment)
+
+    fun inject(customerActivitiesFragment: CustomerActivitiesFragment)
+
+    fun inject(identificationsFragment: IdentificationsFragment)
+
+    fun inject(identificationDetailsFragment: IdentificationDetailsFragment)
+
 }

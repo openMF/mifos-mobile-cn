@@ -4,6 +4,8 @@ import android.content.Context
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.AppCompatImageView
 import android.widget.ImageView
+import org.mifos.mobile.cn.data.models.customer.Command
+import org.mifos.mobile.cn.data.models.customer.Customer
 import org.mifos.mobile.cn.R
 import org.mifos.mobile.cn.data.models.CheckboxStatus
 import org.mifos.mobile.cn.data.models.accounts.deposit.DepositAccount
@@ -16,6 +18,49 @@ import java.util.ArrayList
  */
 
 object StatusUtils {
+    fun setCustomerStatus(state: Customer.State, imageView: AppCompatImageView,
+                          context: Context) {
+        when (state) {
+            Customer.State.ACTIVE -> imageView.setColorFilter(
+                    ContextCompat.getColor(context, R.color.deposit_green))
+            Customer.State.CLOSED -> imageView.setColorFilter(
+                    ContextCompat.getColor(context, R.color.black))
+            Customer.State.LOCKED -> imageView.setColorFilter(
+                    ContextCompat.getColor(context, R.color.red_dark))
+            Customer.State.PENDING -> imageView.setColorFilter(
+                    ContextCompat.getColor(context, R.color.light_yellow))
+        }
+    }
+
+    fun setCustomerStatusIcon(state: Customer.State, imageView: ImageView,
+                              context: Context?) {
+        when (state) {
+            Customer.State.ACTIVE -> {
+                imageView.setImageDrawable(ContextCompat.getDrawable(context!!,
+                        R.drawable.ic_check_circle_black_24dp))
+                imageView.setColorFilter(
+                        ContextCompat.getColor(context, R.color.status))
+            }
+            Customer.State.CLOSED -> {
+                imageView.setImageDrawable(ContextCompat.getDrawable(context!!,
+                        R.drawable.ic_close_black_24dp))
+                imageView.setColorFilter(
+                        ContextCompat.getColor(context, R.color.red_dark))
+            }
+            Customer.State.LOCKED -> {
+                imageView.setImageDrawable(ContextCompat.getDrawable(context!!,
+                        R.drawable.ic_lock_black_24dp))
+                imageView.setColorFilter(
+                        ContextCompat.getColor(context, R.color.red_dark))
+            }
+            Customer.State.PENDING -> {
+                imageView.setImageDrawable(ContextCompat.getDrawable(context!!,
+                        R.drawable.ic_hourglass_empty_black_24dp))
+                imageView.setColorFilter(
+                        ContextCompat.getColor(context, R.color.blue))
+            }
+        }
+    }
 
 
     fun setLoanAccountStatus(state: LoanAccount.State, imageView: AppCompatImageView,
@@ -176,6 +221,42 @@ object StatusUtils {
 
         return arrayList
 
+    }
+
+    fun setCustomerActivitiesStatusIcon(action: Command.Action, imageView: ImageView,
+                                        context: Context) {
+        when (action) {
+            Command.Action.ACTIVATE -> {
+                imageView.setImageDrawable(ContextCompat.getDrawable(context,
+                        R.drawable.ic_check_circle_black_24dp))
+                imageView.setColorFilter(
+                        ContextCompat.getColor(context, R.color.status))
+            }
+            Command.Action.CLOSE -> {
+                imageView.setImageDrawable(ContextCompat.getDrawable(context,
+                        R.drawable.ic_close_black_24dp))
+                imageView.setColorFilter(
+                        ContextCompat.getColor(context, R.color.red_dark))
+            }
+            Command.Action.LOCK -> {
+                imageView.setImageDrawable(ContextCompat.getDrawable(context,
+                        R.drawable.ic_lock_black_24dp))
+                imageView.setColorFilter(
+                        ContextCompat.getColor(context, R.color.red_dark))
+            }
+            Command.Action.UNLOCK -> {
+                imageView.setImageDrawable(ContextCompat.getDrawable(context,
+                        R.drawable.ic_lock_open_black_24dp))
+                imageView.setColorFilter(
+                        ContextCompat.getColor(context, R.color.status))
+            }
+            Command.Action.REOPEN -> {
+                imageView.setImageDrawable(ContextCompat.getDrawable(context,
+                        R.drawable.ic_lock_open_black_24dp))
+                imageView.setColorFilter(
+                        ContextCompat.getColor(context, R.color.status))
+            }
+        }
     }
 
 }

@@ -26,6 +26,10 @@
         <activity android:name=".ui.mifos.login.LoginActivity" />
         <activity android:name=".ui.mifos.passcode.PasscodeActivity"/>
         <activity android:name=".ui.mifos.loanApplication.loanActivity.LoanApplicationActivity"/>
+        <activity android:name=".ui.mifos.customerDetails.CustomerDetailsActivity"/>
+        <activity android:name=".ui.mifos.customerActivities.CustomerActivitiesActivity"/>
+        <activity android:name=".ui.mifos.identificationlist.IdentificationsActivity"/>
+        <activity android:name=".ui.mifos.viewScanCard.ViewScanCardActivity"/>
     </application>
 
 </manifest>

@@ -59,4 +59,14 @@
         <item name="android:windowBackground">@drawable/launcher_background</item>
     </style>
 
+    <style name="circleLayout">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/circular_bg</item>
+        <item name="android:clickable">true</item>
+        <item name="android:padding">@dimen/layout_padding_7dp</item>
+    </style>
+
+
 </resources>

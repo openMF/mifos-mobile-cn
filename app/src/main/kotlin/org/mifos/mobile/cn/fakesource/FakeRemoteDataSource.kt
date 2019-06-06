@@ -1,6 +1,10 @@
 package org.mifos.mobile.cn.fakesource
 
 import com.google.gson.reflect.TypeToken
+import org.mifos.mobile.cn.data.models.customer.Command
+import org.mifos.mobile.cn.data.models.customer.Customer
+import org.mifos.mobile.cn.data.models.customer.identification.Identification
+import org.mifos.mobile.cn.data.models.customer.identification.ScanCard
 import org.mifos.mobile.cn.data.models.accounts.deposit.DepositAccount
 import org.mifos.mobile.cn.data.models.accounts.loan.LoanAccount
 import org.mifos.mobile.cn.data.models.product.Product
@@ -34,5 +38,26 @@ class FakeRemoteDataSource {
             return testDataFactory.getListTypePojo(object :TypeToken<List<DepositAccount>>() {},
                     FakeJsonName.DEPOSIT_ACCOUNTS)
         }
+        fun getCustomerJson(): Customer {
+            return testDataFactory.getListTypePojo(object :TypeToken<Customer>() {},
+                    FakeJsonName.CUSTOMER)
+        }
+        fun getCustomerCommandJson(): List<Command>{
+            return testDataFactory.getListTypePojo(object :TypeToken<List<Command>>(){},
+                    FakeJsonName.CUSTOMER_COMMANDS)
+        }
+
+        fun getIdentificationsJson(): List<Identification> {
+            return testDataFactory.getListTypePojo(object : TypeToken<List<Identification>>() {
+
+            }, FakeJsonName.IDENTIFICATIONS)
+        }
+
+        fun getScanCards(): List<ScanCard> {
+            return testDataFactory.getListTypePojo(object : TypeToken<List<ScanCard>>() {
+
+            }, FakeJsonName.SCAN_CARDS)
+        }
+
     }
 }
