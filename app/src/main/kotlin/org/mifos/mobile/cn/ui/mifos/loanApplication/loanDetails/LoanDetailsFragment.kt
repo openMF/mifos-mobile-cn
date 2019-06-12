@@ -1,9 +1,9 @@
 package org.mifos.mobile.cn.ui.mifos.loanApplication.loanDetails
 
 import android.os.Bundle
-import android.support.design.widget.TextInputLayout
-import android.support.v4.widget.NestedScrollView
-import android.support.v7.widget.AppCompatSpinner
+import com.google.android.material.textfield.TextInputLayout
+import androidx.core.widget.NestedScrollView
+import androidx.appcompat.widget.AppCompatSpinner
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater

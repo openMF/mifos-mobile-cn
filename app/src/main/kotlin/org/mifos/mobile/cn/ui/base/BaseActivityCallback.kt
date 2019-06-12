@@ -1,6 +1,6 @@
 package org.mifos.mobile.cn.ui.base
 
-import android.support.v7.widget.Toolbar
+import androidx.appcompat.widget.Toolbar
 
 interface BaseActivityCallback {
 

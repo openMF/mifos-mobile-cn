@@ -1,8 +1,8 @@
 package org.mifos.mobile.cn.ui.mifos.customerActivities
 
 import android.os.Bundle
-import android.support.v4.widget.SwipeRefreshLayout
-import android.support.v7.widget.LinearLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -18,7 +18,7 @@ import org.mifos.mobile.cn.ui.utils.ConstantKeys
 import javax.annotation.Nullable
 import javax.inject.Inject
 
-class CustomerActivitiesFragment: MifosBaseFragment(),CustomerAcitivitesContracts.View,SwipeRefreshLayout.OnRefreshListener {
+class CustomerActivitiesFragment: MifosBaseFragment(),CustomerAcitivitesContracts.View, SwipeRefreshLayout.OnRefreshListener {
 
     lateinit var rootView: View
     lateinit var customerIdentifier: String

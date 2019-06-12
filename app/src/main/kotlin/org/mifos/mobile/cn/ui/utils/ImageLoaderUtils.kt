@@ -3,7 +3,7 @@ package org.mifos.mobile.cn.ui.utils
 import android.content.Context
 import android.graphics.Bitmap
 import android.service.carrier.CarrierIdentifier
-import android.support.constraint.Placeholder
+import androidx.constraintlayout.widget.Placeholder
 import android.view.View
 import android.widget.ImageView
 import com.bumptech.glide.Glide

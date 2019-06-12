@@ -2,7 +2,7 @@ package org.mifos.mobile.cn.ui.mifos.identificationdetails
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.*
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_identification_details.*

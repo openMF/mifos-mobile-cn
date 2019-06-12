@@ -2,8 +2,8 @@ package org.mifos.mobile.cn.ui.utils
 
 import android.content.Context
 import android.content.DialogInterface
-import android.support.annotation.StringRes
-import android.support.v7.app.AlertDialog
+import androidx.annotation.StringRes
+import androidx.appcompat.app.AlertDialog
 import android.view.View
 import org.mifos.mobile.cn.R
 

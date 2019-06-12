@@ -5,14 +5,14 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
     defaultConfig {
         applicationId "org.mifos.mobile.cn"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
@@ -81,13 +81,13 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlinVersion"
 
     // Support Dependencies
-    implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
-    implementation "com.android.support:design:$rootProject.supportLibraryVersion"
-    implementation "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
-    implementation "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"
-    implementation "com.android.support.test.espresso:espresso-idling-resource:$rootProject.espressoVersion"
-    implementation "com.android.support:support-annotations:$rootProject.supportLibraryVersion"
-    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    implementation "androidx.appcompat:appcompat:$rootProject.supportLibraryVersion"
+    implementation "com.google.android.material:material:$rootProject.supportLibraryVersion"
+    implementation "androidx.recyclerview:recyclerview:$rootProject.supportLibraryVersion"
+    implementation "androidx.cardview:cardview:$rootProject.supportLibraryVersion"
+    implementation "androidx.test.espresso:espresso-idling-resource:$rootProject.espressoVersion"
+    implementation "androidx.annotation:annotation:$rootProject.supportLibraryVersion"
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation "com.mifos.mobile:mifos-passcode:$rootProject.passcodeLibraryVersion"
     // Rx Dependencies
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjavaVersion"
@@ -120,8 +120,8 @@ dependencies {
     implementation "com.stepstone.stepper:material-stepper:$rootProject.stepperVersion"
 
     // Glide for Image Loading
-    implementation 'com.github.bumptech.glide:glide:4.7.1'
-    kapt 'com.github.bumptech.glide:compiler:4.7.1'
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    kapt 'com.github.bumptech.glide:compiler:4.8.0'
 
     //dbFlow for database
     kapt "com.github.Raizlabs.DBFlow:dbflow-processor:$rootProject.dbFlowVersion"
@@ -135,22 +135,22 @@ dependencies {
     androidTestImplementation jUnit
     androidTestImplementation mockito
     androidTestImplementation "org.mockito:mockito-android:$rootProject.mockitoVersion"
-    androidTestImplementation "com.android.support:support-annotations:$rootProject.supportLibraryVersion"
-    androidTestImplementation("com.android.support.test.espresso:espresso-contrib:$rootProject.espressoVersion") {
+    androidTestImplementation "androidx.annotation:annotation:$rootProject.supportLibraryVersion"
+    androidTestImplementation("androidx.test.espresso:espresso-contrib:$rootProject.espressoVersion") {
         exclude group: 'com.android.support', module: 'appcompat'
         exclude group: 'com.android.support', module: 'support-v4'
         exclude group: 'com.android.support', module: 'recyclerview-v7'
         exclude group: 'com.android.support', module: 'design'
         exclude group: 'com.android.support', module: 'support-annotations'
     }
-    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
-    androidTestImplementation "com.android.support.test:runner:$rootProject.runnerVersion"
-    androidTestImplementation "com.android.support.test:rules:$rootProject.rulesVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espressoVersion"
+    androidTestImplementation "androidx.test:runner:$rootProject.runnerVersion"
+    androidTestImplementation "androidx.test:rules:$rootProject.rulesVersion"
 
     // Unit tests dependencies
     testImplementation jUnit
     testImplementation mockito
-    testImplementation "com.android.support:support-annotations:$rootProject.supportLibraryVersion"
+    testImplementation "androidx.annotation:annotation:$rootProject.supportLibraryVersion"
     testImplementation "org.hamcrest:hamcrest-core:$rootProject.hamcrestVersion"
     testImplementation "org.hamcrest:hamcrest-library:$rootProject.hamcrestVersion"
     testImplementation "org.hamcrest:hamcrest-integration:$rootProject.hamcrestVersion"
