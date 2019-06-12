@@ -1,7 +1,7 @@
 package org.mifos.mobile.cn.ui.adapter
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -66,7 +66,7 @@ constructor(@ApplicationContext var context: Context) : RecyclerView.Adapter<Loa
     }
 
 
-    inner class ViewHolder(view: View?) : RecyclerView.ViewHolder(view) {
+    inner class ViewHolder(view: View?) : RecyclerView.ViewHolder(view!!) {
 
         val tvLoanIdentifier = view?.tv_loan_identifier
 

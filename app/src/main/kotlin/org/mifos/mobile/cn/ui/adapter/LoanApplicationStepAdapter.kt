@@ -1,6 +1,6 @@
 package org.mifos.mobile.cn.ui.adapter
 
-import android.support.v4.app.FragmentManager
+import androidx.fragment.app.FragmentManager
 import android.content.Context
 import com.stepstone.stepper.Step
 import com.stepstone.stepper.adapter.AbstractFragmentStepAdapter

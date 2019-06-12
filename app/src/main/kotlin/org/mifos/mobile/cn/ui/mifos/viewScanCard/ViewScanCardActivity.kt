@@ -1,8 +1,8 @@
 package org.mifos.mobile.cn.ui.mifos.viewScanCard
 
 import android.os.Bundle
-import android.support.v4.view.PagerAdapter
-import android.support.v4.view.ViewPager
+import androidx.viewpager.widget.PagerAdapter
+import androidx.viewpager.widget.ViewPager
 import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.activity_view_scan_card.*
 import org.mifos.mobile.cn.data.models.customer.identification.ScanCard
@@ -13,7 +13,7 @@ import org.mifos.mobile.cn.ui.utils.ConstantKeys
 import org.mifos.mobile.cn.ui.utils.Utils
 
 
-class ViewScanCardActivity: MifosBaseActivity(),ViewPager.OnPageChangeListener, ViewPager.OnAdapterChangeListener {
+class ViewScanCardActivity: MifosBaseActivity(), ViewPager.OnPageChangeListener, ViewPager.OnAdapterChangeListener {
 
 
 

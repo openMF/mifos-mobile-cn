@@ -1,8 +1,8 @@
 package org.mifos.mobile.cn.ui.utils
 
 import android.content.Context
-import android.support.v4.content.ContextCompat
-import android.support.v7.widget.AppCompatImageView
+import androidx.core.content.ContextCompat
+import androidx.appcompat.widget.AppCompatImageView
 import android.widget.ImageView
 import org.mifos.mobile.cn.data.models.customer.Command
 import org.mifos.mobile.cn.data.models.customer.Customer

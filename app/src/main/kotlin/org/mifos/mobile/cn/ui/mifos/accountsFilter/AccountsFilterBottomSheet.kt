@@ -3,10 +3,10 @@ package org.mifos.mobile.cn.ui.mifos.accountsFilter
 import android.app.Dialog
 import android.content.DialogInterface
 import android.os.Bundle
-import android.support.design.widget.BottomSheetBehavior
-import android.support.design.widget.BottomSheetDialog
-import android.support.design.widget.BottomSheetDialogFragment
-import android.support.v7.widget.LinearLayoutManager
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.View
 import kotlinx.android.synthetic.main.bottom_sheet_filter_accounts.view.*
 import org.mifos.mobile.cn.R

@@ -3,8 +3,8 @@ package org.mifos.mobile.cn.ui.mifos.customerAccounts
 import android.app.SearchManager
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.view.ViewPager
-import android.support.v7.widget.SearchView
+import androidx.viewpager.widget.ViewPager
+import androidx.appcompat.widget.SearchView
 import android.view.*
 import android.widget.Toast
 import kotlinx.android.synthetic.main.fragment_client_accounts.*

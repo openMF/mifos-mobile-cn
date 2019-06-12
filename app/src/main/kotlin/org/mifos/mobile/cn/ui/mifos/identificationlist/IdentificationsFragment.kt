@@ -3,9 +3,9 @@ package org.mifos.mobile.cn.ui.mifos.identificationlist
 import android.app.SearchManager
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.widget.SwipeRefreshLayout
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.SearchView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.appcompat.widget.SearchView
 import android.text.TextUtils
 import android.view.*
 import kotlinx.android.synthetic.main.fragment_identification_list.*
@@ -23,7 +23,7 @@ import javax.annotation.Nonnull
 import javax.annotation.Nullable
 import javax.inject.Inject
 
-class IdentificationsFragment : MifosBaseFragment(),IdentificationsContract.Views,OnItemClickListener,SwipeRefreshLayout.OnRefreshListener{
+class IdentificationsFragment : MifosBaseFragment(),IdentificationsContract.Views,OnItemClickListener, SwipeRefreshLayout.OnRefreshListener{
 
     lateinit var rootView: View
     lateinit var identifications: List<Identification>

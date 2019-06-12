@@ -1,7 +1,7 @@
 package org.mifos.mobile.cn.ui.utils
 
 import android.graphics.Color
-import android.support.design.widget.Snackbar
+import com.google.android.material.snackbar.Snackbar
 import android.util.Log
 import android.view.View
 import android.widget.TextView
@@ -21,7 +21,7 @@ object Toaster {
     fun show(view: View, text: String, duration: Int = Snackbar.LENGTH_LONG) {
         val snackbar = Snackbar.make(view, text, duration)
         val sbView = snackbar.view
-        val textView = sbView.findViewById<View>(android.support.design.R.id
+        val textView = sbView.findViewById<View>(com.google.android.material.R.id
                 .snackbar_text) as TextView
         textView.setTextColor(Color.WHITE)
         textView.textSize = 12f
@@ -33,7 +33,7 @@ object Toaster {
     fun showProgressMessage(view: View, text: String, duration: Int) {
         val snackbar = Snackbar.make(view, text, duration)
         val sbView = snackbar.view
-        val textView = sbView.findViewById<View>(android.support.design.R.id
+        val textView = sbView.findViewById<View>(com.google.android.material.R.id
                 .snackbar_text) as TextView
         textView.setTextColor(Color.WHITE)
         textView.textSize = 12f
