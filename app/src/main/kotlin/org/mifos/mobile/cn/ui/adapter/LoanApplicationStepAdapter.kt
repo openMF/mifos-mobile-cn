@@ -9,6 +9,7 @@ import org.mifos.mobile.cn.R
 import org.mifos.mobile.cn.ui.mifos.loanApplication.LoanDebtIncome.LoanDebtIncomeFragment
 import org.mifos.mobile.cn.ui.mifos.loanApplication.loanDetails.LoanDetailsFragment
 import org.mifos.mobile.cn.ui.mifos.loanApplication.loancosigner.LoanCosignerFragment
+import org.mifos.mobile.cn.ui.review.AddLoanReviewFragment
 
 
 class LoanApplicationStepAdapter(fragmentManager: FragmentManager, context: Context)
@@ -37,6 +38,9 @@ class LoanApplicationStepAdapter(fragmentManager: FragmentManager, context: Cont
             }
             2 -> {
                 return LoanCosignerFragment.newInstance()
+            }
+            3 -> {
+                return AddLoanReviewFragment.Companion.newInstance()
             }
 
         }

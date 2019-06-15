@@ -1,11 +1,14 @@
 package org.mifos.mobile.cn.ui.mifos.loanApplication.loanDetails
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import com.google.android.material.textfield.TextInputLayout
 import androidx.core.widget.NestedScrollView
 import androidx.appcompat.widget.AppCompatSpinner
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +23,7 @@ import org.mifos.mobile.cn.data.models.accounts.loan.TermRange
 import org.mifos.mobile.cn.data.models.product.Product
 import org.mifos.mobile.cn.ui.base.MifosBaseActivity
 import org.mifos.mobile.cn.ui.base.MifosBaseFragment
+import org.mifos.mobile.cn.ui.mifos.loanApplication.OnNavigationBarListener
 
 import org.mifos.mobile.cn.ui.utils.RxBus
 import org.mifos.mobile.cn.ui.utils.*
@@ -78,6 +82,8 @@ class LoanDetailsFragment : MifosBaseFragment(), Step, AdapterView.OnItemSelecte
 
     @Inject
     lateinit var loanDetailsPresenter: LoanDetailsPresenter
+
+    private var onNavigationBarListner: OnNavigationBarListener.LoanDetailsData? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         rootView = inflater.inflate(R.layout.fragment_loan_details, container, false)
@@ -291,10 +297,18 @@ class LoanDetailsFragment : MifosBaseFragment(), Step, AdapterView.OnItemSelecte
                     etPrincipalAmount.text.toString().trim { it <= ' ' }.toDouble(), PaymentCycle(),
                     TermRange("tempUnit", etTerm.text.toString().trim { it <= ' ' }.toDouble())
             ))
+
+            onNavigationBarListner?.setLoanDetails(LoanAccount.State.CREATED,
+                    etShortName.text.toString().trim { it <= ' ' }, "identifer",
+                    etPrincipalAmount.text.toString().trim { it <= ' ' }.toDouble(), PaymentCycle(),
+                    TermRange(product.termRange?.temporalUnit,etTerm.text.toString().trim{it <= ' '}.toDouble()),
+                    spProducts.selectedItem.toString()
+            )
             return null
         }
 
     }
+
 
     override fun onSelected() {
 
@@ -444,5 +458,11 @@ class LoanDetailsFragment : MifosBaseFragment(), Step, AdapterView.OnItemSelecte
         } else if (etShortName.text.hashCode() == s?.hashCode()) {
             validateShortName()
         }
+    }
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+      if(context is OnNavigationBarListener.LoanDetailsData){onNavigationBarListner = context}
+        else throw  RuntimeException("$context must implement OnNavigationBarListener.LoanDetails")
     }
 }

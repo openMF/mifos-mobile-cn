@@ -2,8 +2,6 @@ package org.mifos.mobile.cn.injection.component
 
 
 import dagger.Subcomponent
-import org.mifos.mobile.cn.data.datamanager.DataManagerCustomer
-import org.mifos.mobile.cn.data.local.DatabaseHelperCustomer
 import org.mifos.mobile.cn.injection.PerActivity
 import org.mifos.mobile.cn.injection.module.ActivityModule
 import org.mifos.mobile.cn.ui.mifos.DashboardActivity
@@ -21,6 +19,7 @@ import org.mifos.mobile.cn.ui.mifos.loanApplication.loanDetails.LoanDetailsFragm
 import org.mifos.mobile.cn.ui.mifos.login.LoginActivity
 import org.mifos.mobile.cn.ui.mifos.passcode.PasscodeActivity
 import org.mifos.mobile.cn.ui.mifos.products.ProductFragment
+import org.mifos.mobile.cn.ui.review.AddLoanReviewFragment
 
 
 /**
@@ -30,14 +29,13 @@ import org.mifos.mobile.cn.ui.mifos.products.ProductFragment
 @Subcomponent(modules = arrayOf(ActivityModule::class))
 interface ActivityComponent {
 
-    fun inject (loginActivity: LoginActivity)
+    fun inject(loginActivity: LoginActivity)
 
-    fun inject (passcodeActivity: PasscodeActivity)
+    fun inject(passcodeActivity: PasscodeActivity)
 
-    fun inject (launcherActivity: LauncherActivity)
+    fun inject(launcherActivity: LauncherActivity)
 
-    fun inject (dashboardActivity: DashboardActivity)
-
+    fun inject(dashboardActivity: DashboardActivity)
 
     fun inject(loanApplicationActivity: LoanApplicationActivity)
 
@@ -60,5 +58,7 @@ interface ActivityComponent {
     fun inject(identificationDetailsFragment: IdentificationDetailsFragment)
 
     fun inject(productFragment: ProductFragment)
+
+    fun inject(addLoanReviewFragment: AddLoanReviewFragment)
 
 }
