@@ -1,5 +1,9 @@
 package org.mifos.mobile.cn.ui.utils
 
+import android.content.Context
+import android.graphics.PorterDuff
+import android.view.Menu
+import androidx.core.content.ContextCompat
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.util.*
@@ -17,6 +21,17 @@ class Utils {
 
         fun <T> getStringToPoJo(listModel: TypeToken<T>, jsonName: String): T {
             return Gson().fromJson(jsonName, listModel.type)
+        }
+
+        fun setToolbarIconColor(context: Context, menu: Menu, color: Int) {
+            for (i in 0 until menu.size()) {
+                val drawable = menu.getItem(i).icon
+                if (drawable != null) {
+                    drawable.mutate()
+                    drawable.setColorFilter(
+                            ContextCompat.getColor(context, color), PorterDuff.Mode.SRC_IN)
+                }
+            }
         }
     }
 }

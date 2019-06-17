@@ -19,6 +19,7 @@ import org.mifos.mobile.cn.ui.base.MifosBaseActivity
 import org.mifos.mobile.cn.ui.base.MifosBaseFragment
 import org.mifos.mobile.cn.ui.mifos.customerAccounts.CustomerAccountFragment
 import org.mifos.mobile.cn.ui.mifos.customerActivities.CustomerActivitiesActivity
+import org.mifos.mobile.cn.ui.mifos.customerProfile.CustomerProfileActivity
 import org.mifos.mobile.cn.ui.mifos.identificationlist.IdentificationsActivity
 import org.mifos.mobile.cn.ui.utils.ConstantKeys
 import org.mifos.mobile.cn.ui.utils.ImageLoaderUtils
@@ -101,7 +102,16 @@ class CustomerDetailsFragment : MifosBaseFragment(), AppBarLayout.OnOffsetChange
             R.id.ll_identification_cards -> {
                 openIdentificationCards()
             }
+            R.id.iv_customer_profile -> {
+                openCustomerProfile()
+            }
         }
+    }
+
+    private fun openCustomerProfile() {
+        val intent = Intent(activity, CustomerProfileActivity::class.java)
+        intent.putExtra(ConstantKeys.CUSTOMER_IDENTIFIER, customerIdentification)
+        startActivity(intent)
     }
 
 
