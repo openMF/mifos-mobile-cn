@@ -14,6 +14,7 @@ import org.mifos.mobile.cn.ui.base.MifosBaseFragment
 import org.mifos.mobile.cn.ui.mifos.customerAccounts.CustomerAccountFragment
 import org.mifos.mobile.cn.ui.mifos.customerDetails.CustomerDetailsActivity
 import org.mifos.mobile.cn.ui.mifos.loanApplication.loanActivity.LoanApplicationActivity
+import org.mifos.mobile.cn.ui.mifos.recentTransactions.RecentTransactionsFragment
 import org.mifos.mobile.cn.ui.utils.ConstantKeys
 
 
@@ -45,6 +46,7 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener {
         ll_apply_for_loan.setOnClickListener(this)
         ll_accounts.setOnClickListener(this)
         ll_account_overview.setOnClickListener(this)
+        ll_recent_transactions.setOnClickListener(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -63,6 +65,9 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener {
             }
             R.id.ll_account_overview -> {
                 showCustomerDetails()
+            }
+            R.id.ll_recent_transactions -> {
+                showRecentTransactions()
             }
         }
     }
@@ -84,5 +89,10 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener {
        startActivity(intent)
 
 
+    }
+    private fun showRecentTransactions(){
+        (activity as MifosBaseActivity)
+                .replaceFragment(RecentTransactionsFragment.Companion.newInstance(),
+                        true,R.id.container)
     }
 }

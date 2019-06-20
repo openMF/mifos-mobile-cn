@@ -74,6 +74,7 @@ class TestDataFactory {
     }
 
 
+
     /**
      * Note : This Generic Method DeSerialize Only Json Object in POJO
      *
@@ -98,6 +99,4 @@ class TestDataFactory {
         result.value = Gson().fromJson(reader,model)
         return result
     }
-
-
 }

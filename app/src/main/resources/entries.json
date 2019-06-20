@@ -1,0 +1,20 @@
+ [ {
+    "type" : "CREDIT",
+    "transactionDate" : "2018-06-13T09:37:11.508Z",
+    "message" : "Message 0",
+    "amount" : 5.0,
+    "balance" : -5.0
+  }, {
+    "type" : "CREDIT",
+    "transactionDate" : "2018-06-13T09:37:11.508Z",
+    "message" : "Message 1",
+    "amount" : 5.0,
+    "balance" : -10.0
+  }, {
+    "type" : "CREDIT",
+    "transactionDate" : "2018-06-13T09:37:11.509Z",
+    "message" : "Message 2",
+    "amount" : 5.0,
+    "balance" : -15.0
+  }
+    ]

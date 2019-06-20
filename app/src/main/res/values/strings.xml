@@ -265,7 +265,7 @@
     <string name="dialog_message_write_permission_for_share_denied_prompt">Without write permission you will         not be able to share the image. Are you sure you want to deny this</string>
     <string name="dialog_message_write_permission_for_share_never_ask_again">You have denied permission to         write in external storage, without this permission you will not be able to share image.</string>
     <string name="permission_denied_write">Permission Denied to use external storage</string>
-
+    <string name="transactions_search">Transactions search</string>
 
 
 </resources>

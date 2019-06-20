@@ -25,6 +25,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import org.mifos.mobile.cn.enums.AccountType
 import org.mifos.mobile.cn.ui.mifos.customerAccounts.CustomerAccountFragment
 import org.mifos.mobile.cn.ui.mifos.products.ProductFragment
+import org.mifos.mobile.cn.ui.mifos.recentTransactions.RecentTransactionsFragment
 import org.mifos.mobile.cn.ui.utils.CircularImageView
 import org.mifos.mobile.cn.ui.utils.Toaster
 
@@ -164,10 +165,15 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
             R.id.item_logout -> {
                 showLogoutDialog()
             }
+
             R.id.item_product -> {
                 replaceFragment(ProductFragment.Companion.newInstance(), true,
                         R.id.container)
             }
+
+                R.id.item_recent_transactions -> {
+                    replaceFragment(RecentTransactionsFragment.Companion.newInstance(),true,R.id.container)
+                }
         }
 
         // close the drawer
