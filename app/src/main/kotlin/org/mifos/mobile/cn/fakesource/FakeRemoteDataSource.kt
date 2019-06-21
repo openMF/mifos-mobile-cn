@@ -1,5 +1,6 @@
 package org.mifos.mobile.cn.fakesource
 
+import androidx.lifecycle.LiveData
 import com.google.gson.reflect.TypeToken
 import org.mifos.mobile.cn.data.models.customer.Command
 import org.mifos.mobile.cn.data.models.customer.Customer
@@ -8,6 +9,8 @@ import org.mifos.mobile.cn.data.models.customer.identification.ScanCard
 import org.mifos.mobile.cn.data.models.accounts.deposit.DepositAccount
 import org.mifos.mobile.cn.data.models.accounts.loan.LoanAccount
 import org.mifos.mobile.cn.data.models.product.Product
+import org.mifos.mobile.cn.data.models.product.ProductPage
+import java.lang.reflect.Type
 
 /**
  * FakeRemoteDataSource is reading the local json files into the java object using gson.
@@ -34,16 +37,18 @@ class FakeRemoteDataSource {
                     FakeJsonName.LOAN_ACCOUNTS)
         }
 
-        fun getDepositAccountsJson():List<DepositAccount> {
-            return testDataFactory.getListTypePojo(object :TypeToken<List<DepositAccount>>() {},
+        fun getDepositAccountsJson(): List<DepositAccount> {
+            return testDataFactory.getListTypePojo(object : TypeToken<List<DepositAccount>>() {},
                     FakeJsonName.DEPOSIT_ACCOUNTS)
         }
+
         fun getCustomerJson(): Customer {
-            return testDataFactory.getListTypePojo(object :TypeToken<Customer>() {},
+            return testDataFactory.getListTypePojo(object : TypeToken<Customer>() {},
                     FakeJsonName.CUSTOMER)
         }
-        fun getCustomerCommandJson(): List<Command>{
-            return testDataFactory.getListTypePojo(object :TypeToken<List<Command>>(){},
+
+        fun getCustomerCommandJson(): List<Command> {
+            return testDataFactory.getListTypePojo(object : TypeToken<List<Command>>() {},
                     FakeJsonName.CUSTOMER_COMMANDS)
         }
 
@@ -59,5 +64,9 @@ class FakeRemoteDataSource {
             }, FakeJsonName.SCAN_CARDS)
         }
 
+        fun getProductPage(): LiveData<ProductPage> {
+            return testDataFactory.getObjectTypePojo(ProductPage::class.java,
+                    FakeJsonName.PRODUCT_PAGE)
+        }
     }
 }

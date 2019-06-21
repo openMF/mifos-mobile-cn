@@ -14,4 +14,5 @@ object FakeJsonName {
     var CUSTOMER_COMMANDS = "command.json"
     val IDENTIFICATIONS = "identification.json"
     val SCAN_CARDS = "scanCard.json"
+    val PRODUCT_PAGE = "productPage.json";
 }

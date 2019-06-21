@@ -260,6 +260,7 @@
     <string name="expiration_date">Expiration date</string>
     <string name="type">Type</string>
     <string name="number">Number</string>
+    <string name="search_product">Search product</string>
 
 
 </resources>
