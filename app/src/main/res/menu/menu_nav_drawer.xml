@@ -21,6 +21,7 @@
             android:icon="@drawable/ic_label_black_24dp"
             android:title="@string/recent_transactions"/>
 
+
         <item
             android:id="@+id/item_charges"
             android:checked="false"
@@ -36,6 +37,11 @@
             android:checked="false"
             android:icon="@drawable/ic_beneficiaries_48px"
             android:title="@string/manage_beneficiaries"/>
+        <item
+            android:id="@+id/item_product"
+            android:checked="false"
+            android:icon="@drawable/ic_products_black_24dp"
+            android:title="@string/products" />
 
     </group>
 

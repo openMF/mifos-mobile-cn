@@ -1,5 +1,7 @@
 package org.mifos.mobile.cn.fakesource
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.google.gson.stream.JsonReader
@@ -70,4 +72,32 @@ class TestDataFactory {
         return Gson().fromJson(reader, listModel.type)
 
     }
+
+
+    /**
+     * Note : This Generic Method DeSerialize Only Json Object in POJO
+     *
+     *
+     * Note : Do Not use Array [] in POJO classes for of any element initialization,
+     * Use Instead ArrayList.
+     *
+     * @param model    Class of the Model of the Pojo
+     * @param jsonName Name of Json file in test/resource
+     * @param <T>      Return type
+     * @return Return the Object Type model by Deserialize the Json of resources
+     * @Example Of Deserialize Object Type Json
+     *
+     *
+     * Object object = mTestDataFactory.getListTypePojo(
+     * new TypeToken<Object>(){}, "Object.json")
+    </Object></T> */
+    fun <T> getObjectTypePojo(model: Class<T>, jsonName: String): LiveData<T> {
+        val `in` = javaClass.classLoader.getResourceAsStream(jsonName)
+        val reader = JsonReader(InputStreamReader(`in`))
+        val result = MutableLiveData<T>()
+        result.value = Gson().fromJson(reader,model)
+        return result
+    }
+
+
 }
