@@ -11,7 +11,7 @@ import org.mifos.mobile.cn.R
 
 
 class ViewBehavior : CoordinatorLayout.Behavior<HeaderView>{
-   private lateinit   var context : Context
+    private var context : Context
     private var startMarginLeft: Int = 0
     private var endMarginLeft: Int =0
     private var marginRight: Int = 0
@@ -29,7 +29,7 @@ class ViewBehavior : CoordinatorLayout.Behavior<HeaderView>{
     }
 
     override fun onDependentViewChanged(parent: CoordinatorLayout, child: HeaderView, dependency: View): Boolean {
-        shouldInitProperties(child!!, dependency!!)
+        shouldInitProperties(child, dependency)
         val maxScroll:Int = (dependency as AppBarLayout).totalScrollRange
         val percentage:Float = Math.abs(dependency.getY()) / maxScroll.toFloat()
 
@@ -37,7 +37,7 @@ class ViewBehavior : CoordinatorLayout.Behavior<HeaderView>{
                 - child.height
                 - (getToolbarHeight() - child.height) * percentage / 2)
 
-        childPosition = childPosition - startMarginBottom * (1f - percentage)
+        childPosition -= startMarginBottom * (1f - percentage)
 
         val lp = child.layoutParams as CoordinatorLayout.LayoutParams
         lp.leftMargin = (percentage * endMarginLeft).toInt() + startMarginLeft

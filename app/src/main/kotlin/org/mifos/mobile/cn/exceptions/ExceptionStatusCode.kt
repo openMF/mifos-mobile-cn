@@ -1,4 +1,4 @@
-package xyz.idtlabs.icommit.fieldui.exceptions
+package org.mifos.mobile.cn.exceptions
 
 import retrofit2.HttpException
 

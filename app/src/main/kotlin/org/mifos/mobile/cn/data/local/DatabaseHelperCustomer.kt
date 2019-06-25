@@ -18,7 +18,7 @@ class DatabaseHelperCustomer @Inject constructor(){
             if (customer == null)
                 customer = Customer()
             //else it will throw exception and will not go in the flatMap
-            io.reactivex.Observable.just(customer!!)
+            io.reactivex.Observable.just(customer)
         }
 
     }

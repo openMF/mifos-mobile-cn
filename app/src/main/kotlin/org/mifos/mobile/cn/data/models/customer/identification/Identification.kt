@@ -4,7 +4,6 @@ import android.os.Parcelable
 
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
-import org.mifos.mobile.cn.data.models.customer.identification.ExpirationDate
 
 
 @Parcelize

@@ -140,7 +140,7 @@ abstract class BaseFragmentDebtIncome : MifosBaseFragment(),
         debtAdapter.setCreditWorthinessFactors(debtCreditWorthinessFactors)
         rvDebt.adapter = debtAdapter
 
-        val layoutManagerIncome = LinearLayoutManager(getActivity())
+        val layoutManagerIncome = LinearLayoutManager(activity)
         layoutManagerIncome.orientation = LinearLayoutManager.VERTICAL
         rvIncome.layoutManager = layoutManagerIncome
         rvIncome.setHasFixedSize(true)

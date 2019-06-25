@@ -30,7 +30,7 @@ class IdentificationsAdapter @Inject constructor(@ApplicationContext private  va
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val identification: Identification = Companion.identifications[position]
+        val identification: Identification = identifications[position]
         holder.tvIdentificationType.text = identification.type
         holder.tvIdentificationIssue.text = context.getString(R.string.identification_issuer,
                 identification.issuer)

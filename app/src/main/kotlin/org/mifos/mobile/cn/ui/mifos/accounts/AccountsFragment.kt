@@ -41,7 +41,7 @@ class AccountsFragment : MifosBaseFragment(), AccountsContract.View {
 
     private lateinit var errorHandler: SweetUIErrorHandler
 
-    val LOG_TAG = AccountsFragment::class.java.simpleName
+
 
     @Inject
     internal lateinit var accountsPresenter: AccountsPresenter

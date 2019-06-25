@@ -7,7 +7,6 @@ import com.raizlabs.android.dbflow.annotation.*
 import com.raizlabs.android.dbflow.sql.language.SQLite.select
 import com.raizlabs.android.dbflow.structure.BaseModel
 import kotlinx.android.parcel.Parcelize
-import org.mifos.mobile.cn.data.models.customer.ContactDetail_Table
 import org.mifos.mobile.cn.local.MifosCnDatabase
 
 @Parcelize
@@ -36,9 +35,8 @@ data class Customer(
         @Column var lastModifiedOn: String? = null
 ) : BaseModel(), Parcelable {
 
-    var isUpdate: Boolean? = null
 
-    @OneToMany(methods = arrayOf(OneToMany.Method.ALL), variableName = "contactDetails")
+    @OneToMany(methods = [OneToMany.Method.ALL], variableName = "contactDetails")
     fun getContactDetail() : List<ContactDetail>? {
         contactDetails = select()
                 .from(ContactDetail::class.java)

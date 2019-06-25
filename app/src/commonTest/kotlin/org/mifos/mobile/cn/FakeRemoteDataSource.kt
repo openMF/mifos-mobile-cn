@@ -1,4 +1,4 @@
-package xyz.idtlabs.icommit.fieldui
+package org.mifos.mobile.cn
 
 import org.mifos.mobile.cn.TestDataFactory
 

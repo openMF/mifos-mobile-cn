@@ -1,13 +1,8 @@
 package org.mifos.mobile.cn.ui.utils
 
 import android.content.Context
-import android.graphics.Bitmap
-import android.service.carrier.CarrierIdentifier
-import androidx.constraintlayout.widget.Placeholder
-import android.view.View
 import android.widget.ImageView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.RequestBuilder
 import com.bumptech.glide.load.model.GlideUrl
 import com.bumptech.glide.load.model.LazyHeaders
 import com.bumptech.glide.request.RequestOptions
@@ -19,9 +14,8 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.target.BitmapImageViewTarget
 
 
-class ImageLoaderUtils  constructor(context:Context) {
+class ImageLoaderUtils  constructor(var context: Context) {
     var  preferencesHelper : PreferencesHelper = PreferencesHelper(context)
-    var context: Context = context
 
     fun buildCustomerPortraitImageUrl(customerIdentifier:String?) : String{
         return BaseUrl.defaultBaseUrl+

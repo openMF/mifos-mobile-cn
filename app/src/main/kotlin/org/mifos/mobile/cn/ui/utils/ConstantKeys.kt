@@ -23,7 +23,7 @@ object ConstantKeys {
     const val DEPOSIT_ACCOUNTS = "deposit_accounts"
     const val IDENTIFICATION_CARD = "identification_card"
 
-    const val CUSTOMER_STATUS = "customer_status";
+    const val CUSTOMER_STATUS = "customer_status"
     const val CUSTOMER = "customer"
     const val IDENTIFICATION_SCAN_CARD = "identification_scan_card"
     const val IDENTIFICATION_NUMBER = "identification_number"

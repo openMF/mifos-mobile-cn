@@ -2,8 +2,6 @@ package org.mifos.mobile.cn.injection.component
 
 
 import dagger.Subcomponent
-import org.mifos.mobile.cn.data.datamanager.DataManagerCustomer
-import org.mifos.mobile.cn.data.local.DatabaseHelperCustomer
 import org.mifos.mobile.cn.injection.PerActivity
 import org.mifos.mobile.cn.injection.module.ActivityModule
 import org.mifos.mobile.cn.ui.mifos.DashboardActivity
@@ -26,7 +24,7 @@ import org.mifos.mobile.cn.ui.mifos.passcode.PasscodeActivity
  * This component inject dependencies to all Activities across the application
  */
 @PerActivity
-@Subcomponent(modules = arrayOf(ActivityModule::class))
+@Subcomponent(modules = [ActivityModule::class])
 interface ActivityComponent {
 
     fun inject (loginActivity: LoginActivity)
