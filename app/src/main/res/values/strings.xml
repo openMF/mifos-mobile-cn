@@ -266,6 +266,11 @@
     <string name="dialog_message_write_permission_for_share_never_ask_again">You have denied permission to         write in external storage, without this permission you will not be able to share image.</string>
     <string name="permission_denied_write">Permission Denied to use external storage</string>
     <string name="transactions_search">Transactions search</string>
+    <string name="empty_customer_activities">There is no activities to show</string>
+    <string name="error_fetching_customer_activities">Error fetching customer activities</string>
+    <string name="empty_scans_to_show">There is no scans to show</string>
+    <string name="error_fetching_scans">Error while fetching scan cards</string>
+    <string name="error_fetching_identification_list">Error while fetching identification cards</string>
 
 
 </resources>

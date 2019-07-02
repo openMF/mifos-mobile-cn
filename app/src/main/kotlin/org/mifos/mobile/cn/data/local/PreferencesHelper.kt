@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import org.mifos.mobile.cn.data.models.Authentication
 import org.mifos.mobile.cn.injection.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -88,6 +89,17 @@ constructor(@ApplicationContext context: Context) {
 
     fun putUsername(username: String) {
         preferences.edit().putString(PreferenceKey.PREF_KEY_USER_NAME, username).apply()
+    }
+
+    fun getSignedInUser(): Authentication? {
+        val userJson = preferences.getString(PreferenceKey.PREF_KEY_SIGNED_IN_USER, null)
+                ?: return null
+        return gson.fromJson<Authentication>(userJson, Authentication::class.java!!)
+    }
+
+    fun putSignInUser(user: Authentication) {
+        preferences.edit().putString(PreferenceKey.PREF_KEY_SIGNED_IN_USER,
+                gson.toJson(user)).apply()
     }
 
     val username: String

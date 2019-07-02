@@ -13,4 +13,8 @@ object PreferenceKey {
     //TODO:remove this while implementing API
     const val PREF_KEY_PASSWORD = "PREF_KEY_PASSWORD"
 
+    const val PREF_KEY_REFRESH_ACCESS_TOKEN = "PREF_KEY_REFRESH_ACCESS_TOKEN"
+
+    const val PREF_KEY_SIGNED_IN_USER = "PREF_KEY_SIGNED_IN_USER"
+
 }

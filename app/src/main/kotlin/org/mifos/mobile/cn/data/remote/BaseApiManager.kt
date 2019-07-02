@@ -8,6 +8,7 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import org.mifos.mobile.cn.data.services.AuthService
+import org.mifos.mobile.cn.data.services.CustomerService
 
 class BaseApiManager constructor(context: Context) {
 
@@ -15,6 +16,8 @@ class BaseApiManager constructor(context: Context) {
     private lateinit var anonymousRetrofit: Retrofit
     private lateinit var authApi: AuthService
     private lateinit var anonymousService: AnonymousService
+    private lateinit var customerApi: CustomerService
+
 
     init {
         createService(context)
@@ -23,6 +26,7 @@ class BaseApiManager constructor(context: Context) {
 
     private fun init() {
         authApi = createApi(AuthService::class.java)
+        customerApi = createApi(CustomerService::class.java)
     }
 
     private fun initAnonymous() {
@@ -71,5 +75,9 @@ class BaseApiManager constructor(context: Context) {
 
     fun getAnonymousService(): AnonymousService {
         return anonymousService
+    }
+
+    fun getCustomerApi(): CustomerService {
+        return customerApi
     }
 }

@@ -19,10 +19,11 @@ interface IdentificationsContract {
 
         fun showMessage(message: String)
 
-        fun searchIdentificationList(identification: Identification)
+        fun searchedIdentifications(identification: List<Identification>)
+
     }
     interface Presenter{
         fun fetchIdentifications(customerIdentifier: String)
-        fun searchIdentifications(identifier: String, number: String)
+        fun searchIdentifications(identificationList: List<Identification>, query: String)
     }
 }

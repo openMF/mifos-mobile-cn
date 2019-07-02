@@ -15,4 +15,7 @@ object ExceptionStatusCode {
     fun isHttp500Error(throwable: Throwable): Boolean {
         return (throwable as HttpException).code() == 500
     }
+    fun isHttp403Error(throwable: Throwable): Boolean{
+        return (throwable as HttpException).code() == 403
+    }
 }

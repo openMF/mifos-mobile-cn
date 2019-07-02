@@ -1,6 +1,8 @@
 package org.mifos.mobile.cn.data.datamanager
 
+import io.reactivex.Observable
 import org.mifos.mobile.cn.data.local.PreferencesHelper
+import org.mifos.mobile.cn.data.models.Authentication
 import org.mifos.mobile.cn.data.remote.BaseApiManager
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -41,4 +43,7 @@ class DataManagerAuth @Inject constructor(private val baseApiManager: BaseApiMan
                     return@concatMap Observable.just(loginResponse)
                 })
     }*/
+    fun refreshToken(): Observable<Authentication> {
+        return baseApiManager.getAuthApi().refreshToken()
+    }
 }
