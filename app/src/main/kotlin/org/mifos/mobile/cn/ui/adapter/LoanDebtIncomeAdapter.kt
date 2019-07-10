@@ -17,6 +17,7 @@ class LoanDebtIncomeAdapter @Inject constructor()
     private var creditWorthinessFactors: List<CreditWorthinessFactor>
     internal lateinit var onClickEditDeleteListener: OnClickEditDeleteListener
     internal lateinit var creditWorthinessSource: CreditWorthinessSource
+    private var isReviewAdapter: Boolean = false
 
     init {
         creditWorthinessFactors = ArrayList()
@@ -42,6 +43,10 @@ class LoanDebtIncomeAdapter @Inject constructor()
 
     override fun getItemCount(): Int {
         return creditWorthinessFactors.size
+    }
+
+    fun isReview(isReviewAdapter: Boolean) {
+        this.isReviewAdapter = isReviewAdapter
     }
 
     fun setOnClickEditDeleteListener(itemClickListener: OnClickEditDeleteListener) {

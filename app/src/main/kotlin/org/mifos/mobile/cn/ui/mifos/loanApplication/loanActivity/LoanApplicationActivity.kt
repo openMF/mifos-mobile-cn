@@ -10,8 +10,10 @@ import com.stepstone.stepper.VerificationError
 import kotlinx.android.synthetic.main.activity_loan_application.*
 import org.mifos.mobile.cn.R
 import org.mifos.mobile.cn.data.models.accounts.loan.*
+import org.mifos.mobile.cn.data.models.product.Product
 import org.mifos.mobile.cn.ui.adapter.LoanApplicationStepAdapter
 import org.mifos.mobile.cn.ui.base.MifosBaseActivity
+import org.mifos.mobile.cn.ui.mifos.loanApplication.OnNavigationBarListener
 
 import org.mifos.mobile.cn.ui.utils.RxBus
 import org.mifos.mobile.cn.ui.utils.ConstantKeys
@@ -20,14 +22,17 @@ import org.mifos.mobile.cn.ui.utils.RxEvent
 import java.util.ArrayList
 import javax.inject.Inject
 
-class LoanApplicationActivity : MifosBaseActivity(), StepperLayout.StepperListener, LoanApplicationContract.View {
+class LoanApplicationActivity : MifosBaseActivity(), StepperLayout.StepperListener, LoanApplicationContract.View ,OnNavigationBarListener.LoanDetailsData,
+OnNavigationBarListener.ReviewLoan,OnNavigationBarListener.LoanDebtIncomeData,OnNavigationBarListener.LoanCoSignerData{
+
 
     var currentPosition = 0
 
-    private lateinit var loanAccount: LoanAccount
-    private lateinit var creditWorthinessSnapshots: MutableList<CreditWorthinessSnapshot>
+    override lateinit var creditWorthinessSnapshot: MutableList<CreditWorthinessSnapshot>
     private lateinit var customerIdentifier: String
     private lateinit var loanParameters: LoanParameters
+    override lateinit var selectedProduct: String
+    override lateinit var loanAccount: LoanAccount
 
     @Inject
     lateinit var loanApplicationPresenter: LoanApplicationPresenter
@@ -39,8 +44,8 @@ class LoanApplicationActivity : MifosBaseActivity(), StepperLayout.StepperListen
         loanApplicationPresenter.attachView(this)
         setContentView(R.layout.activity_loan_application)
 
-        creditWorthinessSnapshots = ArrayList()
-        loanAccount = LoanAccount()
+        creditWorthinessSnapshot = ArrayList()
+        loanAccount =  LoanAccount()
         loanParameters = LoanParameters()
         customerIdentifier = intent.extras.getString(ConstantKeys.CUSTOMER_IDENTIFIER)
 
@@ -84,7 +89,7 @@ class LoanApplicationActivity : MifosBaseActivity(), StepperLayout.StepperListen
     }
 
     override fun onCompleted(completeButton: View?) {
-        loanParameters.creditWorthinessSnapshots = creditWorthinessSnapshots
+        loanParameters.creditWorthinessSnapshots = creditWorthinessSnapshot
         loanAccount.parameters = Gson().toJson(loanParameters)
         //TODO: add presenter to make api call
         loanApplicationPresenter.createLoan(loanAccount)
@@ -109,16 +114,16 @@ class LoanApplicationActivity : MifosBaseActivity(), StepperLayout.StepperListen
         loanParameters.termRange = termRange
     }
 
-    private fun setDebtIncome(debtIncome: CreditWorthinessSnapshot) {
+    override fun setDebtIncome(debtIncome: CreditWorthinessSnapshot) {
         debtIncome.forCustomer = customerIdentifier
-        creditWorthinessSnapshots.add(debtIncome)
+        creditWorthinessSnapshot.add(debtIncome)
     }
 
-    private fun setCoSignerDebtIncome(coSignerDebtIncome: CreditWorthinessSnapshot) {
+    override fun setCoSignerDebtIncome(coSignerDebtIncome: CreditWorthinessSnapshot) {
         if (TextUtils.isEmpty(coSignerDebtIncome.forCustomer)) {
             coSignerDebtIncome.forCustomer = customerIdentifier
         }
-        creditWorthinessSnapshots.add(coSignerDebtIncome)
+        creditWorthinessSnapshot.add(coSignerDebtIncome)
     }
 
 
@@ -136,4 +141,21 @@ class LoanApplicationActivity : MifosBaseActivity(), StepperLayout.StepperListen
     override fun showError(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
+
+    override fun setLoanDetails(currentState: LoanAccount.State, identifier: String, productIdentifier: String, maximumBalance: Double?, paymentCycle: PaymentCycle, termRange: TermRange, selectedProduct: String) {
+        this.selectedProduct = selectedProduct
+        loanAccount.currentState = currentState
+        loanAccount.identifier = identifier
+        loanAccount.productIdentifier = productIdentifier
+
+        loanParameters.customerIdentifier = customerIdentifier
+        loanParameters.maximumBalance = maximumBalance
+        loanParameters.paymentCycle = paymentCycle
+        loanParameters.termRange = termRange
+        loanAccount.parameters = Gson().toJson(loanParameters)
+    }
+    override fun showProgressbar(message: String) {
+        stepperLayout.showProgress(message)
+    }
+
 }
