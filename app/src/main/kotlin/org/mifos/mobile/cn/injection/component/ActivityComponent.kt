@@ -20,6 +20,7 @@ import org.mifos.mobile.cn.ui.mifos.login.LoginActivity
 import org.mifos.mobile.cn.ui.mifos.passcode.PasscodeActivity
 import org.mifos.mobile.cn.ui.mifos.products.ProductFragment
 import org.mifos.mobile.cn.ui.review.AddLoanReviewFragment
+import org.mifos.mobile.cn.ui.mifos.recentTransactions.RecentTransactionsFragment
 
 
 /**
@@ -60,5 +61,7 @@ interface ActivityComponent {
     fun inject(productFragment: ProductFragment)
 
     fun inject(addLoanReviewFragment: AddLoanReviewFragment)
+
+    fun inject(recentTransactionsFragment: RecentTransactionsFragment)
 
 }

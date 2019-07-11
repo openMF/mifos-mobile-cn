@@ -8,6 +8,8 @@ import org.mifos.mobile.cn.data.models.customer.identification.Identification
 import org.mifos.mobile.cn.data.models.customer.identification.ScanCard
 import org.mifos.mobile.cn.data.models.accounts.deposit.DepositAccount
 import org.mifos.mobile.cn.data.models.accounts.loan.LoanAccount
+import org.mifos.mobile.cn.data.models.customer.AccountEntriesPage
+import org.mifos.mobile.cn.data.models.customer.AccountEntry
 import org.mifos.mobile.cn.data.models.product.Product
 import org.mifos.mobile.cn.data.models.product.ProductPage
 import java.lang.reflect.Type
@@ -62,6 +64,11 @@ class FakeRemoteDataSource {
             return testDataFactory.getListTypePojo(object : TypeToken<List<ScanCard>>() {
 
             }, FakeJsonName.SCAN_CARDS)
+        }
+        fun getRecentTransactions(): List<AccountEntry> {
+            return testDataFactory.getListTypePojo(object : TypeToken<List<AccountEntry>>(){
+
+            },FakeJsonName.ENTRIES)
         }
 
         fun getProductPage(): LiveData<ProductPage> {

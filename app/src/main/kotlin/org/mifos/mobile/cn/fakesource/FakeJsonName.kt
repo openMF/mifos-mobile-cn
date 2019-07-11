@@ -15,4 +15,5 @@ object FakeJsonName {
     val IDENTIFICATIONS = "identification.json"
     val SCAN_CARDS = "scanCard.json"
     val PRODUCT_PAGE = "productPage.json";
+    val ENTRIES = "entries.json"
 }
