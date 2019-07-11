@@ -2,7 +2,11 @@ package org.mifos.mobile.cn.ui.mifos.customerActivities
 
 import android.content.Context
 import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.observers.DisposableObserver
+import io.reactivex.schedulers.Schedulers
+import org.mifos.mobile.cn.R
 import org.mifos.mobile.cn.data.models.customer.Command
 import org.mifos.mobile.cn.data.datamanager.DataManagerCustomer
 import org.mifos.mobile.cn.fakesource.FakeRemoteDataSource
@@ -32,17 +36,31 @@ class CustomerActivitiesPresenter @Inject constructor(@ApplicationContext contex
     override fun fetchCustomerCommands(customerIdentifier: String) {
         checkViewAttached()
         getMvpView.showProgressbar()
-        Observable.fromCallable(Callable<List<Command>> {
-            FakeRemoteDataSource.getCustomerCommandJson()
-        }).subscribe({
-            getMvpView.hideProgressbar()
-            getMvpView.showCustomerCommands(it)
-        }
+        compositeDisposable.add(dataManagerCustomer.fetchCustomerCommands(customerIdentifier)?.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(object : DisposableObserver<List<Command>>() {
+                    override fun onNext(commands: List<Command>) {
+                        getMvpView.hideProgressbar()
+                        if (!commands.isEmpty()) {
+                            getMvpView.showCustomerCommands(commands)
+                        } else {
+                            getMvpView.showEmptyCommands(
+                                    context.getString(R.string.empty_customer_activities))
+                        }
+                    }
 
+                    override fun onError(throwable: Throwable) {
+                        getMvpView.hideProgressbar()
+                        showExceptionError(throwable,
+                                context.getString(R.string.error_fetching_customer_activities))
+                    }
+
+                    override fun onComplete() {
+
+                    }
+                })
         )
-
     }
-
 
 
 }

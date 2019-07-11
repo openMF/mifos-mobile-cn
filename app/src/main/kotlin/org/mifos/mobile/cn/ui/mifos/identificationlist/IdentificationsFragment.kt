@@ -116,8 +116,8 @@ class IdentificationsFragment : MifosBaseFragment(),IdentificationsContract.View
         Toaster.show(rootView,message)
     }
 
-    override fun searchIdentificationList(identification: Identification) {
-        identificationAdapter.setIdentifications(Collections.singletonList(identification))
+    override fun searchedIdentifications(identification: List<Identification>) {
+        identificationAdapter.setIdentifications(identification)
     }
 
     override fun onItemClick(childView: View, position: Int) {
@@ -145,7 +145,7 @@ class IdentificationsFragment : MifosBaseFragment(),IdentificationsContract.View
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
-                identificationsPresenter.searchIdentifications(customerIdentifier, query)
+                identificationsPresenter.searchIdentifications(identifications, query)
                 return false
             }
 

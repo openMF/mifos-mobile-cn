@@ -2,7 +2,11 @@ package org.mifos.mobile.cn.ui.mifos.customerDetails
 
 import android.content.Context
 import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.observers.DisposableObserver
+import io.reactivex.schedulers.Schedulers
+import org.mifos.mobile.cn.R
 import org.mifos.mobile.cn.data.models.customer.Customer
 import org.mifos.mobile.cn.data.datamanager.DataManagerCustomer
 import org.mifos.mobile.cn.data.datamanager.contracts.ManagerCustomer
@@ -35,14 +39,27 @@ class CustomerDetailsPresenter @Inject constructor(@ApplicationContext context: 
     override fun loadCustomerDetails(identifier: String) {
         checkViewAttached()
         getMvpView.showProgressbar()
-        Observable.fromCallable(Callable<Customer> {
-            FakeRemoteDataSource.getCustomerJson()
-        }).subscribe({customer = it
-        getMvpView.hideProgressbar()
-            getMvpView.showCustomerDetails(it)
-        }
+        compositeDisposable.add(dataManagerCustomer.fetchCustomer(identifier)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(object : DisposableObserver<Customer>() {
+                    override fun onNext(customer: Customer) {
+                        getMvpView.hideProgressbar()
+                        getMvpView.showCustomerDetails(customer)
+                    }
 
+                    override fun onError(throwable: Throwable) {
+                        getMvpView.hideProgressbar()
+                        showExceptionError(throwable,
+                                context.getString(R.string.error_fetching_customer_details))
+                    }
+
+                    override fun onComplete() {
+
+                    }
+                })
         )
+
 
     }
 }

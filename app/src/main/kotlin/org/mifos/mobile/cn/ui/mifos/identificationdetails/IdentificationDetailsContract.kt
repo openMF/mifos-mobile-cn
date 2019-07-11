@@ -1,5 +1,6 @@
 package org.mifos.mobile.cn.ui.mifos.identificationdetails
 
+import org.mifos.mobile.cn.data.models.customer.identification.Identification
 import org.mifos.mobile.cn.data.models.customer.identification.ScanCard
 import org.mifos.mobile.cn.ui.base.MvpView
 
