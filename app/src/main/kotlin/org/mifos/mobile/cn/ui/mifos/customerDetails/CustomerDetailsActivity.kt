@@ -3,7 +3,6 @@ package org.mifos.mobile.cn.ui.mifos.customerDetails
 import android.os.Bundle
 import org.mifos.mobile.cn.R
 import org.mifos.mobile.cn.ui.base.MifosBaseActivity
-import org.mifos.mobile.cn.ui.mifos.customerActivities.CustomerActivitiesFragment
 import org.mifos.mobile.cn.ui.utils.ConstantKeys
 
 class CustomerDetailsActivity: MifosBaseActivity() {

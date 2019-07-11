@@ -13,8 +13,7 @@ import org.mifos.mobile.cn.data.local.DatabaseHelperCustomer
 import javax.inject.Inject
 
 
-class DataManagerCustomer @Inject constructor(databaseHelperCustomer: DatabaseHelperCustomer) : ManagerCustomer  {
-    var databaseHelperCustomer: DatabaseHelperCustomer = databaseHelperCustomer
+class DataManagerCustomer @Inject constructor(var databaseHelperCustomer: DatabaseHelperCustomer) : ManagerCustomer  {
 
 
     override fun fetchCustomer(identifier: String): Observable<Customer> {

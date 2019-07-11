@@ -6,7 +6,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import com.google.android.material.navigation.NavigationView
-import androidx.fragment.app.FragmentManager
 import androidx.core.view.GravityCompat
 import androidx.appcompat.app.ActionBarDrawerToggle
 import android.view.MenuItem
@@ -64,7 +63,7 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
                         DialogInterface.OnClickListener { dialog, which ->
                             preferencesHelper.clear()
                             val intent = Intent(this, LoginActivity::class.java)
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             startActivity(intent)
                             finish()
                         })

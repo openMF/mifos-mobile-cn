@@ -14,7 +14,7 @@ import org.mifos.mobile.cn.data.datamanager.DataManagerLoan
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = arrayOf(ApplicationModule::class))
+@Component(modules = [ApplicationModule::class])
 interface ApplicationComponent {
 
     @ApplicationContext

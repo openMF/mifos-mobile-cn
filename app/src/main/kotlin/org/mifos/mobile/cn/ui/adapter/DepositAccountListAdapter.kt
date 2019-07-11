@@ -1,7 +1,6 @@
 package org.mifos.mobile.cn.ui.adapter
 
 import android.content.Context
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View

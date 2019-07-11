@@ -31,7 +31,7 @@ class CustomerActivitiesFragment: MifosBaseFragment(),CustomerAcitivitesContract
 
     companion object {
         fun newInstance(customerIdentifier: String):CustomerActivitiesFragment{
-            val fragment:CustomerActivitiesFragment = CustomerActivitiesFragment()
+            val fragment = CustomerActivitiesFragment()
             val args = Bundle()
             args.putString(ConstantKeys.CUSTOMER_IDENTIFIER, customerIdentifier)
             fragment.arguments = args
@@ -69,7 +69,7 @@ class CustomerActivitiesFragment: MifosBaseFragment(),CustomerAcitivitesContract
     }
 
     override fun showUserInterface() {
-        val layoutmanager : LinearLayoutManager = LinearLayoutManager(activity)
+        val layoutmanager = LinearLayoutManager(activity)
         layoutmanager.orientation = LinearLayoutManager.VERTICAL
         rv_customer_activities.layoutManager = layoutmanager
         rv_customer_activities.setHasFixedSize(true)

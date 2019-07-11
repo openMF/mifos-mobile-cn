@@ -27,7 +27,7 @@ import org.mifos.mobile.cn.ui.mifos.recentTransactions.RecentTransactionsFragmen
  * This component inject dependencies to all Activities across the application
  */
 @PerActivity
-@Subcomponent(modules = arrayOf(ActivityModule::class))
+@Subcomponent(modules = [ActivityModule::class])
 interface ActivityComponent {
 
     fun inject(loginActivity: LoginActivity)

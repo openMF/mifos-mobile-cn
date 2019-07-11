@@ -12,7 +12,7 @@ import org.mifos.mobile.cn.injection.module.ActivityModule
  * configuration changes (for example Presenters).
  */
 @ConfigPersistent
-@Component(dependencies = arrayOf(ApplicationComponent::class))
+@Component(dependencies = [ApplicationComponent::class])
 interface ConfigPersistentComponent {
     fun activityComponent(activityModule: ActivityModule): ActivityComponent
 }

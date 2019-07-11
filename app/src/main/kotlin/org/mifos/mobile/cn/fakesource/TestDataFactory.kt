@@ -35,7 +35,7 @@ class TestDataFactory {
      * new TypeToken<Object>(){}, "Object.json")
     </Object></Object></Object></T> */
     fun <T> convertJsonToDataObject(listModel: TypeToken<T>, jsonName: String): T {
-        val inputStream = javaClass.classLoader.getResourceAsStream(jsonName)
+        val inputStream = this.javaClass.classLoader.getResourceAsStream(jsonName)
         val jsonReader = JsonReader(InputStreamReader(inputStream))
         return Gson().fromJson(jsonReader, listModel.type)
     }
@@ -67,7 +67,7 @@ class TestDataFactory {
     </Object></Object></Object></T> */
     fun <T> getListTypePojo(listModel: TypeToken<T>, jsonName: String): T {
 
-        val inputStreamReader = this.javaClass.classLoader.getResourceAsStream(jsonName)
+        val inputStreamReader = this.javaClass.classLoader?.getResourceAsStream(jsonName)
         val reader = JsonReader(InputStreamReader(inputStreamReader))
         return Gson().fromJson(reader, listModel.type)
 

@@ -94,7 +94,7 @@ class IdentificationDetailsFragment:MifosBaseFragment(),IdentificationDetailsCon
     }
 
     override fun initializeRecyclerView() {
-        val layoutmanager : LinearLayoutManager = LinearLayoutManager(activity)
+        val layoutmanager = LinearLayoutManager(activity)
         layoutmanager.orientation = LinearLayoutManager.VERTICAL
         rv_scans_uploaded.layoutManager = layoutmanager
         rv_scans_uploaded.setHasFixedSize(true)
