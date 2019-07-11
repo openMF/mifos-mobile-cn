@@ -29,4 +29,7 @@ object ConstantKeys {
     const val IDENTIFICATION_NUMBER = "identification_number"
     const val POSITION = "position"
 
+    const val PERMISSION_REQUEST_WRITE_EXTERNAL_STORAGE = 2
+    const val PERMISSIONS_REQUEST_CAMERA = 1;
+
 }
