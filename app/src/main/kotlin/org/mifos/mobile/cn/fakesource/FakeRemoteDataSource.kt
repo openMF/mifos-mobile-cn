@@ -10,6 +10,7 @@ import org.mifos.mobile.cn.data.models.accounts.deposit.DepositAccount
 import org.mifos.mobile.cn.data.models.accounts.loan.LoanAccount
 import org.mifos.mobile.cn.data.models.customer.AccountEntriesPage
 import org.mifos.mobile.cn.data.models.customer.AccountEntry
+import org.mifos.mobile.cn.data.models.payment.PlannedPaymentPage
 import org.mifos.mobile.cn.data.models.product.Product
 import org.mifos.mobile.cn.data.models.product.ProductPage
 import java.lang.reflect.Type
@@ -75,5 +76,17 @@ class FakeRemoteDataSource {
             return testDataFactory.getObjectTypePojo(ProductPage::class.java,
                     FakeJsonName.PRODUCT_PAGE)
         }
+
+        fun getloanAccount(): LiveData<LoanAccount> {
+            return testDataFactory.getObjectTypePojo(LoanAccount::class.java,
+                    FakeJsonName.LOAN_ACCOUNT)
+        }
+
+        fun getPlannedPaymentPage(): LiveData<PlannedPaymentPage> {
+            return testDataFactory.getObjectTypePojo(PlannedPaymentPage::class.java,
+                    FakeJsonName.PLANNED_PAYMENT_PAGE)
+
+        }
+
     }
 }

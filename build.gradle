@@ -61,4 +61,5 @@ ext {
     rulesVersion = '1.1.0-alpha4'
     espressoVersion = '3.1.0-alpha4'
     stepperVersion = '4.3.1'
+    sticyHeaderVersion = '0.7.6'
 }

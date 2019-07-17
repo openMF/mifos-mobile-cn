@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/LinearLayout.Base"
+        android:animateLayoutChanges="true">
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.Toolbar
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                style="@style/Toolbar.Common"
+                android:id="@+id/toolbar"
+                android:layout_height="wrap_content"
+                android:theme="@style/Toolbar.Common"
+                app:popupTheme="@style/AppToolbarPopup">
+
+                <LinearLayout
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:id="@+id/ll_toolbar_date"
+                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:drawableEnd="@drawable/ic_arrow_drop_down_black_24dp"
+                        android:drawableRight="@drawable/ic_arrow_drop_down_black_24dp"
+                        android:gravity="center"
+                        android:id="@+id/tv_toolbar_date"
+                        android:layout_gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:background="@color/white"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:id="@+id/cv_planned_payment"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:orientation="vertical">
+
+                <CalendarView
+                    android:id="@+id/calender_view_payment"
+                    android:layout_height="300dp"
+                    android:layout_width="match_parent"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_load_planned_payment"
+                    android:layout_gravity="end"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/layout_padding_8dp"
+                    android:layout_width="wrap_content"
+                    android:text="@string/load_payment"
+                    android:textAllCaps="false"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipe_container"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_planned_payment"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="@dimen/layout_padding_30dp"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"/>
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+            <include
+                layout="@layout/layout_exception_handler"
+                android:id="@+id/layout_error"
+                android:visibility="gone"/>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

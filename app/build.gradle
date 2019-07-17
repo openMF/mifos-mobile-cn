@@ -119,6 +119,9 @@ dependencies {
     //Stepper version
     implementation "com.stepstone.stepper:material-stepper:$rootProject.stepperVersion"
 
+    //Sticky header RecyclerView
+    implementation "org.zakariya.stickyheaders:stickyheaders:$sticyHeaderVersion"
+
     // Glide for Image Loading
     implementation 'com.github.bumptech.glide:glide:4.8.0'
     kapt 'com.github.bumptech.glide:compiler:4.8.0'

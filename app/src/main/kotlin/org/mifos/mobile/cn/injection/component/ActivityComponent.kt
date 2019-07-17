@@ -16,8 +16,11 @@ import org.mifos.mobile.cn.ui.mifos.launcher.LauncherActivity
 import org.mifos.mobile.cn.ui.mifos.loanApplication.BaseFragmentDebtIncome
 import org.mifos.mobile.cn.ui.mifos.loanApplication.loanActivity.LoanApplicationActivity
 import org.mifos.mobile.cn.ui.mifos.loanApplication.loanDetails.LoanDetailsFragment
+import org.mifos.mobile.cn.ui.mifos.customerLoanDetails.CustomerLoanDetailsFragment
+import org.mifos.mobile.cn.ui.mifos.debtincomereport.DebtIncomeReportFragment
 import org.mifos.mobile.cn.ui.mifos.login.LoginActivity
 import org.mifos.mobile.cn.ui.mifos.passcode.PasscodeActivity
+import org.mifos.mobile.cn.ui.mifos.plannedPlayment.PlannedPaymentFragment
 import org.mifos.mobile.cn.ui.mifos.products.ProductFragment
 import org.mifos.mobile.cn.ui.review.AddLoanReviewFragment
 import org.mifos.mobile.cn.ui.mifos.recentTransactions.RecentTransactionsFragment
@@ -63,5 +66,11 @@ interface ActivityComponent {
     fun inject(addLoanReviewFragment: AddLoanReviewFragment)
 
     fun inject(recentTransactionsFragment: RecentTransactionsFragment)
+
+    fun inject(customerLoanDetailsFragment: CustomerLoanDetailsFragment)
+
+    fun inject(plannedPaymentFragment: PlannedPaymentFragment)
+
+    fun inject(debtIncomeReportFragment: DebtIncomeReportFragment)
 
 }

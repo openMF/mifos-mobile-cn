@@ -3,12 +3,10 @@ package org.mifos.mobile.cn.data.remote
 import android.content.Context
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.mifos.mobile.cn.data.services.AnonymousService
+import org.mifos.mobile.cn.data.services.*
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import org.mifos.mobile.cn.data.services.AuthService
-import org.mifos.mobile.cn.data.services.CustomerService
 
 class BaseApiManager constructor(context: Context) {
 
@@ -17,6 +15,8 @@ class BaseApiManager constructor(context: Context) {
     private lateinit var authApi: AuthService
     private lateinit var anonymousService: AnonymousService
     private lateinit var customerApi: CustomerService
+    private lateinit var loanApi:LoanService
+    private lateinit var individualLendingService: IndividualLendingService
 
 
     init {
@@ -27,6 +27,9 @@ class BaseApiManager constructor(context: Context) {
     private fun init() {
         authApi = createApi(AuthService::class.java)
         customerApi = createApi(CustomerService::class.java)
+        loanApi = createApi(LoanService::class.java)
+        individualLendingService = createApi(IndividualLendingService::class.java)
+
     }
 
     private fun initAnonymous() {
@@ -80,4 +83,13 @@ class BaseApiManager constructor(context: Context) {
     fun getCustomerApi(): CustomerService {
         return customerApi
     }
+
+    fun getLoanApi(): LoanService {
+        return loanApi
+    }
+
+    fun getIndividualLendingService(): IndividualLendingService {
+        return individualLendingService
+    }
+
 }
