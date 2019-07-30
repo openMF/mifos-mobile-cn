@@ -22,6 +22,10 @@ object ConstantKeys {
     const val LOAN_ACCOUNTS = "loanAccounts"
     const val DEPOSIT_ACCOUNTS = "deposit_accounts"
     const val IDENTIFICATION_CARD = "identification_card"
+    const val PRODUCT_IDENTIFIER = "product_identifier"
+    const val CASE_IDENTIFIER = "case_identifier"
+    const val LOAN_CREDITWORTHINESSSNAPSHOTS = "loan_creditWorthinessSnapshots"
+
 
     const val CUSTOMER_STATUS = "customer_status"
     const val CUSTOMER = "customer"

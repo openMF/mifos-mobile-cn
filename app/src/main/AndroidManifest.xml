@@ -32,6 +32,8 @@
         <activity android:name=".ui.mifos.identificationlist.IdentificationsActivity"/>
         <activity android:name=".ui.mifos.viewScanCard.ViewScanCardActivity"/>
         <activity android:name=".ui.mifos.customerProfile.CustomerProfileActivity"/>
+        <activity android:name=".ui.mifos.plannedPlayment.PlannedPaymentActivity"/>
+        <activity android:name=".ui.mifos.debtincomereport.DebtIncomeReportActivity"/>
     </application>
 
 </manifest>

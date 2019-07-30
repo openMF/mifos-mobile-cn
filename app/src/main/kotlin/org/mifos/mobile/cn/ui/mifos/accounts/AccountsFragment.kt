@@ -1,6 +1,7 @@
 package org.mifos.mobile.cn.ui.mifos.accounts
 
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
@@ -20,11 +21,14 @@ import org.mifos.mobile.cn.ui.utils.Network
 import javax.inject.Inject
 import kotlinx.android.synthetic.main.layout_sweet_exception_handler.*
 import org.mifos.mobile.cn.data.models.CheckboxStatus
+import org.mifos.mobile.cn.ui.base.OnItemClickListener
+import org.mifos.mobile.cn.ui.mifos.customerLoanDetails.CustomerLoanDetailsFragment
 import org.mifos.mobile.cn.ui.utils.RxBus
 import org.mifos.mobile.cn.ui.utils.RxEvent
 
 
-class AccountsFragment : MifosBaseFragment(), AccountsContract.View {
+class AccountsFragment : MifosBaseFragment(), AccountsContract.View,OnItemClickListener {
+
 
     private lateinit var accountType: String
     private lateinit var loanAccounts: List<LoanAccount>
@@ -120,11 +124,26 @@ class AccountsFragment : MifosBaseFragment(), AccountsContract.View {
 
 
         when (accountType) {
-            ConstantKeys.LOAN_ACCOUNTS -> rv_accounts.adapter = loanAccountsListAdapter
+            ConstantKeys.LOAN_ACCOUNTS -> {rv_accounts.adapter = loanAccountsListAdapter
+            loanAccountsListAdapter.setOnItemClickListener(this)
+            }
             ConstantKeys.DEPOSIT_ACCOUNTS -> rv_accounts.adapter = depositAccountListAdapter
-
         }
 
+    }
+
+    override fun onItemClick(childView: View, position: Int) {
+        when(accountType){
+            ConstantKeys.LOAN_ACCOUNTS -> {
+                (activity as MifosBaseActivity).replaceFragment(
+                        CustomerLoanDetailsFragment.newInstance(
+                                loanAccounts[position].productIdentifier!!,
+                                loanAccounts[position].identifier!!), true, R.id.container)
+            }
+        }
+    }
+    override fun onItemLongPress(childView: View, position: Int) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     private fun retry() {

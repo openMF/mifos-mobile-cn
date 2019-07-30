@@ -82,8 +82,8 @@
 
     <!--Loan Debt Income Fragment-->
     <string name="ratio">Ratio: %1$s</string>
-    <string name="total_debt">Debts(Total: %1$s)</string>
-    <string name="total_income">Income(Total: %1$s)</string>
+    <string name="total_debt">Debts(Total: 0:00)</string>
+    <string name="total_income">Income(Total: 0:00)</string>
     <string name="no_debt_to_show">No debts to show. add debt</string>
     <string name="no_income_to_show">No income to show. add income</string>
     <string name="add_income">Add Income</string>
@@ -271,6 +271,32 @@
     <string name="empty_scans_to_show">There is no scans to show</string>
     <string name="error_fetching_scans">Error while fetching scan cards</string>
     <string name="error_fetching_identification_list">Error while fetching identification cards</string>
+    <string name="error_loading_customer_loan_details">Error loading loan details</string>
+    <string name="details">Details</string>
+    <string name="payment_cycle">Payment cycle</string>
+    <string name="customer_deposit_account">Customer deposit account</string>
+    <string name="created_by">Created by</string>
+    <string name="planned_payment">Planned Payment</string>
+    <string name="view_payments">View payment</string>
+    <string name="debt_income_report">Debt Income Report</string>
+    <string name="view_debt_income_report">View debt income report</string>
+    <string name="payment_cycle_week">Repay every %1$d %2$s on %3$s</string>
+    <string name="payment_cycle_month_day">Repay every %1$d %2$s on the %3$s day</string>
+    <string name="payment_cycle_month_day_week">Repay every %1$d %2$s on the %3$s %4$s</string>
+    <string name="payment_cycle_year_day_week">Repay every %1$d %2$s on the %3$s %4$s in %5$s</string>
+    <string name="no_deposit_account">No deposit account</string>
+    <string name="loan_created_by">%1$s %2$s</string>
+    <string name="loan_last_modified_by">%1$s %2$s</string>
+    <string name="disburse_loan">DISBURSE LOAN</string>
+    <string name="empty_planned_payments">Empty planned payment list</string>
+    <string name="no_more_planned_payment_available">No more planned payment available</string>
+    <string name="error_loading_planned_payment"><![CDATA[>Error loading planned payment]]></string>
+    <string name="remaining_principal">Remaining principal</string>
+    <string name="planned_payments">Planned Payments</string>
+    <string name="load_payment">Load Payment</string>
+    <string name="view_debt_income_ratio">View debt income ratio</string>
+    <string name="customer_ratio">Customer \n (Ratio: %1$s)</string>
+    <string name="co_signer_ratio">Co-signer \n (Ratio: %1$s</string>
 
 
 </resources>

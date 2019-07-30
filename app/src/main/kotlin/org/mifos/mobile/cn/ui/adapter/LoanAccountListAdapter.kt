@@ -13,6 +13,7 @@ import org.mifos.mobile.cn.ui.utils.StatusUtils
 import java.util.ArrayList
 import javax.inject.Inject
 import kotlinx.android.synthetic.main.item_customer_loans.view.*
+import org.mifos.mobile.cn.ui.base.OnItemClickListener
 
 /**
  * @author Manish Kumar
@@ -22,7 +23,7 @@ import kotlinx.android.synthetic.main.item_customer_loans.view.*
 class LoanAccountListAdapter @Inject
 constructor(@ApplicationContext var context: Context) : RecyclerView.Adapter<LoanAccountListAdapter.ViewHolder>() {
     private var customerLoanAccounts:List<LoanAccount>
-
+   private lateinit var onItemClickListener: OnItemClickListener
 
     init {
         customerLoanAccounts = ArrayList()
@@ -65,8 +66,21 @@ constructor(@ApplicationContext var context: Context) : RecyclerView.Adapter<Loa
         notifyDataSetChanged()
     }
 
+    fun setOnItemClickListener(itemClickListener: OnItemClickListener) {
+        onItemClickListener = itemClickListener
+    }
 
-    inner class ViewHolder(view: View?) : RecyclerView.ViewHolder(view!!) {
+
+    inner class ViewHolder(view: View?) : RecyclerView.ViewHolder(view!!) ,View.OnClickListener{
+        override fun onClick(v: View?) {
+            if (v != null) {
+                onItemClickListener.onItemClick(v,adapterPosition)
+            }
+        }
+        val llLoanAccount = view?.ll_loan_accounts
+        init {
+            llLoanAccount?.setOnClickListener(this)
+        }
 
         val tvLoanIdentifier = view?.tv_loan_identifier
 
@@ -80,4 +94,5 @@ constructor(@ApplicationContext var context: Context) : RecyclerView.Adapter<Loa
 
 
     }
+
 }
