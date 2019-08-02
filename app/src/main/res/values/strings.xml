@@ -297,6 +297,10 @@
     <string name="view_debt_income_ratio">View debt income ratio</string>
     <string name="customer_ratio">Customer \n (Ratio: %1$s)</string>
     <string name="co_signer_ratio">Co-signer \n (Ratio: %1$s</string>
+    <string name="error_loading_deposit_details">Error loading deposit details</string>
+    <string name="no_beneficiary">No beneficiaries</string>
+    <string name="account">Account</string>
+    <string name="balance">Balance</string>
 
 
 </resources>

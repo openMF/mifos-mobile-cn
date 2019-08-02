@@ -9,6 +9,7 @@ import org.mifos.mobile.cn.ui.mifos.accounts.AccountsFragment
 import org.mifos.mobile.cn.ui.mifos.accountsFilter.AccountsFilterBottomSheet
 import org.mifos.mobile.cn.ui.mifos.customerAccounts.CustomerAccountFragment
 import org.mifos.mobile.cn.ui.mifos.customerActivities.CustomerActivitiesFragment
+import org.mifos.mobile.cn.ui.mifos.customerDepositDetails.CustomerDepositDetailsFragment
 import org.mifos.mobile.cn.ui.mifos.customerDetails.CustomerDetailsFragment
 import org.mifos.mobile.cn.ui.mifos.identificationdetails.IdentificationDetailsFragment
 import org.mifos.mobile.cn.ui.mifos.identificationlist.IdentificationsFragment
@@ -73,4 +74,5 @@ interface ActivityComponent {
 
     fun inject(debtIncomeReportFragment: DebtIncomeReportFragment)
 
+    fun inject(customerDepositDetailsFragment: CustomerDepositDetailsFragment)
 }

@@ -6,6 +6,7 @@ package org.mifos.mobile.cn.ui.utils
  */
 object ConstantKeys {
 
+    const val ACCOUNT_IDENTIFIER = "account_identifier"
     const val REQUEST_PERMISSION_SETTING = 254
     const val PERMISSION_REQUEST_ALL = 4
     const val PERMISSION_REQUEST_CAMERA = 5
