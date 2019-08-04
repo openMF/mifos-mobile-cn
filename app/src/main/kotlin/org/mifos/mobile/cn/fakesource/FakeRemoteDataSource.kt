@@ -87,6 +87,11 @@ class FakeRemoteDataSource {
                     FakeJsonName.PLANNED_PAYMENT_PAGE)
 
         }
+        fun getCustomerDepositAccounts(): List<DepositAccount> {
+            return testDataFactory.getListTypePojo(object : TypeToken<List<DepositAccount>>() {
+
+            }, FakeJsonName.DEPOSIT_ACCOUNTS)
+        }
 
     }
 }

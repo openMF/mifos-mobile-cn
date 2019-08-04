@@ -22,12 +22,13 @@ import javax.inject.Inject
 import kotlinx.android.synthetic.main.layout_sweet_exception_handler.*
 import org.mifos.mobile.cn.data.models.CheckboxStatus
 import org.mifos.mobile.cn.ui.base.OnItemClickListener
+import org.mifos.mobile.cn.ui.mifos.customerDepositDetails.CustomerDepositDetailsFragment
 import org.mifos.mobile.cn.ui.mifos.customerLoanDetails.CustomerLoanDetailsFragment
 import org.mifos.mobile.cn.ui.utils.RxBus
 import org.mifos.mobile.cn.ui.utils.RxEvent
 
 
-class AccountsFragment : MifosBaseFragment(), AccountsContract.View,OnItemClickListener {
+class AccountsFragment : MifosBaseFragment(), AccountsContract.View, OnItemClickListener {
 
 
     private lateinit var accountType: String
@@ -44,7 +45,6 @@ class AccountsFragment : MifosBaseFragment(), AccountsContract.View,OnItemClickL
 
 
     private lateinit var errorHandler: SweetUIErrorHandler
-
 
 
     @Inject
@@ -124,24 +124,34 @@ class AccountsFragment : MifosBaseFragment(), AccountsContract.View,OnItemClickL
 
 
         when (accountType) {
-            ConstantKeys.LOAN_ACCOUNTS -> {rv_accounts.adapter = loanAccountsListAdapter
-            loanAccountsListAdapter.setOnItemClickListener(this)
+            ConstantKeys.LOAN_ACCOUNTS -> {
+                rv_accounts.adapter = loanAccountsListAdapter
+                loanAccountsListAdapter.setOnItemClickListener(this)
             }
-            ConstantKeys.DEPOSIT_ACCOUNTS -> rv_accounts.adapter = depositAccountListAdapter
+            ConstantKeys.DEPOSIT_ACCOUNTS -> {
+                rv_accounts.adapter = depositAccountListAdapter
+                depositAccountListAdapter.setOnItemClickListener(this)
+            }
         }
-
     }
 
     override fun onItemClick(childView: View, position: Int) {
-        when(accountType){
+        when (accountType) {
             ConstantKeys.LOAN_ACCOUNTS -> {
                 (activity as MifosBaseActivity).replaceFragment(
                         CustomerLoanDetailsFragment.newInstance(
                                 loanAccounts[position].productIdentifier!!,
                                 loanAccounts[position].identifier!!), true, R.id.container)
             }
+            ConstantKeys.DEPOSIT_ACCOUNTS -> {
+                (activity as MifosBaseActivity).replaceFragment(
+                        CustomerDepositDetailsFragment.newInstance(
+                                depositAccounts[position].accountIdentifier!!),true,R.id.container
+                                )
+            }
         }
     }
+
     override fun onItemLongPress(childView: View, position: Int) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
@@ -235,8 +245,8 @@ class AccountsFragment : MifosBaseFragment(), AccountsContract.View,OnItemClickL
      * @param input String which is needs to be searched in list
      */
     fun searchDepositAccount(input: String) {
-       depositAccountListAdapter.setCustomerDepositAccounts(accountsPresenter
-               .searchInDepositList(depositAccounts, input))
+        depositAccountListAdapter.setCustomerDepositAccounts(accountsPresenter
+                .searchInDepositList(depositAccounts, input))
     }
 
 

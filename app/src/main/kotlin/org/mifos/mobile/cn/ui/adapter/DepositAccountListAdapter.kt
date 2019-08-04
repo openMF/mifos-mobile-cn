@@ -11,6 +11,7 @@ import org.mifos.mobile.cn.injection.ApplicationContext
 import java.util.ArrayList
 import javax.inject.Inject
 import kotlinx.android.synthetic.main.item_customer_deposit_accounts.view.*
+import org.mifos.mobile.cn.ui.base.OnItemClickListener
 import org.mifos.mobile.cn.ui.utils.StatusUtils
 
 /**
@@ -22,6 +23,7 @@ class DepositAccountListAdapter @Inject
 constructor(@ApplicationContext val context: Context) :
         RecyclerView.Adapter<DepositAccountListAdapter.ViewHolder>() {
     private var customerDepositAccounts: List<DepositAccount>
+    private lateinit var onItemClickListener: OnItemClickListener
 
 
     init {
@@ -53,9 +55,21 @@ constructor(@ApplicationContext val context: Context) :
         this.customerDepositAccounts = customerDepositAccounts
         notifyDataSetChanged()
     }
+    fun setOnItemClickListener(itemClickListener: OnItemClickListener) {
+        onItemClickListener = itemClickListener
+    }
 
 
-    inner class ViewHolder(view: View?) : RecyclerView.ViewHolder(view!!) {
+    inner class ViewHolder(view: View?) : RecyclerView.ViewHolder(view!!), View.OnClickListener{
+        override fun onClick(v: View?) {
+            if (v != null) {
+                onItemClickListener.onItemClick(v,adapterPosition)
+            }
+        }
+        private val llDepositAccount= view?.ll_deposit_accounts
+        init {
+            llDepositAccount?.setOnClickListener(this)
+        }
 
         val ivStatusIndicator = view?.iv_status_indicator
 
@@ -64,8 +78,6 @@ constructor(@ApplicationContext val context: Context) :
         val tvDepositProduct = view?.tv_deposit_product
 
         val tvAccountBalance = view?.tv_account_balance
-
-        val llDepositAccounts = view?.ll_deposit_accounts
 
     }
 }

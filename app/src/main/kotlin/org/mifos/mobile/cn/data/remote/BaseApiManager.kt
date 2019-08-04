@@ -15,8 +15,9 @@ class BaseApiManager constructor(context: Context) {
     private lateinit var authApi: AuthService
     private lateinit var anonymousService: AnonymousService
     private lateinit var customerApi: CustomerService
-    private lateinit var loanApi:LoanService
+    private lateinit var loanApi: LoanService
     private lateinit var individualLendingService: IndividualLendingService
+    private lateinit var depositApi: DepositService
 
 
     init {
@@ -29,6 +30,7 @@ class BaseApiManager constructor(context: Context) {
         customerApi = createApi(CustomerService::class.java)
         loanApi = createApi(LoanService::class.java)
         individualLendingService = createApi(IndividualLendingService::class.java)
+        depositApi = createApi(DepositService::class.java)
 
     }
 
@@ -92,4 +94,7 @@ class BaseApiManager constructor(context: Context) {
         return individualLendingService
     }
 
+    fun getDepositApi(): DepositService {
+        return depositApi
+    }
 }
