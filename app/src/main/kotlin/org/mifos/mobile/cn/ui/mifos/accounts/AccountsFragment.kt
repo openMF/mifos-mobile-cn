@@ -119,10 +119,6 @@ class AccountsFragment : MifosBaseFragment(), AccountsContract.View, OnItemClick
                 layoutManager.orientation))
         btn_try_again.setOnClickListener { retry() }
 
-
-
-
-
         when (accountType) {
             ConstantKeys.LOAN_ACCOUNTS -> {
                 rv_accounts.adapter = loanAccountsListAdapter

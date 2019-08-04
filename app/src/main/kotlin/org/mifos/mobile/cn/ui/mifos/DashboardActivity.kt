@@ -157,7 +157,7 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
                 replaceFragment(DashboardFragment.newInstance(), true, R.id.container)
             }
             R.id.item_accounts -> {
-                replaceFragment(CustomerAccountFragment.newInstance(AccountType.LOAN), true,
+                replaceFragment(CustomerAccountFragment.newInstance(AccountType.DEPOSIT), true,
                         R.id.container)
             }
 
