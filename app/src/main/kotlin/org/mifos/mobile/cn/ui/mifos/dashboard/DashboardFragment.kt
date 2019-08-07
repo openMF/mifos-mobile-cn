@@ -80,7 +80,7 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener {
 
     private fun openAccount() {
         (activity as MifosBaseActivity)
-                .replaceFragment(CustomerAccountFragment.newInstance(AccountType.LOAN),
+                .replaceFragment(CustomerAccountFragment.newInstance(AccountType.DEPOSIT),
                 true, R.id.container)
     }
     private fun showCustomerDetails(){

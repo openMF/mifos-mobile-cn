@@ -82,16 +82,15 @@ class CustomerAccountFragment : MifosBaseFragment(), AccountsContract.View {
 
     private fun setUpViewPagerAndTabLayout() {
         val viewPagerAdapter = ViewPagerAdapter(childFragmentManager)
-        viewPagerAdapter.addFragment(AccountsFragment.newInstance(ConstantKeys.LOAN_ACCOUNTS),
-                getString(R.string.loan))
         viewPagerAdapter.addFragment(AccountsFragment.newInstance(ConstantKeys.DEPOSIT_ACCOUNTS),
                 getString(R.string.deposit))
+        viewPagerAdapter.addFragment(AccountsFragment.newInstance(ConstantKeys.LOAN_ACCOUNTS),
+                getString(R.string.loan))
         viewpager.adapter = viewPagerAdapter
         viewpager.offscreenPageLimit = 2
         when (accountType) {
-            AccountType.LOAN -> viewpager.currentItem = 0
-            AccountType.DEPOSIT -> viewpager.currentItem = 1
-
+            AccountType.DEPOSIT -> viewpager.currentItem = 0
+            AccountType.LOAN -> viewpager.currentItem = 1
         }
 
         tabs.setupWithViewPager(viewpager)
@@ -118,9 +117,9 @@ class CustomerAccountFragment : MifosBaseFragment(), AccountsContract.View {
      */
     override fun showLoanAccounts(loanAccounts: List<LoanAccount>) {
 
-        (childFragmentManager.findFragmentByTag(getFragmentTag(0)) as AccountsContract.View)
+        (childFragmentManager.findFragmentByTag(getFragmentTag(1)) as AccountsContract.View)
                 .showLoanAccounts(loanAccounts)
-        (childFragmentManager.findFragmentByTag(getFragmentTag(0)) as AccountsContract.View)
+        (childFragmentManager.findFragmentByTag(getFragmentTag(1)) as AccountsContract.View)
                 .hideProgress()
     }
 
@@ -132,38 +131,38 @@ class CustomerAccountFragment : MifosBaseFragment(), AccountsContract.View {
      */
 
     override fun showDepositAccounts(depositAccounts: List<DepositAccount>) {
-        (childFragmentManager.findFragmentByTag(getFragmentTag(1)) as AccountsContract.View)
+        (childFragmentManager.findFragmentByTag(getFragmentTag(0)) as AccountsContract.View)
                 .showDepositAccounts(depositAccounts)
-        (childFragmentManager.findFragmentByTag(getFragmentTag(1)) as AccountsContract.View)
+        (childFragmentManager.findFragmentByTag(getFragmentTag(0)) as AccountsContract.View)
                 .hideProgress()
     }
 
 
     override fun showError(message: String) {
-        (childFragmentManager.findFragmentByTag(getFragmentTag(0)) as AccountsContract.View)
-                .showError(getString(R.string.loan))
         (childFragmentManager.findFragmentByTag(getFragmentTag(1)) as AccountsContract.View)
+                .showError(getString(R.string.loan))
+        (childFragmentManager.findFragmentByTag(getFragmentTag(0)) as AccountsContract.View)
                 .showError(getString(R.string.deposit))
         Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
     }
 
     override fun showEmptyAccounts(feature: String) {
-        (childFragmentManager.findFragmentByTag(getFragmentTag(0)) as AccountsContract.View)
-                .showEmptyAccounts(getString(R.string.loan))
         (childFragmentManager.findFragmentByTag(getFragmentTag(1)) as AccountsContract.View)
+                .showEmptyAccounts(getString(R.string.loan))
+        (childFragmentManager.findFragmentByTag(getFragmentTag(0)) as AccountsContract.View)
                 .showEmptyAccounts(getString(R.string.deposit))
     }
 
 
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
         inflater?.inflate(R.menu.menu_account, menu)
-        if (viewpager.currentItem == 0) {
+        if (viewpager.currentItem == 1) {
             menu?.findItem(R.id.menu_filter_loan)?.isVisible = true
             menu?.findItem(R.id.menu_filter_deposit)?.isVisible = false
             menu?.findItem(R.id.menu_search_loan)?.isVisible = true
             menu?.findItem(R.id.menu_search_deposit)?.isVisible = false
             initSearch(menu!!, AccountType.LOAN)
-        } else if (viewpager.currentItem == 1) {
+        } else if (viewpager.currentItem == 0) {
             menu?.findItem(R.id.menu_filter_loan)?.isVisible = false
             menu?.findItem(R.id.menu_filter_deposit)?.isVisible = true
             menu?.findItem(R.id.menu_search_deposit)?.isVisible = true
@@ -186,23 +185,23 @@ class CustomerAccountFragment : MifosBaseFragment(), AccountsContract.View {
         val accountFilterBottomSheet = AccountsFilterBottomSheet()
         when (accountType) {
             AccountType.LOAN -> {
-                if ((childFragmentManager.findFragmentByTag(getFragmentTag(0))
+                if ((childFragmentManager.findFragmentByTag(getFragmentTag(1))
                                 as AccountsFragment).currentFilterList == null) {
                     accountFilterBottomSheet.filterList = StatusUtils.getLoanAccountsStatusList(context!!)
                 } else {
                     accountFilterBottomSheet.filterList = (childFragmentManager
-                            .findFragmentByTag(getFragmentTag(0))
+                            .findFragmentByTag(getFragmentTag(1))
                             as AccountsFragment).currentFilterList
                 }
             }
 
             AccountType.DEPOSIT -> {
-                if ((childFragmentManager.findFragmentByTag(getFragmentTag(1))
+                if ((childFragmentManager.findFragmentByTag(getFragmentTag(0))
                                 as AccountsFragment).currentFilterList == null) {
                     accountFilterBottomSheet.filterList = StatusUtils.getDepositAccountsStatusList(context!!)
                 } else {
                     accountFilterBottomSheet.filterList = (childFragmentManager
-                            .findFragmentByTag(getFragmentTag(1))
+                            .findFragmentByTag(getFragmentTag(0))
                             as AccountsFragment).currentFilterList
                 }
             }
@@ -238,10 +237,10 @@ class CustomerAccountFragment : MifosBaseFragment(), AccountsContract.View {
 
                 if (account == AccountType.LOAN) {
                     (childFragmentManager.findFragmentByTag(
-                            getFragmentTag(0)) as AccountsFragment).searchLoanAccount(newText)
+                            getFragmentTag(1)) as AccountsFragment).searchLoanAccount(newText)
                 } else if (account == AccountType.DEPOSIT) {
                     (childFragmentManager.findFragmentByTag(
-                            getFragmentTag(1)) as AccountsFragment).searchDepositAccount(newText)
+                            getFragmentTag(0)) as AccountsFragment).searchDepositAccount(newText)
                 }
 
                 return false
