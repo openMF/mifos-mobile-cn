@@ -22,7 +22,9 @@ import org.mifos.mobile.cn.ui.utils.MaterialDialog
 import javax.inject.Inject
 import kotlinx.android.synthetic.main.activity_main.*
 import org.mifos.mobile.cn.enums.AccountType
+import org.mifos.mobile.cn.ui.mifos.aboutus.AboutUsActivity
 import org.mifos.mobile.cn.ui.mifos.customerAccounts.CustomerAccountFragment
+import org.mifos.mobile.cn.ui.mifos.loanApplication.loanActivity.LoanApplicationActivity
 import org.mifos.mobile.cn.ui.mifos.products.ProductFragment
 import org.mifos.mobile.cn.ui.mifos.recentTransactions.RecentTransactionsFragment
 import org.mifos.mobile.cn.ui.utils.CircularImageView
@@ -173,6 +175,9 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
                 R.id.item_recent_transactions -> {
                     replaceFragment(RecentTransactionsFragment.Companion.newInstance(),true,R.id.container)
                 }
+            R.id.item_about_us -> {
+                showAboutUs()
+            }
         }
 
         // close the drawer
@@ -204,6 +209,10 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
         if (stackCount() != 0) {
             super.onBackPressed()
         }
+    }
+    fun showAboutUs(){
+        val intent = Intent(this, AboutUsActivity::class.java)
+        startActivity(intent)
     }
 
 }

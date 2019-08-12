@@ -301,6 +301,14 @@
     <string name="no_beneficiary">No beneficiaries</string>
     <string name="account">Account</string>
     <string name="balance">Balance</string>
+    <string name="app_version">Version %1$s</string>
+    <string name="copy_right_mifos">©2016-%1$s Mifos Initiative.</string>
+    <string name="all_rights_reserved">All rights reserved.</string>
+    <string name="licenses">Licenses</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="privacy_policy_host" translatable="false">openmf.github.io/privacy_policy_mifos_mobile.html</string>
+    <string name="privacy_policy_host_url" translatable="false">https://openmf.github.io/privacy_policy_mifos_mobile.html</string>
+    <string name="opensource_license_title">Open Source licenses</string>
 
 
 </resources>

@@ -48,4 +48,5 @@
     <dimen name="header_view_start_margin_bottom">14dp</dimen>
 
     <dimen name="view_line_height">1dp</dimen>
+    <dimen name="layout_padding_48dp">48dp</dimen>
 </resources>
