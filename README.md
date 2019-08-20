@@ -2,6 +2,10 @@
 
 Android Client is built on top of the Fineract CN platform. 
 
+### Status
+[![Join the chat at](https://badges.gitter.im/openMF/mifos-mobile-cn.svg)](https://gitter.im/openMF/mifos-mobile-cn?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![Build Status](https://travis-ci.org/openMF/mifos-mobile-cn.svg?branch=master)](https://travis-ci.org/openMF/mifos-mobile-cn)
+
 ## Building the Project
 1. Install [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 2. Download, install, and run the latest version of [Android Studio](http://developer.android.com/sdk/installing/studio.html).
