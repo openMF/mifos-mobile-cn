@@ -3,6 +3,7 @@ apply from: '../config/quality/quality.gradle'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.android.gms.oss-licenses-plugin'
 
 android {
     compileSdkVersion 28
@@ -133,6 +134,9 @@ dependencies {
     implementation "com.github.Raizlabs.DBFlow:dbflow-kotlinextensions:$rootProject.dbFlowVersion"
     implementation "com.github.Raizlabs.DBFlow:dbflow-rx2:$rootProject.dbFlowVersion"
     implementation "com.github.Raizlabs.DBFlow:dbflow-rx2-kotlinextensions:$rootProject.dbFlowVersion"
+
+    //OpenSource Licences
+    implementation "com.google.android.gms:play-services-oss-licenses:17.0.0"
 
     // Instrumentation test dependencies
     androidTestImplementation jUnit

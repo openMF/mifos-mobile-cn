@@ -34,6 +34,11 @@
         <activity android:name=".ui.mifos.customerProfile.CustomerProfileActivity"/>
         <activity android:name=".ui.mifos.plannedPlayment.PlannedPaymentActivity"/>
         <activity android:name=".ui.mifos.debtincomereport.DebtIncomeReportActivity"/>
+        <activity android:name=".ui.mifos.aboutus.AboutUsActivity"/>
+        <activity android:name=".ui.mifos.privacypolicy.PrivacyPolicyActivity"/>
+        <activity
+            android:name="com.google.android.gms.oss.licenses.OssLicensesMenuActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
     </application>
 
 </manifest>
