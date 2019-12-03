@@ -65,7 +65,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Amount"
+                android:text="@string/amount"
                 android:textSize="@dimen/text_medium"
                 android:layout_gravity="center"/>
 
@@ -86,7 +86,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Balance"
+                android:text="@string/balance"
                 android:textSize="@dimen/text_medium"
                 android:layout_gravity="center"/>
         <TextView
