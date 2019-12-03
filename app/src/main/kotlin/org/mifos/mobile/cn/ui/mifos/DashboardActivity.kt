@@ -140,7 +140,7 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
             setToolbarElevation()
             if (fragment is DashboardFragment) {
                 setNavigationViewSelectedItem(R.id.item_home)
-            } else if(fragment is CustomerAccountFragment) {
+            } else if (fragment is CustomerAccountFragment) {
                 setNavigationViewSelectedItem(R.id.item_accounts)
             }
         }
@@ -172,11 +172,19 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
                         R.id.container)
             }
 
-                R.id.item_recent_transactions -> {
-                    replaceFragment(RecentTransactionsFragment.Companion.newInstance(),true,R.id.container)
-                }
+            R.id.item_recent_transactions -> {
+                replaceFragment(RecentTransactionsFragment.Companion.newInstance(), true, R.id.container)
+            }
             R.id.item_about_us -> {
                 showAboutUs()
+            }
+            R.id.item_share -> {
+                val sharingIntent = Intent(android.content.Intent.ACTION_SEND)
+                sharingIntent.type = "text/plain"
+                val shareBody = "You can download the Mifos Mobile CN app here: https://drive.google.com/file/d/1JGGf80FrTiUqYxZT8PHsGHb65yatQwfd/view?usp=sharing"
+                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "App Link")
+                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody)
+                startActivity(Intent.createChooser(sharingIntent, "Share the app link via :"))
             }
         }
 
@@ -210,7 +218,8 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
             super.onBackPressed()
         }
     }
-    fun showAboutUs(){
+
+    fun showAboutUs() {
         val intent = Intent(this, AboutUsActivity::class.java)
         startActivity(intent)
     }
