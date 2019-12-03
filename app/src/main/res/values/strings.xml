@@ -78,6 +78,7 @@
         <item>Loan details</item>
         <item>Debt to income ratio</item>
         <item>Co-signer</item>
+        <item>Review</item>
     </string-array>
 
     <!--Loan Debt Income Fragment-->
