@@ -24,6 +24,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import org.mifos.mobile.cn.enums.AccountType
 import org.mifos.mobile.cn.ui.mifos.aboutus.AboutUsActivity
 import org.mifos.mobile.cn.ui.mifos.customerAccounts.CustomerAccountFragment
+import org.mifos.mobile.cn.ui.mifos.customerProfile.CustomerProfileActivity
 import org.mifos.mobile.cn.ui.mifos.loanApplication.loanActivity.LoanApplicationActivity
 import org.mifos.mobile.cn.ui.mifos.products.ProductFragment
 import org.mifos.mobile.cn.ui.mifos.recentTransactions.RecentTransactionsFragment
@@ -132,6 +133,13 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
 
     override fun onClick(v: View) {
         // Click Header to view full profile of User
+        when(v){
+            ivTextDrawableUserProfilePicture -> {
+                val intent = Intent(this, CustomerProfileActivity::class.java)
+
+                startActivity(intent)
+            }
+        }
     }
 
     private fun setUpBackStackListener() {
