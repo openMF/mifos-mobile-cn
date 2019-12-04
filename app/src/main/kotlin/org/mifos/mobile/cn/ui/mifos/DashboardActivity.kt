@@ -27,6 +27,7 @@ import org.mifos.mobile.cn.ui.mifos.customerAccounts.CustomerAccountFragment
 import org.mifos.mobile.cn.ui.mifos.loanApplication.loanActivity.LoanApplicationActivity
 import org.mifos.mobile.cn.ui.mifos.products.ProductFragment
 import org.mifos.mobile.cn.ui.mifos.recentTransactions.RecentTransactionsFragment
+import org.mifos.mobile.cn.ui.mifos.settings.SettingsFragment
 import org.mifos.mobile.cn.ui.utils.CircularImageView
 import org.mifos.mobile.cn.ui.utils.Toaster
 
@@ -177,6 +178,9 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
                 }
             R.id.item_about_us -> {
                 showAboutUs()
+            }
+            R.id.item_settings -> {
+                replaceFragment(SettingsFragment.newInstance(), true, R.id.container)
             }
         }
 
