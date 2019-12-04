@@ -30,6 +30,7 @@ import org.mifos.mobile.cn.ui.mifos.recentTransactions.RecentTransactionsFragmen
 import org.mifos.mobile.cn.ui.mifos.settings.SettingsFragment
 import org.mifos.mobile.cn.ui.utils.CircularImageView
 import org.mifos.mobile.cn.ui.utils.Toaster
+import android.widget.Toast
 
 class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
 
