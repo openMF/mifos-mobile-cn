@@ -69,6 +69,8 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
                             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             startActivity(intent)
                             finish()
+                            //Show successful logout Toast.
+                            Toast.makeText(applicationContext, "Logged Out Successfully", Toast.LENGTH_SHORT).show()
                         })
                 .setNegativeButton(getString(R.string.cancel),
                         DialogInterface.OnClickListener { dialog, which -> setNavigationViewSelectedItem(R.id.item_home) })
