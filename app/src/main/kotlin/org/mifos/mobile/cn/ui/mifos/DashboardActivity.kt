@@ -185,6 +185,12 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
             R.id.item_settings -> {
                 replaceFragment(SettingsFragment.newInstance(), true, R.id.container)
             }
+            R.id.item_share -> {
+                val sharingIntent = Intent(android.content.Intent.ACTION_SEND)
+                sharingIntent.type = "text/plain"
+                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, getString(R.string.share_msg))
+                startActivity(Intent.createChooser(sharingIntent, getString(R.string.share_intent_title)))
+            }
         }
 
         // close the drawer

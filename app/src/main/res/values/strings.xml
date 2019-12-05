@@ -310,6 +310,9 @@
     <string name="privacy_policy_host" translatable="false">openmf.github.io/privacy_policy_mifos_mobile.html</string>
     <string name="privacy_policy_host_url" translatable="false">https://openmf.github.io/privacy_policy_mifos_mobile.html</string>
     <string name="opensource_license_title">Open Source licenses</string>
-
+    <string name="share_msg">Download Mifos Mobile CN app here:
+        https://drive.google.com/open?id=1JGGf80FrTiUqYxZT8PHsGHb65yatQwfd
+    </string>
+    <string name="share_intent_title">Share via</string>
 
 </resources>
