@@ -27,8 +27,10 @@ import org.mifos.mobile.cn.ui.mifos.customerAccounts.CustomerAccountFragment
 import org.mifos.mobile.cn.ui.mifos.loanApplication.loanActivity.LoanApplicationActivity
 import org.mifos.mobile.cn.ui.mifos.products.ProductFragment
 import org.mifos.mobile.cn.ui.mifos.recentTransactions.RecentTransactionsFragment
+import org.mifos.mobile.cn.ui.mifos.settings.SettingsFragment
 import org.mifos.mobile.cn.ui.utils.CircularImageView
 import org.mifos.mobile.cn.ui.utils.Toaster
+import android.widget.Toast
 
 class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
 
@@ -68,6 +70,8 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
                             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             startActivity(intent)
                             finish()
+                            //Show successful logout Toast.
+                            Toast.makeText(applicationContext, "Logged Out Successfully", Toast.LENGTH_SHORT).show()
                         })
                 .setNegativeButton(getString(R.string.cancel),
                         DialogInterface.OnClickListener { dialog, which -> setNavigationViewSelectedItem(R.id.item_home) })
@@ -178,6 +182,7 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
             R.id.item_about_us -> {
                 showAboutUs()
             }
+
             R.id.item_share -> {
                 val sharingIntent = Intent(android.content.Intent.ACTION_SEND)
                 sharingIntent.type = "text/plain"
@@ -185,6 +190,11 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
                 sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "App Link")
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody)
                 startActivity(Intent.createChooser(sharingIntent, "Share the app link via :"))
+            }
+          
+              R.id.item_settings -> {
+                replaceFragment(SettingsFragment.newInstance(), true, R.id.container)
+
             }
         }
 
