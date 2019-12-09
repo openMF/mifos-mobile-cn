@@ -41,7 +41,7 @@
                         android:visibility="visible"
                         android:background="?selectableItemBackgroundBorderless"
                         android:clickable="true"
-                        app:srcCompat="@drawable/ic_person_black_24dp"/>
+                        app:srcCompat="@drawable/ic_person_white_24dp"/>
 
                     <org.mifos.mobile.cn.ui.utils.CircularImageView
                         android:id="@+id/iv_circular_user_image"
@@ -385,6 +385,7 @@
                                 android:layout_height="60dp"
                                 android:layout_width="60dp"
                                 android:shape="ring"
+                                app:cardBackgroundColor="@color/colorPrimary"
                                 android:thicknessRatio="1.9"
                                 app:cardCornerRadius="30dp">
 
@@ -396,7 +397,7 @@
                                     android:layout_height="60dp"
                                     android:layout_width="wrap_content"
                                     android:padding="@dimen/layout_padding_16dp"
-                                    android:tint="@color/black"
+                                    android:tint="@color/white"
                                     app:srcCompat="@drawable/ic_supervisor_account_black_24dp"/>
 
                             </androidx.cardview.widget.CardView>
@@ -434,6 +435,7 @@
                                 android:layout_height="60dp"
                                 android:layout_width="60dp"
                                 android:shape="ring"
+                                app:cardBackgroundColor="@color/colorPrimary"
                                 android:thicknessRatio="1.9"
                                 app:cardCornerRadius="30dp">
 
@@ -445,7 +447,7 @@
                                     android:layout_height="60dp"
                                     android:layout_width="wrap_content"
                                     android:padding="@dimen/layout_padding_16dp"
-                                    android:tint="@color/black"
+                                    android:tint="@color/white"
                                     app:srcCompat="@drawable/ic_account_balance_wallet_black_24dp"/>
 
                             </androidx.cardview.widget.CardView>
@@ -482,6 +484,7 @@
                                 android:layout_height="60dp"
                                 android:layout_width="60dp"
                                 android:shape="ring"
+                                app:cardBackgroundColor="@color/colorPrimary"
                                 android:thicknessRatio="1.9"
                                 app:cardCornerRadius="30dp">
 
@@ -493,7 +496,7 @@
                                     android:layout_height="60dp"
                                     android:layout_width="wrap_content"
                                     android:padding="@dimen/layout_padding_16dp"
-                                    android:tint="@color/black"
+                                    android:tint="@color/white"
                                     app:srcCompat="@drawable/ic_surveys_48px"/>
 
                             </androidx.cardview.widget.CardView>
