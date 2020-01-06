@@ -68,5 +68,9 @@
         <item name="android:padding">@dimen/layout_padding_7dp</item>
     </style>
 
+    <style name="TextInputLayoutLogin" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">@color/white</item>
+        <item name="boxStrokeWidth">@dimen/layout_padding_2dp</item>
+    </style>
 
 </resources>

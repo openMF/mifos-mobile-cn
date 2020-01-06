@@ -312,6 +312,8 @@
     <string name="privacy_policy_host" translatable="false">openmf.github.io/privacy_policy_mifos_mobile.html</string>
     <string name="privacy_policy_host_url" translatable="false">https://openmf.github.io/privacy_policy_mifos_mobile.html</string>
     <string name="opensource_license_title">Open Source licenses</string>
+    <string name="mifos_mobile_cn">Mifos Mobile CN</string>
+    <string name="create_account">Don\'t have an account? Create one.</string>
 
 
 </resources>
