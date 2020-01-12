@@ -1,76 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:id="@+id/ll_deposit_accounts"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:clickable="true"
-    android:foreground="?android:attr/selectableItemBackground"
-    android:layout_height="wrap_content"
+    android:id="@+id/ll_deposit_accounts"
     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:foreground="?android:attr/selectableItemBackground"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_height="wrap_content"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="@dimen/layout_padding_70dp"
+        android:layout_marginLeft="@dimen/layout_padding_20dp"
+        android:layout_marginRight="@dimen/layout_padding_20dp"
+        android:layout_marginBottom="@dimen/layout_padding_10dp"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="@dimen/layout_corner_radius_10dp">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_status_indicator"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="@dimen/default_margin"
-            android:layout_marginTop="@dimen/default_margin"
-            android:layout_width="@dimen/side_bar_width"
-            app:srcCompat="@drawable/round_corner"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_status_indicator"
+                android:layout_width="@dimen/side_bar_width"
+                android:layout_height="@dimen/layout_padding_48dp"
+                android:layout_centerVertical="true"
+                app:srcCompat="@drawable/round_corner" />
+
+        </RelativeLayout>
 
         <LinearLayout
+            android:id="@+id/ll_customer_deposit_accounts"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:orientation="vertical"
-            android:padding="@dimen/layout_padding_24dp">
+            android:orientation="horizontal">
 
-            <TextView
-                style="@style/Base.TextAppearance.AppCompat.Body1"
-                android:layout_height="match_parent"
-                android:layout_width="match_parent"
-                android:text="@string/account_identifier"/>
-
-            <TextView
-                android:ellipsize="end"
-                android:id="@+id/tv_customer_account_identifier"
+            <LinearLayout
+                android:layout_width="@dimen/layout_padding_0dp"
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:lines="1"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_medium"
-                tools:text="Deposit Identifier"/>
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/layout_padding_10dp"
+                android:paddingTop="@dimen/layout_padding_12dp"
+                android:paddingRight="@dimen/layout_padding_24dp"
+                android:paddingBottom="@dimen/layout_padding_10dp">
+
+                <!--
+                The following TextViews have visibility as GONE because the redesign
+                branch doesn't need them but the backend requires them to exist at
+                least.
+                -->
+
+                <TextView
+                    style="@style/Base.TextAppearance.AppCompat.Body1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/account_identifier"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tv_customer_account_identifier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/productsans"
+                    android:lines="1"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_18sp"
+                    tools:text="Deposit Identifier" />
+
+                <TextView
+                    android:id="@+id/tv_deposit_product"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/productsans"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="@dimen/text_size_15sp"
+                    tools:text="Deposit Product" />
+
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/tv_deposit_product"
-                android:layout_height="wrap_content"
+                android:id="@+id/tv_account_balance"
                 android:layout_width="wrap_content"
-                android:textColor="@color/gray_dark"
-                android:textSize="@dimen/text_small"
-                tools:text="Deposit Product"/>
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/layout_padding_24dp"
+                android:layout_marginRight="@dimen/layout_padding_24dp"
+                android:fontFamily="@font/airbnb_cereal_book"
+                android:textColor="@color/violet"
+                android:textSize="@dimen/text_size_25sp"
+                android:textStyle="bold"
+                tools:text="@string/thirty_dollars" />
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_account_balance"
-            android:layout_gravity="center"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/layout_padding_24dp"
-            android:layout_marginRight="@dimen/layout_padding_24dp"
-            android:layout_width="wrap_content"
-            android:textSize="@dimen/text_medium"
-            tools:text="Amount"/>
-
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.2dp"
-        android:background="#E7DFDF"/>
+    </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>
