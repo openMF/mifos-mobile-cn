@@ -182,6 +182,9 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
             R.id.item_about_us -> {
                 showAboutUs()
             }
+            R.id.item_faq -> {
+                showFaq()
+            }
             R.id.item_settings -> {
                 replaceFragment(SettingsFragment.newInstance(), true, R.id.container)
             }
@@ -220,6 +223,9 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
     fun showAboutUs(){
         val intent = Intent(this, AboutUsActivity::class.java)
         startActivity(intent)
+    }
+    fun showFaq(){
+        Toaster.show(findViewById(android.R.id.content), "FAQ section yet to be added")
     }
 
 }

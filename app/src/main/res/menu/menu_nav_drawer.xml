@@ -59,6 +59,11 @@
             android:icon="@drawable/ic_info_black_24dp"
             android:title="@string/about_us"/>
         <item
+            android:id="@+id/item_faq"
+            android:checked="false"
+            android:icon="@drawable/ic_faq_24dp"
+            android:title="@string/faq"/>
+        <item
             android:id="@+id/item_help"
             android:checked="false"
             android:icon="@drawable/ic_help_black_24dp"
