@@ -68,5 +68,4 @@
         <item name="android:padding">@dimen/layout_padding_7dp</item>
     </style>
 
-
 </resources>
