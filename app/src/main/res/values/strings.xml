@@ -34,6 +34,13 @@
     <string name="home">Home</string>
     <string name="dialog_logout">Are you sure you want to logout?</string>
     <string name="cancel">Cancel</string>
+    <string name="total_balance">Total Balance</string>
+    <string name="four_twenty_dollars">$420</string>
+    <string name="send">Send</string>
+    <string name="receive">Receive</string>
+    <string name="all">All</string>
+    <string name="third_party">Third Party</string>
+    <string name="self">Self</string>
 
 
     <!--Dashboard Fragment-->
