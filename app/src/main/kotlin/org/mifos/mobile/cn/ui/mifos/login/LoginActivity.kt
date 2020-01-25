@@ -13,6 +13,7 @@ import org.mifos.mobile.cn.ui.utils.ConstantKeys
 import org.mifos.mobile.cn.ui.utils.Toaster
 import javax.inject.Inject
 import kotlinx.android.synthetic.main.activity_login.*
+import org.mifos.mobile.cn.ui.mifos.signup.SignupActivity
 
 
 class LoginActivity : MifosBaseActivity(), LoginContract.View, View.OnClickListener {
@@ -27,21 +28,29 @@ class LoginActivity : MifosBaseActivity(), LoginContract.View, View.OnClickListe
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        setToolbarTitle(getString(R.string.login))
+        //setToolbarTitle(getString(R.string.login))
         activityComponent.inject(this)
         loginPresenter.attachView(this)
         preferencesHelper.clear()
 
         //TODO:remove this while implementing API
         btnLogin.setOnClickListener(this)
+        create.setOnClickListener(this)
 
     }
 
     override fun onClick(view: View) {
         when (view.id) {
             R.id.btnLogin -> login()
+            R.id.create -> signup()
         }
 
+    }
+
+    private fun signup() {
+        val intent = Intent(this, SignupActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     internal fun login() {

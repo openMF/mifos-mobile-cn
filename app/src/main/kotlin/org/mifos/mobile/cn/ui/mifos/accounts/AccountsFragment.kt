@@ -1,14 +1,13 @@
 package org.mifos.mobile.cn.ui.mifos.accounts
 
 import android.os.Bundle
-import android.util.Log
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.github.therajanmaurya.sweeterror.SweetUIErrorHandler
 import kotlinx.android.synthetic.main.fragment_accounts.*
+import kotlinx.android.synthetic.main.layout_exception_handler.*
 import org.mifos.mobile.cn.R
 import org.mifos.mobile.cn.data.models.accounts.deposit.DepositAccount
 import org.mifos.mobile.cn.data.models.accounts.loan.LoanAccount
@@ -19,7 +18,6 @@ import org.mifos.mobile.cn.ui.base.MifosBaseFragment
 import org.mifos.mobile.cn.ui.utils.ConstantKeys
 import org.mifos.mobile.cn.ui.utils.Network
 import javax.inject.Inject
-import kotlinx.android.synthetic.main.layout_sweet_exception_handler.*
 import org.mifos.mobile.cn.data.models.CheckboxStatus
 import org.mifos.mobile.cn.ui.base.OnItemClickListener
 import org.mifos.mobile.cn.ui.mifos.customerDepositDetails.CustomerDepositDetailsFragment
@@ -115,8 +113,6 @@ class AccountsFragment : MifosBaseFragment(), AccountsContract.View, OnItemClick
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         rv_accounts.layoutManager = layoutManager
         rv_accounts.setHasFixedSize(true)
-        rv_accounts.addItemDecoration(DividerItemDecoration(activity,
-                layoutManager.orientation))
         btn_try_again.setOnClickListener { retry() }
 
         when (accountType) {
@@ -143,7 +139,7 @@ class AccountsFragment : MifosBaseFragment(), AccountsContract.View, OnItemClick
                 (activity as MifosBaseActivity).replaceFragment(
                         CustomerDepositDetailsFragment.newInstance(
                                 depositAccounts[position].accountIdentifier!!),true,R.id.container
-                                )
+                )
             }
         }
     }

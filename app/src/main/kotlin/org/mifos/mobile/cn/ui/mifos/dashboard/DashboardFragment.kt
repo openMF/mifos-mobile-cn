@@ -12,23 +12,27 @@ import org.mifos.mobile.cn.R
 import org.mifos.mobile.cn.enums.AccountType
 import org.mifos.mobile.cn.ui.base.MifosBaseActivity
 import org.mifos.mobile.cn.ui.base.MifosBaseFragment
+import org.mifos.mobile.cn.ui.mifos.Main
+import org.mifos.mobile.cn.ui.mifos.QRGenerator
 import org.mifos.mobile.cn.ui.mifos.customerAccounts.CustomerAccountFragment
 import org.mifos.mobile.cn.ui.mifos.customerDetails.CustomerDetailsActivity
+import org.mifos.mobile.cn.ui.mifos.customerProfile.CustomerProfileActivity
 import org.mifos.mobile.cn.ui.mifos.loanApplication.loanActivity.LoanApplicationActivity
 import org.mifos.mobile.cn.ui.mifos.recentTransactions.RecentTransactionsFragment
 import org.mifos.mobile.cn.ui.utils.ConstantKeys
 
 
 class DashboardFragment : MifosBaseFragment(), View.OnClickListener, SwipeRefreshLayout.OnRefreshListener {
-
+    private lateinit var customerIdentification: String
     private lateinit var rootView: View
     private lateinit var customer: Customer
 
     companion object {
 
-        fun newInstance(): DashboardFragment {
+        fun newInstance(identifier: String): DashboardFragment {
             val fragment = DashboardFragment()
             val args = Bundle()
+            args.putString(ConstantKeys.CUSTOMER_IDENTIFIER, identifier)
             fragment.arguments = args
             return fragment
         }
@@ -40,6 +44,10 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener, SwipeRefres
         rootView = inflater.inflate(R.layout.fragment_dashboard, container, false)
         setHasOptionsMenu(true)
         setToolbarTitle(getString(R.string.home))
+        if (arguments != null) {
+            1
+            customerIdentification = arguments!!.getString(ConstantKeys.CUSTOMER_IDENTIFIER)
+        }
         return rootView
     }
 
@@ -49,6 +57,7 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener, SwipeRefres
         ll_accounts.setOnClickListener(this)
         ll_account_overview.setOnClickListener(this)
         ll_recent_transactions.setOnClickListener(this)
+        ll_charges.setOnClickListener(this)
         swipe_home_container.setOnRefreshListener(this)
     }
 
@@ -77,7 +86,19 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener, SwipeRefres
             R.id.ll_recent_transactions -> {
                 showRecentTransactions()
             }
+            R.id.ll_charges ->{
+                test()
+            }
+            R.id.ll_surveys ->{
+                qrcode()
+            }
         }
+    }
+
+    private fun qrcode() {
+        val intent = Intent(activity, QRGenerator::class.java)
+        intent.putExtra(ConstantKeys.CUSTOMER_IDENTIFIER, "customer_identifier")
+        startActivity(intent)
     }
 
     private fun applyForLoan() {
@@ -104,6 +125,11 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener, SwipeRefres
         (activity as MifosBaseActivity)
                 .replaceFragment(RecentTransactionsFragment.Companion.newInstance(),
                         true, R.id.container)
+    }
+    private fun test(){
+        val intent = Intent(activity, Main::class.java)
+        intent.putExtra(ConstantKeys.CUSTOMER_IDENTIFIER, "customer_identifier")
+        startActivity(intent)
     }
 
     override fun onRefresh() {
