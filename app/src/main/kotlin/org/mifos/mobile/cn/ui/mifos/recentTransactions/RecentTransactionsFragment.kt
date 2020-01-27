@@ -62,7 +62,6 @@ SwipeRefreshLayout.OnRefreshListener{
     }
 
     override fun showUserInterface() {
-        setToolbarTitle("Recent Transactions")
         val  layoutManager = LinearLayoutManager(activity)
         layoutManager.orientation = RecyclerView.VERTICAL
         rvRecentTransactions.layoutManager = layoutManager

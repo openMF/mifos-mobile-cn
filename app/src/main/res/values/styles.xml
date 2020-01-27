@@ -78,5 +78,11 @@
         <item name="android:padding">@dimen/layout_padding_7dp</item>
     </style>
 
+    <style name="AppTheme.RoundedCornerMaterialButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:background">@drawable/rounded_shape</item>
+    </style>
 
+    <style name="AppTheme.RoundedCornerOutlinedMaterialButton" parent="AppTheme.Button">
+        <item name="android:background">@drawable/outline_button</item>
+    </style>
 </resources>
