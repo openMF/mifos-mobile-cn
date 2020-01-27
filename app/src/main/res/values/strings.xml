@@ -50,6 +50,7 @@
     <string name="contact_email">support@mifos.org</string>
     <string name="help_line_number">8000000000</string>
     <string name="need_help">Contact Us</string>
+    <string name="thirty_dollars">$30</string>
 
 
     <!--Menu Nav drawer-->
