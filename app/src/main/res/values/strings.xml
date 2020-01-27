@@ -51,8 +51,17 @@
     <string name="help_line_number">8000000000</string>
     <string name="need_help">Contact Us</string>
 
+    <!-- Customer Profile Activity -->
+    <string name="edit_profile">Edit Profile</string>
+    <string name="edit_image">Edit Image</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="email_address">Email Address</string>
+    <string name="dummy_name">Dwight Schrute</string>
+    <string name="dummy_phone_number">+1-202-555-0148</string>
+    <string name="dummy_email_address">rohan@mifos.org</string>
 
     <!--Menu Nav drawer-->
+    <string name="navigation_drawer">Navigation Drawer</string>
     <string name="third_party_transfer">Third Party Transfer</string>
     <string name="manage_beneficiaries">Manage Beneficiaries</string>
     <string name="settings">Settings</string>
