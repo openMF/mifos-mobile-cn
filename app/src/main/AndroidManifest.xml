@@ -36,6 +36,7 @@
         <activity android:name=".ui.mifos.debtincomereport.DebtIncomeReportActivity"/>
         <activity android:name=".ui.mifos.aboutus.AboutUsActivity"/>
         <activity android:name=".ui.mifos.privacypolicy.PrivacyPolicyActivity"/>
+        <activity android:name=".ui.mifos.beneficiaries.BeneficiariesActivity" />
         <activity
             android:name="com.google.android.gms.oss.licenses.OssLicensesMenuActivity"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />

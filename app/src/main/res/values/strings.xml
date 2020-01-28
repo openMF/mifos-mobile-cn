@@ -313,5 +313,17 @@
     <string name="privacy_policy_host_url" translatable="false">https://openmf.github.io/privacy_policy_mifos_mobile.html</string>
     <string name="opensource_license_title">Open Source licenses</string>
 
+    <!--Beneficiaries Activity-->
+    <string name="add">Add</string>
+    <string name="list">List</string>
+    <string name="savings_account">Savings Account</string>
+    <string name="savings_account_type">Savings Account Type</string>
+    <string name="account_number">Account Number</string>
+    <string name="office_name">Office Name</string>
+    <string name="transfer_limit">Transfer Limit</string>
+    <string name="beneficiary_name">Beneficiary Name</string>
+    <string name="submit_beneficiary">Submit Beneficiary</string>
+    <string name="name">Name</string>
+    <string name="dummy_price">$30</string>
 
 </resources>
