@@ -27,7 +27,11 @@ class LoginActivity : MifosBaseActivity(), LoginContract.View, View.OnClickListe
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        setToolbarTitle(getString(R.string.login))
+        /* Commented this line out as the redesign doesn't require the toolbar but the
+        MifosBaseActivity needs it so it can't be deleted. Didn't delete this line for future
+        reference if anyone wants to bring back the toolbar.
+         */
+        //setToolbarTitle(getString(R.string.login))
         activityComponent.inject(this)
         loginPresenter.attachView(this)
         preferencesHelper.clear()
