@@ -8,10 +8,10 @@
     android:foreground="?android:attr/selectableItemBackground"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:focusable="true">
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:baselineAligned="false"
         android:clickable="true"
         android:foreground="?android:attr/selectableItemBackground"
@@ -19,7 +19,8 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:minHeight="?attr/listPreferredItemHeight"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:focusable="true">
 
         <LinearLayout
             android:layout_height="match_parent"
@@ -36,10 +37,11 @@
 
                 <ImageView
                     android:id="@+id/iv_task1"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/identification_cards"
                     android:tint="@color/icon_color"
-                    app:srcCompat="@drawable/ic_description_black_24dp"/>
+                    app:srcCompat="@drawable/ic_description_black_24dp" />
 
             </LinearLayout>
 
@@ -74,7 +76,8 @@
                     android:layout_weight="0.5"
                     android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground"
-                    android:layout_width="wrap_content">
+                    android:layout_width="wrap_content"
+                    android:focusable="true">
 
 
                 </LinearLayout>

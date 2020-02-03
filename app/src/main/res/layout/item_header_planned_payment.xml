@@ -9,8 +9,6 @@
     android:visibility="visible">
 
     <androidx.cardview.widget.CardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:background="@color/white"
         android:id="@+id/cv_customer_deposit_details"
         android:layout_height="wrap_content"
@@ -36,11 +34,12 @@
                 android:padding="16dp">
 
                 <ImageView
-                    android:layout_gravity="center"
-                    android:layout_height="30dp"
                     android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/customer_image"
                     android:tint="@color/colorPrimary"
-                    app:srcCompat="@drawable/ic_perm_contact_calendar_black_24dp"/>
+                    app:srcCompat="@drawable/ic_perm_contact_calendar_black_24dp" />
 
                 <LinearLayout
                     android:layout_height="wrap_content"
@@ -72,13 +71,15 @@
 
                     <ImageView
                         android:id="@+id/iv_collapse"
-                        android:layout_gravity="center"
-                        android:layout_height="30dp"
                         android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
                         android:clickable="true"
-                        android:tint="@color/collapse_image"
+                        android:focusable="true"
+                        android:contentDescription="@string/open_drawer"
                         android:foreground="?android:attr/selectableItemBackground"
-                        app:srcCompat="@drawable/ic_arrow_drop_up_black_24dp"/>
+                        android:tint="@color/collapse_image"
+                        app:srcCompat="@drawable/ic_arrow_drop_up_black_24dp" />
 
                 </LinearLayout>
 

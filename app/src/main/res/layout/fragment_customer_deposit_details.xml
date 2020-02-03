@@ -10,8 +10,6 @@
     android:visibility="invisible">
 
     <androidx.cardview.widget.CardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:background="@color/white"
         android:clickable="true"
         android:foreground="?android:attr/selectableItemBackground"
@@ -19,7 +17,8 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:visibility="visible"
-        app:cardElevation="4dp">
+        app:cardElevation="4dp"
+        android:focusable="true">
 
         <LinearLayout
             android:layout_height="match_parent"
@@ -53,7 +52,8 @@
                         android:id="@+id/iv_deposit_current_status"
                         android:layout_height="35dp"
                         android:layout_width="35dp"
-                        app:srcCompat="@drawable/ic_check_circle_black_24dp"/>
+                        app:srcCompat="@drawable/ic_check_circle_black_24dp"
+                        android:contentDescription="@string/approved" />
 
                     <TextView
                         android:foregroundGravity="center"
@@ -102,7 +102,8 @@
                         android:layout_gravity="center"
                         android:layout_height="35dp"
                         android:layout_width="35dp"
-                        app:srcCompat="@drawable/ic_account_balance_black_24dp"/>
+                        app:srcCompat="@drawable/ic_account_balance_black_24dp"
+                        android:contentDescription="@string/balance" />
 
                     <LinearLayout
                         android:layout_height="wrap_content"
@@ -141,7 +142,8 @@
                         android:layout_gravity="center"
                         android:layout_height="35dp"
                         android:layout_width="35dp"
-                        app:srcCompat="@drawable/ic_account_balance_wallet_black_24dp"/>
+                        app:srcCompat="@drawable/ic_account_balance_wallet_black_24dp"
+                        android:contentDescription="@string/balance" />
 
                     <LinearLayout
                         android:layout_height="wrap_content"
@@ -179,7 +181,8 @@
                         android:layout_gravity="center"
                         android:layout_height="35dp"
                         android:layout_width="35dp"
-                        app:srcCompat="@drawable/ic_people_black_24dp"/>
+                        app:srcCompat="@drawable/ic_people_black_24dp"
+                        android:contentDescription="@string/username" />
 
                     <LinearLayout
                         android:layout_height="wrap_content"

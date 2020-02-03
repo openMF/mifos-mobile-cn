@@ -7,19 +7,22 @@
                 android:gravity="center"
                 android:layout_gravity="center"
                 android:clickable="true"
+                android:focusable="true"
                 style="@android:style/Widget.ActionButton">
 
     <ImageView
         android:id="@+id/iv_notification_icon"
-        app:srcCompat="@drawable/ic_notifications"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"/>
+        android:contentDescription="@string/notification"
+        android:gravity="center"
+        app:srcCompat="@drawable/ic_notifications" />
 
     <TextView
         android:id="@+id/tv_notification_indicator"
         android:layout_width="wrap_content"
-        android:textSize="10sp"
+        android:textSize="12sp"
+        android:layout_alignEnd="@id/iv_notification_icon"
         android:paddingLeft="3dp"
         android:paddingRight="3dp"
         android:textColor="@color/white"

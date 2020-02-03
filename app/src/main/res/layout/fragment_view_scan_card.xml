@@ -8,12 +8,12 @@
 
     <ImageView
         android:id="@+id/iv_scan_card"
-        android:adjustViewBounds="true"
-        android:layout_gravity="center"
-        android:layout_height="match_parent"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/identification_cards"
         android:scaleType="fitCenter"
-        android:visibility="visible"
-        />
+        android:visibility="visible" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

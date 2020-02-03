@@ -10,8 +10,6 @@
     android:visibility="visible">
 
     <androidx.core.widget.NestedScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:background="@color/gray_light"
         android:id="@+id/ncv_customer_loan_details"
         android:layout_height="match_parent"
@@ -25,10 +23,9 @@
             android:paddingBottom="@dimen/layout_padding_64dp">
 
             <androidx.cardview.widget.CardView
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:background="@color/white"
                 android:clickable="true"
+                android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:id="@+id/cv_customer"
                 android:layout_height="match_parent"
@@ -111,12 +108,13 @@
                             android:orientation="horizontal">
 
                             <ImageView
-                                android:baselineAlignBottom="true"
-                                android:layout_gravity="center"
-                                android:layout_height="30dp"
-                                android:layout_marginTop="@dimen/layout_padding_4dp"
                                 android:layout_width="30dp"
-                                app:srcCompat="@drawable/ic_event_black_24dp"/>
+                                android:layout_height="30dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/layout_padding_4dp"
+                                android:baselineAlignBottom="true"
+                                android:contentDescription="@string/expiration_date"
+                                app:srcCompat="@drawable/ic_event_black_24dp" />
 
                             <LinearLayout
                                 android:layout_height="wrap_content"
@@ -189,15 +187,12 @@
                 android:text="@string/scans_uploaded"/>
 
             <androidx.cardview.widget.CardView
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:background="@color/white"
                 android:id="@+id/cv_scans_uploaded"
                 android:layout_height="match_parent"
                 android:layout_width="match_parent">
 
                 <FrameLayout
-                    xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_height="match_parent"
                     android:layout_width="match_parent">
 

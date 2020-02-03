@@ -33,6 +33,7 @@
         android:visibility="gone"
         android:id="@+id/fab_create_loan"
         app:layout_behavior="org.mifos.mobile.cn.ui.utils.ScrollFabBehaviour"
-        app:srcCompat="@drawable/ic_add_white_24dp"/>
+        app:srcCompat="@drawable/ic_add_white_24dp"
+        android:focusable="true" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

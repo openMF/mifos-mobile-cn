@@ -6,7 +6,6 @@
     android:orientation="vertical">
 
     <androidx.core.widget.NestedScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:background="@color/gray_light"
         android:id="@+id/ncv_customer_details"
@@ -34,7 +33,6 @@
                 android:text="@string/ratio"/>
 
             <androidx.cardview.widget.CardView
-                xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:background="@color/white"
                 android:id="@+id/cv_financial_products"
@@ -50,6 +48,7 @@
 
                     <RelativeLayout
                         android:clickable="true"
+                        android:focusable="true"
                         android:foreground="?android:attr/selectableItemBackground"
                         android:id="@+id/ll_loan_accounts"
                         android:layout_height="wrap_content"
@@ -115,7 +114,6 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:background="@color/white"
                 android:layout_height="wrap_content"
@@ -131,6 +129,7 @@
 
                     <RelativeLayout
                         android:clickable="true"
+                        android:focusable="true"
                         android:foreground="?android:attr/selectableItemBackground"
                         android:layout_height="wrap_content"
                         android:layout_width="match_parent"

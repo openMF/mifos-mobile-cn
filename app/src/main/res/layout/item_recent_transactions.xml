@@ -7,7 +7,8 @@
     android:layout_height="wrap_content"
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:focusable="true">
 
     <LinearLayout
         android:id="@+id/ll_recent_transactions"

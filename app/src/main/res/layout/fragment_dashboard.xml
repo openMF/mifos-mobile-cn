@@ -34,14 +34,16 @@
 
                     <ImageView
                         android:id="@+id/iv_user_image"
-                        android:layout_gravity="center"
-                        android:layout_height="65dp"
-                        android:layout_margin="@dimen/margin_16dp"
                         android:layout_width="65dp"
-                        android:visibility="visible"
+                        android:layout_height="65dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/margin_16dp"
                         android:background="?selectableItemBackgroundBorderless"
                         android:clickable="true"
-                        app:srcCompat="@drawable/ic_person_black_24dp"/>
+                        android:focusable="true"
+                        android:contentDescription="@string/customer_image"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/ic_person_black_24dp" />
 
                     <org.mifos.mobile.cn.ui.utils.CircularImageView
                         android:id="@+id/iv_circular_user_image"
@@ -52,6 +54,7 @@
                         android:visibility="gone"
                         android:background="?selectableItemBackgroundBorderless"
                         android:clickable="true"
+                        android:focusable="true"
                         tools:src="@drawable/ic_person_black_24dp"/>
 
                     <TextView
@@ -77,6 +80,7 @@
 
                     <LinearLayout
                         android:clickable="true"
+                        android:focusable="true"
                         android:foreground="?selectableItemBackground"
                         android:id="@+id/ll_account_overview"
                         android:layout_height="match_parent"
@@ -110,6 +114,7 @@
                                 android:layout_alignParentEnd="true"
                                 android:layout_alignParentRight="true"
                                 android:layout_centerInParent="true"
+                                android:contentDescription="@string/account_overview"
                                 android:tint="@color/white"
                                 app:srcCompat="@drawable/ic_keyboard_arrow_right_black_24dp" />
 
@@ -119,6 +124,7 @@
 
                     <LinearLayout
                         android:clickable="true"
+                        android:focusable="true"
                         android:foreground="?selectableItemBackground"
                         android:id="@+id/ll_recent_transactions"
                         android:layout_height="match_parent"
@@ -146,13 +152,14 @@
                                 android:textSize="14sp"/>
 
                             <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
                                 android:layout_alignParentEnd="true"
                                 android:layout_alignParentRight="true"
                                 android:layout_centerInParent="true"
-                                android:layout_height="match_parent"
-                                android:layout_width="wrap_content"
+                                android:contentDescription="@string/recent_transactions"
                                 android:tint="@color/white"
-                                app:srcCompat="@drawable/ic_keyboard_arrow_right_black_24dp"/>
+                                app:srcCompat="@drawable/ic_keyboard_arrow_right_black_24dp" />
 
                         </RelativeLayout>
 
@@ -194,6 +201,7 @@
                         <LinearLayout
                             android:background="?selectableItemBackgroundBorderless"
                             android:clickable="true"
+                            android:focusable="true"
                             android:gravity="center"
                             android:id="@+id/ll_accounts"
                             android:layout_height="wrap_content"
@@ -213,14 +221,15 @@
                                 app:cardCornerRadius="30dp">
 
                                 <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="60dp"
                                     android:layout_alignParentTop="true"
                                     android:layout_centerHorizontal="true"
                                     android:layout_gravity="center"
-                                    android:layout_height="60dp"
-                                    android:layout_width="wrap_content"
+                                    android:contentDescription="@string/accounts"
                                     android:padding="@dimen/layout_padding_16dp"
                                     android:tint="@color/white"
-                                    app:srcCompat="@drawable/ic_account_balance_black_24dp"/>
+                                    app:srcCompat="@drawable/ic_account_balance_black_24dp" />
 
                             </androidx.cardview.widget.CardView>
 
@@ -242,6 +251,7 @@
                         <LinearLayout
                             android:background="?selectableItemBackgroundBorderless"
                             android:clickable="true"
+                            android:focusable="true"
                             android:gravity="center"
                             android:id="@+id/ll_transfer"
                             android:layout_height="wrap_content"
@@ -291,6 +301,7 @@
                         <LinearLayout
                             android:background="?selectableItemBackgroundBorderless"
                             android:clickable="true"
+                            android:focusable="true"
                             android:gravity="center"
                             android:id="@+id/ll_apply_for_loan"
                             android:layout_height="wrap_content"
@@ -371,6 +382,7 @@
                         <LinearLayout
                             android:background="?selectableItemBackgroundBorderless"
                             android:clickable="true"
+                            android:focusable="true"
                             android:gravity="center"
                             android:id="@+id/ll_beneficiaries"
                             android:layout_height="wrap_content"
@@ -468,6 +480,7 @@
                         <LinearLayout
                             android:background="?selectableItemBackgroundBorderless"
                             android:clickable="true"
+                            android:focusable="true"
                             android:gravity="center"
                             android:id="@+id/ll_surveys"
                             android:layout_height="wrap_content"

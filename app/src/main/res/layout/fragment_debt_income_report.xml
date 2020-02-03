@@ -5,7 +5,6 @@
     android:layout_width="match_parent">
 
     <androidx.core.widget.NestedScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:background="@color/gray_light"
         android:id="@+id/ncv_customer_details"
@@ -32,7 +31,6 @@
                 android:text="@string/total_debt"/>
 
             <androidx.cardview.widget.CardView
-                xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:background="@color/white"
                 android:id="@+id/cv_financial_products"
@@ -47,24 +45,23 @@
                     android:orientation="vertical">
 
                     <LinearLayout
-                        xmlns:android="http://schemas.android.com/apk/res/android"
                         android:clickable="true"
-                        android:foreground="?android:attr/selectableItemBackground"
                         android:layout_height="wrap_content"
                         android:layout_width="match_parent"
                         android:orientation="vertical"
                         android:paddingLeft="@dimen/layout_padding_16dp"
                         android:paddingRight="@dimen/layout_padding_16dp"
-                        android:paddingTop="@dimen/layout_padding_8dp">
+                        android:paddingTop="@dimen/layout_padding_8dp"
+                        android:focusable="true">
 
                         <LinearLayout
-                            xmlns:android="http://schemas.android.com/apk/res/android"
                             android:clickable="true"
                             android:foreground="?android:attr/selectableItemBackground"
                             android:id="@+id/ll_customer_deposit_accounts"
                             android:layout_height="wrap_content"
                             android:layout_width="match_parent"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:focusable="true">
 
                             <LinearLayout
                                 android:layout_height="wrap_content"
@@ -127,7 +124,6 @@
                 android:text="@string/total_income"/>
 
             <androidx.cardview.widget.CardView
-                xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:background="@color/white"
                 android:layout_height="match_parent"
@@ -141,7 +137,6 @@
                     android:orientation="vertical">
 
                     <LinearLayout
-                        xmlns:android="http://schemas.android.com/apk/res/android"
                         android:clickable="true"
                         android:foreground="?android:attr/selectableItemBackground"
                         android:layout_height="wrap_content"
@@ -149,15 +144,16 @@
                         android:orientation="vertical"
                         android:paddingLeft="@dimen/layout_padding_16dp"
                         android:paddingRight="@dimen/layout_padding_16dp"
-                        android:paddingTop="@dimen/layout_padding_8dp">
+                        android:paddingTop="@dimen/layout_padding_8dp"
+                        android:focusable="true">
 
                         <LinearLayout
-                            xmlns:android="http://schemas.android.com/apk/res/android"
                             android:clickable="true"
                             android:foreground="?android:attr/selectableItemBackground"
                             android:layout_height="wrap_content"
                             android:layout_width="match_parent"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:focusable="true">
 
                             <LinearLayout
                                 android:layout_height="wrap_content"

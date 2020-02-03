@@ -9,7 +9,6 @@
     <include layout="@layout/toolbar"/>
 
     <androidx.core.widget.NestedScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:orientation="vertical">
@@ -26,11 +25,12 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:adjustViewBounds="true"
-                    android:layout_gravity="center"
-                    android:layout_height="@dimen/layout_padding_75dp"
                     android:layout_width="wrap_content"
-                    android:src="@drawable/mifos_logo_new"/>
+                    android:layout_height="@dimen/layout_padding_75dp"
+                    android:layout_gravity="center"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/copy_right_mifos"
+                    android:src="@drawable/mifos_logo_new" />
 
                 <TextView
                     android:gravity="center"
@@ -60,7 +60,8 @@
                         android:id="@+id/etUsername"
                         android:inputType="text"
                         android:layout_height="wrap_content"
-                        android:layout_width="match_parent"/>
+                        android:layout_width="match_parent"
+                        android:autofillHints="@string/username" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -78,7 +79,8 @@
                         android:id="@+id/etPassword"
                         android:inputType="textPassword"
                         android:layout_height="wrap_content"
-                        android:layout_width="match_parent"/>
+                        android:layout_width="match_parent"
+                        android:autofillHints="@string/password" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 

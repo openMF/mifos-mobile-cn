@@ -1,96 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent">
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingBottom="@dimen/layout_padding_24dp">
 
         <LinearLayout
-            android:layout_height="wrap_content"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tv_header"
-                android:layout_height="match_parent"
                 android:layout_width="match_parent"
-                android:paddingBottom="@dimen/layout_padding_30dp"
-                android:paddingLeft="@dimen/layout_padding_24dp"
-                android:paddingRight="@dimen/layout_padding_24dp"
+                android:layout_height="match_parent"
                 android:paddingStart="@dimen/layout_padding_24dp"
+                android:paddingLeft="@dimen/layout_padding_24dp"
                 android:paddingTop="@dimen/layout_padding_24dp"
+                android:paddingRight="@dimen/layout_padding_24dp"
+                android:paddingBottom="@dimen/layout_padding_30dp"
                 android:text="@string/add_debt"
                 android:textColor="@color/colorPrimaryDark"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_height="match_parent"
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:paddingLeft="@dimen/layout_padding_24dp"
                 android:paddingRight="@dimen/layout_padding_24dp">
 
                 <EditText
-                    android:hint="@string/amount"
                     android:id="@+id/et_amount"
-                    android:inputType="numberDecimal"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_width="match_parent"/>
+                    android:hint="@string/amount"
+                    android:inputType="numberDecimal" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_height="match_parent"
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:paddingLeft="@dimen/layout_padding_24dp"
-                android:paddingRight="@dimen/layout_padding_24dp"
-                android:paddingTop="@dimen/layout_padding_16dp">
+                android:paddingTop="@dimen/layout_padding_16dp"
+                android:paddingRight="@dimen/layout_padding_24dp">
 
                 <EditText
-                    android:hint="@string/description"
                     android:id="@+id/et_description"
-                    android:inputType="textMultiLine"
-                    android:layout_height="match_parent"
                     android:layout_width="match_parent"
-                    android:scrollHorizontally="false"
-                    android:scrollbars="vertical"/>
+                    android:layout_height="match_parent"
+                    android:hint="@string/description"
+                    android:inputType="textMultiLine"
+                    android:scrollbars="vertical"
+                    android:scrollHorizontally="false" />
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
 
         <LinearLayout
-            android:gravity="end"
-            android:layout_height="match_parent"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="end"
             android:orientation="horizontal"
-            android:paddingBottom="@dimen/layout_padding_30dp"
-            android:paddingEnd="@dimen/layout_padding_24dp"
-            android:paddingLeft="@dimen/layout_padding_30dp"
-            android:paddingRight="@dimen/layout_padding_24dp"
             android:paddingStart="@dimen/layout_padding_30dp"
-            android:paddingTop="@dimen/layout_padding_16dp">
+            android:paddingLeft="@dimen/layout_padding_30dp"
+            android:paddingTop="@dimen/layout_padding_16dp"
+            android:paddingEnd="@dimen/layout_padding_24dp"
+            android:paddingRight="@dimen/layout_padding_24dp"
+            android:paddingBottom="@dimen/layout_padding_30dp">
 
             <Button
                 android:id="@+id/btn_cancel"
-                android:layout_gravity="center"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginEnd="@dimen/layout_padding_16dp"
                 android:layout_marginRight="@dimen/layout_padding_16dp"
-                android:layout_width="wrap_content"
                 android:text="@string/cancel"
-                android:textAllCaps="false"/>
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/btn_add_debt_income"
-                android:layout_gravity="center"
-                android:layout_height="wrap_content"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="@string/add_debt"
-                android:textAllCaps="false"
-            />
+                android:textAllCaps="false" />
 
         </LinearLayout>
 

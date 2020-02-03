@@ -11,18 +11,20 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
-        android:background="?selectableItemBackgroundBorderless"
-        android:clickable="true"
-        android:focusable="true"
         android:id="@+id/iv_user_image"
+        android:layout_width="65dp"
         android:layout_height="65dp"
         android:layout_marginTop="20dp"
-        android:layout_width="65dp"
-        app:srcCompat="@drawable/ic_person_black_24dp"/>
+        android:background="?selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:contentDescription="@string/customer_image"
+        android:focusable="true"
+        app:srcCompat="@drawable/ic_person_black_24dp" />
 
     <org.mifos.mobile.cn.ui.utils.CircularImageView
         android:background="?selectableItemBackgroundBorderless"
         android:clickable="true"
+        android:focusable="true"
         android:id="@+id/iv_circular_user_image"
         android:layout_height="65dp"
         android:layout_marginTop="20dp"
