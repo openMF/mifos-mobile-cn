@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    <string name="about_us">எங்களை பற்றி</string>
+
+    <string name="account">கணக்கு</string>
+    <string name="account_identifier">கணக்குகள் அடையாளம்</string>
+    <string name="account_overview">கணக்கு கண்ணோட்டம்</string>
+
+    <string name="accounts">கணக்குகள்</string>
+    <string name="accounts_overview">கணக்குகள் கண்ணோட்டம்</string>
+
+    <string name="active">"செயலில் உள்ளது "</string>
+
+    <string name="activities">நடவடிக்கைகள்</string>
+
+    <string name="add_debt">கடன் சேர்க்க</string>
+    <string name="add_income">"வருமானம் சேர்க்க "</string>
+
+    <string name="address">முகவரி</string>
+
+    <string name="all_rights_reserved">அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை</string>
+
+    <string name="amount">தொகை</string>
+    <string name="amount_should_be_not_empty">தொகை வெறுமையாக இருக்கக்கூடாது</string>
+
+    <string name="app_name">mifos-mobile-cn</string>
+    <string name="app_version">பதிப்பு %1$s</string>
+
+    <string name="apply_for_loan">கடன் விண்ணப்பிக்க</string>
+
+    <string name="approved">அங்கீகரிக்கப்பட்டது</string>
+
+    <string name="assigned_employee">நியமிக்கப்பட்ட பணியாளர்:</string>
+
+    <string name="balance">மீதம்</string>
+
+    <string name="beneficiaries">பயனாளிகள்</string>
+
+    <string name="birthday">பிறந்தநாள்</string>
+
+    <string name="cancel">ரத்து செய்க</string>
+
+    <string name="change_customer_status">வாடிக்கையாளரின் நிலையை மாற்றவும்</string>
+
+    <string name="charges">"கட்டணங்கள் "</string>
+
+    <string name="clear_filters">"விருப்பங்களை நீக்கு "</string>
+
+    <string name="closed">"மூடப்பட்டது "</string>
+
+    <string name="Commands">கட்டளைகள்</string>
+
+    <string name="contact_information">"தொடர்பு கொள்ளும் தகவல் "</string>
+
+    <string name="create_new_loan">"புதிய கடனை உருவாக்கு "</string>
+
+    <string name="created">உருவாக்கப்பட்டது</string>
+    <string name="created_by">"உருவாக்கியது "</string>
+
+    <string name="current_status">தற்போதைய நிலை</string>
+
+    <string name="customer">வாடிக்கையாளர்</string>
+    <string name="customer_deposit_account">"வாடிக்கையாளர் வைப்பு கணக்கு "</string>
+    <string name="customer_image">"வாடிக்கையாளரின் புகைப்படம் "</string>
+    <string name="customer_ratio">வாடிக்கையாளர் (Ratio: %1$s)</string>
+
+    <string name="day">"நாள் "</string>
+
+    <string name="debt_income">கடன் வருமானம்</string>
+    <string name="debt_income_delete_image">"பற்று வருமான படத்தை நீக்கு "</string>
+    <string name="debt_income_edit_image">"பற்று திருத்தம்  படத்தை நீக்கு "</string>
+    <string name="debt_income_report">"பற்று வருமான அறிக்கை "</string>
+
+    <string name="deposit">வைப்பு</string>
+    <string name="deposit_account">"வைப்பு கணக்கு "</string>
+    <string name="deposit_accounts">வைப்பு கணக்குகள்</string>
+
+    <string name="description">விளக்கம்</string>
+    <string name="description_should_not_be_empty">"விவரங்கள் காலியாக இருக்க கூடாது "</string>
+
+    <string name="details">"விவரம் "</string>
+
+    <string name="dialog_action_app_settings">"செயலி அமைப்புகள் "</string>
+    <string name="dialog_action_back">பின்</string>
+    <string name="dialog_action_cancel">ரத்து</string>
+    <string name="dialog_action_i_am_sure">"உறுதியாக உள்ளேன் "</string>
+    <string name="dialog_action_ok">சரி</string>
+    <string name="dialog_action_re_try">மீண்டும் முயற்சி செய்</string>
+    <string name="dialog_logout">நீங்கள் வெளியேற விரும்புகிறீர்களா?</string>
+    <string name="dialog_message_write_permission_for_share_denied_prompt">"சேமிப்பக்கத்தை மாற்ற அனுமதியின்றி படத்தை பகிர இயலாது "</string>
+    <string name="dialog_message_write_permission_for_share_never_ask_again">வெளிப்புற சேமிப்பக்கத்தை அணுக அனுமதி மறுத்துவிட்டீர்கள், இந்த அனுமதியின்றி நீங்கள் படங்களை பகிர முடியாது.</string>
+    <string name="dialog_permission_denied">அனுமதி மறுக்கப்பட்டது</string>
+
+    <string name="disburse_loan">"கடன் வழங்கல்  "</string>
+
+    <string name="edit_debt">"பற்றை திருத்து "</string>
+    <string name="edit_income">"வருமானத்தை  திருத்து "</string>
+
+    <string name="empty_customer_activities">"காண்பிக்க எதுவும்  இல்லை "</string>
+    <string name="empty_planned_payments">திட்டமிட்ட கட்டணங்கள் எதுவும் இல்லை</string>
+    <string name="empty_scans_to_show">"காண்பிக்க எதுவும்  இல்லை "</string>
+
+    <string name="enter_you_credentials">"சான்றுகளை வழங்குக "</string>
+
+    <string name="error_fetching_customer_activities">"வாடிக்கையாளர் நடவடிக்கைகளை காட்ட முடியவில்லை "</string>
+    <string name="error_fetching_customer_details">"வாடிக்கையாளர் விவரங்களை  காட்ட முடியவில்லை "</string>
+    <string name="error_fetching_identification_list">"வாடிக்கையாளர் அட்டைகளை காட்ட முடியவில்லை "</string>
+    <string name="error_fetching_scans">"வாடிக்கையாளர் அட்டைகளை காட்ட முடியவில்லை "</string>
+    <string name="error_loading_customer_loan_details">"கடன் விவரங்களை  காட்ட முடியவில்லை "</string>
+    <string name="error_loading_deposit_details">"வைப்பு  விவரங்களை  காட்ட முடியவில்லை "</string>
+    <string name="error_logging_in">"உள்நுழைய முடியவில்லை "</string>
+    <string name="error_validation_cannot_contain_spaces">"%1$s இடைவெளிகள் இருக்கக்கூடாது "</string>
+
+    <string name="exit_message">"வெளியேற பின் பொத்தானை மீண்டும் அழுத்தவும் "</string>
+
+    <string name="expiration_date">காலாவதியாகும் தேதி</string>
+
+    <string name="filter">வடிப்பான்</string>
+    <string name="filter_accounts">கணக்குகளை வடிக்கட்டு</string>
+    <string name="filter_deposit">வைப்பு கணக்குகளை வடிக்கட்டு</string>
+    <string name="filter_loan">கடன் கணக்குகளை வடிக்கட்டு</string>
+
+    <string name="financial_products">"நிதி தயாரிப்புகள் "</string>
+
+    <string name="help">"உதவி "</string>
+
+    <string name="home">முகப்பு</string>
+
+    <string name="identification_cards">"அடையாள அட்டைகள் "</string>
+    <string name="identification_search">"அடையாள அட்டைகளை தேடு "</string>
+
+    <string name="in">உள்</string>
+
+    <string name="issuer">"வழங்குபவர் "</string>
+
+    <string name="last_modified_by">"கடைசியாக மாற்றியவர் "</string>
+    <string name="last_modified_on">"கடைசியாக மாற்றப்பட்ட நேரம் "</string>
+
+    <string name="licenses">"உரிமங்கள் "</string>
+
+    <string name="load_payment">"கட்டணத்தை ஏற்று "</string>
+
+    <string name="loading_scans_please_wait">"காத்திருக்கவும் "</string>
+
+    <string name="loan">"கடன் "</string>
+    <string name="loan_account">"கடன் கணக்கு "</string>
+    <string name="loan_accounts">கடன் கணக்குகள்</string>
+
+    <string name="locked">பூட்டப்பட்டுள்ளது</string>
+
+    <string name="logging_in">உள் நுழைகிறது .....</string>
+
+    <string name="login">"உள்நுழை "</string>
+    <string name="login_using_password_confirmation">"கடவுச்சொல் பயன்படுத்த உறுதியாக உள்ளீர்களா? "</string>
+
+    <string name="logout">வெளியேறு</string>
+
+    <string name="manage_accounts">கணக்குகளை நிர்வகி</string>
+    <string name="manage_beneficiaries">பயனாளர்களை நிர்வகி</string>
+    <string name="manage_deposit_accounts">வைப்பு கணக்குகளை நிர்வகி</string>
+    <string name="manage_loan_accounts">கடன்  கணக்குகளை நிர்வகி</string>
+
+    <string name="management">நிர்வாகம்</string>
+
+    <string name="more">வெளியேறு</string>
+
+    <string name="msg_setting_activity_not_found">"தேவையான அனுமதிகளை தங்கள் கைபேசியின் அமைப்புகளில் சென்று வழங்கவும்"</string>
+
+    <string name="must_be_at_least_three_characters">"குறைந்த பட்சம் %1$d எழுத்துக்கள் இருக்க வேண்டும் "</string>
+
+    <string name="need_help">தொடர்பு கொள்ள</string>
+
+    <string name="no_beneficiary">"பயனாளர்கள் இல்லை "</string>
+    <string name="no_contact_details_available">"தொடர்பு விவரங்கள் இல்லை "</string>
+    <string name="no_debt_to_show">காண்பிக்க கடன் விவரங்கள் இல்லை. கடனை உருவாக்கவும்</string>
+    <string name="no_deposit_account">"வைப்பு கணக்கு இல்லை "</string>
+    <string name="no_income_to_show">வருமான தகவல் இல்லை. வருமானத்தை சேர்க்கவும்</string>
+    <string name="no_more_planned_payment_available">"திட்டமிட்ட கட்டணங்கள் ஏதும் இல்லை "</string>
+
+    <string name="not_assigned">நியமிக்கப்படவில்லை</string>
+
+    <string name="notification">அறிவிப்புகள்</string>
+
+    <string name="number">எண்</string>
+
+    <string name="on">மீது</string>
+    <string name="on_the">மீது</string>
+
+    <string name="only_thirty_two_character_allowed">"32 எழுத்துக்கள் மட்டுமே அனுமதிக்கப்படும் "</string>
+
+    <string name="open_drawer">பட்டியலை திற</string>
+
+    <string name="opensource_license_title">திறந்த மூல உரிமங்கள்</string>
+
+    <string name="package_name">"தொகுப்பு "</string>
+
+    <string name="password">"கடவுச்சொல் "</string>
+    <string name="password_required">"கடவுச்சொல் தேவை"</string>
+
+    <string name="payment_cycle">கட்டண சுழற்சி</string>
+
+    <string name="pending">"நிலுவை "</string>
+
+    <string name="permission_denied_write">"வெளிப்புற சேமிப்பகுதியை அணுக அனுமதி மறுக்க பட்டது "</string>
+
+    <string name="planned_payment">"திட்டமிடப்பட்ட கட்டணம் "</string>
+    <string name="planned_payments">"திட்டமிடப்பட்ட கட்டணங்கள் "</string>
+
+    <string name="principal_amount">அசல் தொகை</string>
+
+    <string name="privacy_policy">தனியுரிமை கொள்கை</string>
+
+    <string name="products">பொருட்கள்</string>
+
+    <string name="ratio">விகிதம்: %1$s</string>
+
+    <string name="recent_activities">சமீபத்திய நடவடிக்கைகள்</string>
+    <string name="recent_transactions">சமீபத்திய பரிவர்தனைகள்</string>
+
+    <string name="remaining_principal">மீதமுள்ள அசல் தொகை</string>
+
+    <string name="repay_every" translatable="false">" கட்டணம் செலுத்த வேண்டிய காலம் "</string>
+
+    <string name="required">தேவை</string>
+
+    <string name="scans_uploaded">Scan ஏற்றப்பட்டது</string>
+
+    <string name="search">தேடு</string>
+    <string name="search_product">பொருளை தேடு</string>
+
+    <string name="select_you_want">தேவையானவற்றை தேர்வு செய்க</string>
+
+    <string name="settings">அமைப்புகளை</string>
+
+    <string name="share">பகிர்</string>
+    <string name="share_customer_profile">"சுயவிவரத்தை பகிர் "</string>
+
+    <string name="short_name">"சுருக்க பெயர் "</string>
+
+    <string name="small_text">"சிறிய உரை "</string>
+
+    <string name="status_image">நிலைப்படம்</string>
+
+    <string name="survey">கணக்கெடுப்பு</string>
+
+    <string name="tasks">பணிகள்</string>
+
+    <string name="term">கால</string>
+
+    <string name="third_party_transfer">"மூன்றாம் தரப்பு பரிமாற்றம் "</string>
+
+    <string name="transactions_search">"பரிவர்த்தனைகள் தேடல் "</string>
+    <string name="transfer">பரிவர்த்தனை</string>
+
+    <string name="type">வகை</string>
+
+    <string name="unique_required">கட்டாயமானவை</string>
+    <string name="username">பயனர்பெயர்</string>
+    <string name="username_required">"பயனர்பெயர் தேவை "</string>
+
+    <string name="value_must_greater_or_equal_to">%1$s விட பெரியதாகவோ சமமாகவோ இருக்க வேண்டும்</string>
+    <string name="value_must_less_than_or_equal_to">"%1$s விட குறைவாகவோ சமமாகவோ இருக்க வேண்டும்"</string>
+
+    <string name="view_debt_income_ratio">வருமான கடன் விகிதம்</string>
+    <string name="view_debt_income_report">வருமான கடன் அறிக்கை</string>
+    <string name="view_identification_card">"அடையாள அட்டைகளை காட்டு "</string>
+    <string name="view_payments">கட்டணங்களை பார்க்க</string>
+
+    <string name="welcome">வருக</string>
+</resources>

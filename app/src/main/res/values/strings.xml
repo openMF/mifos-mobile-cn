@@ -8,7 +8,7 @@
     <string name="dialog_action_i_am_sure">I\'M Sure</string>
     <string name="dialog_action_re_try">Retry</string>
     <string name="dialog_action_app_settings">App Settings</string>
-    <string name="package_name" translatable="false">package</string>
+    <string name="package_name">package</string>
     <string name="msg_setting_activity_not_found">Something went wrong finding Settings activity.
         \nGo to \'Settings\' and grant permission manually.
     </string>
@@ -22,8 +22,7 @@
     <string name="username_required">Username required</string>
     <string name="welcome">Welcome</string>
     <string name="logging_in">Logging in.....</string>
-    <string name="error_validation_blank">%1$s cannot be blank</string>
-    <string name="error_validation_minimum_chars">%1$s cannot be less than %2$d characters</string>
+    <string name="error_validation_blank" translatable="false">%1$s cannot be blank</string>
     <string name="error_validation_cannot_contain_spaces">%1$s cannot contain spaces</string>
     <string name="error_logging_in">Error logging in</string>
     <string name="login_using_password_confirmation">Are you sure you want to login using Password?
@@ -47,8 +46,8 @@
     <string name="beneficiaries">Beneficiaries</string>
     <string name="charges">Charges</string>
     <string name="survey">Survey</string>
-    <string name="contact_email">support@mifos.org</string>
-    <string name="help_line_number">8000000000</string>
+    <string name="contact_email" translatable="false">support@mifos.org</string>
+    <string name="help_line_number" translatable="false">8000000000</string>
     <string name="need_help">Contact Us</string>
 
 
@@ -61,7 +60,7 @@
     <string name="share">Share</string>
     <string name="logout">Logout</string>
     <string name="open_drawer">Open Drawer</string>
-    <string name="close_drawer">Close Drawer</string>
+    <string name="close_drawer" translatable="false">Close Drawer</string>
     <string name="exit_message">Press back again to exit</string>
     <string name="notification">Notifications</string>
 
@@ -85,8 +84,8 @@
 
     <!--Loan Debt Income Fragment-->
     <string name="ratio">Ratio: %1$s</string>
-    <string name="total_debt">Debts(Total: 0:00)</string>
-    <string name="total_income">Income(Total: 0:00)</string>
+    <string name="total_debt" translatable="false">Debts(Total: 0:00)</string>
+    <string name="total_income" translatable="false">Income(Total: 0:00)</string>
     <string name="no_debt_to_show">No debts to show. add debt</string>
     <string name="no_income_to_show">No income to show. add income</string>
     <string name="add_income">Add Income</string>
@@ -193,7 +192,7 @@
     <string name="required">Required</string>
     <string name="must_be_at_least_three_characters">Must be at least %1$d characters</string>
     <string name="only_thirty_two_character_allowed">Only 32 character allowed</string>
-    <string name="only_alphabetic_decimal_digits_characters_allowed">Only alphabetic, decimal digits,\'-\' \'_\' \'.\' \'!\' \'~\' \'*\' \'(\' \')\' characters allowed</string>
+    <string name="only_alphabetic_decimal_digits_characters_allowed" translatable="false">Only alphabetic, decimal digits,\'-\' \'_\' \'.\' \'!\' \'~\' \'*\' \'(\' \')\' characters allowed</string>
     <string name="unique_required">Unique, Required</string>
 
     <!--Client Accounts-->
@@ -201,7 +200,7 @@
     <string name="deposit">Deposit</string>
 
     <!--LoanAccountsListAdapter-->
-    <string name="colon">:&#160;</string>
+    <string name="colon" translatable="false">:&#160;</string>
     <string name="last_modified_on">Last modified on</string>
     <string name="last_modified_by">Last modified by</string>
     <string name="account_identifier">Account Identifier</string>
@@ -250,10 +249,10 @@
     <string name="account_overview">Account Overview</string>
 
     <!--Customer Commands -->
-    <string name="activities_created_by_on">%1$s, %2$s</string>
+    <string name="activities_created_by_on" translatable="false">%1$s, %2$s</string>
     <string name="activities">Activities</string>
     <string name="Commands">Commands</string>
-    <string name="identification_issuer">Issuer: %1$s</string>
+    <string name="identification_issuer" translatable="false">Issuer: %1$s</string>
 
     <!-- Customer Identification -->
     <string name="identification_search">Search identification card</string>
@@ -283,29 +282,29 @@
     <string name="view_payments">View payment</string>
     <string name="debt_income_report">Debt Income Report</string>
     <string name="view_debt_income_report">View debt income report</string>
-    <string name="payment_cycle_week">Repay every %1$d %2$s on %3$s</string>
-    <string name="payment_cycle_month_day">Repay every %1$d %2$s on the %3$s day</string>
-    <string name="payment_cycle_month_day_week">Repay every %1$d %2$s on the %3$s %4$s</string>
-    <string name="payment_cycle_year_day_week">Repay every %1$d %2$s on the %3$s %4$s in %5$s</string>
+    <string name="payment_cycle_week" translatable="false">Repay every %1$d %2$s on %3$s</string>
+    <string name="payment_cycle_month_day" translatable="false">Repay every %1$d %2$s on the %3$s day</string>
+    <string name="payment_cycle_month_day_week" translatable="false">Repay every %1$d %2$s on the %3$s %4$s</string>
+    <string name="payment_cycle_year_day_week" translatable="false">Repay every %1$d %2$s on the %3$s %4$s in %5$s</string>
     <string name="no_deposit_account">No deposit account</string>
-    <string name="loan_created_by">%1$s %2$s</string>
-    <string name="loan_last_modified_by">%1$s %2$s</string>
+    <string name="loan_created_by" translatable="false">%1$s %2$s</string>
+    <string name="loan_last_modified_by" translatable="false">%1$s %2$s</string>
     <string name="disburse_loan">DISBURSE LOAN</string>
     <string name="empty_planned_payments">Empty planned payment list</string>
     <string name="no_more_planned_payment_available">No more planned payment available</string>
-    <string name="error_loading_planned_payment"><![CDATA[>Error loading planned payment]]></string>
+    <string name="error_loading_planned_payment" translatable="false"><![CDATA[>Error loading planned payment]]></string>
     <string name="remaining_principal">Remaining principal</string>
     <string name="planned_payments">Planned Payments</string>
     <string name="load_payment">Load Payment</string>
     <string name="view_debt_income_ratio">View debt income ratio</string>
-    <string name="customer_ratio">Customer \n (Ratio: %1$s)</string>
-    <string name="co_signer_ratio">Co-signer \n (Ratio: %1$s</string>
+    <string name="customer_ratio">Customer   (Ratio: %1$s)</string>
+    <string name="co_signer_ratio" translatable="false">Co-signer \n (Ratio: %1$s</string>
     <string name="error_loading_deposit_details">Error loading deposit details</string>
     <string name="no_beneficiary">No beneficiaries</string>
     <string name="account">Account</string>
     <string name="balance">Balance</string>
     <string name="app_version">Version %1$s</string>
-    <string name="copy_right_mifos">©2016-%1$s Mifos Initiative.</string>
+    <string name="copy_right_mifos" translatable="false">©2016-%1$s Mifos Initiative.</string>
     <string name="all_rights_reserved">All rights reserved.</string>
     <string name="licenses">Licenses</string>
     <string name="privacy_policy">Privacy Policy</string>
