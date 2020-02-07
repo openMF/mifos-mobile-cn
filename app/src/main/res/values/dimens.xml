@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="layout_padding_negative_30dp">-30dp</dimen>
     <dimen name="layout_padding_2dp">2dp</dimen>
     <dimen name="layout_padding_4dp">4dp</dimen>
     <dimen name="layout_padding_8dp">8dp</dimen>
@@ -10,9 +11,17 @@
     <dimen name="layout_padding_16dp">16dp</dimen>
     <dimen name="layout_padding_24dp">24dp</dimen>
     <dimen name="layout_padding_30dp">30dp</dimen>
+    <dimen name="layout_padding_35dp">35dp</dimen>
+    <dimen name="layout_padding_40dp">40dp</dimen>
     <dimen name="layout_padding_50dp">50dp</dimen>
+    <dimen name="layout_padding_54dp">54dp</dimen>
+    <dimen name="layout_padding_60dp">60dp</dimen>
     <dimen name="layout_padding_64dp">64dp</dimen>
     <dimen name="layout_padding_75dp">75dp</dimen>
+    <dimen name="layout_padding_180dp">180dp</dimen>
+    <dimen name="layout_padding_250dp">250dp</dimen>
+    <dimen name="layout_padding_550dp">550dp</dimen>
+
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
@@ -28,6 +37,10 @@
     <dimen name="text_size_16sp">16sp</dimen>
     <dimen name="text_size_18sp">18sp</dimen>
     <dimen name="text_size_20sp">20sp</dimen>
+    <dimen name="text_size_22sp">22sp</dimen>
+    <dimen name="text_size_28sp">28sp</dimen>
+    <dimen name="text_size_30sp">30sp</dimen>
+
     <!-- Dimen values for text size -->
     <dimen name="text_headline">24sp</dimen>
     <dimen name="text_large">20sp</dimen>

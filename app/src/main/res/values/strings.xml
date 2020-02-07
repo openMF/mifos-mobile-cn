@@ -263,6 +263,8 @@
     <string name="expiration_date">Expiration date</string>
     <string name="type">Type</string>
     <string name="number">Number</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="choose_contact_number">Choose contact number</string>
     <string name="search_product">Search product</string>
     <string name="share_customer_profile">Share Profile</string>
     <string name="dialog_message_write_permission_for_share_denied_prompt">Without write permission you will         not be able to share the image. Are you sure you want to deny this</string>
@@ -313,5 +315,11 @@
     <string name="privacy_policy_host_url" translatable="false">https://openmf.github.io/privacy_policy_mifos_mobile.html</string>
     <string name="opensource_license_title">Open Source licenses</string>
 
+    <!--Transfer and Amount Activity-->
+    <string name="dummy_contact_name">Nathaniel Harrington</string>
+    <string name="dummy_mobile_number">9910011158</string>
+    <string name="enter_amount">Enter Amount</string>
+    <string name="or">OR</string>
+    <string name="qr_code">QR Code</string>
 
 </resources>
