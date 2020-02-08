@@ -18,6 +18,7 @@
         android:layout_height="65dp"
         android:layout_marginTop="20dp"
         android:layout_width="65dp"
+        android:layout_gravity="center"
         app:srcCompat="@drawable/ic_person_black_24dp"/>
 
     <org.mifos.mobile.cn.ui.utils.CircularImageView
