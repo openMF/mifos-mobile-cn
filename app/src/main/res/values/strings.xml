@@ -15,6 +15,11 @@
 
     <!--Login Activity-->
     <string name="enter_you_credentials">Please enter your credentials</string>
+    <string name="dialog_message_phone_state_permission_denied_prompt">This permission is required
+        to show currency according to your country.Are you sure you want to deny it?</string>
+    <string name="dialog_message_phone_state_permission_never_ask_again">You have denied permission
+        to fetch Phone State, without this permission currency might not be shown in proper format.
+        Please enable it in settings</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="login">Login</string>

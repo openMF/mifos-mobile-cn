@@ -28,44 +28,43 @@ import org.mifos.mobile.cn.ui.views.HeaderView
 
 import javax.inject.Inject
 
-class CustomerDetailsFragment : MifosBaseFragment(), AppBarLayout.OnOffsetChangedListener,CustomerDetailsContract.View, View.OnClickListener{
-
+class CustomerDetailsFragment : MifosBaseFragment(), AppBarLayout.OnOffsetChangedListener, CustomerDetailsContract.View, View.OnClickListener {
 
 
     @Inject
     lateinit var customerDetailsPresenter: CustomerDetailsPresenter
 
-    private lateinit var rootView : View
-    private lateinit var customerIdentification : String
-    private  var isHideToolbarView: Boolean = false
-    private lateinit var collapsingToolbarLayout : CollapsingToolbarLayout
-    private lateinit var customer : Customer
-    private lateinit var toolbarHeaderView : HeaderView
-    private  lateinit var floatHeaderView : HeaderView
+    private lateinit var rootView: View
+    private lateinit var customerIdentification: String
+    private var isHideToolbarView: Boolean = false
+    private lateinit var collapsingToolbarLayout: CollapsingToolbarLayout
+    private lateinit var customer: Customer
+    private lateinit var toolbarHeaderView: HeaderView
+    private lateinit var floatHeaderView: HeaderView
 
-  companion object {
-      fun newInstance(identifier: String): CustomerDetailsFragment {
-          val fragment = CustomerDetailsFragment()
-          val args = Bundle()
-          args.putString(ConstantKeys.CUSTOMER_IDENTIFIER,identifier)
-          fragment.arguments = args
-          return fragment
+    companion object {
+        fun newInstance(identifier: String): CustomerDetailsFragment {
+            val fragment = CustomerDetailsFragment()
+            val args = Bundle()
+            args.putString(ConstantKeys.CUSTOMER_IDENTIFIER, identifier)
+            fragment.arguments = args
+            return fragment
 
-      }
-  }
+        }
+    }
 
 
-
-    override fun onCreate(savedInstanceState: Bundle?){
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setToolbarTitle(getString(R.string.account_overview))
-        if(arguments != null){1
+        if (arguments != null) {
+            1
             customerIdentification = arguments!!.getString(ConstantKeys.CUSTOMER_IDENTIFIER)
         }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        rootView = inflater.inflate(R.layout.fragment_customer_details,container,false)
+        rootView = inflater.inflate(R.layout.fragment_customer_details, container, false)
         (activity as MifosBaseActivity).activityComponent.inject(this)
         customerDetailsPresenter.attachView(this)
 
@@ -88,12 +87,13 @@ class CustomerDetailsFragment : MifosBaseFragment(), AppBarLayout.OnOffsetChange
 
 
     }
+
     override fun onClick(view: View) {
-        when(view.id){
+        when (view.id) {
             R.id.ll_deposit_accounts -> {
                 openDepositAccount()
             }
-            R.id.ll_loan_accounts-> {
+            R.id.ll_loan_accounts -> {
                 openLoanAccount()
             }
             R.id.ll_activities -> {
@@ -117,11 +117,10 @@ class CustomerDetailsFragment : MifosBaseFragment(), AppBarLayout.OnOffsetChange
 
     override fun onResume() {
         super.onResume()
-       cl_customer_details.visibility = View.GONE
-        collapsingToolbarLayout.title= " "
+        cl_customer_details.visibility = View.GONE
+        collapsingToolbarLayout.title = " "
         customerDetailsPresenter.loadCustomerDetails(customerIdentification)
     }
-
 
 
     override fun showCustomerDetails(customer: Customer) {
@@ -132,10 +131,10 @@ class CustomerDetailsFragment : MifosBaseFragment(), AppBarLayout.OnOffsetChange
         loadCustomerPortrait()
 
         tv_current_status.text = customer.currentState!!.name
-        StatusUtils.setCustomerStatusIcon(customer.currentState!!,iv_current_status,context)
+        StatusUtils.setCustomerStatusIcon(customer.currentState!!, iv_current_status, context)
 
 
-        val address : Address = customer.address!!
+        val address: Address = customer.address!!
         val addressBuilder = StringBuilder()
         addressBuilder
                 .append(address.street).append(", ")
@@ -171,6 +170,7 @@ class CustomerDetailsFragment : MifosBaseFragment(), AppBarLayout.OnOffsetChange
         }
         showToolbarTitleSubtitle(title, subtitle)
     }
+
     override fun showUserInterface() {
         if (toolbar_customer != null) {
             (activity as AppCompatActivity).setSupportActionBar(toolbar_customer)
@@ -178,12 +178,13 @@ class CustomerDetailsFragment : MifosBaseFragment(), AppBarLayout.OnOffsetChange
                     .setDisplayHomeAsUpEnabled(true)
         }
 
-        collapsingToolbarLayout.title= " "
+        collapsingToolbarLayout.title = " "
         app_bar_layout.addOnOffsetChangedListener(this)
     }
+
     override fun showToolbarTitleSubtitle(title: String, subtitle: String) {
-        toolbarHeaderView.bindTo(title,subtitle)
-       floatHeaderView.bindTo(title,subtitle)
+        toolbarHeaderView.bindTo(title, subtitle)
+        floatHeaderView.bindTo(title, subtitle)
 
     }
 
@@ -206,23 +207,20 @@ class CustomerDetailsFragment : MifosBaseFragment(), AppBarLayout.OnOffsetChange
     }
 
 
-
     override fun loadCustomerPortrait() {
 
         val imageLoaderUtils = ImageLoaderUtils(this.context!!)
-       imageLoaderUtils.loadImage(imageLoaderUtils.buildCustomerPortraitImageUrl(customer.identifier),iv_customer_profile,R.drawable.mifos_logo_new)
+        imageLoaderUtils.loadImage(imageLoaderUtils.buildCustomerPortraitImageUrl(customer.identifier), iv_customer_profile, R.drawable.mifos_logo_new)
 
     }
 
     override fun showProgressbar() {
-     showProgressBar()
+        showProgressBar()
     }
 
     override fun hideProgressbar() {
-      hideProgressBar()
+        hideProgressBar()
     }
-
-
 
 
     override fun getCustomerStatus(): Customer.State {
@@ -241,6 +239,7 @@ class CustomerDetailsFragment : MifosBaseFragment(), AppBarLayout.OnOffsetChange
         hideProgressDialog()
         customerDetailsPresenter.detachView()
     }
+
     override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {
         val maxScroll = appBarLayout!!.totalScrollRange
         val percentage = Math.abs(verticalOffset).toFloat() / maxScroll.toFloat()
@@ -254,28 +253,30 @@ class CustomerDetailsFragment : MifosBaseFragment(), AppBarLayout.OnOffsetChange
         }
 
     }
+
     private fun openDepositAccount() {
         (activity as MifosBaseActivity)
                 .replaceFragment(CustomerAccountFragment.newInstance(AccountType.DEPOSIT),
                         true, R.id.container)
     }
+
     private fun openLoanAccount() {
         (activity as MifosBaseActivity)
                 .replaceFragment(CustomerAccountFragment.newInstance(AccountType.LOAN),
                         true, R.id.container)
     }
+
     private fun openCustomerActivities() {
-        val intent = Intent(activity,CustomerActivitiesActivity::class.java)
-        intent.putExtra(ConstantKeys.CUSTOMER_IDENTIFIER,"customer_identifier")
+        val intent = Intent(activity, CustomerActivitiesActivity::class.java)
+        intent.putExtra(ConstantKeys.CUSTOMER_IDENTIFIER, "customer_identifier")
         startActivity(intent)
     }
+
     private fun openIdentificationCards() {
-        val intent = Intent(activity,IdentificationsActivity::class.java)
-        intent.putExtra(ConstantKeys.CUSTOMER_IDENTIFIER,"customer_identifier")
+        val intent = Intent(activity, IdentificationsActivity::class.java)
+        intent.putExtra(ConstantKeys.CUSTOMER_IDENTIFIER, "customer_identifier")
         startActivity(intent)
     }
-
-
 
 
 }
