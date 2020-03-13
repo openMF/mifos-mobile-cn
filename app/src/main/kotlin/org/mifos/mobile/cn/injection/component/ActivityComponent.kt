@@ -4,6 +4,7 @@ package org.mifos.mobile.cn.injection.component
 import dagger.Subcomponent
 import org.mifos.mobile.cn.injection.PerActivity
 import org.mifos.mobile.cn.injection.module.ActivityModule
+import org.mifos.mobile.cn.ui.mifos.Account
 import org.mifos.mobile.cn.ui.mifos.DashboardActivity
 import org.mifos.mobile.cn.ui.mifos.aboutus.AboutUsFragment
 import org.mifos.mobile.cn.ui.mifos.accounts.AccountsFragment
@@ -38,6 +39,8 @@ interface ActivityComponent {
     fun inject(loginActivity: LoginActivity)
 
     fun inject(passcodeActivity: PasscodeActivity)
+
+    fun inject(account :Account)
 
     fun inject(launcherActivity: LauncherActivity)
 

@@ -98,6 +98,10 @@ class CustomerProfileActivity: MifosBaseActivity(),CustomerProfileContract.View 
                 resources.getString(
                         R.string.dialog_message_write_permission_for_share_never_ask_again),
                 ConstantKeys.PERMISSIONS_WRITE_EXTERNAL_STORAGE_STATUS)
+        if (CheckSelfPermissionAndRequest.checkSelfPermission(this,
+                        android.Manifest.permission.WRITE_EXTERNAL_STORAGE)){
+            shareImage()
+        }
     }
 
     override fun loadCustomerPortrait() {

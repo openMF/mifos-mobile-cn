@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/violet"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/layout_padding_24dp"
+        android:layout_marginStart="@dimen/layout_padding_24dp"
+        android:layout_marginTop="@dimen/layout_padding_30dp"
+        android:text="@string/transfer"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:fontFamily="@font/airbnb_cereal_black"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:gravity="center_horizontal">
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:textColorHint="@color/white"
+            app:boxBackgroundColor="@color/violet"
+            app:boxStrokeColor="@color/white"
+            app:hintTextAppearance="@color/violet">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/airbnb_cereal_book"
+                android:hint="Mobile Number"
+                android:padding="@dimen/layout_padding_2dp"
+                android:shadowColor="@color/white"
+                android:textColor="@color/white"
+                android:inputType="phone"
+                android:textSize="@dimen/text_size_16sp"
+                android:textCursorDrawable="@null"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/layout_padding_5dp"
+            android:layout_marginStart="@dimen/layout_padding_5dp"
+            android:src="@drawable/pick_contact"
+            android:contentDescription="Choose Contact Number"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Or"
+        android:textSize="@dimen/text_size_14sp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:layout_margin="@dimen/text_size_20sp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="550dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"
+            app:cardCornerRadius="@dimen/layout_padding_30dp"
+            android:backgroundTint="@color/offwhite">
+
+            <ImageView
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/layout_padding_30dp"
+                android:src="@drawable/qrcode"
+                android:contentDescription="Qr Code"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </RelativeLayout>
+
+</LinearLayout>

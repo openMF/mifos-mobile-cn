@@ -1,24 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true"
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:background="@color/violet">
+    <include layout="@layout/toolbar"
+        android:visibility="gone"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/layout_padding_100dp"
+        >
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                  style="@style/LinearLayout.Base">
-
-        <include layout="@layout/toolbar"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/layout_padding_30dp"
+            android:fontFamily="@font/airbnb_cereal_book"
+            android:text="Apply For Loan"
+            android:background="@color/violet"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/layout_padding_100dp"
+        android:backgroundTint="@color/offwhite">
+    <LinearLayout
+                  android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/offwhite">
 
         <com.stepstone.stepper.StepperLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/stepperLayout"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            app:ms_activeStepColor="?attr/colorPrimary"
+            app:ms_activeStepColor="@color/violet"
             app:ms_backButtonColor="#FFFFFF"
-            app:ms_bottomNavigationBackground="?attr/colorPrimary"
+            app:ms_bottomNavigationBackground="@color/violet"
             app:ms_completeButtonColor="#FFFFFF"
             app:ms_inactiveStepColor="#cccccc"
             app:ms_nextButtonColor="#FFFFFF"
@@ -28,5 +52,5 @@
             app:ms_tabStepDividerWidth="138dp"/>
 
     </LinearLayout>
-
+    </com.google.android.material.card.MaterialCardView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
