@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/toolbar"
+        android:visibility="gone" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="420dp"
+        android:layout_marginTop="@dimen/layout_padding_negative_30dp"
+        android:backgroundTint="@color/violet"
+        app:cardCornerRadius="@dimen/layout_padding_30dp">
+
+        <ImageView
+            android:id="@+id/image_menu"
+            android:layout_width="@dimen/layout_padding_30dp"
+            android:layout_height="@dimen/layout_padding_30dp"
+            android:layout_gravity="start"
+            android:layout_marginTop="@dimen/layout_padding_50dp"
+            android:layout_marginStart="@dimen/layout_padding_20dp"
+            android:layout_marginLeft="@dimen/layout_padding_20dp"
+            android:focusable="true"
+            app:srcCompat="@drawable/nav_drawer"
+            />
+
+
+
+        <ImageView
+            android:id="@+id/notify"
+            android:layout_width="@dimen/layout_padding_30dp"
+            android:layout_height="@dimen/layout_padding_30dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="@dimen/layout_padding_50dp"
+            android:layout_marginEnd="@dimen/layout_padding_20dp"
+            android:layout_marginRight="@dimen/layout_padding_30dp"
+            android:focusable="true"
+            app:srcCompat="@drawable/ic_notifications"
+            android:contentDescription="@string/notification"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_padding_120dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/iv_customer_picture"
+                        android:layout_width="@dimen/layout_padding_140dp"
+                        android:layout_height="@dimen/layout_padding_140dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/profile"
+                        android:contentDescription="@string/customer_image"/>
+
+                    <ImageView
+                        android:layout_width="@dimen/layout_padding_50dp"
+                        android:layout_height="@dimen/layout_padding_30dp"
+                        android:layout_gravity="end|bottom"
+                        android:focusable="true"
+                        android:src="@drawable/ic_cam"
+                        android:contentDescription="@string/edit_image"/>
+                </FrameLayout>
+
+                <TextView
+                    android:padding="@dimen/layout_padding_10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dummy_name"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_28sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/layout_padding_98dp"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center">
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/layout_padding_20dp"
+                    android:layout_weight="2"
+                    android:text="@string/edit_profile"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_16sp"
+                    app:cornerRadius="@dimen/layout_padding_100dp"
+                    app:strokeColor="@color/white" />
+
+
+            </LinearLayout>
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/layout_padding_20dp"
+            app:helperText="@string/email_address">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/layout_padding_50dp"
+                android:hint="@string/dummy_email_address"
+                android:inputType="none"
+                app:helperText="@string/email_address"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/layout_padding_20dp"
+            android:layout_marginEnd="@dimen/layout_padding_20dp"
+            app:helperText="@string/phone_number"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="@string/dummy_phone_number"
+                android:inputType="none" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+</LinearLayout>

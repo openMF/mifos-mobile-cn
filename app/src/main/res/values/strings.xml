@@ -15,6 +15,11 @@
 
     <!--Login Activity-->
     <string name="enter_you_credentials">Please enter your credentials</string>
+    <string name="dialog_message_phone_state_permission_denied_prompt">This permission is required
+        to show currency according to your country.Are you sure you want to deny it?</string>
+    <string name="dialog_message_phone_state_permission_never_ask_again">You have denied permission
+        to fetch Phone State, without this permission currency might not be shown in proper format.
+        Please enable it in settings</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
@@ -312,6 +317,44 @@
     <string name="privacy_policy_host" translatable="false">openmf.github.io/privacy_policy_mifos_mobile.html</string>
     <string name="privacy_policy_host_url" translatable="false">https://openmf.github.io/privacy_policy_mifos_mobile.html</string>
     <string name="opensource_license_title">Open Source licenses</string>
+    <string name="profile">Profile</string>
+    <string name="no_transactions_found">No Transactions Found</string>
+    <string name="fetching">Fetching...</string>
+    <string name="total_balance">Total Balance</string>
+    <string name="hide_balance">Hide Balance</string>
+    <string name="transaction_history">Transaction History</string>
+    <string name="show_more">Show More</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="mifos_mobile_cn">Mifos Mobile CN</string>
+    <string name="create_account">Don\'t have an account? Create one.</string>
+    <string name="four_twenty_dollars">$420</string>
+    <string name="send">Send</string>
+    <string name="receive">Receive</string>
+    <string name="all">All</string>
+    <string name="third_party">Third Party</string>
+    <string name="self">Self</string>
+    <!-- Customer Profile Activity -->
+    <string name="edit_image">Edit Image</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="email_address">Email Address</string>
+    <string name="dummy_name">Dwight Schrute</string>
+    <string name="dummy_phone_number">+1-202-555-0148</string>
+    <string name="dummy_email_address">rohan@mifos.org</string>
+
+    <!--Menu Nav drawer-->
+    <string name="navigation_drawer">Navigation Drawer</string>
+    <!--Beneficiaries Activity-->
+    <string name="add">Add</string>
+    <string name="list">List</string>
+    <string name="savings_account">Savings Account</string>
+    <string name="savings_account_type">Savings Account Type</string>
+    <string name="account_number">Account Number</string>
+    <string name="office_name">Office Name</string>
+    <string name="transfer_limit">Transfer Limit</string>
+    <string name="beneficiary_name">Beneficiary Name</string>
+    <string name="submit_beneficiary">Submit Beneficiary</string>
+    <string name="name">Name</string>
+    <string name="dummy_price">$30</string>
     <string name="app_link">App Link</string>
     <string name="share_the_app_link">Share the app link via:</string>
     <string name="share_message">You can download the Mifos Mobile CN app here: https://drive.google.com/file/d/1JGGf80FrTiUqYxZT8PHsGHb65yatQwfd/view?usp=sharing</string>

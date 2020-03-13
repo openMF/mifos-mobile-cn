@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="org.mifos.mobile.cn">
+    package="org.mifos.mobile.cn">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".MifosApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name=".MifosApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".ui.mifos.launcher.LauncherActivity"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".ui.mifos.launcher.LauncherActivity"
             android:theme="@style/LauncherTheme">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".ui.mifos.DashboardActivity" />
         <activity android:name=".ui.mifos.login.LoginActivity"
             android:screenOrientation="portrait"/>
@@ -38,7 +40,11 @@
         <activity android:name=".ui.mifos.debtincomereport.DebtIncomeReportActivity"/>
         <activity android:name=".ui.mifos.aboutus.AboutUsActivity"/>
         <activity android:name=".ui.mifos.privacypolicy.PrivacyPolicyActivity"/>
-        <activity
+        <activity android:name=".ui.mifos.Main" />
+        <activity android:name=".ui.mifos.signup.SignupActivity" />
+        <activity android:name=".ui.mifos.Notification" />
+        <activity android:name=".ui.mifos.beneficiaries.BeneficiariesActivity" />
+                <activity
             android:name="com.google.android.gms.oss.licenses.OssLicensesMenuActivity"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
     </application>

@@ -1,6 +1,7 @@
 package org.mifos.mobile.cn.ui.utils
 
 import android.content.Context
+import android.content.res.Resources
 import android.graphics.PorterDuff
 import android.view.Menu
 import androidx.core.content.ContextCompat
@@ -15,6 +16,13 @@ import java.util.*
 class Utils {
 
     companion object {
+        fun dpToPx(dp: Int): Int {
+            return ((dp * Resources.getSystem().displayMetrics.density).toInt());
+        }
+
+        fun pxToDp(px: Int, context: Context): Int {
+            return ((px / Resources.getSystem().displayMetrics.density).toInt());
+        }
         fun getPrecision(aDouble: Double?): String {
             return String.format(Locale.ENGLISH, "%.2f", aDouble)
         }

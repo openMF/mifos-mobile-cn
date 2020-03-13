@@ -8,12 +8,18 @@
     <color name="colorPrimaryText">#212121</color>
     <color name="colorSecondaryText">#757575</color>
     <color name="colorThirdText">#9F8E8E</color>
-    <color name="colorAccent">#FF4081</color>
-
+    <color name="colorAccent">#4C56C0</color>
+    <color name="colorAccentBlue50">#3C46B1</color>
     <color name="white">#ffffff</color>
     <color name="violet">#4C56C0</color>
     <color name="offwhite">#EBECF0</color>
-
+    <color name="colorBlack100">#000000</color>
+    <color name="colorBlack87">#DE000000</color>
+    <color name="colorBlack70">#B3000000</color>
+    <color name="colorBlack54">#8A000000</color>
+    <color name="colorBlack50">#80000000</color>
+    <color name="colorBlack38">#61000000</color>
+    <color name="colorBlack12">#1F000000</color>
     <!-- A light Holo shade of blue -->
     <color name="blue_light">#ff33b5e5</color>
     <!-- A light Holo shade of gray -->
@@ -40,11 +46,12 @@
     <color name="blue_bright">#ff00ddff</color>
     <!-- A really bright Holo shade of gray -->
     <color name="gray_bright">#33CCCCCC</color>
-
+    <color name="colorAccentYellow">#FFF700</color>
     <color name="blue">#0a46b1</color>
-    <color name="light_gray">#AFADB5</color>
+    <color name="light_gray">#EBECF0</color>
     <color name="dark_gray">#7A7A7A</color>
-
+    <color name="colorTextPrimary">@color/colorBlack87</color>
+    <color name="colorTextSecondary">@color/colorBlack54</color>
     <color name="blue_light_alert_background">#c9d8e9</color>
     <!--Black-->
     <color name="black">#000000</color>
@@ -63,12 +70,14 @@
     <color name="icon_color">#787171</color>
     <color name="base10">#eaeaea</color>
     <color name="base30">#c1c1c1</color>
+    <!-- Redesign Grey -->
+    <color name="grey_redesign">#7A7A7A</color>
 
     <!--Default BoxStokeColor of EditText-->
     <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#4C56C0</color>
 
     <!--Accounts Screen-->
-    <color name="foreground_text_btn">#5861C4</color>
+    <color name="foreground_text_btn">#4C56C0</color>
 
     <!--Swipe Refresh Colors-->
     <array name="swipeRefreshColors">

@@ -31,12 +31,15 @@ import org.mifos.mobile.cn.ui.mifos.settings.SettingsFragment
 import org.mifos.mobile.cn.ui.utils.CircularImageView
 import org.mifos.mobile.cn.ui.utils.Toaster
 import android.widget.Toast
+import com.mifos.mobile.passcode.utils.PasscodePreferencesHelper
+import org.mifos.mobile.cn.ui.mifos.passcode.PasscodeActivity
+import org.mifos.mobile.cn.ui.utils.ConstantKeys
 
 class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
 
     @Inject
     internal lateinit var preferencesHelper: PreferencesHelper
-
+    private var passcodePreferencesHelper: PasscodePreferencesHelper? = null
     private lateinit var tvUsername: TextView
     private lateinit var ivCircularUserProfilePicture: CircularImageView
     private lateinit var ivTextDrawableUserProfilePicture: ImageView
@@ -168,6 +171,17 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
             }
             R.id.item_logout -> {
                 showLogoutDialog()
+            }
+            R.id.item_passcode ->{
+                if (this != null) {
+                    passcodePreferencesHelper = PasscodePreferencesHelper(this)
+                    val currentPass: String = passcodePreferencesHelper!!.getPassCode()
+                    passcodePreferencesHelper!!.savePassCode("")
+                    val intent = Intent(this, PasscodeActivity::class.java)
+                    intent.putExtra(ConstantKeys.CURR_PASSWORD, currentPass)
+                    intent.putExtra(ConstantKeys.UPDATE_PASSWORD_KEY, true)
+                    startActivity(intent)
+                }
             }
             R.id.item_product -> {
                 replaceFragment(ProductFragment.Companion.newInstance(), true,
