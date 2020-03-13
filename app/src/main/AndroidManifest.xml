@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
@@ -13,6 +14,7 @@
         android:name=".MifosApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.mifos.launcher.LauncherActivity"
             android:theme="@style/LauncherTheme">
@@ -24,6 +26,7 @@
         </activity>
 
         <activity android:name=".ui.mifos.DashboardActivity" />
+        <activity android:name=".ui.mifos.Main" />
         <activity android:name=".ui.mifos.login.LoginActivity" />
         <activity android:name=".ui.mifos.passcode.PasscodeActivity"/>
         <activity android:name=".ui.mifos.loanApplication.loanActivity.LoanApplicationActivity"/>

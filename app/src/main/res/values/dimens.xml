@@ -33,7 +33,11 @@
     <dimen name="text_large">20sp</dimen>
     <dimen name="text_medium">16sp</dimen>
     <dimen name="text_small">14sp</dimen>
-
+    <dimen name="marginItemsInSectionSmall">16dp</dimen>
+    <dimen name="marginItemsInSectionMedium">20dp</dimen>
+    <dimen name="marginItemsInSectionLarge">24dp</dimen>
+    <dimen name="marginBetweenSections">48dp</dimen>
+    <dimen name="marginBetweenWords">4dp</dimen>
     <dimen name="margin_16dp">16dp</dimen>
     <dimen name="divider_margin">3dp</dimen>
     <dimen name="row_padding_right">16dp</dimen>

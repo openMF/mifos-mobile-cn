@@ -15,6 +15,11 @@
 
     <!--Login Activity-->
     <string name="enter_you_credentials">Please enter your credentials</string>
+    <string name="dialog_message_phone_state_permission_denied_prompt">This permission is required
+        to show currency according to your country.Are you sure you want to deny it?</string>
+    <string name="dialog_message_phone_state_permission_never_ask_again">You have denied permission
+        to fetch Phone State, without this permission currency might not be shown in proper format.
+        Please enable it in settings</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
@@ -40,7 +45,6 @@
     <string name="accounts_overview">Account Overview</string>
     <string name="recent_transactions">Recent Transactions</string>
     <string name="manage_accounts">Manage Accounts</string>
-    <string name="accounts">Accounts</string>
     <string name="transfer">Transfer</string>
     <string name="apply_for_loan">Apply for Loan</string>
     <string name="more">More</string>
@@ -312,6 +316,15 @@
     <string name="privacy_policy_host" translatable="false">openmf.github.io/privacy_policy_mifos_mobile.html</string>
     <string name="privacy_policy_host_url" translatable="false">https://openmf.github.io/privacy_policy_mifos_mobile.html</string>
     <string name="opensource_license_title">Open Source licenses</string>
+    <string name="profile">Profile</string>
+    <string name="no_transactions_found">No Transactions Found</string>
+    <string name="fetching">Fetching...</string>
+    <string name="total_balance">Total Balance</string>
+    <string name="hide_balance">Hide Balance</string>
+    <string name="transaction_history">Transaction History</string>
+    <string name="show_more">Show More</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="accounts">Accounts</string>
 
 
 </resources>

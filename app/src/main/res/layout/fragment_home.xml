@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/cc_home_screen"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+     android:background="@color/violet">
+
+    <TextView
+        android:id="@+id/tv_account_balance"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="100dp"
+        android:text="@string/fetching"
+        android:textColor="@color/white"
+        android:textSize="34sp"
+        app:fontFamily="@font/airbnb_cereal_light" />
+
+    <TextView
+        android:layout_gravity="center|bottom"
+        app:layout_anchorGravity="bottom|center_horizontal"
+        app:layout_anchor="@id/tv_account_balance"
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/total_balance"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_12sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hide_balance"
+        android:textSize="20sp"
+        android:id="@+id/tv_hide_balance"
+        android:layout_marginTop="40dp"
+        android:fontFamily="sans-serf-black"
+        android:textColor="@color/colorAccent"
+        android:visibility="gone"
+        android:layout_gravity="center|bottom"
+        app:layout_anchorGravity="bottom|center_horizontal"
+        app:layout_anchor="@id/textView8"/>
+
+    <Button
+        android:id="@+id/btn_send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom|left"
+        android:layout_marginTop="200dp"
+        android:background="@drawable/violet_round"
+        android:text="Send"
+
+        app:backgroundTint="@color/gray_light"
+        app:layout_anchor="@+id/textView8"
+        app:layout_anchorGravity="bottom|center_vertical|left" />
+
+    <Button
+        android:id="@+id/btn_receive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom|right"
+        android:layout_marginTop="200dp"
+        android:text="Receive"
+        app:backgroundTint="@color/gray_light"
+        app:layout_anchor="@+id/textView8"
+        app:layout_anchorGravity="bottom|center_vertical|right" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nsv_home_bottom_sheet_dialog"
+        app:layout_behavior="@string/bottom_sheet_behavior"
+        android:layout_width="match_parent"
+        android:background="@drawable/round_gray"
+        app:behavior_hideable="false"
+        app:behavior_peekHeight="250dp"
+        android:layout_height="340dp" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/imageView"
+                app:srcCompat="@drawable/shape_bottom_sheet_dialog_grip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16dp" />
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/dialog_home_bottom_sheet_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:text="@string/recent_transactions"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_16sp" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_home_bottom_sheet"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_marginTop="24dp"
+                android:scrollbars="vertical"
+                />
+
+            <include android:id="@+id/inc_empty_transactions_state_view"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                android:layout_gravity="center"
+                android:layout_marginTop="24dp"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                layout="@layout/placeholder_state" />
+
+            <Button
+                android:visibility="gone"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/btn_home_bottom_sheet_action"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_padding_24dp"
+                android:layout_marginBottom="@dimen/margin_16dp"
+                android:text="@string/show_more" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

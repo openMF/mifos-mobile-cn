@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_light"
+    android:orientation="vertical">
+<include
+    layout="@layout/toolbar_new"/>
+    <include layout="@layout/profile_username_and_image"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        />
+
+    <LinearLayout
+        android:id="@+id/nsv_profile_bottom_sheet_dialog"
+        app:layout_behavior="@string/bottom_sheet_behavior"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent" >
+<TextView
+    android:id="@+id/email_id"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/gray_box"
+    android:layout_marginTop="@dimen/layout_padding_50dp"
+    android:layout_marginLeft="@dimen/layout_padding_24dp"
+    android:layout_marginRight="@dimen/layout_padding_24dp"
+    android:padding="@dimen/layout_padding_10dp"
+    ></TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textColor="@color/dark_gray"
+            android:layout_marginLeft="25dp"></TextView>
+        <TextView
+            android:id="@+id/mob_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gray_box"
+            android:layout_marginTop="@dimen/layout_padding_24dp"
+            android:layout_marginLeft="@dimen/layout_padding_24dp"
+            android:layout_marginRight="@dimen/layout_padding_24dp"
+            android:padding="@dimen/layout_padding_10dp"></TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mobile Number"
+            android:textColor="@color/dark_gray"
+            android:layout_marginLeft="25dp"></TextView>
+    </LinearLayout>
+
+</LinearLayout>
