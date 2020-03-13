@@ -40,7 +40,7 @@
                         android:layout_width="65dp"
                         android:visibility="visible"
                         android:background="?selectableItemBackgroundBorderless"
-                        android:clickable="true"
+                        android:clickable="false"
                         app:srcCompat="@drawable/ic_person_black_24dp"/>
 
                     <org.mifos.mobile.cn.ui.utils.CircularImageView
