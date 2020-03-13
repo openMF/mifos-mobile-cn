@@ -1,98 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_height="wrap_content"
     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/login_bg"
     android:orientation="vertical">
 
-    <include layout="@layout/toolbar"/>
+    <include
+        layout="@layout/toolbar"
+        android:visibility="gone" />
 
     <androidx.core.widget.NestedScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_height="match_parent"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_height="match_parent"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/layout_padding_150dp"
             android:orientation="vertical"
             android:padding="@dimen/layout_padding_30dp">
 
-            <LinearLayout
-                android:layout_height="wrap_content"
+            <TextView
                 android:layout_width="match_parent"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:adjustViewBounds="true"
-                    android:layout_gravity="center"
-                    android:layout_height="@dimen/layout_padding_75dp"
-                    android:layout_width="wrap_content"
-                    android:src="@drawable/mifos_logo_new"/>
-
-                <TextView
-                    android:gravity="center"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:text="@string/enter_you_credentials"/>
-
-            </LinearLayout>
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/productsans"
+                android:text="@string/mifos_mobile_cn"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_35sp" />
 
             <LinearLayout
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/layout_padding_30dp"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_padding_65dp"
                 android:orientation="vertical">
 
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/TextInputLayoutLogin"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_width="match_parent">
+                    android:layout_marginBottom="@dimen/layout_padding_20dp"
+                    android:backgroundTint="@color/white"
+                    android:textColorHint="@color/white">
 
-                    <EditText
-                        style="@style/Base.TextAppearance.AppCompat.Medium"
-                        android:drawableLeft="@drawable/ic_person_black_24dp"
-                        android:drawablePadding="@dimen/layout_padding_8dp"
-                        android:drawableStart="@drawable/ic_person_black_24dp"
-                        android:hint="@string/username"
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etUsername"
-                        android:inputType="text"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_width="match_parent"/>
+                        android:fontFamily="@font/productsans"
+                        android:hint="@string/username"
+                        android:inputType="text"
+                        android:textColor="@color/white" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:layout_height="wrap_content"
+                    style="@style/TextInputLayoutLogin"
                     android:layout_width="match_parent"
-                    app:passwordToggleEnabled="true">
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:textColorHint="@color/white"
+                    app:passwordToggleEnabled="true"
+                    app:passwordToggleTint="@color/white">
 
-                    <EditText
-                        style="@style/Base.TextAppearance.AppCompat.Medium"
-                        android:drawableLeft="@drawable/ic_password_black_24dp"
-                        android:drawablePadding="@dimen/layout_padding_8dp"
-                        android:drawableStart="@drawable/ic_password_black_24dp"
-                        android:hint="@string/password"
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etPassword"
-                        android:inputType="textPassword"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_width="match_parent"/>
+                        android:fontFamily="@font/productsans"
+                        android:hint="@string/password"
+                        android:inputType="textPassword"
+                        android:textColor="@color/white"
+                        android:textColorHighlight="@color/white" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnLogin"
                 android:layout_gravity="center"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/layout_padding_15dp"
-                android:layout_width="match_parent"
+                android:layout_height="@dimen/layout_padding_50dp"
+                android:layout_marginTop="@dimen/layout_padding_30dp"
+                android:layout_width="@dimen/layout_padding_100dp"
                 android:text="@string/login"
-            />
+                android:backgroundTint="@color/white"
+                android:textColor="@color/grey_redesign"
+                android:fontFamily="@font/productsans"/>
 
+            <TextView
+                android:layout_marginTop="@dimen/layout_padding_15dp"
+                android:id="@+id/create"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/create_account"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:fontFamily="@font/productsans"/>
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
