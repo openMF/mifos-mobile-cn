@@ -43,7 +43,7 @@ class CustomerProfileActivity: MifosBaseActivity(),CustomerProfileContract.View 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.menu_customer_profile_share) {
-            checkCameraPermission()
+            checkWriteExternalStoragePermission()
             return true
         }
         else return super.onOptionsItemSelected(item)
@@ -79,7 +79,7 @@ class CustomerProfileActivity: MifosBaseActivity(),CustomerProfileContract.View 
         return returnedBitmap
     }
 
-    override fun checkCameraPermission() {
+    override fun checkWriteExternalStoragePermission() {
         if (CheckSelfPermissionAndRequest.checkSelfPermission(this,
                         android.Manifest.permission.WRITE_EXTERNAL_STORAGE)){
             shareImage()
@@ -110,7 +110,7 @@ class CustomerProfileActivity: MifosBaseActivity(),CustomerProfileContract.View 
    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>,
                                    grantResults: IntArray) {
         when (requestCode) {
-            ConstantKeys.PERMISSIONS_REQUEST_CAMERA -> {
+            ConstantKeys.PERMISSION_REQUEST_WRITE_EXTERNAL_STORAGE -> {
                 if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     shareImage()
                 } else {
