@@ -24,8 +24,8 @@
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/vp_view_scan_card"
-        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        android:layout_height="743dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
