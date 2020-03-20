@@ -1,0 +1,74 @@
+name: Mifos-Mobile-CN CI[Master/Redesign]
+
+on:
+  pull_request:
+    branches:
+      - 'master'
+      - 'redesign'
+
+  push:
+    branches:
+      - 'master'
+      - 'redesign'
+
+jobs:
+  build:
+    name: Build APK
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+        # Set up JDK
+      - name: Set Up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+        # Install NDK
+      - name: Install NDK
+        run: echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "ndk;20.0.5594570" --sdk_root=${ANDROID_SDK_ROOT}
+
+        # Update Gradle Permission
+      - name: Change gradlew Permission
+        run: chmod +x gradlew
+
+        # Build App
+      - name: Build with Gradle
+        run: ./gradlew assemble
+
+        # Upload Built APK
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v2.2.0
+        with:
+          name: mifos-mobile-cn
+          path: app/build/outputs/apk/debug/
+
+  lintCheck:
+    name: StaticAnalysis
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Static Analysis[Mifos-Mobile-CN]
+        run: ./gradlew app:lint
+
+      - name: Upload Static Analysis Report For Mifos-Mobile-CN Module
+        uses: actions/upload-artifact@v2.2.0
+        if: failure()
+        with:
+          name: Static Analysis Report[Mifos-Mobile-CN]
+          path: app/build/reports/
+
+  pmd:
+    name: PMD
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: PMD Check[Mifos-Mobile-CN]
+        run: ./gradlew app:pmd
+
+      - name: Upload PMD Report[Mifos-Mobile-CN]
+        uses: actions/upload-artifact@v2.2.0
+        if: failure()
+        with:
+          name: PMD Report[Mifos-Mobile-CN]
+          path: app/build/reports/
