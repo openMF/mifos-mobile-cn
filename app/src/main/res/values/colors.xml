@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
 
     <color name="dashboard_gray_background">#B2C1C8</color>
     <color name="colorPrimary">#009688</color>
-    <color name="colorPrimaryDark">#00796B</color>
+    <color name="colorPrimaryDark">#4C56C0</color>
     <color name="colorPrimaryText">#212121</color>
     <color name="colorSecondaryText">#757575</color>
     <color name="colorThirdText">#9F8E8E</color>
@@ -67,4 +67,8 @@
         <item>@color/red_light</item>
         <item>@color/orange_light</item>
     </array>
+
+    <color name="colorPrimaryNew">#4C56C0</color>
+    <color name="mtrl_textinput_default_box_stroke_color">#fff</color>
+
 </resources>

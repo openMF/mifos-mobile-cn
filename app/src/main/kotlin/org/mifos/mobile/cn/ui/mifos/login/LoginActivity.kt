@@ -27,40 +27,44 @@ class LoginActivity : MifosBaseActivity(), LoginContract.View, View.OnClickListe
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        setToolbarTitle(getString(R.string.login))
         activityComponent.inject(this)
         loginPresenter.attachView(this)
         preferencesHelper.clear()
 
         //TODO:remove this while implementing API
-        btnLogin.setOnClickListener(this)
+        btn_login.setOnClickListener(this)
+        cl_login.setOnClickListener(this)
 
     }
 
     override fun onClick(view: View) {
         when (view.id) {
-            R.id.btnLogin -> login()
+            R.id.btn_login -> login()
+
+            R.id.cl_login ->  {
+                hideKeyBoard(view)
+            }
         }
 
     }
 
     internal fun login() {
 
-        val username = etUsername.text.toString().trim()
-        val password = etPassword.text.toString().trim()
+        val username = et_username.text.toString().trim()
+        val password = et_password.text.toString().trim()
 
         if(!TextUtils.isEmpty(username)){
             preferencesHelper.putUsername("fineractCn")
         }
         else{
-            etUsername.error = "Username required"
+            til_username_login.error = "Username required"
             return
         }
         if(!TextUtils.isEmpty(password)){
             preferencesHelper.putPassword("password")
         }
         else{
-            etPassword.error = "Password required"
+            til_password_login.error = "Password required"
             return
         }
         loginPresenter.login(username, password)

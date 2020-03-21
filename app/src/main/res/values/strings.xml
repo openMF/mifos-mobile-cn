@@ -28,6 +28,8 @@
     <string name="error_logging_in">Error logging in</string>
     <string name="login_using_password_confirmation">Are you sure you want to login using Password?
     </string>
+    <string name="don_t_have_an_account_create_one">Don\'t have an account? Create one</string>
+    <string name="app_name_login">Mifos Mobile CN</string>
 
 
     <!--Dashboard Activity-->

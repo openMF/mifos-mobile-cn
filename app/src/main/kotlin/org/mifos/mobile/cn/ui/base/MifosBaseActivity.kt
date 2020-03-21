@@ -21,6 +21,7 @@ import org.mifos.mobile.cn.injection.module.ActivityModule
 import org.mifos.mobile.cn.ui.mifos.passcode.PasscodeActivity
 import timber.log.Timber
 import org.mifos.mobile.cn.ui.utils.ProgressBarHandler
+import java.lang.Exception
 import java.util.*
 import java.util.concurrent.atomic.AtomicLong
 
@@ -49,8 +50,12 @@ open class MifosBaseActivity : BaseActivityCallback, BasePassCodeActivity() {
 
     override fun setContentView(layoutResID: Int) {
         super.setContentView(layoutResID)
-        toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
+        try {
+            toolbar = findViewById(R.id.toolbar)
+            setSupportActionBar(toolbar)
+        } catch (e: Exception) {
+
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
