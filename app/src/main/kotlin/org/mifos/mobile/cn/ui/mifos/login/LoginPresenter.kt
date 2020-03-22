@@ -19,16 +19,15 @@ constructor(@ApplicationContext context: Context) :
         checkViewAttached()
         getMvpView.showProgress()
         if (isCredentialValid(username, password)) {
-            getMvpView.hideProgress()
             if (preferencesHelper.password.equals(password)
                     && preferencesHelper.username.equals(username)) {
                 getMvpView.showUserLoginSuccessfully()
             } else {
-                getMvpView.hideProgress()
                 getMvpView.showUserLoginUnSuccessfully()
             }
 
         }
+        getMvpView.hideProgress()
     }
 
     override fun attachView(mvpView: LoginContract.View) {

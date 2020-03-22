@@ -63,8 +63,9 @@ class LoginActivity : MifosBaseActivity(), LoginContract.View, View.OnClickListe
             etPassword.error = "Password required"
             return
         }
-        loginPresenter.login(username, password)
         Toaster.show(findViewById(android.R.id.content), getString(R.string.logging_in), Toaster.SHORT)
+        loginPresenter.login(username, password)
+
     }
 
 
@@ -96,6 +97,6 @@ class LoginActivity : MifosBaseActivity(), LoginContract.View, View.OnClickListe
     }
     override fun showUserLoginUnSuccessfully(){
       preferencesHelper.putLoginStatus(false)
-        Toast.makeText(this,"Invalid Credentials",Toast.LENGTH_SHORT).show()
+        Toaster.show(findViewById(android.R.id.content), getString(R.string.invalid_credentials), Toaster.SHORT)
     }
 }

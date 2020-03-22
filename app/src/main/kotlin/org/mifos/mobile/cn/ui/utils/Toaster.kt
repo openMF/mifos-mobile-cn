@@ -28,6 +28,7 @@ object Toaster {
         textView.maxLines = 5
         snackbar.setAction("OK") { snackbar.dismiss() }
         snackbar.show()
+        hideSnackbad =  snackbar
     }
 
     fun showProgressMessage(view: View, text: String, duration: Int) {
@@ -45,7 +46,7 @@ object Toaster {
         try {
             hideSnackbad!!.dismiss()
         } catch (e: NullPointerException) {
-            Log.d(LOG_TAG, e.localizedMessage)
+            Log.d(LOG_TAG, e.toString())
         }
     }
 
