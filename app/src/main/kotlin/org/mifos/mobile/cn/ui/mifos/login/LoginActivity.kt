@@ -53,14 +53,14 @@ class LoginActivity : MifosBaseActivity(), LoginContract.View, View.OnClickListe
             preferencesHelper.putUsername("fineractCn")
         }
         else{
-            etUsername.error = "Username required"
+            etUsername.error = "Username Required"
             return
         }
         if(!TextUtils.isEmpty(password)){
-            preferencesHelper.putPassword("password")
+            preferencesHelper.putPassword("Password")
         }
         else{
-            etPassword.error = "Password required"
+            etPassword.error = "Password Required"
             return
         }
         loginPresenter.login(username, password)
