@@ -8,7 +8,7 @@
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         style="@style/LinearLayout.Base"
-        android:background="@color/white">
+        android:background="@color/ms_white_54_opacity">
 
         <include layout="@layout/toolbar" />
 
