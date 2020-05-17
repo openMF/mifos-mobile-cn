@@ -166,16 +166,13 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
                 replaceFragment(CustomerAccountFragment.newInstance(AccountType.DEPOSIT), true,
                         R.id.container)
             }
-
             R.id.item_logout -> {
                 showLogoutDialog()
             }
-
             R.id.item_product -> {
                 replaceFragment(ProductFragment.Companion.newInstance(), true,
                         R.id.container)
             }
-
                 R.id.item_recent_transactions -> {
                     replaceFragment(RecentTransactionsFragment.Companion.newInstance(),true,R.id.container)
                 }
@@ -185,8 +182,14 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
             R.id.item_settings -> {
                 replaceFragment(SettingsFragment.newInstance(), true, R.id.container)
             }
+            R.id.item_share -> {
+                val sharingIntent = Intent(android.content.Intent.ACTION_SEND)
+                sharingIntent.type = "text/plain"
+                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, getString(R.string.app_link))
+                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, getString(R.string.share_message))
+                startActivity(Intent.createChooser(sharingIntent, getString(R.string.share_the_app_link)))
+            }
         }
-
         // close the drawer
         drawerLayout.closeDrawer(GravityCompat.START)
         setNavigationViewSelectedItem(R.id.item_home)
