@@ -1,8 +1,14 @@
+## Issue Fix
 Fixes #Issue_Number
 
-Please Add Screenshots If there are any UI changes.
+## Screenshots
+<!--Please Add Screenshots or Screen Recordings which show the changes that you made.-->
 
-Please make sure these boxes are checked before submitting your pull request - thanks!
+## Description
+<!--Please Add Summary of the changes that you have made.-->
+
+##
+<!--Please make sure these boxes are checked before submitting your pull request - thanks!-->
 
 - [ ] Run the unit tests with `./gradlew check` to make sure you didn't break anything
 
