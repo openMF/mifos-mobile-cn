@@ -11,8 +11,10 @@ import org.mifos.mobile.cn.R
 import org.mifos.mobile.cn.enums.AccountType
 import org.mifos.mobile.cn.ui.base.MifosBaseActivity
 import org.mifos.mobile.cn.ui.base.MifosBaseFragment
+import org.mifos.mobile.cn.ui.mifos.aboutus.AboutUsActivity
 import org.mifos.mobile.cn.ui.mifos.customerAccounts.CustomerAccountFragment
 import org.mifos.mobile.cn.ui.mifos.customerDetails.CustomerDetailsActivity
+import org.mifos.mobile.cn.ui.mifos.customerProfile.CustomerProfileActivity
 import org.mifos.mobile.cn.ui.mifos.loanApplication.loanActivity.LoanApplicationActivity
 import org.mifos.mobile.cn.ui.mifos.recentTransactions.RecentTransactionsFragment
 import org.mifos.mobile.cn.ui.utils.ConstantKeys
@@ -47,6 +49,7 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener {
         ll_accounts.setOnClickListener(this)
         ll_account_overview.setOnClickListener(this)
         ll_recent_transactions.setOnClickListener(this)
+        iv_user_image.setOnClickListener(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -69,6 +72,9 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener {
             R.id.ll_recent_transactions -> {
                 showRecentTransactions()
             }
+            R.id.iv_user_image -> {
+                openCustomerProfile()
+            }
         }
     }
 
@@ -82,6 +88,11 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener {
         (activity as MifosBaseActivity)
                 .replaceFragment(CustomerAccountFragment.newInstance(AccountType.DEPOSIT),
                 true, R.id.container)
+    }
+    private fun openCustomerProfile() {
+        val intent = Intent(activity, CustomerProfileActivity::class.java)
+        intent.putExtra(ConstantKeys.CUSTOMER_IDENTIFIER, "customer_identifier")
+        startActivity(intent)
     }
     private fun showCustomerDetails(){
         val intent = Intent(activity,CustomerDetailsActivity::class.java)
