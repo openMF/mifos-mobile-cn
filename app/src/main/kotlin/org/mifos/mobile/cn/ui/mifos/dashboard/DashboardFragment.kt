@@ -13,20 +13,22 @@ import org.mifos.mobile.cn.ui.base.MifosBaseActivity
 import org.mifos.mobile.cn.ui.base.MifosBaseFragment
 import org.mifos.mobile.cn.ui.mifos.customerAccounts.CustomerAccountFragment
 import org.mifos.mobile.cn.ui.mifos.customerDetails.CustomerDetailsActivity
+import org.mifos.mobile.cn.ui.mifos.customerProfile.CustomerProfileActivity
 import org.mifos.mobile.cn.ui.mifos.loanApplication.loanActivity.LoanApplicationActivity
 import org.mifos.mobile.cn.ui.mifos.recentTransactions.RecentTransactionsFragment
 import org.mifos.mobile.cn.ui.utils.ConstantKeys
 
 
 class DashboardFragment : MifosBaseFragment(), View.OnClickListener {
-
+    private lateinit var customerIdentification: String
     private lateinit var rootView: View
     private lateinit var customer: Customer
     companion object {
 
-        fun newInstance(): DashboardFragment {
+        fun newInstance(identifier: String): DashboardFragment {
             val fragment = DashboardFragment()
             val args = Bundle()
+            args.putString(ConstantKeys.CUSTOMER_IDENTIFIER, identifier)
             fragment.arguments = args
             return fragment
         }
@@ -38,12 +40,17 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener {
         rootView = inflater.inflate(R.layout.fragment_dashboard, container, false)
         setHasOptionsMenu(true)
         setToolbarTitle(getString(R.string.home))
+        if (arguments != null) {
+            1
+            customerIdentification = arguments!!.getString(ConstantKeys.CUSTOMER_IDENTIFIER)
+        }
         return rootView
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         ll_apply_for_loan.setOnClickListener(this)
+        iv_user_image.setOnClickListener(this)
         ll_accounts.setOnClickListener(this)
         ll_account_overview.setOnClickListener(this)
         ll_recent_transactions.setOnClickListener(this)
@@ -69,6 +76,9 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener {
             R.id.ll_recent_transactions -> {
                 showRecentTransactions()
             }
+            R.id.iv_user_image -> {
+                openCustomerProfile()
+            }
         }
     }
 
@@ -77,7 +87,11 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener {
         intent.putExtra(ConstantKeys.CUSTOMER_IDENTIFIER, "customer_identifier")
         startActivity(intent)
     }
-
+    private fun openCustomerProfile() {
+        val intent = Intent(activity, CustomerProfileActivity::class.java)
+        intent.putExtra(ConstantKeys.CUSTOMER_IDENTIFIER, customerIdentification)
+        startActivity(intent)
+    }
     private fun openAccount() {
         (activity as MifosBaseActivity)
                 .replaceFragment(CustomerAccountFragment.newInstance(AccountType.DEPOSIT),

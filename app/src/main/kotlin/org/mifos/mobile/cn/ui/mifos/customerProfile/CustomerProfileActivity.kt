@@ -12,13 +12,11 @@ import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ImageView
-import com.github.therajanmaurya.sweeterror.SweetUIErrorHandler
 import kotlinx.android.synthetic.main.activity_customer_profile.*
 import org.mifos.mobile.cn.R
 import org.mifos.mobile.cn.ui.base.MifosBaseActivity
 import org.mifos.mobile.cn.ui.utils.*
 import java.io.ByteArrayOutputStream
-import java.util.jar.Manifest
 
 class CustomerProfileActivity: MifosBaseActivity(),CustomerProfileContract.View {
 
@@ -98,6 +96,10 @@ class CustomerProfileActivity: MifosBaseActivity(),CustomerProfileContract.View 
                 resources.getString(
                         R.string.dialog_message_write_permission_for_share_never_ask_again),
                 ConstantKeys.PERMISSIONS_WRITE_EXTERNAL_STORAGE_STATUS)
+        if (CheckSelfPermissionAndRequest.checkSelfPermission(this,
+                        android.Manifest.permission.WRITE_EXTERNAL_STORAGE)){
+            shareImage()
+        }
     }
 
     override fun loadCustomerPortrait() {

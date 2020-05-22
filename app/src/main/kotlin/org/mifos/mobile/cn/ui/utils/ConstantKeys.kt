@@ -10,7 +10,11 @@ object ConstantKeys {
     const val REQUEST_PERMISSION_SETTING = 254
     const val PERMISSION_REQUEST_ALL = 4
     const val PERMISSION_REQUEST_CAMERA = 5
-
+    const val PASSCODE = "Passcode"
+    const val CURR_PASSWORD = "currentPassword"
+    const val PERMISSIONS_READ_PHONE_STATE_STATUS = "read_phone_status"
+    const val PERMISSIONS_REQUEST_READ_PHONE_STATE = 2
+    const val UPDATE_PASSWORD_KEY = "updatePassword"
     const val PERMISSIONS_WRITE_EXTERNAL_STORAGE_STATUS = "write_status"
     const val PERMISSION_READ_EXTERNAL_STORAGE_STATUS = "read_status"
     const val PERMISSIONS_CAMERA_STATUS = "camera_status"
