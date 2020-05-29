@@ -14,7 +14,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/layout_padding_30dp"
             android:fontFamily="@font/airbnb_cereal_book"
-            android:text="Apply For Loan"
+            android:text="@string/apply_for_loan"
             android:textColor="@color/white"
             android:textSize="30sp"
             android:textStyle="bold" />

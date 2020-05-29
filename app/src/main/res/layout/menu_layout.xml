@@ -68,7 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="@dimen/layout_padding_4dp"
-        android:text="About us"></TextView>
+        android:text="@string/about_us"></TextView>
     <ImageView
         android:id="@+id/bt_about"
         android:layout_width="@dimen/layout_padding_20dp"

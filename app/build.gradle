@@ -13,6 +13,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
@@ -130,6 +131,9 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.8.0'
     kapt 'com.github.bumptech.glide:compiler:4.8.0'
 
+    implementation 'me.dm7.barcodescanner:zxing:1.9.13'
+    implementation 'com.karumi:dexter:5.0.0'
+
     //dbFlow for database
     kapt "com.github.Raizlabs.DBFlow:dbflow-processor:$rootProject.dbFlowVersion"
     implementation "com.github.Raizlabs.DBFlow:dbflow-core:$rootProject.dbFlowVersion"
@@ -137,7 +141,7 @@ dependencies {
     implementation "com.github.Raizlabs.DBFlow:dbflow-kotlinextensions:$rootProject.dbFlowVersion"
     implementation "com.github.Raizlabs.DBFlow:dbflow-rx2:$rootProject.dbFlowVersion"
     implementation "com.github.Raizlabs.DBFlow:dbflow-rx2-kotlinextensions:$rootProject.dbFlowVersion"
-
+    implementation 'com.android.support:multidex:1.0.3'
     //OpenSource Licences
     implementation "com.google.android.gms:play-services-oss-licenses:17.0.0"
 

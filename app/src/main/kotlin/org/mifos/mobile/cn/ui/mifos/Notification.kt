@@ -9,6 +9,6 @@ class Notification: MifosBaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_notification)
         showBackButton()
-        setToolbarTitle("Notifications")
+        setToolbarTitle(getString(R.string.notification))
     }
 }

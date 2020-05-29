@@ -319,7 +319,7 @@
     <string name="opensource_license_title">Open Source licenses</string>
     <string name="profile">Profile</string>
     <string name="no_transactions_found">No Transactions Found</string>
-    <string name="fetching">Fetching...</string>
+    <string name="fetching">Fetching…</string>
     <string name="total_balance">Total Balance</string>
     <string name="hide_balance">Hide Balance</string>
     <string name="transaction_history">Transaction History</string>
@@ -358,5 +358,8 @@
     <string name="app_link">App Link</string>
     <string name="share_the_app_link">Share the app link via:</string>
     <string name="share_message">You can download the Mifos Mobile CN app here: https://drive.google.com/file/d/1JGGf80FrTiUqYxZT8PHsGHb65yatQwfd/view?usp=sharing</string>
+    <string name="generate_qr_code">Generate QR code</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="full_name">Full name</string>
 
 </resources>

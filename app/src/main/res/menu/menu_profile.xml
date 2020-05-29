@@ -5,17 +5,17 @@
 
     <item
         android:id="@+id/beneficiaries"
-        android:title="Beneficiaries"
+        android:title="@string/beneficiaries"
         app:showAsAction="ifRoom"
         />
     <item
         android:id="@+id/settings"
-        android:title="Settings"
+        android:title="@string/settings"
         app:showAsAction="always"
         />
     <item
         android:id="@+id/about_us"
-        android:title="About Us"
+        android:title="@string/about_us"
         app:showAsAction="always"
         />
 

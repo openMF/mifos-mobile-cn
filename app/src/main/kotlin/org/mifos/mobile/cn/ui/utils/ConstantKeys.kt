@@ -12,6 +12,8 @@ object ConstantKeys {
     const val PERMISSION_REQUEST_CAMERA = 5
     const val PASSCODE = "Passcode"
     const val CURR_PASSWORD = "currentPassword"
+    const val ERROR_OCCURRED = "Error occurred"
+    const val FAILED_TO_WRITE_DATA_TO_QR = "Failed to write data to qr"
     const val PERMISSIONS_READ_PHONE_STATE_STATUS = "read_phone_status"
     const val PERMISSIONS_REQUEST_READ_PHONE_STATE = 2
     const val UPDATE_PASSWORD_KEY = "updatePassword"
