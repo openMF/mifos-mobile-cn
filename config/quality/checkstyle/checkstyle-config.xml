@@ -13,7 +13,7 @@
         <property name="eachLine" value="true"/>
     </module>
 
-    <module name="TreeWalker">
+    <module name="TreeWalker"></module>
 
         <!-- Imports -->
 
