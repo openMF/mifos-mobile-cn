@@ -59,6 +59,7 @@
             android:fontFamily="@font/productsans"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/receive"
             android:background="@drawable/outline_button"
             android:layout_marginLeft="@dimen/layout_padding_50dp"
             style="@style/AppTheme.RoundedCornerOutlinedMaterialButton"

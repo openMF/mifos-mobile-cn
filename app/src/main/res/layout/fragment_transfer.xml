@@ -16,36 +16,26 @@
         android:layout_marginTop="@dimen/layout_padding_30dp"
         android:text="@string/transfer"
         android:textColor="@color/white"
-        android:textSize="28sp"
-        android:fontFamily="@font/airbnb_cereal_black"
+        android:textSize="@dimen/text_size_28sp"
         android:textStyle="bold"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="@dimen/layout_padding_35dp"
         android:gravity="center_horizontal">
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/layout_padding_250dp"
+            android:layout_height="@dimen/layout_padding_50dp"
             android:textColorHint="@color/white"
-            app:boxBackgroundColor="@color/violet"
-            app:boxStrokeColor="@color/white"
-            app:hintTextAppearance="@color/violet">
+            app:boxStrokeColor="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/airbnb_cereal_book"
-                android:hint="Mobile Number"
-                android:padding="@dimen/layout_padding_2dp"
-                android:shadowColor="@color/white"
-                android:textColor="@color/white"
-                android:inputType="phone"
-                android:textSize="@dimen/text_size_16sp"
-                android:textCursorDrawable="@null"/>
+                android:layout_height="wrap_content"
+                android:hint="Mobile Number"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -75,19 +65,47 @@
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="550dp"
+            android:layout_height="@dimen/layout_padding_550dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="@dimen/layout_padding_negative_30dp"
             app:cardCornerRadius="@dimen/layout_padding_30dp"
             android:backgroundTint="@color/offwhite">
 
-            <ImageView
-                android:layout_width="180dp"
-                android:layout_height="180dp"
-                android:layout_gravity="center"
-                android:layout_marginBottom="@dimen/layout_padding_30dp"
-                android:src="@drawable/qrcode"
-                android:contentDescription="Qr Code"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                        <me.dm7.barcodescanner.zxing.ZXingScannerView
+                            android:id="@+id/qrCodeScanner"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center">
+
+                        </me.dm7.barcodescanner.zxing.ZXingScannerView>
+
+                        <ImageButton
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:background="@null"
+                            android:id="@+id/btn_flash_on"
+                            android:layout_gravity="bottom|center"
+                            app:srcCompat="@drawable/ic_flash_on"
+                            android:visibility="gone"/>
+                        <ImageButton
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:background="@null"
+                            android:id="@+id/btn_flash_off"
+                            android:layout_gravity="bottom|center"
+                            android:visibility="gone"
+                            app:srcCompat="@drawable/ic_flash_off"/>
+                </FrameLayout>
+
+
+            </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
 

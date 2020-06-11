@@ -35,12 +35,10 @@ navigateFragment(item.itemId,false)
     }
     private fun setupNavigationBar() {
 
-        bottomNavigationView?.setOnNavigationItemSelectedListener(object : BottomNavigationView.OnNavigationItemSelectedListener {
-            override fun onNavigationItemSelected(@NonNull item: android.view.MenuItem): Boolean {
-                navigateFragment(item.itemId, false)
-                return true
-            }
-        })
+        bottomNavigationView?.setOnNavigationItemSelectedListener { item ->
+            navigateFragment(item.itemId, false)
+            true
+        }
 
     }
     override fun onBackPressed() {

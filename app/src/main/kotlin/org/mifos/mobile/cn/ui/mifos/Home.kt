@@ -1,10 +1,12 @@
 package org.mifos.mobile.cn.ui.mifos
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import kotlinx.android.synthetic.main.content_fragment_dashboard.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.mifos.mobile.cn.R
 import org.mifos.mobile.cn.ui.base.MifosBaseFragment
@@ -57,12 +59,22 @@ class Home : MifosBaseFragment(), View.OnClickListener {
                 // React to dragging events
             }
         })
+        receive.setOnClickListener(this)
+
     }
 
     override fun onClick(view: View) {
 
         when (view.id) {
+            R.id.receive ->{
+                qrcode()
+            }
         }
+    }
+
+    private fun qrcode() {
+        val intent = Intent(activity, QRGenerator::class.java)
+        startActivity(intent)
     }
 
 }
