@@ -24,8 +24,10 @@
         </activity>
 
         <activity android:name=".ui.mifos.DashboardActivity" />
-        <activity android:name=".ui.mifos.login.LoginActivity" />
-        <activity android:name=".ui.mifos.passcode.PasscodeActivity"/>
+        <activity android:name=".ui.mifos.login.LoginActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.mifos.passcode.PasscodeActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".ui.mifos.loanApplication.loanActivity.LoanApplicationActivity"/>
         <activity android:name=".ui.mifos.customerDetails.CustomerDetailsActivity"/>
         <activity android:name=".ui.mifos.customerActivities.CustomerActivitiesActivity"/>
