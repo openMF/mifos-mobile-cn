@@ -5,6 +5,7 @@ import android.content.Intent
 
 import android.os.Bundle
 import android.view.*
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 import org.mifos.mobile.cn.data.models.customer.Customer
 import org.mifos.mobile.cn.R
@@ -18,10 +19,11 @@ import org.mifos.mobile.cn.ui.mifos.recentTransactions.RecentTransactionsFragmen
 import org.mifos.mobile.cn.ui.utils.ConstantKeys
 
 
-class DashboardFragment : MifosBaseFragment(), View.OnClickListener {
+class DashboardFragment : MifosBaseFragment(), View.OnClickListener, SwipeRefreshLayout.OnRefreshListener {
 
     private lateinit var rootView: View
     private lateinit var customer: Customer
+
     companion object {
 
         fun newInstance(): DashboardFragment {
@@ -47,11 +49,17 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener {
         ll_accounts.setOnClickListener(this)
         ll_account_overview.setOnClickListener(this)
         ll_recent_transactions.setOnClickListener(this)
+        swipe_home_container.setOnRefreshListener(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_main, menu)
         super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        this.onCreate(null)
     }
 
     override fun onClick(view: View) {
@@ -81,18 +89,25 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener {
     private fun openAccount() {
         (activity as MifosBaseActivity)
                 .replaceFragment(CustomerAccountFragment.newInstance(AccountType.DEPOSIT),
-                true, R.id.container)
+                        true, R.id.container)
     }
-    private fun showCustomerDetails(){
-        val intent = Intent(activity,CustomerDetailsActivity::class.java)
-        intent.putExtra(ConstantKeys.CUSTOMER_IDENTIFIER,"customer_identifier")
-       startActivity(intent)
+
+    private fun showCustomerDetails() {
+        val intent = Intent(activity, CustomerDetailsActivity::class.java)
+        intent.putExtra(ConstantKeys.CUSTOMER_IDENTIFIER, "customer_identifier")
+        startActivity(intent)
 
 
     }
-    private fun showRecentTransactions(){
+
+    private fun showRecentTransactions() {
         (activity as MifosBaseActivity)
                 .replaceFragment(RecentTransactionsFragment.Companion.newInstance(),
-                        true,R.id.container)
+                        true, R.id.container)
+    }
+
+    override fun onRefresh() {
+        this.onResume()
+        swipe_home_container.isRefreshing = false
     }
 }
