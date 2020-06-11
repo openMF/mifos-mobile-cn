@@ -5,7 +5,7 @@ import org.mifos.mobile.cn.ui.base.MvpView
 interface CustomerProfileContract {
 
     interface View: MvpView{
-        fun checkCameraPermission();
+        fun checkWriteExternalStoragePermission();
 
         fun requestPermission();
 
