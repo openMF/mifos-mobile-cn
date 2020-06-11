@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.item_header_planned_payment.view.*
-import kotlinx.android.synthetic.main.item_panned_payment.view.*
+import kotlinx.android.synthetic.main.item_planned_payment.view.*
 import org.mifos.mobile.cn.R
 import org.mifos.mobile.cn.data.models.payment.CostComponent
 import org.mifos.mobile.cn.data.models.payment.PlannedPayment
@@ -100,7 +100,7 @@ class PlannedPaymentAdapter @Inject constructor(@ApplicationContext var context:
 
     override fun onCreateItemViewHolder(parent: ViewGroup?, itemType: Int): ItemViewHolder {
         val inflater = LayoutInflater.from(parent!!.context)
-        val v = inflater.inflate(R.layout.item_panned_payment, parent, false)
+        val v = inflater.inflate(R.layout.item_planned_payment, parent, false)
         return ItemViewHolder(v)
     }
 
