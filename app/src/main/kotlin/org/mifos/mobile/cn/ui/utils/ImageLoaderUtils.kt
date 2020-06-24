@@ -31,7 +31,7 @@ class ImageLoaderUtils  constructor(var context: Context) {
 
     private fun buildGlideUrl(imageUrl : String): GlideUrl{
        return GlideUrl(imageUrl,LazyHeaders.Builder()
-                .addHeader(MifosInterceptor.HEADER_ACCESS_TOKEN,preferencesHelper.accessToken)
+                .addHeader(MifosInterceptor.HEADER_ACCESS_TOKEN,preferencesHelper.getAccessToken())
                .build())
 
     }
