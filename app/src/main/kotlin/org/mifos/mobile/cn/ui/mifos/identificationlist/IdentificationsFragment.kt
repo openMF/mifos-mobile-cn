@@ -130,7 +130,7 @@ class IdentificationsFragment : MifosBaseFragment(),IdentificationsContract.View
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater!!.inflate(R.menu.menu_identification_search,menu)
         setUpSearchInterface(menu)

@@ -138,7 +138,7 @@ class IdentificationDetailsFragment:MifosBaseFragment(),IdentificationDetailsCon
 
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater!!.inflate(R.menu.menu_identification_card,menu)
         super.onCreateOptionsMenu(menu, inflater)
     }

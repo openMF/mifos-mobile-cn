@@ -178,7 +178,7 @@ class CustomerLoanDetailsFragment : MifosBaseFragment(), CustomerLoanDetailsCont
         Log.e(context.toString(), message)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         if (inflater != null) {
             inflater.inflate(R.menu.menu_loan_account_details, menu)
         }

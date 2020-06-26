@@ -60,6 +60,7 @@ class Home : MifosBaseFragment(), View.OnClickListener {
             }
         })
         receive.setOnClickListener(this)
+        sendit.setOnClickListener(this)
 
     }
 
@@ -69,7 +70,15 @@ class Home : MifosBaseFragment(), View.OnClickListener {
             R.id.receive ->{
                 qrcode()
             }
+            R.id.sendit ->{
+                sendmoney()
+            }
         }
+    }
+
+    private fun sendmoney() {
+        val intent = Intent(activity, Send::class.java)
+        startActivity(intent)
     }
 
     private fun qrcode() {
