@@ -5,11 +5,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupWindow
+import android.widget.RelativeLayout
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.content_fragment_dashboard.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.mifos.mobile.cn.R
 import org.mifos.mobile.cn.ui.base.MifosBaseFragment
+import org.mifos.mobile.cn.ui.mifos.Transaction.TransactionActivity
+import org.mifos.mobile.cn.ui.mifos.beneficiaries.BeneficiariesActivity
 import org.mifos.mobile.cn.ui.mifos.recentTransactions.RecentTransactionsFragment
 
 
@@ -17,6 +21,7 @@ class Home : MifosBaseFragment(), View.OnClickListener {
 
     private lateinit var rootView: View
     private lateinit var sheetBehavior: BottomSheetBehavior<*>
+    var mypopupWindow: PopupWindow? = null
 
     companion object {
         fun newInstance(): Home = Home()
@@ -59,9 +64,9 @@ class Home : MifosBaseFragment(), View.OnClickListener {
                 // React to dragging events
             }
         })
+        setPopUpWindow(view)
         receive.setOnClickListener(this)
         sendit.setOnClickListener(this)
-
     }
 
     override fun onClick(view: View) {
@@ -71,13 +76,14 @@ class Home : MifosBaseFragment(), View.OnClickListener {
                 qrcode()
             }
             R.id.sendit ->{
-                sendmoney()
+                mypopupWindow?.showAsDropDown(view,0,-5);
             }
         }
     }
 
-    private fun sendmoney() {
+    private fun sendmoneyhover() {
         val intent = Intent(activity, Send::class.java)
+        mypopupWindow?.dismiss()
         startActivity(intent)
     }
 
@@ -85,5 +91,21 @@ class Home : MifosBaseFragment(), View.OnClickListener {
         val intent = Intent(activity, QRGenerator::class.java)
         startActivity(intent)
     }
-
+    private fun sendmoney() {
+        val intent = Intent(activity, TransactionActivity::class.java)
+        mypopupWindow?.dismiss()
+        startActivity(intent)
+    }
+    private fun setPopUpWindow(view: View) {
+        val view = LayoutInflater.from(context).inflate(R.layout.menu_send, null)
+        mypopupWindow = PopupWindow(view, 500, RelativeLayout.LayoutParams.WRAP_CONTENT, true)
+        val payment = view.findViewById(R.id.text_payment) as RelativeLayout
+        payment.setOnClickListener(View.OnClickListener {
+            sendmoney()
+        })
+        val hover = view.findViewById(R.id.text_hover) as RelativeLayout
+        hover.setOnClickListener(View.OnClickListener {
+            sendmoneyhover()
+        })
+    }
 }

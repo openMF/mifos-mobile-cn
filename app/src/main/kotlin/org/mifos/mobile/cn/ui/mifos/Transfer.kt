@@ -1,6 +1,7 @@
 package org.mifos.mobile.cn.ui.mifos
 
 import android.Manifest
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,8 +16,12 @@ import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
 import kotlinx.android.synthetic.main.fragment_transfer.*
 import me.dm7.barcodescanner.zxing.ZXingScannerView
+import org.json.JSONObject
 import org.mifos.mobile.cn.R
 import org.mifos.mobile.cn.ui.base.MifosBaseFragment
+import org.mifos.mobile.cn.ui.mifos.Transaction.TransactionActivity
+import org.mifos.mobile.cn.ui.mifos.beneficiaries.BeneficiariesActivity
+import java.lang.RuntimeException
 
 class Transfer : MifosBaseFragment(), ZXingScannerView.ResultHandler {
 
@@ -32,6 +37,31 @@ class Transfer : MifosBaseFragment(), ZXingScannerView.ResultHandler {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        runQRcodeScanner()
+    }
+    override fun handleResult(rawResult: Result?) {
+        try{
+            val jsonob= JSONObject(rawResult?.text)
+            val msisdn= jsonob.getString("mobile")
+            val intent = Intent(activity, TransactionActivity::class.java)
+            intent.putExtra("JSON",jsonob.toString())
+            startActivity(intent)
+        }
+        catch (e:RuntimeException)
+        {
+            Toast.makeText(requireActivity(),"Invalid QR code",Toast.LENGTH_SHORT).show()
+        }
+        //Toast.makeText(requireActivity(),msisdn,Toast.LENGTH_SHORT).show()
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        runQRcodeScanner()
+
+    }
+    fun runQRcodeScanner()
+    {
         Dexter.withActivity(requireActivity())
                 .withPermission(Manifest.permission.CAMERA)
                 .withListener(object:PermissionListener{
@@ -51,7 +81,9 @@ class Transfer : MifosBaseFragment(), ZXingScannerView.ResultHandler {
 
                 }).check()
     }
-    override fun handleResult(rawResult: Result?) {
-        Toast.makeText(requireActivity(),rawResult?.text,Toast.LENGTH_SHORT).show()
+
+    override fun onPause() {
+        super.onPause()
+        qrCodeScanner.stopCamera()
     }
 }

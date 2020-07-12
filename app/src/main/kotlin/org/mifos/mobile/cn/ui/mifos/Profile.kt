@@ -50,6 +50,7 @@ class Profile : MifosBaseFragment(){
         val beneficiary = view.findViewById(R.id.text_beneficiary) as RelativeLayout
         beneficiary.setOnClickListener(View.OnClickListener {
             val intent = Intent(activity, BeneficiariesActivity::class.java)
+            mypopupWindow?.dismiss()
             startActivity(intent)
         })
     }

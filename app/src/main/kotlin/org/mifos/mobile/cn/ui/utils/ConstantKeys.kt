@@ -42,5 +42,6 @@ object ConstantKeys {
 
     const val PERMISSION_REQUEST_WRITE_EXTERNAL_STORAGE = 2
     const val PERMISSIONS_REQUEST_CAMERA = 1;
-
+    const val TENANT_ID = "tn01"
+    const val ERROR_FETCHING_ACCOUNTS = "Error fetching accounts"
 }
