@@ -63,7 +63,7 @@ open class MifosBaseFragment : Fragment() {
         callback.showTabLayout(false)
     }
 
-    override fun onAttach(context: Context?) {
+     override fun onAttach(context: Context?) {
         super.onAttach(context)
         val activity = context as? Activity
         try {

@@ -475,7 +475,8 @@
                             android:layout_width="0dp"
                             android:orientation="vertical"
                             android:padding="@dimen/default_margin"
-                            tools:ignore="UseCompoundDrawables">
+                            tools:ignore="UseCompoundDrawables"
+                            android:focusable="true">
 
                             <androidx.cardview.widget.CardView
                                 android:innerRadius="0dp"

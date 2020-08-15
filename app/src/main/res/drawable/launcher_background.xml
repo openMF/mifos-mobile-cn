@@ -4,8 +4,7 @@
     <item android:drawable="@color/icon_image_background" />
 
     <item >
-        <bitmap android:src="@drawable/mifos_logo_new"
-            android:gravity="center"
+        <bitmap android:src="@drawable/mifos_splash_screen_logo"
             />
 
     </item>

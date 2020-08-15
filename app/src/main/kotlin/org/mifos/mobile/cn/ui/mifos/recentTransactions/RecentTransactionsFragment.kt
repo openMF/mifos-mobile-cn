@@ -37,7 +37,6 @@ SwipeRefreshLayout.OnRefreshListener{
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
         recentTransactionList = ArrayList()
     }
 
@@ -62,7 +61,6 @@ SwipeRefreshLayout.OnRefreshListener{
     }
 
     override fun showUserInterface() {
-        setToolbarTitle("Recent Transactions")
         val  layoutManager = LinearLayoutManager(activity)
         layoutManager.orientation = RecyclerView.VERTICAL
         rvRecentTransactions.layoutManager = layoutManager
@@ -86,7 +84,7 @@ SwipeRefreshLayout.OnRefreshListener{
         showRecyclerView(false)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater?.inflate(R.menu.menu_transactions_search,menu)
         setUpSearchInterface(menu)
