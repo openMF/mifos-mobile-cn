@@ -132,8 +132,10 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/layout_padding_50dp"
-                android:hint="@string/dummy_email_address"
+                android:text="@string/dummy_email_address"
                 android:inputType="none"
+                android:focusable="false"
+                android:textColor="@color/grey_redesign"
                 app:helperText="@string/email_address"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -150,8 +152,10 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:hint="@string/dummy_phone_number"
-                android:inputType="none" />
+                android:text="@string/dummy_phone_number"
+                android:inputType="none"
+                android:textColor="@color/grey_redesign"
+                android:focusable="false"/>
 
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
