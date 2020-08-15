@@ -15,7 +15,7 @@ class PreferencesHelper
 constructor(@ApplicationContext context: Context) {
 
     private val preferences: SharedPreferences = context.getSharedPreferences(
-            PreferenceKey.PREF_ICOMMIT, Context.MODE_PRIVATE)
+            PreferenceKey.PREF_MIFOS, Context.MODE_PRIVATE)
     private val gson: Gson = GsonBuilder()
             .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSz")
             .create()
@@ -74,11 +74,12 @@ constructor(@ApplicationContext context: Context) {
 
     fun putAccessToken(accessToken: String) {
         preferences.edit().putString(
-                PreferenceKey.PREF_KEY_ACCESS_TOKEN, "Basic $accessToken").apply()
+                PreferenceKey.PREF_KEY_ACCESS_TOKEN, accessToken).apply()
     }
 
-    val accessToken: String
-        get() = preferences.getString(PreferenceKey.PREF_KEY_ACCESS_TOKEN, null)
+    fun getAccessToken(): String? {
+        return preferences.getString(PreferenceKey.PREF_KEY_ACCESS_TOKEN, null)
+    }
 
     fun putLoginStatus(loginStatus: Boolean) {
         preferences.edit().putBoolean(PreferenceKey.PREF_KEY_LOGIN_STATUS, loginStatus).apply()
@@ -91,26 +92,34 @@ constructor(@ApplicationContext context: Context) {
         preferences.edit().putString(PreferenceKey.PREF_KEY_USER_NAME, username).apply()
     }
 
+    fun getUserName(): String? {
+        return preferences.getString(PreferenceKey.PREF_KEY_USER_NAME, null)
+    }
     fun getSignedInUser(): Authentication? {
         val userJson = preferences.getString(PreferenceKey.PREF_KEY_SIGNED_IN_USER, null)
                 ?: return null
-        return gson.fromJson<Authentication>(userJson, Authentication::class.java!!)
+        return gson.fromJson(userJson, Authentication::class.java)
     }
 
     fun putSignInUser(user: Authentication) {
         preferences.edit().putString(PreferenceKey.PREF_KEY_SIGNED_IN_USER,
                 gson.toJson(user)).apply()
     }
+    fun putTenantIdentifier(tenantIdentifier: String) {
+        preferences.edit().putString(PreferenceKey.PREF_KEY_TENANT_IDENTIFIER,
+                tenantIdentifier).apply()
+    }
 
-    val username: String
-        get() = preferences.getString(PreferenceKey.PREF_KEY_USER_NAME, null)
+    fun getTenantIdentifier(): String? {
+        return preferences.getString(PreferenceKey.PREF_KEY_TENANT_IDENTIFIER, null)
+    }
 
     //TODO: remove the password prefernce helper
-    fun putPassword(password: String) {
+ /*   fun putPassword(password: String) {
         preferences.edit().putString(PreferenceKey.PREF_KEY_PASSWORD, password).apply()
     }
 
     val password: String
         get() = preferences.getString(PreferenceKey.PREF_KEY_PASSWORD, null)
-
+*/
 }

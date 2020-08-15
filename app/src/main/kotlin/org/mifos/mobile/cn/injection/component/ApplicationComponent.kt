@@ -11,6 +11,7 @@ import org.mifos.mobile.cn.data.local.PreferencesHelper
 import org.mifos.mobile.cn.data.remote.MifosInterceptor
 import org.mifos.mobile.cn.injection.ApplicationContext
 import org.mifos.mobile.cn.injection.module.ApplicationModule
+import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton

@@ -3,17 +3,19 @@ package org.mifos.mobile.cn.ui.mifos.login
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_login.*
 import org.mifos.mobile.cn.R
 import org.mifos.mobile.cn.data.local.PreferencesHelper
+import org.mifos.mobile.cn.data.models.Authentication
 import org.mifos.mobile.cn.ui.base.MifosBaseActivity
 import org.mifos.mobile.cn.ui.mifos.passcode.PasscodeActivity
+import org.mifos.mobile.cn.ui.mifos.signup.SignupActivity
 import org.mifos.mobile.cn.ui.utils.ConstantKeys
 import org.mifos.mobile.cn.ui.utils.Toaster
 import javax.inject.Inject
-import kotlinx.android.synthetic.main.activity_login.*
-import org.mifos.mobile.cn.ui.mifos.signup.SignupActivity
 
 
 class LoginActivity : MifosBaseActivity(), LoginContract.View, View.OnClickListener {
@@ -31,7 +33,7 @@ class LoginActivity : MifosBaseActivity(), LoginContract.View, View.OnClickListe
         //setToolbarTitle(getString(R.string.login))
         activityComponent.inject(this)
         loginPresenter.attachView(this)
-        preferencesHelper.clear()
+        //preferencesHelper.clear()
 
         //TODO:remove this while implementing API
         btnLogin.setOnClickListener(this)
@@ -53,34 +55,40 @@ class LoginActivity : MifosBaseActivity(), LoginContract.View, View.OnClickListe
         finish()
     }
 
-    internal fun login() {
+    fun login() {
 
         val username = etUsername.text.toString().trim()
         val password = etPassword.text.toString().trim()
-
+        preferencesHelper.putTenantIdentifier("tn01")
+        Log.v("Hello","Hello")
         if(!TextUtils.isEmpty(username)){
-            preferencesHelper.putUsername("fineractCn")
+           // preferencesHelper.putUsername("interopUser")
         }
         else{
             etUsername.error = "Username required"
             return
         }
         if(!TextUtils.isEmpty(password)){
-            preferencesHelper.putPassword("password")
+            //preferencesHelper.putPassword("intop@d1")
         }
         else{
             etPassword.error = "Password required"
             return
         }
+
         loginPresenter.login(username, password)
         Toaster.show(findViewById(android.R.id.content), getString(R.string.logging_in), Toaster.SHORT)
     }
 
 
     //TODO:edit this fun while implementing API
-    override fun showUserLoginSuccessfully() {
+
+    override fun showUserLoginSuccessfully(user: Authentication) {
+        preferencesHelper.putAccessToken(user.accessToken)
+        Log.d("Hello",user.accessToken)
+        preferencesHelper.putSignInUser(user)
+        preferencesHelper.putUsername(etUsername.text.toString().trim())
         preferencesHelper.putLoginStatus(true)
-        preferencesHelper.putAccessToken("access_token")
         Toast.makeText(this, R.string.welcome, Toast.LENGTH_SHORT).show()
         startPassCodeActivity()
     }

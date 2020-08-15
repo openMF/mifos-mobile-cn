@@ -9,9 +9,9 @@ import org.mifos.mobile.cn.BuildConfig
 object BaseUrl {
 
     private const val PROTOCOL_HTTPS = "http://"
-    private const val API_TEST_ENDPOINT = "example.com"
+    private const val API_TEST_ENDPOINT = "buffalo.mifos.io"
     private const val API_PRODUCTION_ENDPOINT = "example.com"
-    private const val PORT = "8000"
+    private const val PORT = "4200"
     // "/" in the last of the base url always
 
     val defaultBaseUrl: String

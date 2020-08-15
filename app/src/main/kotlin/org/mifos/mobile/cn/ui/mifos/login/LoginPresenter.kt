@@ -1,45 +1,72 @@
 package org.mifos.mobile.cn.ui.mifos.login
 
 import android.content.Context
+import android.widget.Toast
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.observers.DisposableObserver
+import io.reactivex.schedulers.Schedulers
 import org.mifos.mobile.cn.R
-import org.mifos.mobile.cn.data.local.PreferencesHelper
+import org.mifos.mobile.cn.data.datamanager.DataManagerAuth
+import org.mifos.mobile.cn.data.datamanager.contracts.ManagerCustomer
+import org.mifos.mobile.cn.data.models.Authentication
 import org.mifos.mobile.cn.injection.ApplicationContext
 import org.mifos.mobile.cn.ui.base.BasePresenter
 import javax.inject.Inject
 
 class LoginPresenter @Inject
-constructor(@ApplicationContext context: Context) :
+constructor(@ApplicationContext context: Context,  dataManagerAuth: DataManagerAuth) :
         BasePresenter<LoginContract.View>(context), LoginContract.Presenter {
-
-    @Inject
+    val LOG_TAG = LoginPresenter::class.java.simpleName
+    var compositeDisposable: CompositeDisposable = CompositeDisposable()
+    private var dataManagerAuth: DataManagerAuth = dataManagerAuth
+    override fun detachView() {
+        super.detachView()
+        compositeDisposable.clear()
+    }
+   /* @Inject
     internal lateinit var preferencesHelper: PreferencesHelper
-
+*/
     //TODO: edit this while implementing API
     override fun login(username: String, password: String) {
         checkViewAttached()
         getMvpView.showProgress()
-        if (isCredentialValid(username, password)) {
-            getMvpView.hideProgress()
-            if (preferencesHelper.password.equals(password)
-                    && preferencesHelper.username.equals(username)) {
-                getMvpView.showUserLoginSuccessfully()
-            } else {
-                getMvpView.hideProgress()
-                getMvpView.showUserLoginUnSuccessfully()
-            }
+        compositeDisposable.add(dataManagerAuth.login(username, password)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(object : DisposableObserver<Authentication>() {
+                    override fun onNext(user: Authentication) {
+                        getMvpView.hideProgress()
+                        getMvpView.showUserLoginSuccessfully(user)
+                        /*if (isCredentialValid(username, password)) {
+                            getMvpView.hideProgress()
+                            if (preferencesHelper.password.equals(password)
+                                    && preferencesHelper.getUserName().equals(username)) {
+                                getMvpView.showUserLoginSuccessfully(user)
+                            } else {
+                                getMvpView.hideProgress()
+                                getMvpView.showUserLoginSuccessfully(user)
+                            }
 
-        }
+                        }*/
+
+                    }
+
+                    override fun onComplete() {}
+                    override fun onError(e: Throwable) {
+                        getMvpView.hideProgress()
+                        Toast.makeText(context, R.string.error_logging_in, Toast.LENGTH_SHORT).show()
+                    }
+                })
+        )
+
     }
 
     override fun attachView(mvpView: LoginContract.View) {
         super.attachView(mvpView)
     }
 
-    override fun detachView() {
-        super.detachView()
-    }
-
-    fun isCredentialValid(username: String, password: String): Boolean {
+    /*fun isCredentialValid(username: String, password: String): Boolean {
 
         val resources = context.resources
         val correctUsername = username.trim()
@@ -70,5 +97,5 @@ constructor(@ApplicationContext context: Context) :
         }
 
         return true
-    }
+    }*/
 }
