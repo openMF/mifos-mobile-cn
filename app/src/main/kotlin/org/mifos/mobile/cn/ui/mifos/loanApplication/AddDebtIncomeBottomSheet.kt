@@ -136,7 +136,7 @@ class AddDebtIncomeBottomSheet : BottomSheetDialogFragment(), View.OnClickListen
         behavior?.state = BottomSheetBehavior.STATE_EXPANDED
     }
 
-    override fun onDismiss(dialog: DialogInterface?) {
+    override fun onDismiss(dialog: DialogInterface) {
         super.onDismiss(dialog)
     }
 }

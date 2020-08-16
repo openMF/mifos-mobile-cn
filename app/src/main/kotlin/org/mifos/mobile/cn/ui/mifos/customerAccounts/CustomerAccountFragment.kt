@@ -163,7 +163,7 @@ class CustomerAccountFragment : MifosBaseFragment(), AccountsContract.View {
     }
 
 
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater?.inflate(R.menu.menu_account, menu)
         if (viewpager.currentItem == 1) {
             loan_toggle_focus_btn.visibility = View.VISIBLE
@@ -197,7 +197,7 @@ class CustomerAccountFragment : MifosBaseFragment(), AccountsContract.View {
         })
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item?.itemId) {
             R.id.menu_filter_loan -> showFilterDialog(AccountType.LOAN)
             R.id.menu_filter_deposit -> showFilterDialog(AccountType.DEPOSIT)

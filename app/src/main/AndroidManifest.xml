@@ -45,12 +45,20 @@
         <activity android:name=".ui.mifos.Main" />
         <activity android:name=".ui.mifos.signup.SignupActivity" />
         <activity android:name=".ui.mifos.Notification" />
+        <activity android:name=".ui.mifos.Send" >
+            <intent-filter>
+                <action android:name="com.hover.sdk.RETURN_FROM_SETTINGS" />
+            </intent-filter>
+        </activity>
         <activity android:name=".ui.mifos.QRGenerator" />
 
         <activity android:name=".ui.mifos.beneficiaries.BeneficiariesActivity" />
                 <activity
             android:name="com.google.android.gms.oss.licenses.OssLicensesMenuActivity"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <meta-data
+            android:name="com.hover.ApiKey"
+            android:value="Your API key"/>
     </application>
 
 </manifest>

@@ -361,5 +361,6 @@
     <string name="generate_qr_code">Generate QR code</string>
     <string name="mobile_number">Mobile Number</string>
     <string name="full_name">Full name</string>
+    <string name="send_money">Send Money</string>
 
 </resources>
