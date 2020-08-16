@@ -6,6 +6,7 @@ import org.mifos.mobile.cn.injection.PerActivity
 import org.mifos.mobile.cn.injection.module.ActivityModule
 import org.mifos.mobile.cn.ui.mifos.Account
 import org.mifos.mobile.cn.ui.mifos.DashboardActivity
+import org.mifos.mobile.cn.ui.mifos.Transaction.TransactionActivity
 import org.mifos.mobile.cn.ui.mifos.aboutus.AboutUsFragment
 import org.mifos.mobile.cn.ui.mifos.accounts.AccountsFragment
 import org.mifos.mobile.cn.ui.mifos.accountsFilter.AccountsFilterBottomSheet
@@ -37,6 +38,8 @@ import org.mifos.mobile.cn.ui.mifos.recentTransactions.RecentTransactionsFragmen
 interface ActivityComponent {
 
     fun inject(loginActivity: LoginActivity)
+
+    fun inject(transactionActivity: TransactionActivity)
 
     fun inject(passcodeActivity: PasscodeActivity)
 

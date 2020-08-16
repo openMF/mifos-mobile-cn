@@ -13,4 +13,11 @@ object EndPoints {
     const val API_PORTFOLIO_PATH = "/api/portfolio/v1"
     const val API_ACCOUNTING_PATH = "/api/accounting/v1"
     const val API_TELLER_PATH = "/api/teller/v1"
+
+    // For Payment-Hub related calls
+    const val INTEROPERATION = "interoperation"
+    const val ACCOUNTS = "accounts"
+    const val TRANSFER = "transfer"
+    const val PARTY_REGISTRATION = "partyRegistration"
+    const val TRANSACTION_REQUEST = "transactionRequest"
 }

@@ -50,11 +50,11 @@
             android:theme="@style/Theme.MaterialComponents"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/layout_padding_50dp"
-            android:id="@+id/sendit"
             style="@style/AppTheme.RoundedCornerMaterialButton"
             android:backgroundTint="@color/white"
             app:cornerRadius="@dimen/layout_corner_radius_50dp"
             android:text="@string/send"
+            android:id="@+id/sendit"
             android:textColor="@color/violet"
             android:textAllCaps="false"
             android:fontFamily="@font/productsans"/>

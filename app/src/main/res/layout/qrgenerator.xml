@@ -40,8 +40,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawablePadding="10dp"
-            android:hint="@string/mobile_number"
-            android:inputType="phone"
+            android:hint="@string/msisdn"
+            android:inputType="number"
             android:paddingEnd="8dp"
             android:paddingStart="8dp"
             android:textSize="15sp" />

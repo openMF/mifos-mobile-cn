@@ -50,6 +50,7 @@
                 <action android:name="com.hover.sdk.RETURN_FROM_SETTINGS" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.mifos.Transaction.TransactionActivity" />
         <activity android:name=".ui.mifos.QRGenerator" />
 
         <activity android:name=".ui.mifos.beneficiaries.BeneficiariesActivity" />
@@ -58,7 +59,7 @@
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <meta-data
             android:name="com.hover.ApiKey"
-            android:value="Your API key"/>
+            android:value="5b756fcadb00de8e87109a727110800f"/>
     </application>
 
 </manifest>
