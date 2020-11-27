@@ -10,7 +10,7 @@ Android Client is built on top of the Fineract CN platform.
 1. Install [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 2. Download, install, and run the latest version of [Android Studio](http://developer.android.com/sdk/installing/studio.html).
 3. Fork and then clone this repository and import it to Android Studio.
-4. Once the gradle build is finished, click on the green play button to build and run the app.
+4. Once the gradle build is finished, click on the green play button to build and run the apps.
 
 ### Demo Credentials
 You can use these credentials to log in.
