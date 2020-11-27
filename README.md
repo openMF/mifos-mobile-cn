@@ -1,6 +1,6 @@
 # Android Client for Fineract CN
 
-Android Client is built on top of the Fineract CN platform. 
+Android Client is built on top of the Fineract CN platforms. 
 
 ### Status
 [![Join the chat at](https://badges.gitter.im/openMF/mifos-mobile-cn.svg)](https://gitter.im/openMF/mifos-mobile-cn?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
