@@ -25,7 +25,7 @@ object Network {
      */
     fun isConnected(context: Context): Boolean {
         val info = Network.getNetworkInfo(context)
-        return info != null && info.isConnected
+        return info ?. isConnected ?: false
     }
 
     /**
@@ -37,8 +37,8 @@ object Network {
      */
     fun isConnectedWifi(context: Context): Boolean {
         val info = Network.getNetworkInfo(context)
-        return info != null && info.isConnected &&
-                info.type == ConnectivityManager.TYPE_WIFI
+        return info ?. isConnected ?: false &&
+                info ?. type == ConnectivityManager.TYPE_WIFI
     }
 
     /**
@@ -50,8 +50,8 @@ object Network {
      */
     fun isConnectedMobile(context: Context): Boolean {
         val info = Network.getNetworkInfo(context)
-        return info != null && info.isConnected &&
-                info.type == ConnectivityManager.TYPE_MOBILE
+        return info ?. isConnected ?: false &&
+                info ?. type == ConnectivityManager.TYPE_MOBILE
     }
 
     /**
@@ -62,8 +62,8 @@ object Network {
      */
     fun isConnectedFast(context: Context): Boolean {
         val info = Network.getNetworkInfo(context)
-        return info != null && info.isConnected &&
-                Network.isConnectionFast(info.type, info.subtype)
+        return info ?. isConnected ?: false &&
+                Network.isConnectionFast(info !!. type, info.subtype)
     }
 
     /**
