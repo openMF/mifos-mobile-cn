@@ -22,8 +22,8 @@ import org.mifos.mobile.cn.ui.base.OnItemClickListener
 
 class LoanAccountListAdapter @Inject
 constructor(@ApplicationContext var context: Context) : RecyclerView.Adapter<LoanAccountListAdapter.ViewHolder>() {
-    private var customerLoanAccounts:List<LoanAccount>
-   private lateinit var onItemClickListener: OnItemClickListener
+    private var customerLoanAccounts: List<LoanAccount>
+    private lateinit var onItemClickListener: OnItemClickListener
 
     init {
         customerLoanAccounts = ArrayList()
@@ -53,7 +53,7 @@ constructor(@ApplicationContext var context: Context) : RecyclerView.Adapter<Loa
         StatusUtils.setLoanAccountStatus(loanAccount.currentState!!,
                 holder.ivStatusIndicator!!, context)
 
-        holder.tvAccountBalance!!.text =
+        holder.tvAccountBalance!!.text = "$ " +
                 loanAccount.getLoanParameters().maximumBalance.toString()
     }
 
@@ -71,13 +71,15 @@ constructor(@ApplicationContext var context: Context) : RecyclerView.Adapter<Loa
     }
 
 
-    inner class ViewHolder(view: View?) : RecyclerView.ViewHolder(view!!) ,View.OnClickListener{
+    inner class ViewHolder(view: View?) : RecyclerView.ViewHolder(view!!), View.OnClickListener {
         override fun onClick(v: View?) {
             if (v != null) {
-                onItemClickListener.onItemClick(v,adapterPosition)
+                onItemClickListener.onItemClick(v, adapterPosition)
             }
         }
+
         val llLoanAccount = view?.ll_loan_accounts
+
         init {
             llLoanAccount?.setOnClickListener(this)
         }
