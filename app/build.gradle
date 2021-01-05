@@ -137,6 +137,8 @@ dependencies {
 
     //OpenSource Licences
     implementation "com.google.android.gms:play-services-oss-licenses:17.0.0"
+    //for setting preference
+    implementation 'androidx.preference:preference:1.1.1'
 
     // Instrumentation test dependencies
     androidTestImplementation jUnit
