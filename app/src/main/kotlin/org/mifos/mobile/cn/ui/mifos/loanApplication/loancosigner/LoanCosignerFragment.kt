@@ -41,7 +41,7 @@ class LoanCosignerFragment : BaseFragmentDebtIncome(), Step {
 
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         if(context is OnNavigationBarListener.LoanCoSignerData){onNavigationBarListener = context}
         else throw  RuntimeException("$context must implement OnNavigationBarListener.LoanCoSignerData")

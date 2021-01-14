@@ -2,6 +2,7 @@ package org.mifos.mobile.cn.ui.mifos.customerAccounts
 
 import android.app.SearchManager
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.widget.SearchView
@@ -19,6 +20,7 @@ import org.mifos.mobile.cn.ui.mifos.accounts.AccountsContract
 import org.mifos.mobile.cn.ui.mifos.accounts.AccountsFragment
 import org.mifos.mobile.cn.ui.mifos.accounts.AccountsPresenter
 import org.mifos.mobile.cn.ui.mifos.accountsFilter.AccountsFilterBottomSheet
+import org.mifos.mobile.cn.ui.mifos.loanApplication.loanActivity.LoanApplicationActivity
 import org.mifos.mobile.cn.ui.utils.ConstantKeys
 import org.mifos.mobile.cn.ui.utils.StatusUtils
 import javax.inject.Inject
@@ -93,6 +95,13 @@ class CustomerAccountFragment : MifosBaseFragment(), AccountsContract.View {
             AccountType.LOAN -> viewpager.currentItem = 1
         }
 
+        deposit_toggle_btn.setOnClickListener {
+            viewpager.currentItem = 0
+        }
+        loan_toggle_btn.setOnClickListener {
+            viewpager.currentItem = 1
+        }
+
         tabs.setupWithViewPager(viewpager)
         viewpager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(position: Int, positionOffset: Float,
@@ -154,15 +163,22 @@ class CustomerAccountFragment : MifosBaseFragment(), AccountsContract.View {
     }
 
 
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater?.inflate(R.menu.menu_account, menu)
         if (viewpager.currentItem == 1) {
+            loan_toggle_focus_btn.visibility = View.VISIBLE
+            deposit_toggle_focus_btn.visibility = View.GONE
+            iv_apply_for_loan.visibility = View.VISIBLE
+            applyForLoan()
             menu?.findItem(R.id.menu_filter_loan)?.isVisible = true
             menu?.findItem(R.id.menu_filter_deposit)?.isVisible = false
             menu?.findItem(R.id.menu_search_loan)?.isVisible = true
             menu?.findItem(R.id.menu_search_deposit)?.isVisible = false
             initSearch(menu!!, AccountType.LOAN)
         } else if (viewpager.currentItem == 0) {
+            deposit_toggle_focus_btn.visibility = View.VISIBLE
+            loan_toggle_focus_btn.visibility = View.GONE
+            iv_apply_for_loan.visibility = View.GONE
             menu?.findItem(R.id.menu_filter_loan)?.isVisible = false
             menu?.findItem(R.id.menu_filter_deposit)?.isVisible = true
             menu?.findItem(R.id.menu_search_deposit)?.isVisible = true
@@ -173,7 +189,15 @@ class CustomerAccountFragment : MifosBaseFragment(), AccountsContract.View {
 
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+    private fun applyForLoan() {
+        iv_apply_for_loan.setOnClickListener(View.OnClickListener {
+            val intent = Intent(activity, LoanApplicationActivity::class.java)
+            intent.putExtra(ConstantKeys.CUSTOMER_IDENTIFIER, "customer_identifier")
+            startActivity(intent)
+        })
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item?.itemId) {
             R.id.menu_filter_loan -> showFilterDialog(AccountType.LOAN)
             R.id.menu_filter_deposit -> showFilterDialog(AccountType.DEPOSIT)

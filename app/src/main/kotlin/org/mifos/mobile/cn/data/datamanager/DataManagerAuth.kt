@@ -1,9 +1,14 @@
 package org.mifos.mobile.cn.data.datamanager
 
+import android.util.Base64
 import io.reactivex.Observable
+import io.reactivex.ObservableSource
+import io.reactivex.functions.Function
 import org.mifos.mobile.cn.data.local.PreferencesHelper
 import org.mifos.mobile.cn.data.models.Authentication
 import org.mifos.mobile.cn.data.remote.BaseApiManager
+import org.mifos.mobile.cn.fakesource.FakeRemoteDataSource
+import java.nio.charset.Charset
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -43,6 +48,10 @@ class DataManagerAuth @Inject constructor(private val baseApiManager: BaseApiMan
                     return@concatMap Observable.just(loginResponse)
                 })
     }*/
+    fun login(username: String, password: String): Observable<Authentication> {
+        return baseApiManager.getAuthApi().login(username,
+                Base64.encodeToString(password.toByteArray(Charset.forName("UTF-8")), Base64.NO_WRAP))
+    }
     fun refreshToken(): Observable<Authentication> {
         return baseApiManager.getAuthApi().refreshToken()
     }

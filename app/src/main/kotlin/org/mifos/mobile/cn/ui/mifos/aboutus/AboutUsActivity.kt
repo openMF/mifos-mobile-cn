@@ -1,7 +1,6 @@
 package org.mifos.mobile.cn.ui.mifos.aboutus
 
 import android.os.Bundle
-import kotlinx.android.synthetic.main.globalcontainer.*
 import org.mifos.mobile.cn.R
 import org.mifos.mobile.cn.ui.base.MifosBaseActivity
 

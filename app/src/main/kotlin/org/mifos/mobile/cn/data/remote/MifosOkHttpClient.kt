@@ -73,13 +73,13 @@ class MifosOkHttpClient constructor(private val context: Context) {
             logger.level = HttpLoggingInterceptor.Level.BODY
 
             //Setting Timeout 120 Seconds
-            okHttpBuilder.connectTimeout(120, TimeUnit.SECONDS)
-            okHttpBuilder.readTimeout(120, TimeUnit.SECONDS)
+            okHttpBuilder.connectTimeout(60, TimeUnit.SECONDS)
+            okHttpBuilder.readTimeout(60, TimeUnit.SECONDS)
 
             //Interceptor :> Full Body Logger and ApiRequest Header
             okHttpBuilder.addInterceptor(logger)
+            okHttpBuilder.addInterceptor(ConnectivityInterceptor(context))
             okHttpBuilder.addInterceptor(MifosInterceptor(context))
-
             return okHttpBuilder.build()
         }
 }
