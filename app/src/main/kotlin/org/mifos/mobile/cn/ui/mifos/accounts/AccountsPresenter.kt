@@ -45,14 +45,14 @@ class AccountsPresenter @Inject constructor(@ApplicationContext context: Context
     override fun loadLoanAccounts() {
         checkViewAttached()
         getMvpView.showProgress()
-        Observable.fromCallable({ FakeRemoteDataSource.getLoanAccountsJson() }).subscribe({
+        Observable.fromCallable({ FakeRemoteDataSource.getLoanAccountsJson() }).subscribe {
             getMvpView.hideProgress()
             if (it.isEmpty()) {
                 getMvpView.showEmptyAccounts(context.getString(R.string.loan))
             } else {
                 getMvpView.showLoanAccounts(it)
             }
-        })
+        }
     }
 
     /**

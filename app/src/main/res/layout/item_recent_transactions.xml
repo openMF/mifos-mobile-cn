@@ -9,35 +9,33 @@
     android:foreground="?android:attr/selectableItemBackground"
     android:orientation="vertical">
 
-    <LinearLayout
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/ll_recent_transactions"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_type_indicator"
-            android:layout_width="@dimen/side_bar_width"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="@dimen/default_margin"
-            android:layout_marginTop="@dimen/default_margin"
-            app:srcCompat="@drawable/round_corner" />
+        android:layout_height="@dimen/layout_padding_75dp"
+        android:orientation="horizontal"
+        app:cardCornerRadius="@dimen/layout_corner_radius_10dp"
+        android:layout_marginBottom="@dimen/layout_padding_10dp">
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="@dimen/layout_padding_24dp">
+            android:paddingTop="@dimen/layout_padding_16dp"
+            android:paddingLeft="@dimen/layout_padding_24dp"
+            android:paddingStart="@dimen/layout_padding_24dp"
+            android:paddingRight="@dimen/layout_padding_24dp"
+            android:paddingEnd="@dimen/layout_padding_24dp">
 
             <TextView
                 android:id="@+id/tv_type"
                 style="@style/Base.TextAppearance.AppCompat.Medium"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                tools:text="CREDIT" />
+                tools:text="CREDIT"
+                android:textSize="@dimen/text_size_20sp"
+                android:fontFamily="@font/productsans"/>
 
             <TextView
                 android:id="@+id/tv_transaction_date"
@@ -45,64 +43,61 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
-                tools:text="2018-06-13T09:37:11.508Z" />
+                tools:text="2018-06-13T09:37:11.508Z"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/tv_message"
                 style="@style/Base.TextAppearance.AppCompat.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Message 0" />
+                tools:text="Message 0"
+                android:fontFamily="@font/productsans"/>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:paddingTop="@dimen/layout_padding_24dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/amount"
-                android:textSize="@dimen/text_medium"
-                android:layout_gravity="center"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tv_amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:textSize="@dimen/text_medium"
-                tools:text="5.0" />
-        </LinearLayout>
+                android:textSize="@dimen/text_size_30sp"
+                tools:text="@string/four_twenty_dollars"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/layout_padding_24dp"
+                android:textStyle="bold"
+                android:textColor="@color/violet"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/airbnb_cereal_book"/>
+
+        </RelativeLayout>
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="@dimen/layout_padding_0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:paddingTop="@dimen/layout_padding_24dp">
+            android:paddingTop="@dimen/layout_padding_24dp"
+            android:visibility="gone">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/balance"
                 android:textSize="@dimen/text_medium"
                 android:layout_gravity="center"/>
-        <TextView
-            android:id="@+id/tv_balance"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="@dimen/text_medium"
-            tools:text="-5.0" />
+            <TextView
+                android:id="@+id/tv_balance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="@dimen/text_medium"
+                tools:text="-5.0" />
         </LinearLayout>
 
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.2dp"
-        android:background="#E7DFDF" />
+    </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>

@@ -42,7 +42,7 @@ class LoanDebtIncomeFragment : BaseFragmentDebtIncome(), Step {
 
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is OnNavigationBarListener.LoanDebtIncomeData){
             onNavigationBarListner = context

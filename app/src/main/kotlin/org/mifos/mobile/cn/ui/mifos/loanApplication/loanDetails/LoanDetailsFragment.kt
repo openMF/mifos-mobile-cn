@@ -460,7 +460,7 @@ class LoanDetailsFragment : MifosBaseFragment(), Step, AdapterView.OnItemSelecte
         }
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
       if(context is OnNavigationBarListener.LoanDetailsData){onNavigationBarListner = context}
         else throw  RuntimeException("$context must implement OnNavigationBarListener.LoanDetails")

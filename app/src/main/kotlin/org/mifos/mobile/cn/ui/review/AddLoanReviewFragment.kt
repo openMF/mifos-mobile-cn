@@ -46,7 +46,7 @@ class AddLoanReviewFragment : MifosBaseFragment(),Step {
     @Inject
     lateinit var debtCoSignerAdapter: LoanDebtIncomeAdapter
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is OnNavigationBarListener.ReviewLoan){
             onNavigationBarListener = context

@@ -10,7 +10,6 @@
 
     <LinearLayout style="@style/LinearLayout.Base">
         <include layout="@layout/toolbar"/>
-
         <FrameLayout style="@style/FrameLayout.Container"/>
     </LinearLayout>
 
@@ -22,4 +21,4 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_drawer_header"
         app:menu="@menu/menu_nav_drawer"/>
-</androidx.drawerlayout.widget.DrawerLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>

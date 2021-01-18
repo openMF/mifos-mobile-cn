@@ -10,6 +10,7 @@
     <color name="colorThirdText">#9F8E8E</color>
     <color name="colorAccent">#FF4081</color>
 
+
     <color name="white">#ffffff</color>
     <!-- A light Holo shade of blue -->
     <color name="blue_light">#ff33b5e5</color>
@@ -39,6 +40,7 @@
     <color name="gray_bright">#33CCCCCC</color>
 
     <color name="blue">#0a46b1</color>
+    <color name="violet">#EE82EE</color>
 
     <color name="blue_light_alert_background">#c9d8e9</color>
     <!--Black-->

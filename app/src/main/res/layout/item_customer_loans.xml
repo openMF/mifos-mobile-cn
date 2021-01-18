@@ -9,12 +9,17 @@
     android:foreground="?android:attr/selectableItemBackground"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="@dimen/layout_padding_24dp"
+    android:layout_marginRight="@dimen/layout_padding_24dp"
     android:orientation="vertical">
     <LinearLayout
         android:id="@+id/ll_customer_deposit_accounts"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:elevation="@dimen/layout_padding_10dp"
+        android:background="@drawable/white_card">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_status_indicator"
@@ -29,7 +34,7 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:orientation="vertical"
-            android:padding="@dimen/layout_padding_24dp">
+            android:padding="@dimen/layout_padding_10dp">
 
             <TextView
                 android:id="@+id/tv_loan_identifier"
@@ -64,8 +69,9 @@
             android:layout_marginEnd="@dimen/layout_padding_24dp"
             android:layout_marginRight="@dimen/layout_padding_24dp"
             android:layout_width="wrap_content"
-            android:textSize="@dimen/text_medium"
-            tools:text="Amount"/>
+            android:textSize="24sp"
+            tools:text="Amount"
+            android:textColor="@color/violet"/>
 
     </LinearLayout>
 
@@ -73,5 +79,7 @@
         android:layout_width="match_parent"
         android:layout_height="0.2dp"
         android:background="#E7DFDF"/>
-
+    <androidx.legacy.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/layout_padding_10dp"/>
 </LinearLayout>
