@@ -169,7 +169,13 @@ dependencies {
     testImplementation "org.hamcrest:hamcrest-core:$rootProject.hamcrestVersion"
     testImplementation "org.hamcrest:hamcrest-library:$rootProject.hamcrestVersion"
     testImplementation "org.hamcrest:hamcrest-integration:$rootProject.hamcrestVersion"
-    testImplementation 'org.robolectric:robolectric:3.3.1'
+    testImplementation 'org.robolectric:robolectric:4.2.1'
+
+    //Navigation
+    def nav_version = "2.3.2"
+
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 }
 
 // Log out test results to console

@@ -29,7 +29,6 @@ class PasscodeActivity : MifosPassCodeActivity(){
                         Manifest.permission.READ_PHONE_STATE)) {
             requestPermission()
         }
-
     }
 
     private fun requestPermission() {

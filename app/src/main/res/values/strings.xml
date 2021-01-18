@@ -315,5 +315,8 @@
     <string name="app_link">App Link</string>
     <string name="share_the_app_link">Share the app link via:</string>
     <string name="share_message">You can download the Mifos Mobile CN app here: https://drive.google.com/file/d/1JGGf80FrTiUqYxZT8PHsGHb65yatQwfd/view?usp=sharing</string>
+    <string name="dialog_message_phone_state_permission_denied_prompt">Permission denied to use phone state</string>
+    <string name="dialog_message_phone_state_permission_never_ask_again">Never ask again</string>
+
 
 </resources>
