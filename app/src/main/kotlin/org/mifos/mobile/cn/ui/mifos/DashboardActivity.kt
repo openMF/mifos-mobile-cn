@@ -41,6 +41,7 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
     private lateinit var ivCircularUserProfilePicture: CircularImageView
     private lateinit var ivTextDrawableUserProfilePicture: ImageView
     var urls = "https://github.com/openMF/mifos-mobile-cn/issues/new"
+    var url1 = "https://gitter.im/openMF/mifos-mobile-cn"
     private var menuItem = -1
     private var doubleBackToExitPressedOnce = false
 
@@ -178,6 +179,10 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
             }
             R.id.item_about_us -> {
                 showAboutUs()
+            }
+            R.id.item_help -> {
+                val i = Intent(Intent.ACTION_VIEW, Uri.parse(url1))
+                startActivity(i)
             }
             R.id.item_settings -> {
                 replaceFragment(SettingsFragment.newInstance(), true, R.id.container)
