@@ -69,7 +69,7 @@
     <string name="close_drawer">Close Drawer</string>
     <string name="exit_message">Press back again to exit</string>
     <string name="notification">Notifications</string>
-
+    <string name="report_or_bug_">Report Or Bug</string>
     <!--Loan application Details fragment-->
     <string name="create_new_loan">Create New Loan</string>
     <string name="products">Products</string>

@@ -3,37 +3,37 @@ package org.mifos.mobile.cn.ui.mifos
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
-import com.google.android.material.navigation.NavigationView
-import androidx.core.view.GravityCompat
-import androidx.appcompat.app.ActionBarDrawerToggle
 import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.GravityCompat
+import com.google.android.material.navigation.NavigationView
+import com.mifos.mobile.passcode.utils.PasscodePreferencesHelper
+import kotlinx.android.synthetic.main.activity_main.*
 import org.mifos.mobile.cn.R
 import org.mifos.mobile.cn.data.local.PreferencesHelper
-import org.mifos.mobile.cn.ui.base.MifosBaseActivity
-import org.mifos.mobile.cn.ui.mifos.dashboard.DashboardFragment
-import org.mifos.mobile.cn.ui.mifos.login.LoginActivity
-import org.mifos.mobile.cn.ui.utils.MaterialDialog
-import javax.inject.Inject
-import kotlinx.android.synthetic.main.activity_main.*
 import org.mifos.mobile.cn.enums.AccountType
+import org.mifos.mobile.cn.ui.base.MifosBaseActivity
 import org.mifos.mobile.cn.ui.mifos.aboutus.AboutUsActivity
 import org.mifos.mobile.cn.ui.mifos.customerAccounts.CustomerAccountFragment
-import org.mifos.mobile.cn.ui.mifos.loanApplication.loanActivity.LoanApplicationActivity
+import org.mifos.mobile.cn.ui.mifos.dashboard.DashboardFragment
+import org.mifos.mobile.cn.ui.mifos.login.LoginActivity
+import org.mifos.mobile.cn.ui.mifos.passcode.PasscodeActivity
 import org.mifos.mobile.cn.ui.mifos.products.ProductFragment
 import org.mifos.mobile.cn.ui.mifos.recentTransactions.RecentTransactionsFragment
 import org.mifos.mobile.cn.ui.mifos.settings.SettingsFragment
 import org.mifos.mobile.cn.ui.utils.CircularImageView
-import org.mifos.mobile.cn.ui.utils.Toaster
-import android.widget.Toast
-import com.mifos.mobile.passcode.utils.PasscodePreferencesHelper
-import org.mifos.mobile.cn.ui.mifos.passcode.PasscodeActivity
 import org.mifos.mobile.cn.ui.utils.ConstantKeys
+import org.mifos.mobile.cn.ui.utils.MaterialDialog
+import org.mifos.mobile.cn.ui.utils.Toaster
+import javax.inject.Inject
 
 class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
 
@@ -43,6 +43,7 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
     private lateinit var tvUsername: TextView
     private lateinit var ivCircularUserProfilePicture: CircularImageView
     private lateinit var ivTextDrawableUserProfilePicture: ImageView
+    var url = "https://github.com/openMF/mifos-mobile-cn/issues/new"
 
     private var menuItem = -1
     private var doubleBackToExitPressedOnce = false
@@ -172,7 +173,7 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
             R.id.item_logout -> {
                 showLogoutDialog()
             }
-            R.id.item_passcode ->{
+            R.id.item_passcode -> {
                 if (this != null) {
                     passcodePreferencesHelper = PasscodePreferencesHelper(this)
                     val currentPass: String = passcodePreferencesHelper!!.getPassCode()
@@ -187,11 +188,15 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
                 replaceFragment(ProductFragment.Companion.newInstance(), true,
                         R.id.container)
             }
-                R.id.item_recent_transactions -> {
-                    replaceFragment(RecentTransactionsFragment.Companion.newInstance(),true,R.id.container)
-                }
+            R.id.item_recent_transactions -> {
+                replaceFragment(RecentTransactionsFragment.Companion.newInstance(), true, R.id.container)
+            }
             R.id.item_about_us -> {
                 showAboutUs()
+            }
+            R.id.item_repot_or_bug -> {
+                val i = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                startActivity(i)
             }
             R.id.item_settings -> {
                 replaceFragment(SettingsFragment.newInstance(), true, R.id.container)
