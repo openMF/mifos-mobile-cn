@@ -138,8 +138,20 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
         ivCircularUserProfilePicture.setOnClickListener(this)
     }
 
-    override fun onClick(v: View) {
+     override fun onClick(view: View?) {
         // Click Header to view full profile of User
+
+       when(view?.id) {
+           R.id.iv_circular_user_image->{
+               replaceFragment(CustomerDetailsFragment.newInstance("customer_identifier"), true,
+                       R.id.container)
+
+           }
+           R.id.iv_user_image->{
+               replaceFragment(CustomerDetailsFragment.newInstance("customer_identifier"), true,
+                       R.id.container)
+           }
+       }
     }
 
     private fun setUpBackStackListener() {
