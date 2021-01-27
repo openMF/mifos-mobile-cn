@@ -3,6 +3,7 @@ package org.mifos.mobile.cn.ui.mifos
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import com.google.android.material.navigation.NavigationView
@@ -32,6 +33,7 @@ import org.mifos.mobile.cn.ui.utils.CircularImageView
 import org.mifos.mobile.cn.ui.utils.Toaster
 import android.widget.Toast
 import com.mifos.mobile.passcode.utils.PasscodePreferencesHelper
+import org.mifos.mobile.cn.ui.mifos.customerDetails.CustomerDetailsFragment
 import org.mifos.mobile.cn.ui.mifos.passcode.PasscodeActivity
 import org.mifos.mobile.cn.ui.utils.ConstantKeys
 
@@ -43,7 +45,8 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
     private lateinit var tvUsername: TextView
     private lateinit var ivCircularUserProfilePicture: CircularImageView
     private lateinit var ivTextDrawableUserProfilePicture: ImageView
-
+    var url= "https://github.com/openMF/mifos-mobile-cn/issues/new"
+    var url1= "https://gitter.im/openMF/mifos-mobile-cn"
     private var menuItem = -1
     private var doubleBackToExitPressedOnce = false
 
@@ -137,9 +140,22 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
         ivCircularUserProfilePicture.setOnClickListener(this)
     }
 
-    override fun onClick(v: View) {
+    override fun onClick(view: View?) {
         // Click Header to view full profile of User
+
+        when(view?.id) {
+            R.id.iv_circular_user_image->{
+                replaceFragment(CustomerDetailsFragment.newInstance("customer_identifier"), true,
+                        R.id.container)
+
+            }
+            R.id.iv_user_image->{
+                replaceFragment(CustomerDetailsFragment.newInstance("customer_identifier"), true,
+                        R.id.container)
+            }
+        }
     }
+
 
     private fun setUpBackStackListener() {
         supportFragmentManager.addOnBackStackChangedListener {
@@ -193,6 +209,15 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
             R.id.item_about_us -> {
                 showAboutUs()
             }
+            R.id.report_or_bug -> {
+                val i = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                startActivity(i)
+            }
+                R.id.item_help -> {
+                    val i = Intent(Intent.ACTION_VIEW, Uri.parse(url1))
+                    startActivity(i)
+                }
+
             R.id.item_settings -> {
                 replaceFragment(SettingsFragment.newInstance(), true, R.id.container)
             }
