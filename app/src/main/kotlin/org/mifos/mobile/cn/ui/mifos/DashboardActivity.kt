@@ -3,6 +3,7 @@ package org.mifos.mobile.cn.ui.mifos
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import com.google.android.material.navigation.NavigationView
@@ -44,7 +45,7 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
     private lateinit var tvUsername: TextView
     private lateinit var ivCircularUserProfilePicture: CircularImageView
     private lateinit var ivTextDrawableUserProfilePicture: ImageView
-
+    var url1= "https://gitter.im/openMF/mifos-mobile-cn"
     private var menuItem = -1
     private var doubleBackToExitPressedOnce = false
 
@@ -206,6 +207,12 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
             R.id.item_about_us -> {
                 showAboutUs()
             }
+
+                R.id.item_help -> {
+                    val i = Intent(Intent.ACTION_VIEW, Uri.parse(url1))
+                    startActivity(i)
+                }
+
             R.id.item_settings -> {
                 replaceFragment(SettingsFragment.newInstance(), true, R.id.container)
             }
