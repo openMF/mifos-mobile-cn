@@ -32,6 +32,7 @@ import org.mifos.mobile.cn.ui.utils.CircularImageView
 import org.mifos.mobile.cn.ui.utils.Toaster
 import android.widget.Toast
 import com.mifos.mobile.passcode.utils.PasscodePreferencesHelper
+import org.mifos.mobile.cn.ui.mifos.customerDetails.CustomerDetailsFragment
 import org.mifos.mobile.cn.ui.mifos.passcode.PasscodeActivity
 import org.mifos.mobile.cn.ui.utils.ConstantKeys
 
@@ -137,8 +138,20 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
         ivCircularUserProfilePicture.setOnClickListener(this)
     }
 
-    override fun onClick(v: View) {
+    override fun onClick(view: View?) {
         // Click Header to view full profile of User
+
+        when(view?.id) {
+            R.id.iv_circular_user_image->{
+                replaceFragment(CustomerDetailsFragment.newInstance("customer_identifier"), true,
+                        R.id.container)
+
+            }
+            R.id.iv_user_image->{
+                replaceFragment(CustomerDetailsFragment.newInstance("customer_identifier"), true,
+                        R.id.container)
+            }
+        }
     }
 
     private fun setUpBackStackListener() {
