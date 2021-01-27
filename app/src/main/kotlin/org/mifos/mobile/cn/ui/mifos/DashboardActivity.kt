@@ -155,6 +155,7 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
         }
     }
 
+
     private fun setUpBackStackListener() {
         supportFragmentManager.addOnBackStackChangedListener {
             val fragment = supportFragmentManager.findFragmentById(R.id.container)
