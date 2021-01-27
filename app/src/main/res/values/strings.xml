@@ -33,7 +33,7 @@
     <string name="error_logging_in">Error logging in</string>
     <string name="login_using_password_confirmation">Are you sure you want to login using Password?
     </string>
-
+    <string name="already_have_an_account">Already have an account? login</string>
 
     <!--Dashboard Activity-->
     <string name="home">Home</string>
