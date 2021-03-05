@@ -1,14 +1,15 @@
 package org.mifos.mobile.cn.ui.mifos.accounts
 
 import android.os.Bundle
-import android.util.Log
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.github.therajanmaurya.sweeterror.SweetUIErrorHandler
 import kotlinx.android.synthetic.main.fragment_accounts.*
+import kotlinx.android.synthetic.main.layout_exception_handler.*
 import org.mifos.mobile.cn.R
 import org.mifos.mobile.cn.data.models.accounts.deposit.DepositAccount
 import org.mifos.mobile.cn.data.models.accounts.loan.LoanAccount
@@ -19,7 +20,7 @@ import org.mifos.mobile.cn.ui.base.MifosBaseFragment
 import org.mifos.mobile.cn.ui.utils.ConstantKeys
 import org.mifos.mobile.cn.ui.utils.Network
 import javax.inject.Inject
-import kotlinx.android.synthetic.main.layout_sweet_exception_handler.*
+//import kotlinx.android.synthetic.main.layout_sweet_exception_handler.*
 import org.mifos.mobile.cn.data.models.CheckboxStatus
 import org.mifos.mobile.cn.ui.base.OnItemClickListener
 import org.mifos.mobile.cn.ui.mifos.customerDepositDetails.CustomerDepositDetailsFragment
@@ -28,10 +29,11 @@ import org.mifos.mobile.cn.ui.utils.RxBus
 import org.mifos.mobile.cn.ui.utils.RxEvent
 
 
-class AccountsFragment : MifosBaseFragment(), AccountsContract.View, OnItemClickListener {
+class AccountsFragment : MifosBaseFragment(), AccountsContract.View, OnItemClickListener, SwipeRefreshLayout.OnRefreshListener {
 
 
     private lateinit var accountType: String
+
     private lateinit var loanAccounts: List<LoanAccount>
     private lateinit var depositAccounts: List<DepositAccount>
     var currentFilterList: List<CheckboxStatus>? = null
@@ -118,7 +120,12 @@ class AccountsFragment : MifosBaseFragment(), AccountsContract.View, OnItemClick
         rv_accounts.addItemDecoration(DividerItemDecoration(activity,
                 layoutManager.orientation))
         btn_try_again.setOnClickListener { retry() }
+        swipe_container.setOnRefreshListener(this)
 
+        loadAdapterData()
+    }
+
+    private fun loadAdapterData() {
         when (accountType) {
             ConstantKeys.LOAN_ACCOUNTS -> {
                 rv_accounts.adapter = loanAccountsListAdapter
@@ -135,15 +142,15 @@ class AccountsFragment : MifosBaseFragment(), AccountsContract.View, OnItemClick
         when (accountType) {
             ConstantKeys.LOAN_ACCOUNTS -> {
                 (activity as MifosBaseActivity).replaceFragment(
-                        CustomerLoanDetailsFragment.newInstance(
-                                loanAccounts[position].productIdentifier!!,
-                                loanAccounts[position].identifier!!), true, R.id.container)
+                    CustomerLoanDetailsFragment.newInstance(
+                        loanAccounts[position].productIdentifier!!,
+                        loanAccounts[position].identifier!!), true, R.id.container)
             }
             ConstantKeys.DEPOSIT_ACCOUNTS -> {
                 (activity as MifosBaseActivity).replaceFragment(
-                        CustomerDepositDetailsFragment.newInstance(
-                                depositAccounts[position].accountIdentifier!!),true,R.id.container
-                                )
+                    CustomerDepositDetailsFragment.newInstance(
+                        depositAccounts[position].accountIdentifier!!),true,R.id.container
+                )
             }
         }
     }
@@ -163,6 +170,7 @@ class AccountsFragment : MifosBaseFragment(), AccountsContract.View, OnItemClick
     /**
      * Shows [List] of [LoanAccount] fetched from server using
      * [LoanAccountListAdapter]
+
      * @param loanAccounts [List] of [LoanAccount]
      */
     override fun showLoanAccounts(loanAccounts: List<LoanAccount>) {
@@ -178,12 +186,12 @@ class AccountsFragment : MifosBaseFragment(), AccountsContract.View, OnItemClick
         when (feature) {
             getString(R.string.loan) -> {
                 errorHandler.showSweetEmptyUI(feature, R.drawable.ic_payment_black_24dp, rv_accounts,
-                        layout_error)
+                    layout_error)
             }
 
             getString(R.string.deposit) ->
                 errorHandler.showSweetEmptyUI(feature, R.drawable.ic_monetization_on_black_24dp,
-                        rv_accounts, layout_error)
+                    rv_accounts, layout_error)
         }
 
     }
@@ -211,7 +219,7 @@ class AccountsFragment : MifosBaseFragment(), AccountsContract.View, OnItemClick
         val filteredLoans = java.util.ArrayList<LoanAccount>()
         for (status in accountsPresenter.getCheckedStatus(statusModelList)) {
             filteredLoans.addAll(accountsPresenter.getFilteredLoanAccount(loanAccounts,
-                    status))
+                status))
         }
         loanAccountsListAdapter.setCustomerLoanAccounts(filteredLoans)
     }
@@ -220,7 +228,7 @@ class AccountsFragment : MifosBaseFragment(), AccountsContract.View, OnItemClick
         val filteredDeposit = ArrayList<DepositAccount>()
         for (status in accountsPresenter.getCheckedStatus(statusModelList)) {
             filteredDeposit.addAll(accountsPresenter.getFilteredDepositAccount(depositAccounts,
-                    status))
+                status))
             depositAccountListAdapter.setCustomerDepositAccounts(filteredDeposit)
         }
     }
@@ -232,7 +240,7 @@ class AccountsFragment : MifosBaseFragment(), AccountsContract.View, OnItemClick
      */
     fun searchLoanAccount(input: String) {
         loanAccountsListAdapter.setCustomerLoanAccounts(accountsPresenter
-                .searchInLoanList(loanAccounts, input))
+            .searchInLoanList(loanAccounts, input))
     }
 
     /**
@@ -242,7 +250,7 @@ class AccountsFragment : MifosBaseFragment(), AccountsContract.View, OnItemClick
      */
     fun searchDepositAccount(input: String) {
         depositAccountListAdapter.setCustomerDepositAccounts(accountsPresenter
-                .searchInDepositList(depositAccounts, input))
+            .searchInDepositList(depositAccounts, input))
     }
 
 
@@ -256,6 +264,11 @@ class AccountsFragment : MifosBaseFragment(), AccountsContract.View, OnItemClick
             ConstantKeys.LOAN_ACCOUNTS -> accountsPresenter.loadLoanAccounts()
             ConstantKeys.DEPOSIT_ACCOUNTS -> accountsPresenter.loadDepositAccounts()
         }
+    }
+
+    override fun onRefresh() {
+        loadAdapterData()
+        swipe_container.isRefreshing =false
     }
 
     override fun showProgress() {
