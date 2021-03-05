@@ -115,33 +115,17 @@ class AccountsFragment : MifosBaseFragment(), AccountsContract.View, OnItemClick
         super.onViewCreated(view, savedInstanceState)
         val layoutManager = LinearLayoutManager(activity)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
-//        rv_accounts.layoutManager = layoutManager
-//        rv_accounts.setHasFixedSize(true)
-//        rv_accounts.addItemDecoration(DividerItemDecoration(activity,
-//                layoutManager.orientation))
-        rv_accounts.apply{
-            this.layoutManager=layoutManager
-            setHasFixedSize(true)
-            addItemDecoration(DividerItemDecoration(activity,
+        rv_accounts.layoutManager = layoutManager
+        rv_accounts.setHasFixedSize(true)
+        rv_accounts.addItemDecoration(DividerItemDecoration(activity,
                 layoutManager.orientation))
-        }
         btn_try_again.setOnClickListener { retry() }
         swipe_container.setOnRefreshListener(this)
 
-        loadApdaterData()
-        when (accountType) {
-            ConstantKeys.LOAN_ACCOUNTS -> {
-                rv_accounts.adapter = loanAccountsListAdapter
-                loanAccountsListAdapter.setOnItemClickListener(this)
-            }
-            ConstantKeys.DEPOSIT_ACCOUNTS -> {
-                rv_accounts.adapter = depositAccountListAdapter
-                depositAccountListAdapter.setOnItemClickListener(this)
-            }
-        }
+        loadAdapterData()
     }
 
-    private fun loadApdaterData() {
+    private fun loadAdapterData() {
         when (accountType) {
             ConstantKeys.LOAN_ACCOUNTS -> {
                 rv_accounts.adapter = loanAccountsListAdapter
@@ -283,7 +267,7 @@ class AccountsFragment : MifosBaseFragment(), AccountsContract.View, OnItemClick
     }
 
     override fun onRefresh() {
-        loadApdaterData()
+        loadAdapterData()
         swipe_container.isRefreshing =false
     }
 
