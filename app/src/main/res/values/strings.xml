@@ -362,5 +362,6 @@
     <string name="mobile_number">Mobile Number</string>
     <string name="full_name">Full name</string>
     <string name="send_money">Send Money</string>
+    <string name="msisdn">MSISDN</string>
 
 </resources>

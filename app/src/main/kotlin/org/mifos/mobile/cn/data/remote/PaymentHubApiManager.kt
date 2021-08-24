@@ -4,38 +4,28 @@ import android.content.Context
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.mifos.mobile.cn.data.services.*
+import org.mifos.mobile.cn.ui.utils.ConstantKeys
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 
 
-class BaseApiManager constructor(context: Context) {
-
+class PaymentHubApiManager constructor(context: Context) {
+    private lateinit var transactionsApi: TransactionsService
+    private lateinit var registrationApi: RegistrationService
     private lateinit var retrofit: Retrofit
     private lateinit var anonymousRetrofit: Retrofit
-    private lateinit var authApi: AuthService
     private lateinit var anonymousService: AnonymousService
-    private lateinit var customerApi: CustomerService
-    private lateinit var loanApi: LoanService
-    private lateinit var individualLendingService: IndividualLendingService
-    private lateinit var depositApi: DepositService
-    private lateinit var fineractPaymentHubApi: FineractPaymentHubService
-    private lateinit var transactionsApi: TransactionsService
-
 
     init {
         createService(context)
         createAnonymousService()
     }
 
-    private fun init() {
-        authApi = createApi(AuthService::class.java)
-        customerApi = createApi(CustomerService::class.java)
-        loanApi = createApi(LoanService::class.java)
-        individualLendingService = createApi(IndividualLendingService::class.java)
-        depositApi = createApi(DepositService::class.java)
-        fineractPaymentHubApi=createApi(FineractPaymentHubService::class.java)
+    fun init() {
         transactionsApi = createApi(TransactionsService::class.java)
+        registrationApi = createApi(RegistrationService::class.java)
     }
 
     private fun initAnonymous() {
@@ -46,16 +36,23 @@ class BaseApiManager constructor(context: Context) {
         return retrofit.create(clazz)
     }
 
-    private fun createService(context: Context) {
+    fun createService(context: Context) {
 
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = HttpLoggingInterceptor.Level.BODY
 
+        val okHttpClient = OkHttpClient.Builder()
+                .readTimeout(60, TimeUnit.SECONDS)
+                .connectTimeout(60, TimeUnit.SECONDS)
+                .writeTimeout(60, TimeUnit.SECONDS)
+                .addInterceptor(interceptor)
+                .addInterceptor(ApiInterceptor(ConstantKeys.TENANT_ID))
+                .build()
         retrofit = Retrofit.Builder()
-                .baseUrl(BaseUrl.defaultBaseUrl)
+                .baseUrl(BaseUrl.paymentUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .client(MifosOkHttpClient(context).telescopeOkHttpClient)
+                .client(okHttpClient)
                 .build()
         init()
     }
@@ -70,7 +67,7 @@ class BaseApiManager constructor(context: Context) {
                 .build()
 
         anonymousRetrofit = Retrofit.Builder()
-                .baseUrl(BaseUrl.defaultBaseUrl)
+                .baseUrl(BaseUrl.paymentUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(okHttpClient)
@@ -78,33 +75,11 @@ class BaseApiManager constructor(context: Context) {
         initAnonymous()
     }
 
-    fun getAuthApi(): AuthService {
-        return authApi
-    }
-
-    fun getAnonymousService(): AnonymousService {
-        return anonymousService
-    }
-
-    fun getCustomerApi(): CustomerService {
-        return customerApi
-    }
-
-    fun getLoanApi(): LoanService {
-        return loanApi
-    }
-    fun getFineractPaymentHubApi(): FineractPaymentHubService {
-        return fineractPaymentHubApi
-    }
-
-    fun getIndividualLendingService(): IndividualLendingService {
-        return individualLendingService
-    }
-
-    fun getDepositApi(): DepositService {
-        return depositApi
-    }
     fun getTransactionsApi(): TransactionsService {
         return transactionsApi
+    }
+
+    fun getRegistrationApi(): RegistrationService {
+        return registrationApi
     }
 }
