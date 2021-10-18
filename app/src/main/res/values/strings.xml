@@ -33,7 +33,7 @@
     <string name="error_logging_in">Error logging in</string>
     <string name="login_using_password_confirmation">Are you sure you want to login using Password?
     </string>
-
+    <string name="already_have_an_account">Already have an account? login</string>
 
     <!--Dashboard Activity-->
     <string name="home">Home</string>
@@ -69,6 +69,7 @@
     <string name="close_drawer">Close Drawer</string>
     <string name="exit_message">Press back again to exit</string>
     <string name="notification">Notifications</string>
+    <string name="report_or_bug">Report Or Bug</string>
 
     <!--Loan application Details fragment-->
     <string name="create_new_loan">Create New Loan</string>
