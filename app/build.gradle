@@ -112,7 +112,7 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okHttp3Version"
 
     // For debugging the local database
-    implementation 'com.facebook.stetho:stetho:1.5.0'
+    implementation 'com.facebook.stetho:stetho:1.6.0'
 
     // Sweet Error for error handling
     implementation 'com.github.therajanmaurya:Sweet-Error:1.0.0'
