@@ -96,7 +96,7 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxkotlin:$rootProject.rxKotlinVersion"
 
     // Timber for logging
-    implementation 'com.jakewharton.timber:timber:4.5.1'
+    implementation 'com.jakewharton.timber:timber:4.7.1'
 
     // Dagger 2 Dependencies
     implementation "com.google.dagger:dagger:$rootProject.daggerVersion"
