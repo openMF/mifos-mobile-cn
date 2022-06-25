@@ -22,6 +22,8 @@ import org.mifos.mobile.cn.data.local.PreferencesHelper
 import org.mifos.mobile.cn.ui.mifos.DashboardActivity
 import org.mifos.mobile.cn.ui.mifos.aboutus.AboutUsActivity
 import org.mifos.mobile.cn.ui.mifos.customerProfile.CustomerProfileContract
+import org.mifos.mobile.cn.ui.mifos.help.HelpActivity
+import org.mifos.mobile.cn.ui.mifos.help.HelpFragment
 import org.mifos.mobile.cn.ui.mifos.login.LoginActivity
 import javax.inject.Inject
 
@@ -40,8 +42,10 @@ class SettingActivity : AppCompatActivity() {
         startActivity(intent)
     }
     fun helpAc(view: View) {
-
+        val intent = Intent(this, HelpActivity::class.java)
+        startActivity(intent)
     }
+
     fun logout(view: View) {
         MaterialDialog.Builder().init(this)
                 .setMessage(R.string.dialog_logout)

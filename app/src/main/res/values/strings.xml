@@ -321,5 +321,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="settigs">Settings</string>
+    <string name="asking_to_help">Want help?</string>
+    <string name="help_discription">Want to help, our team can definitely help you, join our gitter channel..</string>
+    <string name="join_gitter">Ask for help</string>
 
 </resources>
