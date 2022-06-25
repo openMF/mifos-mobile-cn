@@ -20,6 +20,7 @@ import org.mifos.mobile.cn.ui.mifos.loanApplication.loanActivity.LoanApplication
 import org.mifos.mobile.cn.ui.mifos.loanApplication.loanDetails.LoanDetailsFragment
 import org.mifos.mobile.cn.ui.mifos.customerLoanDetails.CustomerLoanDetailsFragment
 import org.mifos.mobile.cn.ui.mifos.debtincomereport.DebtIncomeReportFragment
+import org.mifos.mobile.cn.ui.mifos.help.HelpFragment
 import org.mifos.mobile.cn.ui.mifos.login.LoginActivity
 import org.mifos.mobile.cn.ui.mifos.passcode.PasscodeActivity
 import org.mifos.mobile.cn.ui.mifos.plannedPlayment.PlannedPaymentFragment
@@ -78,4 +79,6 @@ interface ActivityComponent {
     fun inject(customerDepositDetailsFragment: CustomerDepositDetailsFragment)
 
     fun inject(aboutUsFragment: AboutUsFragment)
+
+    fun inject(helpFragment: HelpFragment)
 }

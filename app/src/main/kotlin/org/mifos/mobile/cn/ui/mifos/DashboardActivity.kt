@@ -27,15 +27,15 @@ import org.mifos.mobile.cn.ui.mifos.customerAccounts.CustomerAccountFragment
 import org.mifos.mobile.cn.ui.mifos.loanApplication.loanActivity.LoanApplicationActivity
 import org.mifos.mobile.cn.ui.mifos.products.ProductFragment
 import org.mifos.mobile.cn.ui.mifos.recentTransactions.RecentTransactionsFragment
-import org.mifos.mobile.cn.ui.mifos.settings.SettingsFragment
 import org.mifos.mobile.cn.ui.utils.CircularImageView
 import org.mifos.mobile.cn.ui.utils.Toaster
 import android.widget.Toast
+import org.mifos.mobile.cn.ui.mifos.settings.SettingActivity
 
 class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
 
-    @Inject
-    internal lateinit var preferencesHelper: PreferencesHelper
+//    @Inject
+//    internal lateinit var preferencesHelper: PreferencesHelper
 
     private lateinit var tvUsername: TextView
     private lateinit var ivCircularUserProfilePicture: CircularImageView
@@ -60,24 +60,24 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
     /**
      * Asks users to confirm whether he want to logout or not
      */
-    private fun showLogoutDialog() {
-        MaterialDialog.Builder().init(this)
-                .setMessage(R.string.dialog_logout)
-                .setPositiveButton(getString(R.string.logout),
-                        DialogInterface.OnClickListener { dialog, which ->
-                            preferencesHelper.clear()
-                            val intent = Intent(this, LoginActivity::class.java)
-                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                            startActivity(intent)
-                            finish()
-                            //Show successful logout Toast.
-                            Toast.makeText(applicationContext, "Logged Out Successfully", Toast.LENGTH_SHORT).show()
-                        })
-                .setNegativeButton(getString(R.string.cancel),
-                        DialogInterface.OnClickListener { dialog, which -> setNavigationViewSelectedItem(R.id.item_home) })
-                .createMaterialDialog()
-                .show()
-    }
+//    private fun showLogoutDialog() {
+//        MaterialDialog.Builder().init(this)
+//                .setMessage(R.string.dialog_logout)
+//                .setPositiveButton(getString(R.string.logout),
+//                        DialogInterface.OnClickListener { dialog, which ->
+//                            preferencesHelper.clear()
+//                            val intent = Intent(this, LoginActivity::class.java)
+//                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+//                            startActivity(intent)
+//                            finish()
+//                            //Show successful logout Toast.
+//                            Toast.makeText(applicationContext, "Logged Out Successfully", Toast.LENGTH_SHORT).show()
+//                        })
+//                .setNegativeButton(getString(R.string.cancel),
+//                        DialogInterface.OnClickListener { dialog, which -> setNavigationViewSelectedItem(R.id.item_home) })
+//                .createMaterialDialog()
+//                .show()
+//    }
 
 
     private fun setNavigationViewSelectedItem(id: Int) {
@@ -163,31 +163,28 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
                 replaceFragment(DashboardFragment.newInstance(), true, R.id.container)
             }
             R.id.item_accounts -> {
-                replaceFragment(CustomerAccountFragment.newInstance(AccountType.DEPOSIT), true,
-                        R.id.container)
+                replaceFragment(
+                    CustomerAccountFragment.newInstance(AccountType.DEPOSIT), true,
+                    R.id.container
+                )
             }
-            R.id.item_logout -> {
-                showLogoutDialog()
-            }
+
             R.id.item_product -> {
-                replaceFragment(ProductFragment.Companion.newInstance(), true,
-                        R.id.container)
+                replaceFragment(
+                    ProductFragment.Companion.newInstance(), true,
+                    R.id.container
+                )
             }
-                R.id.item_recent_transactions -> {
-                    replaceFragment(RecentTransactionsFragment.Companion.newInstance(),true,R.id.container)
-                }
-            R.id.item_about_us -> {
-                showAboutUs()
+            R.id.item_recent_transactions -> {
+                replaceFragment(
+                    RecentTransactionsFragment.Companion.newInstance(),
+                    true,
+                    R.id.container
+                )
             }
+
             R.id.item_settings -> {
-                replaceFragment(SettingsFragment.newInstance(), true, R.id.container)
-            }
-            R.id.item_share -> {
-                val sharingIntent = Intent(android.content.Intent.ACTION_SEND)
-                sharingIntent.type = "text/plain"
-                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, getString(R.string.app_link))
-                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, getString(R.string.share_message))
-                startActivity(Intent.createChooser(sharingIntent, getString(R.string.share_the_app_link)))
+                settingClicked()
             }
         }
         // close the drawer
@@ -220,8 +217,8 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
             super.onBackPressed()
         }
     }
-    fun showAboutUs(){
-        val intent = Intent(this, AboutUsActivity::class.java)
+     fun settingClicked() {
+        val intent = Intent(this, SettingActivity::class.java)
         startActivity(intent)
     }
 
