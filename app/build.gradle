@@ -125,7 +125,7 @@ dependencies {
 
     // Glide for Image Loading
     implementation 'com.github.bumptech.glide:glide:4.8.0'
-    kapt 'com.github.bumptech.glide:compiler:4.8.0'
+    kapt 'com.github.bumptech.glide:compiler:4.16.0'
 
     //dbFlow for database
     kapt "com.github.Raizlabs.DBFlow:dbflow-processor:$rootProject.dbFlowVersion"
