@@ -136,7 +136,7 @@ dependencies {
     implementation "com.github.Raizlabs.DBFlow:dbflow-rx2-kotlinextensions:$rootProject.dbFlowVersion"
 
     //OpenSource Licences
-    implementation "com.google.android.gms:play-services-oss-licenses:17.0.0"
+    implementation "com.google.android.gms:play-services-oss-licenses:17.1.0"
 
     // Instrumentation test dependencies
     androidTestImplementation jUnit
