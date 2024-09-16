@@ -37,7 +37,7 @@ ext {
 
     // App dependencies
     supportLibraryVersion = '1.0.0'
-    daggerVersion = '2.8'
+    daggerVersion = '2.52'
     retrofitVersion = '2.4.0'
     okHttp3Version = '3.11.0'
     passcodeLibraryVersion = '0.3.0'
