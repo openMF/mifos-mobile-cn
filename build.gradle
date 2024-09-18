@@ -48,7 +48,7 @@ ext {
     // rxjava dependencies
     rxjavaVersion = '2.2.1'
     rxandroidVersion = '2.0.2'
-    rxKotlinVersion = '2.2.0'
+    rxKotlinVersion = '2.4.0'
 
     // DBFlow dependencies
     dbFlowVersion = '4.2.4'
