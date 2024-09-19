@@ -72,7 +72,7 @@ android {
 
 dependencies {
     def daggerCompiler = "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
-    def jUnit = "junit:junit:4.12"
+    def jUnit = "junit:junit:4.13.2"
     def mockito = "org.mockito:mockito-core:$rootProject.mockitoVersion"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
