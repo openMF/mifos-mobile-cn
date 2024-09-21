@@ -39,7 +39,7 @@ ext {
     supportLibraryVersion = '1.0.0'
     daggerVersion = '2.8'
     retrofitVersion = '2.4.0'
-    okHttp3Version = '3.11.0'
+    okHttp3Version = '3.14.9'
     passcodeLibraryVersion = '0.3.0'
 
     // Kotlin dependencies
