@@ -3,34 +3,36 @@ package org.mifos.mobile.cn.ui.mifos
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
 import android.os.Handler
-import com.google.android.material.navigation.NavigationView
-import androidx.core.view.GravityCompat
-import androidx.appcompat.app.ActionBarDrawerToggle
 import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.GravityCompat
+import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.activity_main.*
 import org.mifos.mobile.cn.R
 import org.mifos.mobile.cn.data.local.PreferencesHelper
-import org.mifos.mobile.cn.ui.base.MifosBaseActivity
-import org.mifos.mobile.cn.ui.mifos.dashboard.DashboardFragment
-import org.mifos.mobile.cn.ui.mifos.login.LoginActivity
-import org.mifos.mobile.cn.ui.utils.MaterialDialog
-import javax.inject.Inject
-import kotlinx.android.synthetic.main.activity_main.*
 import org.mifos.mobile.cn.enums.AccountType
+import org.mifos.mobile.cn.ui.base.MifosBaseActivity
 import org.mifos.mobile.cn.ui.mifos.aboutus.AboutUsActivity
 import org.mifos.mobile.cn.ui.mifos.customerAccounts.CustomerAccountFragment
-import org.mifos.mobile.cn.ui.mifos.loanApplication.loanActivity.LoanApplicationActivity
+import org.mifos.mobile.cn.ui.mifos.dashboard.DashboardFragment
+import org.mifos.mobile.cn.ui.mifos.login.LoginActivity
 import org.mifos.mobile.cn.ui.mifos.products.ProductFragment
 import org.mifos.mobile.cn.ui.mifos.recentTransactions.RecentTransactionsFragment
 import org.mifos.mobile.cn.ui.mifos.settings.SettingsFragment
 import org.mifos.mobile.cn.ui.utils.CircularImageView
+import org.mifos.mobile.cn.ui.utils.MaterialDialog
+import org.mifos.mobile.cn.ui.utils.NetworkChangeReceiver
 import org.mifos.mobile.cn.ui.utils.Toaster
-import android.widget.Toast
+import javax.inject.Inject
+
 
 class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
 
@@ -54,6 +56,14 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
 
         replaceFragment(DashboardFragment.newInstance(), false, R.id.container)
 
+        registerNetworkRegister()
+
+    }
+
+    fun registerNetworkRegister() {
+        val filter = IntentFilter()
+        filter.addAction("android.net.conn.CONNECTIVITY_CHANGE")
+        registerReceiver(NetworkChangeReceiver(), filter)
     }
 
 
@@ -173,9 +183,9 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
                 replaceFragment(ProductFragment.Companion.newInstance(), true,
                         R.id.container)
             }
-                R.id.item_recent_transactions -> {
-                    replaceFragment(RecentTransactionsFragment.Companion.newInstance(),true,R.id.container)
-                }
+            R.id.item_recent_transactions -> {
+                replaceFragment(RecentTransactionsFragment.Companion.newInstance(), true, R.id.container)
+            }
             R.id.item_about_us -> {
                 showAboutUs()
             }
