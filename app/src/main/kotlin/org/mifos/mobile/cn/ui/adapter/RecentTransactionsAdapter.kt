@@ -37,8 +37,8 @@ class RecentTransactionsAdapter @Inject constructor(@ApplicationContext val cont
 
         holder.tvTransactionDate.text = transactionDate
 
-        holder.tvAmount.text =  transaction.amount.toString()
-        holder.tvBalance.text = transaction.balance.toString()
+        holder.tvAmount.text = "$" + transaction.amount.toString()
+        holder.tvBalance.text = "$" + transaction.balance.toString()
         holder.tvMessage.text = transaction.message
     }
 

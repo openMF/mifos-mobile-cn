@@ -41,9 +41,9 @@ constructor(@ApplicationContext val context: Context) :
 
         holder.tvCustomerAccountIdentifier!!.text = customerDepositAccount.accountIdentifier
         holder.tvDepositProduct!!.text = customerDepositAccount.productIdentifier
-        holder.tvAccountBalance!!.text = customerDepositAccount.balance.toString()
+        holder.tvAccountBalance!!.text = "$ " + customerDepositAccount.balance.toString()
 
-        StatusUtils.setDepositAccountStatus(customerDepositAccount.state!!,holder.ivStatusIndicator!!,
+        StatusUtils.setDepositAccountStatus(customerDepositAccount.state!!, holder.ivStatusIndicator!!,
                 context)
     }
 
@@ -55,18 +55,21 @@ constructor(@ApplicationContext val context: Context) :
         this.customerDepositAccounts = customerDepositAccounts
         notifyDataSetChanged()
     }
+
     fun setOnItemClickListener(itemClickListener: OnItemClickListener) {
         onItemClickListener = itemClickListener
     }
 
 
-    inner class ViewHolder(view: View?) : RecyclerView.ViewHolder(view!!), View.OnClickListener{
+    inner class ViewHolder(view: View?) : RecyclerView.ViewHolder(view!!), View.OnClickListener {
         override fun onClick(v: View?) {
             if (v != null) {
-                onItemClickListener.onItemClick(v,adapterPosition)
+                onItemClickListener.onItemClick(v, adapterPosition)
             }
         }
-        private val llDepositAccount= view?.ll_deposit_accounts
+
+        private val llDepositAccount = view?.ll_deposit_accounts
+
         init {
             llDepositAccount?.setOnClickListener(this)
         }
