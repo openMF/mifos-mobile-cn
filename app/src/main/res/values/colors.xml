@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
 
     <color name="dashboard_gray_background">#B2C1C8</color>
@@ -11,6 +11,9 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="white">#ffffff</color>
+    <color name="violet">#4C56C0</color>
+    <color name="offwhite">#EBECF0</color>
+
     <!-- A light Holo shade of blue -->
     <color name="blue_light">#ff33b5e5</color>
     <!-- A light Holo shade of gray -->
@@ -39,6 +42,8 @@
     <color name="gray_bright">#33CCCCCC</color>
 
     <color name="blue">#0a46b1</color>
+    <color name="light_gray">#AFADB5</color>
+    <color name="dark_gray">#7A7A7A</color>
 
     <color name="blue_light_alert_background">#c9d8e9</color>
     <!--Black-->
@@ -59,6 +64,11 @@
     <color name="base10">#eaeaea</color>
     <color name="base30">#c1c1c1</color>
 
+    <!--Default BoxStokeColor of EditText-->
+    <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#4C56C0</color>
+
+    <!--Accounts Screen-->
+    <color name="foreground_text_btn">#5861C4</color>
 
     <!--Swipe Refresh Colors-->
     <array name="swipeRefreshColors">

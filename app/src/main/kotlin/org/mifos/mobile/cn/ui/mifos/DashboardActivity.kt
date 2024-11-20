@@ -52,7 +52,7 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
         setupNavigationBar()
         setToolbarElevation()
 
-        replaceFragment(DashboardFragment.newInstance(), false, R.id.container)
+        replaceFragment(DashboardFragment.newInstance("customer_identifier"), false, R.id.container)
 
     }
 
@@ -160,7 +160,7 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
         when (item.itemId) {
             R.id.item_home -> {
                 hideToolbarElevation()
-                replaceFragment(DashboardFragment.newInstance(), true, R.id.container)
+                replaceFragment(DashboardFragment.newInstance("customer_identifier"), true, R.id.container)
             }
             R.id.item_accounts -> {
                 replaceFragment(CustomerAccountFragment.newInstance(AccountType.DEPOSIT), true,

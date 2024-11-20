@@ -14,21 +14,23 @@ import org.mifos.mobile.cn.ui.base.MifosBaseActivity
 import org.mifos.mobile.cn.ui.base.MifosBaseFragment
 import org.mifos.mobile.cn.ui.mifos.customerAccounts.CustomerAccountFragment
 import org.mifos.mobile.cn.ui.mifos.customerDetails.CustomerDetailsActivity
+import org.mifos.mobile.cn.ui.mifos.customerProfile.CustomerProfileActivity
 import org.mifos.mobile.cn.ui.mifos.loanApplication.loanActivity.LoanApplicationActivity
 import org.mifos.mobile.cn.ui.mifos.recentTransactions.RecentTransactionsFragment
 import org.mifos.mobile.cn.ui.utils.ConstantKeys
 
 
 class DashboardFragment : MifosBaseFragment(), View.OnClickListener, SwipeRefreshLayout.OnRefreshListener {
-
+    private lateinit var customerIdentification: String
     private lateinit var rootView: View
     private lateinit var customer: Customer
 
     companion object {
 
-        fun newInstance(): DashboardFragment {
+        fun newInstance(identifier: String): DashboardFragment {
             val fragment = DashboardFragment()
             val args = Bundle()
+            args.putString(ConstantKeys.CUSTOMER_IDENTIFIER, identifier)
             fragment.arguments = args
             return fragment
         }
@@ -40,6 +42,10 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener, SwipeRefres
         rootView = inflater.inflate(R.layout.fragment_dashboard, container, false)
         setHasOptionsMenu(true)
         setToolbarTitle(getString(R.string.home))
+        if (arguments != null) {
+            1
+            customerIdentification = arguments!!.getString(ConstantKeys.CUSTOMER_IDENTIFIER)
+        }
         return rootView
     }
 
