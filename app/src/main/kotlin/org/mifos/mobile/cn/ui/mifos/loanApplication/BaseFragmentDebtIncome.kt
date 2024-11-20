@@ -149,9 +149,9 @@ abstract class BaseFragmentDebtIncome : MifosBaseFragment(),
         incomeAdapter.setCreditWorthinessFactors(incomeCreditWorthinessFactors)
         rvIncome.adapter = incomeAdapter
 
-        tvTotalDebt.text = getString(R.string.total_debt, setPrecision(totalDebts))
-        tvTotalIncome.text = getString(R.string.total_income, setPrecision(totalIncome))
-        tvDebtIncomeRatio.text = getString(R.string.ratio, setPrecision(ratio))
+        tvTotalDebt.text = getString(R.string.total_debt)
+        tvTotalIncome.text = getString(R.string.total_income)
+        tvDebtIncomeRatio.text = getString(R.string.ratio)
     }
 
     fun addBottomSheetDebt(creditWorthinessFactor: CreditWorthinessFactor) {
@@ -243,7 +243,7 @@ abstract class BaseFragmentDebtIncome : MifosBaseFragment(),
         for (creditWorthinessFactor in debtCreditWorthinessFactors) {
             totalDebts = creditWorthinessFactor.amount?.plus(totalDebts!!)
         }
-        tvTotalDebt.text = getString(R.string.total_debt, setPrecision(totalDebts))
+        tvTotalDebt.text = setPrecision(totalDebts)
     }
 
     private fun showTotalIncome() {
@@ -251,7 +251,7 @@ abstract class BaseFragmentDebtIncome : MifosBaseFragment(),
         for (creditWorthinessFactor in incomeCreditWorthinessFactors) {
             totalIncome = creditWorthinessFactor.amount?.plus(totalIncome!!)
         }
-        tvTotalIncome.text = getString(R.string.total_income, setPrecision(totalIncome))
+        tvTotalIncome.text = setPrecision(totalIncome)
     }
 
     private fun showRatio() {
