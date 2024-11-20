@@ -49,4 +49,5 @@
 
     <dimen name="view_line_height">1dp</dimen>
     <dimen name="layout_padding_48dp">48dp</dimen>
+    <dimen name="value_20dp">20dp</dimen>
 </resources>

@@ -315,5 +315,11 @@
     <string name="app_link">App Link</string>
     <string name="share_the_app_link">Share the app link via:</string>
     <string name="share_message">You can download the Mifos Mobile CN app here: https://drive.google.com/file/d/1JGGf80FrTiUqYxZT8PHsGHb65yatQwfd/view?usp=sharing</string>
+    <string name="log_out">Log out</string>
+    <string name="disable_account">disable account</string>
+    <string name="notification_settings">Notification</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="settigs">Settings</string>
 
 </resources>

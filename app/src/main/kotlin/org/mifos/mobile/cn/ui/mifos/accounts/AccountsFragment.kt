@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.github.therajanmaurya.sweeterror.SweetUIErrorHandler
 import kotlinx.android.synthetic.main.fragment_accounts.*
+import kotlinx.android.synthetic.main.layout_exception_handler.*
 import org.mifos.mobile.cn.R
 import org.mifos.mobile.cn.data.models.accounts.deposit.DepositAccount
 import org.mifos.mobile.cn.data.models.accounts.loan.LoanAccount
@@ -19,7 +20,6 @@ import org.mifos.mobile.cn.ui.base.MifosBaseFragment
 import org.mifos.mobile.cn.ui.utils.ConstantKeys
 import org.mifos.mobile.cn.ui.utils.Network
 import javax.inject.Inject
-import kotlinx.android.synthetic.main.layout_sweet_exception_handler.*
 import org.mifos.mobile.cn.data.models.CheckboxStatus
 import org.mifos.mobile.cn.ui.base.OnItemClickListener
 import org.mifos.mobile.cn.ui.mifos.customerDepositDetails.CustomerDepositDetailsFragment
