@@ -161,7 +161,7 @@ dependencies {
     testImplementation "org.hamcrest:hamcrest-core:$rootProject.hamcrestVersion"
     testImplementation "org.hamcrest:hamcrest-library:$rootProject.hamcrestVersion"
     testImplementation "org.hamcrest:hamcrest-integration:$rootProject.hamcrestVersion"
-    testImplementation 'org.robolectric:robolectric:3.3.1'
+    testImplementation 'org.robolectric:robolectric:3.8'
 }
 
     // Log out test results to console
